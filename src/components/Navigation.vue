@@ -10,7 +10,6 @@
                 </RouterLink>
             </li>
         </ul>
-        <router-view/>
     </nav>
 </template>
 

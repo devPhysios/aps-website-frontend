@@ -2,6 +2,7 @@
   <header>
     <NavigationMenu />
   </header>
+  <router-view/>
 </template>
 
 <script setup>

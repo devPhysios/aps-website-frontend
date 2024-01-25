@@ -1,3 +1,9 @@
 <template>
-    <h2>This is the Home Page</h2>
+    <HeroCarousel />
+    <ExcoCarousel />
 </template>
+
+<script setup>
+import HeroCarousel from '../components/HeroCarousel.vue'
+import ExcoCarousel from "../components/ExcoCarousel.vue"
+</script>

@@ -22,7 +22,6 @@
             </span>
         </ul>
     </nav>
-    <router-view/>
 </template>
 
 <script>

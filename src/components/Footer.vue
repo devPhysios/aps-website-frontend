@@ -50,13 +50,13 @@
                         </ul>
                         </p> <br>
                         <div class="flex">
-                            <div class="flex-1 w-5 h-5 mr-6"><img src="c:\Users\ACER\Desktop\images (9).png">
+                            <div class="flex-1 w-5 h-5 mr-6">
                             </div>
                             <div class="contents">
-                                <div class="flex-1 w-5 h-5 mr-6"><img src="c:\Users\ACER\Desktop\download (50).jpeg">
+                                <div class="flex-1 w-5 h-5 mr-6">
                                 </div>
                             </div>
-                            <div class="flex-1 w-5 h-5 "><img src="c:\Users\ACER\Desktop\download (1).png"></div>
+                            <div class="flex-1 w-5 h-5 "></div>
                         </div>
                     </div>
                 </div>

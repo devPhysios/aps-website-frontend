@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full bg-white font-display">
+  <header class="w-full h-full bg-white font-display">
     <NavigationMenu />
   </header>
   <router-view />

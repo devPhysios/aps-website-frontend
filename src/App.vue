@@ -7,7 +7,6 @@
 
 <script setup>
   import NavigationMenu from "./components/Navigation.vue"
-  import ExcoCarousel from "./components/ExcoCarousel.vue"
 </script>
 
 <style scoped>

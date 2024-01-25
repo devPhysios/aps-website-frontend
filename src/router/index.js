@@ -30,11 +30,7 @@ const routes = [
         name: "AlumniPage",
         component: Alumni
     },
-    {
-        path: "/services",
-        name: "ServicesPage",
-        component: Services
-    },
+  
 
 ]
 

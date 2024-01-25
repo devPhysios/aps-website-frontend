@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-yellow-500 text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full">
+  <nav class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full">
     <div class="flex items-center md:px-10 md:pb-0">
       <span class="mr-1 cursor pointer w-12 h-full">
         <img class="h-full w-full" :src="logo" alt="Logo" />
@@ -10,7 +10,7 @@
       <i :class="[open ? 'bi bi-x' : 'bi bi-filter-left']"></i>
     </span>
     <ul
-      class="md:flex md:items-center justify-between md:static absolute md:w-3/4 w-full bg-yellow-500 top-22 duration-700 ease-in right-6 md:py-0 py-6"
+      class="md:flex md:items-center justify-between md:static absolute md:w-3/4 w-full bg-aps-orange top-22 duration-700 ease-in right-6 md:py-0 py-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
       <div class="md:flex md:items-center">
         <li class="md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6" v-for="navItem in navItems" :key="navItem.title">

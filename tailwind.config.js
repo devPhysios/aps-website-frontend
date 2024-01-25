@@ -8,7 +8,13 @@ export default {
     fontFamily: {
       display: ['Raleway, sans-serif']
     },
-    extend: {},
+    extend: {
+      colors: {
+        'aps-green': '#4caf50',
+        'aps-orange': '#ff9800',
+        'aps-white': '#fff'
+      }
+    },
   },
   plugins: [],
 }

@@ -24,11 +24,18 @@ const routes = [
         name: "GalleryPage",
         component: Gallery
     },
+    
     {
         path: "/alumni",
         name: "AlumniPage",
         component: Alumni
-    }
+    },
+    {
+        path: "/services",
+        name: "ServicesPage",
+        component: Services
+    },
+
 ]
 
 const router = createRouter({

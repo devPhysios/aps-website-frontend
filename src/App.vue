@@ -2,7 +2,7 @@
   <header class="w-full bg-white h-screen font-display">
     <NavigationMenu />
   </header>
-  <ExcoCarousel />
+  <router-view/>
 </template>
 
 <script setup>

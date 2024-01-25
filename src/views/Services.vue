@@ -1,5 +1,5 @@
 <template>
   <p>
-    This is the Alumni Page
+    This is the Services Page
   </p>
 </template>

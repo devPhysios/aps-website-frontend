@@ -21,8 +21,6 @@
             <i class="bi bi-person-circle"></i>
             </span>
         </ul>
-     
-
     </nav>
     <router-view/>
 </template>

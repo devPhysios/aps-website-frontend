@@ -31,7 +31,7 @@ import logo from '@/assets/images/aps-logo.png';
 import { ref } from 'vue'
 export default {
   setup() {
-    const open = ref(true)
+    const open = ref(false)
     const navItems = [
       { title: "Home", path: "/" },
       { title: "About Us", path: "/about" },

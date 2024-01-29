@@ -47,81 +47,76 @@
     
     const carouselData = ref([
       {
-        name: `Elijah Inioluwa`,
-        title: "President",
-        imgBg: 'src/assets/images/excos/exco1.jpg',
+        name: `Prof. Adesola C. Odole`,
+        title: "Head of Department",
+        imgBg: 'src/assets/images/lecturers/lecturer1.jpg',
       },
       
       {
-        name: `Oyekan Oluwatobi`,
-        title: "Vice President",
-        imgBg: 'src/assets/images/excos/exco2.png',
+        name: `Prof. Aderonke O. Akinpelu`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer7.jpg',
       },
     
       {
-        name: `Olajide Ayomide`,
-        title: "General Secretary",
-        imgBg: 'src/assets/images/excos/exco3.jpg',
+        name: `Prof. Babatunde O. Adegoke`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer3.jpg',
       },
   
       {
-        name: `Adeniran Happiness`,
-        title: "Assistant General Secretary",
-        imgBg: 'src/assets/images/excos/exco4.jpg',
+        name: `Prof. O. Ayanniyi`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer9.png',
       },
   
       {
-        name: `Mustapha Ogo-Oluwa`,
-        title: "Public Relations Officer",
-        imgBg: 'src/assets/images/excos/exco5.jpg',
+        name: `Dr Olumide O. Dada`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer5.jpg',
       },
   
       {
-        name: `Awopegba Jonadab`,
-        title: "Social Secretary",
-        imgBg: 'src/assets/images/excos/exco6.jpg',
+        name: `Dr Adeoluwa O. Jaiyesimi`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer6.jpg',
       },
     
       {
-        name: `Akinwola Oluwasegun`,
-        title: "Sports Secretary",
-        imgBg: 'src/assets/images/excos/exco7.jpg',
+        name: `Dr Margaret B. Fatudimu`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer4.jpg',
+      },
+
+  
+      {
+        name: `Dr Omoyemi O. Ogwumike`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer2.jpg',
       },
   
       {
-        name: `Moshood Babatunde`,
-        title: "Financial Secretary",
-        imgBg: 'src/assets/images/excos/exco8.jpg',
+        name: `Dr Ayodeji A. Fabunmi`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer10.png',
       },
   
       {
-        name: `Olanrewaju Timileyin`,
-        title: "Treasurer",
-        imgBg: 'src/assets/images/excos/exco9.jpg',
+        name: `Dr Olubukola A. Olaleye`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer11.png',
       },
   
       {
-        name: `Adebayo Samuel`,
-        title: "Special Duties Officer",
-        imgBg: 'src/assets/images/excos/exco10.jpg',
+        name: `Dr Nse A. Odunaiya`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer.jpg',
       },
-  
+
       {
-        name: `Solomon Oluwatodimu`,
-        title: "Senate President",
-        imgBg: 'src/assets/images/excos/exco11.jpg',
-      },
-  
-      {
-        name: `Goodluck Omotayo`,
-        title: "Deputy Senate President",
-        imgBg: 'src/assets/images/excos/exco12.jpg',
-      },
-  
-      {
-        name: `Egun Jane`,
-        title: "Senate Clerk",
-        imgBg: 'src/assets/images/excos/exco13.jpg',
+        name: `Mr Olusegun V. Sotiloye`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer.jpg',
       },
     ])
   

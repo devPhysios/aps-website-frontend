@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-[#450a0a]">
+    <footer class="bg-[#450a0a] font-display">
         <p> {{ footerText }}</p>
         <div class="md:flex ">
             <div class="flex-1 p-5">
@@ -15,11 +15,11 @@
 
                 <div class="flex items-center">
                     <div>
-                        <p class="text-white">Association of physiotherapy students,
+                        <p class="text-white">Association of Physiotherapy Students,
                             <br>
-                            Department of physiotherapy, Faculty of clinical <br>
-                            Sciences, College of Medicine,University of <br>
-                            Ibadan
+                            Department of Physiotherapy, Faculty of clinical <br>
+                            Sciences, College of Medicine, University of <br>
+                            Ibadan.
                         </p>
                     </div>
                 </div>

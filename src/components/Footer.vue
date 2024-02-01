@@ -8,12 +8,12 @@
                         Our Address</h1>
                 </strong>
                 <div class="flex items-center">
-                    <div class="w-60 h-1 bg-green-400"></div>
+                    <div class="w-1/4 h-1 bg-green-400"></div>
                     <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
                 </div>
 
 
-                <div class="flex "> <i class="bi bi-geo-alt"></i>
+                <div class="flex items-center">
                     <div>
                         <p class="text-white">Association of Physiotherapy Students,
                             <br>
@@ -22,31 +22,26 @@
                             Ibadan.
                         </p>
                     </div>
-                </div> <br>
+                </div>
                 <div class="flex items-center">
-                    <div class="flex"> <i class=" fill-blue-500 bi bi-envelope"></i>
+                    <div>
                         <p class="text-white"> &nbsp;apsuiibadan@gmail.com</p>
                     </div>
-                </div> <br>
+                </div>
                 <div class="flex items-center">
-                    <div class="flex"> <i class="bi bi-telephone"></i>
-                        <p class="text-white"> &nbsp;+234 81213080920</p>
+                    <div>
+                        <p class="text-white">+234 81213080920</p>
                     </div>
                 </div>
             </div>
-            <div class="flex-wrap p-5 ">
-                <div class="flex-1 ">
+            <div class="flex-wrap ">
+                <div class="flex-1 p-5">
                     <div class="text-white">
                         <p>
                         <ul class="list-none">
                             <strong>
                                 <h1>Quick Links </h1>
                             </strong>
-                            <div class="flex items-center">
-
-                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                                <div class="w-60 h-1 bg-green-400"></div>
-                            </div>
                             <li>Home</li>
                             <li>About Us </li>
                             <li>Gallery</li>

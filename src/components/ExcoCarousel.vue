@@ -1,5 +1,5 @@
 <template> 
-  <div class=" p-1 md:p-6 m-1 md:m-4 font-display bg-blue-100 rounded-md">
+  <section class="p-1 md:p-6 font-display bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold">MEET OUR LEADERS</p>
       <div class="flex items-center">
@@ -36,7 +36,7 @@
         <Pagination />
       </template>
     </Carousel>
-  </div>
+  </section>
 
 
   </template>

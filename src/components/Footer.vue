@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-[#450a0a]">
+    <footer class="bg-[#450a0a] font-display">
         <p> {{ footerText }}</p>
         <div class="md:flex ">
             <div class="flex-1 p-5">
@@ -15,11 +15,11 @@
 
                 <div class="flex "> <i class="bi bi-geo-alt"></i>
                     <div>
-                        <p class="text-white">&nbsp;Association of physiotherapy students,
+                        <p class="text-white">Association of Physiotherapy Students,
                             <br>
-                            Department of Physiotherapy, Faculty of Clinical <br>
-                            Sciences, College of Medicine,University of <br>
-                            Ibadan
+                            Department of Physiotherapy, Faculty of clinical <br>
+                            Sciences, College of Medicine, University of <br>
+                            Ibadan.
                         </p>
                     </div>
                 </div> <br>
@@ -55,13 +55,13 @@
                         </ul>
                         </p> <br>
                         <div class="flex">
-                            <div class="flex-1 w-5 h-5 mr-6"> <i class="bi bi-whatsapp"></i>
+                            <div class="flex-1 w-5 h-5 mr-6">
                             </div>
                             <div class="contents">
-                                <div class="flex-1 w-5 h-5 mr-6"> <i class="bi bi-instagram"></i>
+                                <div class="flex-1 w-5 h-5 mr-6">
                                 </div>
                             </div>
-                            <div class="flex-1 w-5 h-5 "><i class="bi bi-twitter-x"></i></div>
+                            <div class="flex-1 w-5 h-5 "></div>
                         </div>
                     </div>
                 </div>

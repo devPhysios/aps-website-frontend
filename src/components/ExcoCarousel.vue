@@ -1,5 +1,5 @@
 <template> 
-  <div class=" p-1 md:p-6 m-1 md:m-4 font-display bg-blue-100 rounded-md">
+  <section class="p-1 md:p-6 font-display bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold">MEET OUR LEADERS</p>
       <div class="flex items-center">
@@ -10,7 +10,8 @@
 
     <Carousel
       v-bind="settings"
-      :autoplay="100000"
+      :wrap-around="true"
+      :autoplay="8000"
       :pause-autoplay-on-hover="true"
       :breakpoints="breakpoints"
     >
@@ -35,7 +36,7 @@
         <Pagination />
       </template>
     </Carousel>
-  </div>
+  </section>
 
 
   </template>
@@ -126,12 +127,13 @@
   ])
 
   const settings = ref({
-  itemsToShow: 1.5,
+  itemsToShow: 2.5,
+  itemsToScroll: 2,
   snapAlign: 'center',
    });
   const breakpoints = ref({
     768: {
-      itemsToShow: 2.5,
+      itemsToShow: 3,
       snapAlign: 'center',
     },
   });
@@ -140,7 +142,7 @@
   
   <style scoped>
   .carousel__slide {
-    padding: 10px;
+    padding: 20px;
   }
   
   .carousel__prev,

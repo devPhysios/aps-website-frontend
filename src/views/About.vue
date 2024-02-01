@@ -5,10 +5,14 @@
             <div class="md:w-3/4 pb-2 md:pb-0">
                 <p class="text-3xl font-extrabold text-center md:text-left mb-4">History</p>
                 <p class="text-center md:text-left">
-                    
-                    In June, 1978 the students of the Department of Physiotherapy, University College Hospital, Ibadan formed an association called "Association of Undergraduate Physiotherapists". It was the first by any physiptherapist body in Nigeria. After a while, it was redesignated Association of Physiotherapy Students (APS).
-                
-                 temporibus laudantium in maxime recusandae officia! Harum animi pariatur voluptate delectus tempore! Iste doloremque, repudiandae, quasi perferendis ipsa architecto earum nemo consequuntur qui asperiores ducimus magni. Facilis asperiores ipsum quos minima doloremque, veniam, accusantium provident beatae debitis alias omnis voluptates neque unde, rerum eligendi voluptatibus. Aut nesciunt eligendi et voluptatibus deleniti saepe, sed enim tenetur quisquam? Quo alias accusamus numquam aperiam, ducimus quaerat minus, dignissimos quis asperiores incidunt nisi veritatis mollitia harum porro fugiat sequi delectus natus vel nam perferendis sint quia. Inventore perferendis, quaerat itaque rerum eaque repellat quidem, sapiente debitis temporibus fugiat praesentium!
+                    Physiotherapy, also known as physical therapy, is a healthcare profession that focuses on optimizing human movement and function. It involves the assessment, diagnosis, and treatment of various physical conditions and injuries to enhance an individual's overall well-being.
+
+Physiotherapists, or physical therapists, use a combination of manual therapy, exercise prescription, education, and other therapeutic modalities to help patients recover from injuries, manage chronic conditions, and improve their overall physical health. The goal is to restore and maximize functional independence, enabling individuals to perform daily activities with ease. Physiotherapists also play a crucial role in preventive care by educating patients about proper body mechanics, ergonomics, and exercises to reduce the risk of injuries and promote long-term health.
+
+In essence, physiotherapy is a comprehensive and patient-centered approach that goes beyond the alleviation of symptoms. It aims to enhance the quality of life by promoting physical well-being and functional independence for individuals across various stages of life and health conditions.
+<br />
+                    In June, 1978 the students of the Department of Physiotherapy, University College Hospital, Ibadan formed an association called "Association of Undergraduate Physiotherapists". It was the first by any physiotherapist body in Nigeria. After a while, it was redesignated Association of Physiotherapy Students (APS).
+
                 </p>
             </div>
             <div class="h-full md:w-3/4">

@@ -9,7 +9,7 @@
       :key="index"
     >
       <div
-        class="flex flex-col justify-center items-center w-full min-h-[80vh] rounded-lg text-aps-white text-xl gap-2 font-display"
+        class="flex flex-col justify-center items-center w-full min-h-[80vh] text-aps-white text-xl gap-2 font-display"
         :style="{ background: `#555 url(${ data.imgBg }) no-repeat center/cover`, backgroundBlendMode: 'multiply'}"
       >
         <h3 class="text-lg mb-3">{{ data.text.toUpperCase() }}</h3>
@@ -21,9 +21,9 @@
       </div>
     </Slide>
 
-    <template #addons>
+    <!-- <template #addons>
       <Pagination />
-    </template>
+    </template> -->
   </Carousel>
 </template>
 
@@ -58,7 +58,7 @@ const carouselData = ref([
 
 <style scoped>
 .carousel__slide {
-  padding: 10px;
+  padding-bottom: 50px;
 }
 
 .carousel__prev,

@@ -13,10 +13,13 @@
       class="md:flex md:items-center justify-between md:static absolute md:w-3/4 w-full z-50 bg-aps-orange top-22 duration-700 ease-in right-6 md:py-0 py-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
       <div class="md:flex md:items-center">
-        <li class="md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white" v-for="navItem in navItems" :key="navItem.title">
+        <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white" v-for="navItem in navItems" :key="navItem.title">
           <RouterLink :to="navItem.path" @click="MenuOpen()">
             {{ navItem.title }}
           </RouterLink>
+        </li>
+        <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white">
+            <a href="https://physiopressui.wordpress.com/home/" target="_blank">PhysioPress</a>
         </li>
       </div>
       <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
@@ -36,7 +39,6 @@ export default {
       { title: "Home", path: "/" },
       { title: "About Us", path: "/about" },
       { title: "Gallery", path: "/gallery" },
-      { title: "PhysioPress", path: "#" },
       { title: "Alumni", path: "/alumni" },
     ]
     function MenuOpen() {

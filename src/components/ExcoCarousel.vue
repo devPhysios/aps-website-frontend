@@ -10,7 +10,8 @@
 
     <Carousel
       v-bind="settings"
-      :autoplay="100000"
+      :wrap-around="true"
+      :autoplay="8000"
       :pause-autoplay-on-hover="true"
       :breakpoints="breakpoints"
     >
@@ -126,12 +127,13 @@
   ])
 
   const settings = ref({
-  itemsToShow: 1.5,
+  itemsToShow: 2.5,
+  itemsToScroll: 2,
   snapAlign: 'center',
    });
   const breakpoints = ref({
     768: {
-      itemsToShow: 2.5,
+      itemsToShow: 3,
       snapAlign: 'center',
     },
   });
@@ -140,7 +142,7 @@
   
   <style scoped>
   .carousel__slide {
-    padding: 10px;
+    padding: 20px;
   }
   
   .carousel__prev,

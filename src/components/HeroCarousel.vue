@@ -1,7 +1,7 @@
 <template>
   <Carousel
     :wrap-around="true"
-    :autoplay="5000"
+    :autoplay="8000"
     :pause-autoplay-on-hover="true"
   >
     <Slide
@@ -9,7 +9,7 @@
       :key="index"
     >
       <div
-        class="flex flex-col justify-center items-center w-full min-h-[400px] rounded-lg text-aps-white text-xl gap-2 font-display"
+        class="flex flex-col justify-center items-center w-full min-h-[80vh] rounded-lg text-aps-white text-xl gap-2 font-display"
         :style="{ background: `#555 url(${ data.imgBg }) no-repeat center/cover`, backgroundBlendMode: 'multiply'}"
       >
         <h3 class="text-lg mb-3">{{ data.text.toUpperCase() }}</h3>

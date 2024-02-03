@@ -127,13 +127,13 @@
   ])
 
   const settings = ref({
-  itemsToShow: 2.5,
-  itemsToScroll: 2,
+  itemsToShow: 1.5,
+  itemsToScroll: 1,
   snapAlign: 'center',
    });
   const breakpoints = ref({
     768: {
-      itemsToShow: 3,
+      itemsToShow: 2.5,
       snapAlign: 'center',
     },
   });

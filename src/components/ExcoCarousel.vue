@@ -41,7 +41,7 @@
 
   </template>
   
-  <script setup>
+<script setup>
   import { ref } from 'vue'
   import { Carousel, Slide, Pagination } from 'vue3-carousel'
   import 'vue3-carousel/dist/carousel.css'
@@ -138,7 +138,7 @@
     },
   });
   defineProps(['settings', 'breakpoints']);
-    </script>
+</script>
   
   <style scoped>
   .carousel__slide {

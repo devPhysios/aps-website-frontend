@@ -1,3 +1,5 @@
 <template>
-    <h5>This is for the about section</h5>
+    <section>
+        <h3>This is the about section</h3>
+    </section>
 </template>

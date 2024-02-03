@@ -1,8 +1,8 @@
 <template>
     <HeroCarousel />
     <AboutHome />
-    <ExcoCarousel />
     <GalleryCarousel />
+    <ExcoCarousel />
 </template>
 
 <script setup>

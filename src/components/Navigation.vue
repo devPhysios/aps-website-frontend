@@ -37,7 +37,7 @@
           <div class="bg-gray-200 w-full">
             <button class="rounded-full bg-green-800 text-white m-2 p-1" @click="toggleModal = false">Go back</button>
             <div class="px-10">
-              <div class="flex flex-col items-center mt-16">
+              <div class="flex flex-col items-center mt-3">
                 <h1 class="text-4xl font-bold text-black mb-4">Student Login</h1>
                 <p class="text-left mb-4">Login to your Dashboard</p>
 
@@ -66,7 +66,7 @@
 
     </div>
   </transition>
-  <div v-if="toggleModal" class="absolute z-40 inset-0 opacity-75 bg-gray-400" style="height: 1500px;">
+  <div v-if="toggleModal" class="absolute z-40 inset-0 opacity-75 bg-gray-500" style="height: 1500px;">
   </div>
 </template>
 

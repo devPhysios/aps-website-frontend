@@ -1,6 +1,6 @@
 <template>
   <nav class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full">
-    <div class="flex items-center md:px-10 md:pb-0">
+    <div class="flex items-center md:pb-0">
       <span class="mr-1 cursor pointer w-12 h-full">
         <img class="h-full w-full" :src="logo" alt="Logo" />
       </span>
@@ -10,7 +10,7 @@
       <i :class="[open ? 'bi bi-x' : 'bi bi-filter-left']"></i>
     </span>
     <ul
-      class="md:flex md:items-center justify-between md:static absolute md:w-3/4 w-full z-40 bg-aps-orange top-22 duration-700 ease-in right-6 md:py-0 py-6"
+      class="md:flex md:items-center justify-between md:static absolute z-40 bg-aps-orange top-22 duration-700 ease-in w-full md:w-auto md:py-0 py-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
       <div class="md:flex md:items-center">
         <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white"
@@ -23,11 +23,12 @@
           <a href="https://physiopressui.wordpress.com/home/" target="_blank">PhysioPress</a>
         </li>
       </div>
-      <button @click="toggleModal = !toggleModal; open = false">
+    </ul>
+    <button @click="toggleModal = !toggleModal; open = false" class="md:static absolute z-40 bg-aps-orange top-80 duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
+      :class="[open ? 'left-0' : 'left-[-100%]']">
         <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
           <i class="bi bi-person-circle"></i>
         </span></button>
-    </ul>
   </nav>
   <transition name="modal" mode="out-in">
     <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="toggleModal"

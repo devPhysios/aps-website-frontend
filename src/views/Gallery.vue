@@ -62,7 +62,7 @@
           <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
             <h2 class="tracking-widest text-sm title-font font-medium text-indigo-400 mb-1">THE SUBTITLE</h2>
             <h1 class="title-font text-lg font-medium text-white mb-3">APS EVENT 6</h1>
-            <p class="leading-relaxed">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed tempora recusandae corrupti in nihil quos maxime ducimus, deleniti labore consectetur architecto ipsam officia incidunt aut. Ab voluptatem consequatur quos iste?</p>
+            <p class="leading-relaxed">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate doloribus quis, facilis, iste qui ipsum magnam rem sint laboriosam aliquam ipsam dolores! Magni quis molestiae, hic alias a explicabo distinctio.</p>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 <template>
-<section class="text-gray-400 bg-gray-900 body-font">
+<section class="text-gray-400 bg-amber-900 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Memories We Created</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Welcome to the our Gallery, where we showcase the vibrant journey of our association through captivating images and moments captured in time. Explore our gallery to witness the essence of our community and the impactful events that shape our collective experience.</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-white">Welcome to the our Gallery, where we showcase the vibrant journey of our association through captivating images and moments captured in time. Explore our gallery to witness the essence of our community and the impactful events that shape our collective experience.</p>
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="lg:w-1/3 sm:w-1/2 p-4">

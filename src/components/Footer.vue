@@ -42,11 +42,29 @@
                             <strong>
                                 <h1>Quick Links </h1>
                             </strong>
-                            <li>Home</li>
-                            <li>About Us </li>
-                            <li>Gallery</li>
-                            <li>Physiopress</li>
-                            <li>Alumni</li>
+                            <li>
+                                <RouterLink to="/">
+                                    Home
+                                </RouterLink>    
+                                </li>
+                            <li>
+                                <RouterLink to="/about">
+                                    About
+                                </RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/gallery">
+                                    Gallery
+                                </RouterLink>
+                            </li>
+                            <li>
+                                <a href="https://physiopressui.wordpress.com/home/" target="_blank">PhysioPress</a>
+                            </li>
+                            <li>
+                                <RouterLink to="/alumni">
+                                    Alumni
+                                </RouterLink>
+                            </li>
                         </ul>
                         </p> <br>
                         <div class="flex">

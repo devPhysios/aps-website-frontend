@@ -15,7 +15,7 @@
       <div class="md:flex md:items-center">
         <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white"
           v-for="navItem in navItems" :key="navItem.title">
-          <RouterLink :to="navItem.path" @click="MenuOpen()">
+          <RouterLink :to="navItem.path" @click="MenuOpen">
             {{ navItem.title }}
           </RouterLink>
         </li>

@@ -37,7 +37,7 @@
             <div class="flex-wrap ">
                 <div class="flex-1 p-5">
                     <div class="text-white">
-                        <p>
+                        <!-- <p> -->
                         <ul class="list-none">
                             <strong>
                                 <h1>Quick Links </h1>
@@ -66,7 +66,7 @@
                                 </RouterLink>
                             </li>
                         </ul>
-                        </p> <br>
+                        <!-- </p> <br> -->
                         <div class="flex">
                             <div class="flex-1 w-5 h-5 mr-6">
                             </div>

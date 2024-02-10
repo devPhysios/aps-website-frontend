@@ -5,7 +5,7 @@
         <img class="h-full w-full" :src="logo" alt="Logo" />
       </span>
     </div>
-    <span @click="MenuOpen()"
+    <span @click="MenuOpen"
       class="absolute md:hidden right-6 top-6 cursor pointer text-4xl text-white hover:text-yellow-600">
       <i :class="[open ? 'bi bi-x' : 'bi bi-filter-left']"></i>
     </span>

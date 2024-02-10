@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Gallery from '../views/Gallery.vue'
 import Alumni from '../views/Alumni.vue'
+import Upload from '../views/Upload.vue'
 
 
 const routes = [
@@ -29,6 +30,11 @@ const routes = [
         path: "/alumni",
         name: "AlumniPage",
         component: Alumni
+    },
+    {
+        path: "/upload",
+        name: "IploadPage",
+        component: Upload
     },
   
 

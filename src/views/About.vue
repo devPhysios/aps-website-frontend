@@ -67,7 +67,7 @@ therapy and the spark symbolizes electrotherapy.
             <p class="text-center">TO SERVE MANKIND AND HONOUR GOD</p>
         </div>
 <!-- This is the OUR MOTTO section end--->
-<lecturersCarousel />
+<Lecturerscarousel />
     </div>
 
 
@@ -77,7 +77,7 @@ therapy and the spark symbolizes electrotherapy.
     import apsBuilding1 from '@/assets/images/dept/dept02.png'
     import apsBuilding2 from '@/assets/images/dept/dept01.png'
     import apsLogo from '@/assets/images/aps-logo.png'
-    import lecturersCarousel from "../components/lecturersCarousel.vue"
+    import Lecturerscarousel from "../components/LecturerCarousel.vue"
 
 
 </script>

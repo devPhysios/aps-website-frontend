@@ -75,7 +75,6 @@
 import logo from '@/assets/images/aps-logo.png';
 import { ref } from 'vue';
 
-
 export default {
   setup() {
     const open = ref(false)
@@ -90,7 +89,7 @@ export default {
       open.value = !open.value
     }
     return {
-      open, navItems, logo, MenuOpen, toggleModal
+      open, navItems, logo, MenuOpen, toggleModal,
     }
   }
 }

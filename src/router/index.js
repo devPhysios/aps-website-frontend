@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Gallery from '../views/Gallery.vue'
 import Alumni from '../views/Alumni.vue'
 import Upload from '../views/Upload.vue'
+import Dashboard from '@/views/Dashboard.vue'
 
 
 const routes = [
@@ -31,13 +32,18 @@ const routes = [
         name: "AlumniPage",
         component: Alumni
     },
+
     {
         path: "/upload",
         name: "IploadPage",
         component: Upload
     },
-  
 
+    {
+        path: "/dashboard",
+        name: "UserDashboardPage",
+        component: Dashboard
+    },
 ]
 
 const router = createRouter({

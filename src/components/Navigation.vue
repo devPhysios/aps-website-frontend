@@ -89,6 +89,7 @@ export default {
       { title: "About Us", path: "/about" },
       { title: "Gallery", path: "/gallery" },
       { title: "Alumni", path: "/alumni" },
+      { title: "Dashboard", path: "/dashboard" },
     ]
     function MenuOpen() {
       open.value = !open.value

@@ -45,18 +45,18 @@
                 <div class="flex flex-col mb-4">
                   <div class="mb-2">
                     <label for="matricNo" class="mr-2">Matric No.</label>
-                    <input type="text" id="matricNo"
+                    <input type="text" id="matricNo" v-model="matricNo"
                       class="p-2 ml-1 rounded-full border-solid border-gray-700 hover:border-2 hover:border-orange-500" />
                   </div>
 
                   <div class="mb-2">
                     <label for="password" class="mr-2">Password</label>
-                    <input type="password" id="password"
+                    <input type="password" id="password" v-model="password"
                       class="p-2 ml-2 rounded-full border border-gray-300 hover:border-2 hover:border-orange-500" />
                   </div>
                 </div>
 
-                <button class="bg-green-500 text-white p-2 mb-4 hover:bg-green-700">Login</button>
+                <button class="bg-green-500 text-white p-2 mb-4 hover:bg-green-700" @click="handleSubmit">Login</button>
 
                 <p class="text-green-700 cursor-pointer hover:text-orange-500">Forgot password</p>
               </div>
@@ -74,9 +74,14 @@
 <script >
 import logo from '@/assets/images/aps-logo.png';
 import { ref } from 'vue';
+import {loginUser} from '@/utils/useLogin'
+import { useUserStore } from '@/stores/UserStore'
 
 export default {
   setup() {
+    const users = useUserStore()
+    const matricNo = ref("")
+    const password = ref("")
     const open = ref(false)
     const toggleModal = ref(false);
     const navItems = [
@@ -88,8 +93,13 @@ export default {
     function MenuOpen() {
       open.value = !open.value
     }
+
+    const handleSubmit = async () => {
+      users.login(await loginUser(matricNo.value, password.value))
+    }
+    
     return {
-      open, navItems, logo, MenuOpen, toggleModal,
+      open, navItems, logo, MenuOpen, toggleModal, matricNo, password, handleSubmit
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-    <section class="p-1 md:p-6 font-display my-8 ml-4 md:m-8 bg-green-100 rounded-md">
+    <section class="p-1 pb-6 md:p-6 font-display my-8 ml-4 md:m-8 bg-green-100 rounded-md">
         <div class="my-1">
         <p class="text-4xl font-bold pl-4 pt-2">About Us</p>
         <div class="flex items-center pl-4">
@@ -8,13 +8,26 @@
         </div>      
         </div>
 
-        <div class="flex item-start flex-column mx-4">
-            <p class="about-us__text basis-3/5">
+        <div class="flex items-center flex-column mx-4 my-6">
+            <p class="about-us__text basis-3/5 text-justify">
                 Physiotherapy, also known as physical therapy, is a healthcare profession that focuses on optimizing human movement and function. It involves the assessment, diagnosis, and treatment of various physical conditions and injuries to enhance an individual's overall well-being. <br> <br>
                 Physiotherapists, or physical therapists, use a combination of manual therapy, exercise prescription, education, and other therapeutic modalities to help patients...
             </p>
 
-            <div class="img__block">jdjdj</div>
+            <div class="w-full flex items-center justify-center basis-1/2">
+                <img :src="APSLogo" alt="Association of Physiotherapy Logo" />
+            </div>
+
+        </div>
+
+        <div class="flex items-center justify-center">
+            <RouterLink to="/about" class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange">
+                Read More
+            </RouterLink>
         </div>
     </section>
 </template>
+
+<script setup>
+    import APSLogo from "../assets/images/aps-logo.png"
+</script>

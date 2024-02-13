@@ -9,7 +9,7 @@
 
                 <div class="border-l-4 border-aps-green p-2">
                     <b>Hello, </b>
-                    <span>John Doe</span>
+                    <span>{{ store.user.firstName }} {{ store.user.lastName }}</span>
                 </div>
 
                 <div class="mt-8">
@@ -23,4 +23,7 @@
 <script setup>
 import DashBoardSideMenu from '@/components/DashBoardSideMenu.vue'
 import DashBoardCards from '@/components/DashBoardCards.vue'
+import { useUserStore } from '@/stores/UserStore'
+
+const store = useUserStore()
 </script>

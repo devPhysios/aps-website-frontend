@@ -1,17 +1,18 @@
-export const loginUser = async (email, password) => {
+import axios from 'axios';
+
+export const loginUser = async (matricNumber, password) => {
     try {
-        const data = await fetch('https://api-mindwrite.onrender.com/api/v1/users/login', { // * Used this api as a dummy to check out.
-            method: 'POST',
+        const response = await axios.post('http://localhost:8800/api/v1/auth/login', {
+            matricNumber,
+            password
+        }, {
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        })
-        const jsonData = await data.json()
+            }
+        });
 
-        return jsonData
-    
-    } catch (err) {
-        console.log(err)
+        return { jsonData: response.data, success: true };
+    } catch (error) {
+        return { error, success: false };
     }
-}
+};

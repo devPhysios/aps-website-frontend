@@ -60,6 +60,9 @@
 
                 <p class="text-green-700 cursor-pointer hover:text-orange-500">Forgot password</p>
               </div>
+              <div v-if="errorTrue">
+                <p class="text-3xl text-red-700">{{ errorMessage }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -76,9 +79,12 @@ import logo from '@/assets/images/aps-logo.png';
 import { ref } from 'vue';
 import {loginUser} from '@/utils/useLogin'
 import { useUserStore } from '@/stores/UserStore'
+import router from '@/router';
 
 export default {
   setup() {
+    const errorTrue = ref(false);
+    const errorMessage = ref("");
     const users = useUserStore()
     const matricNo = ref("")
     const password = ref("")
@@ -95,7 +101,28 @@ export default {
     }
 
     const handleSubmit = async () => {
-      users.login(await loginUser(matricNo.value, password.value))
+      try {
+        response = await loginUser(matricNo.value, password.value);
+        if (response.success === false) {
+          errorTrue.value = true;
+          errorMessage.value = response.err.message ? response.err.message : response.err;
+          return;
+        } else if (response.success === true) {
+          if (response.student.firstLogin) {
+            users.login(response.student);
+            localStorage.setItem("studentToken", response.token);
+            router.push("/auth/updatesecurity");
+            
+          } else if (!response.student.firstLogin) {
+            users.login(response.student);
+            localStorage.setItem("studentToken", response.token);
+            router.push("/dashboard");
+          }
+        }
+      } catch (error) {
+        
+      }
+      
     }
     
     return {

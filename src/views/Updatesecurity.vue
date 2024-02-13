@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto flex flex-col items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-md shadow-md w-96">
-      <h1 class="text-2xl font-bold mb-6">First Time Setup</h1>
+    <div class="bg-white p-8 rounded-md shadow-md w-full">
+      <h1 class="text-2xl font-bold mb-6">Welcome {{ fullName }}</h1>
 
       <div class="mb-4">
         <label for="oldPassword" class="block mb-1">Old Password</label>
@@ -38,7 +38,11 @@
 <script setup>
 import axios from 'axios';
 import { ref, watch } from 'vue';
+import { useUserStore } from '@/stores/UserStore';
 
+const users = useUserStore();
+const userDetails = ref(users.user);
+const fullName = ref(userDetails.value.fullName)
 const oldPassword = ref('');
 const newPassword = ref('');
 const confirmPassword = ref('');
@@ -59,6 +63,12 @@ const securityQuestions = [
   "What is the name of the street you grew up on?",
   "What is your favorite food?"
 ];
+
+
+watch(userDetails, (newValue, oldValue) => {
+  fullName.value = newValue.fullName;
+});
+
 
 const updateUser = async () => {
   try {

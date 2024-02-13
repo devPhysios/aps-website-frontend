@@ -111,11 +111,10 @@ const handleSubmit = async () => {
       return;
     } else if (rawData.jsonData.success === true) {
       if (response.student.firstLogin) {
-        toggleModal.value = false;
         users.login(response.student);
         localStorage.setItem("studentToken", response.token);
         router.push("/auth/updatesecurity");
-
+        toggleModal.value = false;
       } else if (response.student.firstLogin===false) {
         toggleModal.value = false;
         users.login(response.student);

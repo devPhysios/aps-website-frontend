@@ -7,6 +7,7 @@ import Alumni from '../views/Alumni.vue'
 import Upload from '../views/Upload.vue'
 import Dashboard from '../views/Dashboard.vue'
 import UpdateSecurity from '../views/Updatesecurity.vue'
+import Login from '../views/Login.vue'
 
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
         path: "/auth/updatesecurity",
         name: "UpdateSecurityPage",
         component: UpdateSecurity
+    },
+    {
+        path: "/auth/login",
+        name: "LoginPage",
+        component: Login
     }
   
 

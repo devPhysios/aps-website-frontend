@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto flex flex-col items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-md shadow-md w-full">
-      <h1 class="text-2xl font-bold mb-6">Welcome {{ fullName }}</h1>
+    <div class="bg-white p-8 rounded-md shadow-md sm:w-[500px] w-full">
+      <h1 class="text-2xl font-bold mb-6">Welcome {{ userDetails.fullName }}</h1>
 
       <div class="mb-4">
         <label for="oldPassword" class="block mb-1">Old Password</label>
@@ -10,10 +10,12 @@
       <div class="mb-4">
         <label for="newPassword" class="block mb-1">New Password</label>
         <input type="password" id="newPassword" v-model="newPassword" class="input-field">
+        <p v-if="newPassword.length > 0 && newPassword.length < 8" class="text-xs text-red-500">Password must be at least 8 characters long.</p>
       </div>
       <div class="mb-4">
         <label for="confirmPassword" class="block mb-1">Confirm New Password</label>
         <input type="password" id="confirmPassword" v-model="confirmPassword" class="input-field">
+        <p v-if="confirmPassword !== newPassword && confirmPassword.length > 0" class="text-xs text-red-500">Passwords do not match.</p>
       </div>
 
       <div class="mb-4">
@@ -29,7 +31,7 @@
 
       <button @click="updateUser" class="button-primary">Update</button>
 
-      <div v-if="updateSuccess" class="success-message">Update Successful</div>
+      <div v-if="updateSuccess" class="success-message">Password Updated Successfully</div>
       <div v-if="loggingIn" class="info-message">Logging in...</div>
     </div>
   </div>
@@ -37,12 +39,11 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 
 const users = useUserStore();
 const userDetails = ref(users.user);
-const fullName = ref(userDetails.value.fullName)
 const oldPassword = ref('');
 const newPassword = ref('');
 const confirmPassword = ref('');
@@ -64,27 +65,14 @@ const securityQuestions = [
   "What is your favorite food?"
 ];
 
-
-watch(userDetails, (newValue, oldValue) => {
-  fullName.value = newValue.fullName;
-});
-
-
 const updateUser = async () => {
   try {
-    if (newPassword.value !== confirmPassword.value) {
-      alert("Passwords do not match.");
+    if (newPassword.value.length < 8 || confirmPassword.value !== newPassword.value) {
       return;
     }
 
-    // Validate new password (add more rules as needed)
-    if (newPassword.value.length < 8) {
-      alert("Password must be at least 8 characters long.");
-      return;
-    }
-
-    const token = localStorage.getItem('token'); 
-    const response = await axios.post('/update-user', {
+    const token = localStorage.getItem('token');
+    const response = await axios.post('http://localhost:8800/api/v1/auth/cpasq', {
       oldPassword: oldPassword.value,
       newPassword: newPassword.value,
       securityQuestion: selectedQuestion.value,
@@ -94,38 +82,34 @@ const updateUser = async () => {
         Authorization: `Bearer ${token}`
       }
     });
-
+    
     updateSuccess.value = true;
-    loggingIn.value = true; // Show "logging in" message
-
-    await login(); // Call the login function
+    loggingIn.value = true;
+    await login();
   } catch (error) {
-    console.error(error); // Handle errors appropriately
+    console.error(error);
   }
 }
 
 const login = async () => {
-  // ... (Your login logic using matric number, updated password and axios)
+  // Your login logic here
 }
 </script>
 
 <style scoped>
-/* Input styling with Tailwind */
 .input-field {
-  @apply block w-full px-4 py-2 border border-gray-300 rounded-md 
-         focus:outline-none focus:ring focus:ring-indigo-500;
+  @apply block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500;
 }
 
-/* Styling for buttons */
 .button-primary {
   @apply bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600;
 }
 
-/* Some styling for messages */
 .success-message {
   @apply text-green-500 mt-4;
 }
+
 .info-message {
-  @apply text-gray-600 mt-4; 
+  @apply text-gray-600 mt-4;
 }
 </style>

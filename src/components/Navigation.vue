@@ -24,71 +24,23 @@
         </li>
       </div>
     </ul>
-    <button @click="toggleModal = !toggleModal; open = false"
+    <button @click="directToDashboard"
       class="md:static absolute z-40 bg-aps-orange top-80 duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
       <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
         <i class="bi bi-person-circle"></i>
       </span></button>
   </nav>
-  <transition name="modal" mode="out-in">
-    <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="toggleModal"
-      @click.self="toggleModal = false" @keydown.escape="toggleModal = false">
-      <div class="relative mx-auto w-auto max-w-2xl" key="modal">
-        <div class="relative mx-auto w-auto max-w-2xl">
-          <div class="bg-gray-200 w-full">
-            <button class="rounded-full bg-green-800 text-white m-2 p-1" @click="toggleModal = false">Go back</button>
-            <div class="px-10">
-              <div class="flex flex-col items-center mt-3">
-                <h1 class="text-4xl font-bold text-black mb-4">Student Login</h1>
-                <p class="text-left mb-4">Login to your Dashboard</p>
-
-                <div class="flex flex-col mb-4">
-                  <div class="mb-2">
-                    <label for="matricNo" class="mr-2">Matric No.</label>
-                    <input type="text" id="matricNo" v-model="matricNo"
-                      class="p-2 ml-1 rounded-full border-solid border-gray-700 hover:border-2 hover:border-orange-500" />
-                  </div>
-
-                  <div class="mb-2">
-                    <label for="password" class="mr-2">Password</label>
-                    <input type="password" id="password" v-model="password"
-                      class="p-2 ml-2 rounded-full border border-gray-300 hover:border-2 hover:border-orange-500" />
-                  </div>
-                </div>
-
-                <button class="bg-green-500 text-white p-2 mb-4 hover:bg-green-700" @click="handleSubmit">Login</button>
-
-                <p class="text-green-700 cursor-pointer hover:text-orange-500">Forgot password</p>
-              </div>
-              <div v-if="errorTrue">
-                <p class="text-3xl text-red-700">{{ errorMessage }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </transition>
-  <div v-if="toggleModal" class="absolute z-40 inset-0 opacity-75 bg-gray-500" style="height: 1500px;">
-  </div>
 </template>
 
 <script setup>
 import logo from '@/assets/images/aps-logo.png';
 import { ref } from 'vue';
-import { loginUser } from '@/utils/useLogin'
 import { useUserStore } from '@/stores/UserStore'
 import router from '@/router';
 
-const errorTrue = ref(false);
-const errorMessage = ref("");
 const users = useUserStore()
-const matricNo = ref("")
-const password = ref("")
 const open = ref(false)
-const toggleModal = ref(false);
 const navItems = [
   { title: "Home", path: "/" },
   { title: "About Us", path: "/about" },
@@ -100,34 +52,14 @@ function MenuOpen() {
   open.value = !open.value
 }
 
-const handleSubmit = async () => {
-  try {
-    const rawData = await loginUser(matricNo.value, password.value);
-    const response = rawData.jsonData.responseData;
-    console.log(response);
-    if (rawData.jsonData.success === false) {
-      errorTrue.value = true;
-      errorMessage.value = response.err.message ? response.err.message : response.err;
-      return;
-    } else if (rawData.jsonData.success === true) {
-      if (response.student.firstLogin) {
-        users.login(response.student);
-        localStorage.setItem("studentToken", response.token);
-        router.push("/auth/updatesecurity");
-        toggleModal.value = false;
-      } else if (response.student.firstLogin===false) {
-        toggleModal.value = false;
-        users.login(response.student);
-        localStorage.setItem("studentToken", response.token);
-        router.push("/dashboard");
-      }
-    }
-  } catch (error) {
-    errorTrue.value = true;
-    errorMessage.value = error.message;
+const directToDashboard = () => {
+  if (users.user) {
+    router.push('/dashboard')
+  } else {
+    router.push('/auth/login')
   }
-
 }
+
 </script>
 
 <style scoped>

@@ -17,6 +17,7 @@ export const useUserStore = defineStore("UserStore", () => {
   const logout = () => {
     try {
       localStorage.clear();
+      user.value = null;
     } catch (err) {
       console.log(err);
     }

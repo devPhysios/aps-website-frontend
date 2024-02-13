@@ -24,11 +24,12 @@
         </li>
       </div>
     </ul>
-    <button @click="toggleModal = !toggleModal; open = false" class="md:static absolute z-40 bg-aps-orange top-80 duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
+    <button @click="toggleModal = !toggleModal; open = false"
+      class="md:static absolute z-40 bg-aps-orange top-80 duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
-        <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
-          <i class="bi bi-person-circle"></i>
-        </span></button>
+      <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
+        <i class="bi bi-person-circle"></i>
+      </span></button>
   </nav>
   <transition name="modal" mode="out-in">
     <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="toggleModal"
@@ -74,65 +75,60 @@
   </div>
 </template>
 
-<script >
+<script setup>
 import logo from '@/assets/images/aps-logo.png';
 import { ref } from 'vue';
-import {loginUser} from '@/utils/useLogin'
+import { loginUser } from '@/utils/useLogin'
 import { useUserStore } from '@/stores/UserStore'
 import router from '@/router';
 
-export default {
-  setup() {
-    const errorTrue = ref(false);
-    const errorMessage = ref("");
-    const users = useUserStore()
-    const matricNo = ref("")
-    const password = ref("")
-    const open = ref(false)
-    const toggleModal = ref(false);
-    const navItems = [
-      { title: "Home", path: "/" },
-      { title: "About Us", path: "/about" },
-      { title: "Gallery", path: "/gallery" },
-      { title: "Alumni", path: "/alumni" },
-      { title: "Dashboard", path: "/dashboard" },
-    ]
-    function MenuOpen() {
-      open.value = !open.value
-    }
-
-    const handleSubmit = async () => {
-      try {
-        response = await loginUser(matricNo.value, password.value);
-        if (response.success === false) {
-          errorTrue.value = true;
-          errorMessage.value = response.err.message ? response.err.message : response.err;
-          return;
-        } else if (response.success === true) {
-          if (response.student.firstLogin) {
-            users.login(response.student);
-            localStorage.setItem("studentToken", response.token);
-            router.push("/auth/updatesecurity");
-            
-          } else if (!response.student.firstLogin) {
-            users.login(response.student);
-            localStorage.setItem("studentToken", response.token);
-            router.push("/dashboard");
-          }
-        }
-      } catch (error) {
-        
-      }
-      
-    }
-    
-    return {
-      open, navItems, logo, MenuOpen, toggleModal, matricNo, password, handleSubmit
-    }
-  }
+const errorTrue = ref(false);
+const errorMessage = ref("");
+const users = useUserStore()
+const matricNo = ref("")
+const password = ref("")
+const open = ref(false)
+const toggleModal = ref(false);
+const navItems = [
+  { title: "Home", path: "/" },
+  { title: "About Us", path: "/about" },
+  { title: "Gallery", path: "/gallery" },
+  { title: "Alumni", path: "/alumni" },
+  { title: "Dashboard", path: "/dashboard" },
+]
+function MenuOpen() {
+  open.value = !open.value
 }
 
+const handleSubmit = async () => {
+  try {
+    const rawData = await loginUser(matricNo.value, password.value);
+    const response = rawData.jsonData.responseData;
+    console.log(response);
+    if (rawData.jsonData.success === false) {
+      errorTrue.value = true;
+      errorMessage.value = response.err.message ? response.err.message : response.err;
+      return;
+    } else if (rawData.jsonData.success === true) {
+      if (response.student.firstLogin) {
+        toggleModal.value = false;
+        users.login(response.student);
+        localStorage.setItem("studentToken", response.token);
+        router.push("/auth/updatesecurity");
 
+      } else if (response.student.firstLogin===false) {
+        toggleModal.value = false;
+        users.login(response.student);
+        localStorage.setItem("studentToken", response.token);
+        router.push("/dashboard");
+      }
+    }
+  } catch (error) {
+    errorTrue.value = true;
+    errorMessage.value = error.message;
+  }
+
+}
 </script>
 
 <style scoped>
@@ -150,4 +146,5 @@ export default {
   {
   opacity: 0;
   transform: translateX(200px);
-}</style>
+}
+</style>

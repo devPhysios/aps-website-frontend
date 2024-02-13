@@ -5,6 +5,8 @@ import About from '../views/About.vue'
 import Gallery from '../views/Gallery.vue'
 import Alumni from '../views/Alumni.vue'
 import Upload from '../views/Upload.vue'
+import Dashboard from '../views/Dashboard.vue'
+import UpdateSecurity from '../views/Updatesecurity.vue'
 
 
 const routes = [
@@ -33,9 +35,19 @@ const routes = [
     },
     {
         path: "/upload",
-        name: "IploadPage",
+        name: "UploadPage",
         component: Upload
     },
+    {
+        path: "/dashboard",
+        name: "DashboardPage",
+        component: Dashboard
+    },
+    {
+        path: "/auth/updatesecurity",
+        name: "UpdateSecurityPage",
+        component: UpdateSecurity
+    }
   
 
 ]

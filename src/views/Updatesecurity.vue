@@ -30,7 +30,9 @@
       </div>
 
       <button @click="updateUser" class="button-primary">Update</button>
-
+      <div v-if="errorMessage" class="text-red-500 text-center mb-4">
+                    {{ errorMessage }}
+                </div>
       <div v-if="updateSuccess" class="success-message">Password Updated Successfully</div>
       <div v-if="loggingIn" class="info-message">Logging in...</div>
     </div>
@@ -42,6 +44,7 @@ import axios from 'axios';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 
+
 const users = useUserStore();
 const userDetails = ref(users.user);
 const oldPassword = ref('');
@@ -51,6 +54,7 @@ const selectedQuestion = ref('');
 const securityAnswer = ref('');
 const updateSuccess = ref(false);
 const loggingIn = ref(false);
+const errorMessage = ref(null);
 
 const securityQuestions = [
   "What is your mother's maiden name?",
@@ -70,7 +74,6 @@ const updateUser = async () => {
     if (newPassword.value.length < 8 || confirmPassword.value !== newPassword.value) {
       return;
     }
-
     const token = localStorage.getItem('token');
     const response = await axios.post('http://localhost:8800/api/v1/auth/cpasq', {
       oldPassword: oldPassword.value,
@@ -82,17 +85,58 @@ const updateUser = async () => {
         Authorization: `Bearer ${token}`
       }
     });
-    
-    updateSuccess.value = true;
-    loggingIn.value = true;
-    await login();
+    if (response.status === 200) {
+      updateSuccess.value = true;
+      loggingIn.value = true;
+      await login();
+    }
   } catch (error) {
-    console.error(error);
+    if (error.response.status === 400) {
+      errorMessage.value = 'Bad Request';
+    } 
+     else if (error.response.status === 401) {
+      errorMessage.value = 'Invalid Old Password';
+    } else if (error.response.status === 404) {
+      errorMessage.value = 'Student not found';
+    }
   }
 }
 
 const login = async () => {
-  // Your login logic here
+  try {
+        const rawData = await loginUser(matricNumber.value, password.value);
+        if (rawData.success === false) {
+            if (rawData.error.response.status === 400){
+                errorMessage.value = 'Invalid Credentials';
+            }
+            else if (rawData.error.response.status === 404) {
+                errorMessage.value = 'Account Not Found';
+            } else if (rawData.error.response.status === 401) {
+                errorMessage.value = 'Invalid Credentials';
+            } else if (rawData.error.response.status === 500) {
+                errorMessage.value = 'An error occurred, please try again';
+            } else {
+                errorMessage.value = 'An error occurred, please try again';
+            }
+        } else if (rawData.success === true) {
+            const response = rawData.jsonData.responseData;
+            if (response.student.firstLogin) {
+                users.login(response.student);
+                localStorage.setItem("studentToken", response.token);
+                router.push("/auth/updatesecurity");
+                toggleModal.value = false;
+            } else if (response.student.firstLogin === false) {
+                toggleModal.value = false;
+                users.login(response.student);
+                localStorage.setItem("studentToken", response.token);
+                router.push("/dashboard");
+            }
+        }
+    } catch (error) {
+        errorMessage.value = error.message;
+    } finally {
+        isLoading.value = false;
+    }
 }
 </script>
 

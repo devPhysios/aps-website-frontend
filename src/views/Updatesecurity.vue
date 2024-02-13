@@ -74,7 +74,7 @@ const updateUser = async () => {
     if (newPassword.value.length < 8 || confirmPassword.value !== newPassword.value) {
       return;
     }
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('studentToken');
     const response = await axios.post('http://localhost:8800/api/v1/auth/cpasq', {
       oldPassword: oldPassword.value,
       newPassword: newPassword.value,

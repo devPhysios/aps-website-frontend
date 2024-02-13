@@ -1,3 +1,26 @@
 <template>
-    <h1>This is the dashboard</h1>
+    <section class="flex w-full h-[80vh] bg-gray-50">
+        <DashBoardSideMenu />
+        <main class="h-full w-full overflow-y-auto">
+            <div class="px-8 mx-auto w-[1536px] grid">
+                <h2 class="my-6 font-semibold text-aps-green">
+                    Student's Dashboard
+                </h2>
+
+                <div class="border-l-4 border-aps-green p-2">
+                    <b>Hello, </b>
+                    <span>John Doe</span>
+                </div>
+
+                <div class="mt-8">
+                    <DashBoardCards />
+                </div>
+            </div>
+        </main>
+    </section>
 </template>
+
+<script setup>
+import DashBoardSideMenu from '@/components/DashBoardSideMenu.vue'
+import DashBoardCards from '@/components/DashBoardCards.vue'
+</script>

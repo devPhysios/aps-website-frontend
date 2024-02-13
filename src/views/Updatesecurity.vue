@@ -102,7 +102,7 @@ const login = async () => {
 }
 
 .button-primary {
-  @apply bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600;
+  @apply bg-indigo-500 text-white px-4 py-2 mt-4 rounded hover:bg-indigo-600 w-full;
 }
 
 .success-message {

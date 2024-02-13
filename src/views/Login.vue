@@ -90,9 +90,9 @@ const handleLogin = async () => {
   
 <style scoped>
 /* Tailwind CSS Styles */
-.container {
+/* .container { */
     /* Background Image? Gradient? */
-}
+/* } */
 
 .input-field {
     @apply w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500;

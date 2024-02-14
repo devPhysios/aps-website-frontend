@@ -51,7 +51,9 @@ const handleLogin = async () => {
     errorMessage.value = null;
     try {
         const rawData = await loginUser(matricNumber.value, password.value);
+        // console.log(response);
         if (rawData.success === false) {
+            console
             if (rawData.error.response.status === 400){
                 errorMessage.value = 'Invalid Credentials';
             }
@@ -70,9 +72,9 @@ const handleLogin = async () => {
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);
                 router.push("/auth/updatesecurity");
-                // toggleModal.value = false;
+                toggleModal.value = false;
             } else if (response.student.firstLogin === false) {
-                // toggleModal.value = false;
+                toggleModal.value = false;
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);
                 router.push("/dashboard");
@@ -90,9 +92,9 @@ const handleLogin = async () => {
   
 <style scoped>
 /* Tailwind CSS Styles */
-/* .container { */
+.container {
     /* Background Image? Gradient? */
-/* } */
+}
 
 .input-field {
     @apply w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500;

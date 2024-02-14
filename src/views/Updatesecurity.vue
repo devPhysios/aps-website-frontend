@@ -44,6 +44,7 @@ import axios from 'axios';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 import { loginUser } from '@/utils/useLogin';
+import router from '@/router';
 
 
 const users = useUserStore();
@@ -107,7 +108,7 @@ const updateUser = async () => {
 
 const login = async () => {
   try {
-        const rawData = await loginUser(matricNumber.value, password.value);
+        const rawData = await loginUser(userDetails.value.matricNumber, newPassword.value);
         if (rawData.success === false) {
             if (rawData.error.response.status === 400){
                 errorMessage.value = 'Invalid Credentials';

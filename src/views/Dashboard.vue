@@ -1,5 +1,5 @@
 <template>
-    <section class="pb-10 flex w-full h-[80vh] bg-gray-50 md:pb-0">
+    <section class="pb-10 flex w-full h-[80vh] bg-gray-50 md:pb-0" v-if="store.user">
         <div v-if="sideMenuOpen" @click="openSideMenu"
             class="custom-transition fixed inset-0 bg-gray-500 z-10 opacity-60 md:hidden"></div>
         <DashBoardSideMenu :sideMenu="sideMenuOpen" @handleEmit="openSideMenu" />
@@ -37,12 +37,17 @@
 import DashBoardSideMenu from '@/components/DashBoardSideMenu.vue'
 import DashBoardCards from '@/components/DashBoardCards.vue'
 import { useUserStore } from '@/stores/UserStore'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import router from '@/router';
 
 const store = useUserStore()
 const sideMenuOpen = ref(false)
 
+onMounted(() => {
+    if (store.user===null) {
+        router.push('/auth/login')
+    }
+})
 const capitalize = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
@@ -56,4 +61,5 @@ const openSideMenu = () => {
     sideMenuOpen.value = !sideMenuOpen.value
     // return sideMenuOpen.value
 }
+  
 </script>

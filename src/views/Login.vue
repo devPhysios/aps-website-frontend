@@ -70,9 +70,9 @@ const handleLogin = async () => {
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);
                 router.push("/auth/updatesecurity");
-                toggleModal.value = false;
+                // toggleModal.value = false;
             } else if (response.student.firstLogin === false) {
-                toggleModal.value = false;
+                // toggleModal.value = false;
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);
                 router.push("/dashboard");

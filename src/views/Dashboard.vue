@@ -9,7 +9,7 @@
 
                 <div class="border-l-4 border-aps-green p-2">
                     <b>Hello, </b>
-                    <span>{{ store.user.firstName }} {{ store.user.lastName }}</span>
+                    <span>{{ capitalize(store.user.firstName) }} {{ capitalize(store.user.lastName) }}</span>
                 </div>
 
                 <div class="mt-8">
@@ -26,4 +26,8 @@ import DashBoardCards from '@/components/DashBoardCards.vue'
 import { useUserStore } from '@/stores/UserStore'
 
 const store = useUserStore()
+
+const capitalize = (word) => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
 </script>

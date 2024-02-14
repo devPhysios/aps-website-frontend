@@ -1,6 +1,9 @@
 <template>
     <div class="container mx-auto flex flex-col items-center justify-center h-screen">
         <div class="bg-white p-8 rounded-lg shadow-md sm:w-[700px]">
+            <div class="h-[150px] md:pb-0 pb-4">
+                <img class= "h-3/4 object-cover mx-auto" :src= "apsLogo" />
+            </div>            
             <h1 class="text-2xl font-bold mb-6 text-center">Student Login</h1>
 
             <form @submit.prevent="handleLogin">
@@ -35,6 +38,7 @@
 </template>
   
 <script setup>
+import apsLogo from '@/assets/images/aps-logo.png'
 import { ref } from 'vue';
 import { loginUser } from '@/utils/useLogin'
 import { useUserStore } from '@/stores/UserStore'

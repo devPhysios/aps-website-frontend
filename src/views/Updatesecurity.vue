@@ -43,7 +43,6 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
-import { loginUser } from '@/utils/useLogin'
 
 
 const users = useUserStore();
@@ -92,14 +91,16 @@ const updateUser = async () => {
       await login();
     }
   } catch (error) {
-    if (error.response.status === 400) {
-      errorMessage.value = 'Bad Request';
-    } 
-     else if (error.response.status === 401) {
-      errorMessage.value = 'Invalid Old Password';
-    } else if (error.response.status === 404) {
-      errorMessage.value = 'Student not found';
-    }
+    // if (error.response.status === 400) {
+    //   errorMessage.value = 'Bad Request';
+    // } 
+    //  else if (error.response.status === 401) {
+    //   errorMessage.value = 'Invalid Old Password';
+    // } else if (error.response.status === 404) {
+    //   errorMessage.value = 'Student not found';
+    // }
+
+    console.error(error)
   }
 }
 
@@ -125,9 +126,9 @@ const login = async () => {
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);
                 router.push("/auth/updatesecurity");
-                toggleModal.value = false;
+                // toggleModal.value = false;
             } else if (response.student.firstLogin === false) {
-                toggleModal.value = false;
+                // toggleModal.value = false;
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);
                 router.push("/dashboard");

@@ -5,7 +5,7 @@
         <img class="h-full w-full" :src="logo" alt="Logo" />
       </span>
     </div>
-    <span @click="MenuOpen"
+    <span @click="menuOpen"
       class="absolute md:hidden right-6 top-6 cursor pointer text-4xl text-white hover:text-yellow-600">
       <i :class="[open ? 'bi bi-x' : 'bi bi-filter-left']"></i>
     </span>
@@ -15,7 +15,7 @@
       <div class="md:flex md:items-center">
         <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white"
           v-for="navItem in navItems" :key="navItem.title">
-          <RouterLink :to="navItem.path" @click="MenuOpen">
+          <RouterLink :to="navItem.path" @click="menuOpen">
             {{ navItem.title }}
           </RouterLink>
         </li>
@@ -45,10 +45,10 @@ const navItems = [
   { title: "Home", path: "/" },
   { title: "About Us", path: "/about" },
   { title: "Gallery", path: "/gallery" },
-  { title: "Alumni", path: "/alumni" },
-  { title: "Dashboard", path: "/dashboard" },
+  { title: "Alumni", path: "/alumni" }
 ]
-function MenuOpen() {
+
+const menuOpen = () => {
   open.value = !open.value
 }
 

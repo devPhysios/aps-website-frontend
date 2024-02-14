@@ -1,5 +1,5 @@
 <template> 
-  <section class="p-1 md:p-6 font-display my-8 ml-4 md:m-8 bg-blue-100 rounded-md">
+  <section class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold pl-4 pt-2">Our Leaders</p>
       <div class="flex items-center pl-4">

@@ -1,6 +1,6 @@
 <template>
-    <div class="divide-y divide-aps-green overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
-        <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
+    <div class="grid gap-3 sm:divide-aps-green overflow-hidden rounded-lg sm:bg-gray-200 md:shadow md:grid md:grid-cols-2 md:gap-px md:divide-y-0">
+        <div class="shadow rounded rounded-tl-lg rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
             <div>
                 <span class="inline-flex rounded-lg p-3 bg-teal-50 text-teal-700 ring-white">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -25,7 +25,7 @@
                 </svg>
             </span>
         </div>
-        <div class="sm:rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div class="shadow rounded sm:rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
             <div>
                 <span class="inline-flex rounded-lg p-3 bg-teal-50 text-teal-700 ring-white">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,7 +50,7 @@
                 </svg>
             </span>
         </div>
-        <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div class="shadow rounded sm:rounded-tl-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
             <div>
                 <span class="inline-flex rounded-lg p-3 bg-teal-50 text-teal-700 ring-white">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,7 +75,7 @@
                 </svg>
             </span>
         </div>
-        <div class="sm:rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div class="shadow rounded sm:rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
             <div>
                 <span class="inline-flex rounded-lg p-3 bg-teal-50 text-teal-700 ring-white">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">

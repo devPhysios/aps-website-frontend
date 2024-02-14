@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto flex flex-col items-center justify-center h-screen">
+  <div class="container mx-auto flex flex-col items-center justify-center h-full">
     <div class="bg-white p-8 rounded-md shadow-md sm:w-[500px] w-full">
       <h1 class="text-2xl font-bold mb-6">Welcome {{ userDetails.fullName }}</h1>
 

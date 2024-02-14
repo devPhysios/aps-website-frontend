@@ -28,7 +28,7 @@
       class="md:static absolute z-40 bg-aps-orange top-80 duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
       <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
-        <i class="bi bi-person-circle"></i>
+        <i class="bi bi-person-circle" @click="menuOpen"></i>
       </span></button>
   </nav>
 </template>

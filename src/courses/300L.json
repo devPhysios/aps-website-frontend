@@ -1,153 +1,140 @@
 [
-    {
-      "coursecode": "GES301",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "GES103",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "ANA301",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "300"
-    },
-    {
-      "coursecode": "PHA301",
-      "coursetitle": "",
-      "unit": 1,
-      "level": "300"
-    },
-    {
-      "coursecode": "PHA302",
-      "coursetitle": "",
-      "unit": 1,
-      "level": "300"
-    },
-    {
-      "coursecode": "PHA303",
-      "coursetitle": "",
-      "unit": 1,
-      "level": "300"
-    },
-    {
-      "coursecode": "NUT305",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST311",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST312",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST313",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST314",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST315",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST316",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST301",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST302",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST320",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST321",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST322",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST323",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST324",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST325",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST326",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST327",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST328",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    },
-    {
-      "coursecode": "PST329",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "300"
-    }
-  ]
-  
+  {
+    "coursecode": "ANA301",
+    "coursetitle": "Gross Anatomy of Head and Neck and Neuro Anatomy",
+    "unit": 3,
+    "level": 300
+  },
+  {
+    "coursecode": "GES103",
+    "coursetitle": "Government, Society and The Economy",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "GES301",
+    "coursetitle": "Introduction Entrepreneurial Skills",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "NUT305",
+    "coursetitle": "Public Health Nutrition",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST301",
+    "coursetitle": "Physiotherapy posting in paediatrics",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST302",
+    "coursetitle": "Physiotherapy posting in Orthopaedics & Traumatology",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST311",
+    "coursetitle": "Introduction to Physiotherapy Profession and Practice",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST312",
+    "coursetitle": "Biomechanics",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST313",
+    "coursetitle": "Exercise Physiology",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST314",
+    "coursetitle": "Pain and Pain Control",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST315",
+    "coursetitle": "Exercise Therapy I",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST316",
+    "coursetitle": "Clinical Anatomy & Physiology",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST317",
+    "coursetitle": "Pharmacology for Physiotherapy",
+    "unit": 3,
+    "level": 300
+  },
+  {
+    "coursecode": "PST320",
+    "coursetitle": "Electrotherapy I: Conductive Heat & Cold and Therapeutic Ultrasound",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST321",
+    "coursetitle": "Electrotherapy II: Electromagnetic Rays and Energy",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST322",
+    "coursetitle": "Manual Therapy I: Massage",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST323",
+    "coursetitle": "Exercise Therapy II",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST324",
+    "coursetitle": "Manual Therapy II: Spinal and Peripheral Joint Mobilization",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST325",
+    "coursetitle": "Pathokinesiology",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST326",
+    "coursetitle": "Practical Electrotherapy I",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST327",
+    "coursetitle": "Practical Exercise Therapy & Kinesiology",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST328",
+    "coursetitle": "Practical Manual Therapy",
+    "unit": 2,
+    "level": 300
+  },
+  {
+    "coursecode": "PST329",
+    "coursetitle": "Pathology",
+    "unit": 2,
+    "level": 300
+  }
+]

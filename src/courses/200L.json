@@ -1,105 +1,104 @@
 [
-    {
-      "coursecode": "GES102",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "200"
-    },
-    {
-      "coursecode": "GES106",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "200"
-    },
-    {
-      "coursecode": "GES201",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "ANA201",
-      "coursetitle": "",
-      "unit": 4,
-      "level": "200"
-    },
-    {
-      "coursecode": "ANA202",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "ANA203",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "PIO205",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "PIO206",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "PIO207",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "200"
-    },
-    {
-      "coursecode": "BIC201",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "NUT201",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "200"
-    },
-    {
-      "coursecode": "NUT202",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "200"
-    },
-    {
-      "coursecode": "PHY271",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "PHY272",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "STA204",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "PSY202",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    },
-    {
-      "coursecode": "SOC212",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "200"
-    }
-  ]
-  
+  {
+    "coursecode": "ANA201",
+    "coursetitle": "Gross Anatomy of the Limbs and Cavities",
+    "unit": 4,
+    "level": 200
+  },
+  {
+    "coursecode": "ANA202",
+    "coursetitle": "General and Systemic Embryology",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "ANA203",
+    "coursetitle": "General and Systemic Histology",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "BIC201",
+    "coursetitle": "Cell Biochemistry",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "GES102",
+    "coursetitle": "African Culture and Civilization",
+    "unit": 2,
+    "level": 200
+  },
+  {
+    "coursecode": "GES106",
+    "coursetitle": "Philosophy, Logic and Critical Thinking",
+    "unit": 2,
+    "level": 200
+  },
+  {
+    "coursecode": "GES201",
+    "coursetitle": "Use of English II",
+    "unit": 2,
+    "level": 200
+  },
+  {
+    "coursecode": "NUT202",
+    "coursetitle": "Introduction to Foods and Nutrition II",
+    "unit": 2,
+    "level": 200
+  },
+  {
+    "coursecode": "PHY271",
+    "coursetitle": "Physics For Biology I",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "PHY272",
+    "coursetitle": "Physics for Biology II",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "PIO205",
+    "coursetitle": "General Physiology I",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "PIO206",
+    "coursetitle": "General Physiology II",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "PIO207",
+    "coursetitle": "General Physiology III",
+    "unit": 2,
+    "level": 200
+  },
+  {
+    "coursecode": "PSY202",
+    "coursetitle": "Abnormal Psychology",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "NUT201",
+    "coursetitle": "Introductory Food and Nutrition I",
+    "unit": 2,
+    "level": 200
+  },
+  {
+    "coursecode": "SOC212",
+    "coursetitle": "Evolution of Culture and Society",
+    "unit": 3,
+    "level": 200
+  },
+  {
+    "coursecode": "STA204",
+    "coursetitle": "General statistics II",
+    "unit": 3,
+    "level": 200
+  }
+]

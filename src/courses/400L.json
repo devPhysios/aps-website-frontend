@@ -1,0 +1,135 @@
+[
+    {
+      "coursecode": "PST401",
+      "coursetitle": "Physiotherapy posting in Medicine & Neurology",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST402",
+      "coursetitle": "Physiotherapy posting in Neurosurgery",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST403",
+      "coursetitle": "Posting in Medical Imaging",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST404",
+      "coursetitle": "Posting in Psychiatry",
+      "unit": 1,
+      "level": 400
+    },
+    {
+      "coursecode": "PST405",
+      "coursetitle": "Posting in Surgery",
+      "unit": 3,
+      "level": 400
+    },
+    {
+      "coursecode": "PST410",
+      "coursetitle": "Electrotherapy III: Direct , Low & Medium Frequency Stimulating Currents & Electro-diagnosis",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST411",
+      "coursetitle": "Practical Electrotherapy II",
+      "unit": 1,
+      "level": 400
+    },
+    {
+      "coursecode": "PST412",
+      "coursetitle": "Clinical Reasoning & Physical Diagnosis",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST413",
+      "coursetitle": "Hydrotherapy",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST414",
+      "coursetitle": "Skeletal & Soft Tissue Injuries",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST415",
+      "coursetitle": "Orthopaedic Conditions",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST416",
+      "coursetitle": "Paediatrics I",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST417",
+      "coursetitle": "Health Measurement & Outcomes Assessment",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST418",
+      "coursetitle": "Orthotics and Prosthetics",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST419",
+      "coursetitle": "Seminars on Issues in Health Care",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST420",
+      "coursetitle": "Research Methodology",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST421",
+      "coursetitle": "Respiratory Conditions",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST422",
+      "coursetitle": "Neurology I",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST423",
+      "coursetitle": "Paediatrics II",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST424",
+      "coursetitle": "Cardiovascular disorders",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST425",
+      "coursetitle": "Biostatistics",
+      "unit": 2,
+      "level": 400
+    },
+    {
+      "coursecode": "PST426",
+      "coursetitle": "Sports Physiotherapy",
+      "unit": 2,
+      "level": 400
+    }
+  ]
+  

@@ -1,129 +1,128 @@
 [
-    {
-      "coursecode": "GES101",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "GES107",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "GES108",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "PHY102",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "PHY103",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "PHY104",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "PHY105",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "PHY118",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "CHE126",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "CHE156",
-      "coursetitle": "",
-      "unit": 4,
-      "level": "100"
-    },
-    {
-      "coursecode": "CHE176",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "CHE191",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "ZOO112",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "ZOO114",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "ZOO115",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "ZOO116",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "ZOO117",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "ZOO118",
-      "coursetitle": "",
-      "unit": 2,
-      "level": "100"
-    },
-    {
-      "coursecode": "CSC101",
-      "coursetitle": "",
-      "unit": 4,
-      "level": "100"
-    },
-    {
-      "coursecode": "STA114",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    },
-    {
-      "coursecode": "PSY101",
-      "coursetitle": "",
-      "unit": 3,
-      "level": "100"
-    }
-  ]
-  
+  {
+    "coursecode": "STA114",
+    "coursetitle": "General Statistics",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "PHY102",
+    "coursetitle": "Introductory Mechanics and Properties of Matter",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "PHY103",
+    "coursetitle": "Introductory Heat and Thermodynamics",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "PHY104",
+    "coursetitle": "Introductory Electricity and Magnetism",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "PHY105",
+    "coursetitle": "Introductory Waves, Optics and Modern Physics",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "PHY118",
+    "coursetitle": "Experimental Physics I",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "CHE126",
+    "coursetitle": "Inorganic Chemistry I",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "CHE156",
+    "coursetitle": "Physical Chemistry I",
+    "unit": 4,
+    "level": 100
+  },
+  {
+    "coursecode": "CHE176",
+    "coursetitle": "Organic Chemistry I",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "CHE191",
+    "coursetitle": "Practical Chemistry for 100 Level",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "CSC101",
+    "coursetitle": "Introduction to Computer Science",
+    "unit": 4,
+    "level": 100
+  },
+  {
+    "coursecode": "PSY101",
+    "coursetitle": "Introduction to Psycho-biology Basis of Behavior",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "GES101",
+    "coursetitle": "Use of English",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "GES107",
+    "coursetitle": "Reproductive Health: Sexually Transmitted Infections [STIs] and Human Immunodeficiency Virus [HIV]",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "GES108",
+    "coursetitle": "Introduction to French",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "ZOO112",
+    "coursetitle": "The Mammalian Body",
+    "unit": 3,
+    "level": 100
+  },
+  {
+    "coursecode": "ZOO115",
+    "coursetitle": "Introductory Ecology",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "ZOO114",
+    "coursetitle": "Principles of Cell Biology and Genetics",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "ZOO116",
+    "coursetitle": "Introductory Invertebrate Zoology",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "ZOO117",
+    "coursetitle": "Introductory Vertebrate Zoology",
+    "unit": 2,
+    "level": 100
+  },
+  {
+    "coursecode": "ZOO118",
+    "coursetitle": "Practical Zoology",
+    "unit": 2,
+    "level": 100
+  }
+]

@@ -62,6 +62,9 @@ const routes = [
     path: "/dashboard/uploadquestion",
     name: "UploadQuestionPage",
     component: Uploadquestion,
+    meta : {
+      requiresAuth: true,
+    }
   },
 ];
 
@@ -70,8 +73,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async(to, from, next) => {
-  const store = await useUserStore();
+router.beforeEach((to, from, next) => {
+  const store = useUserStore();
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!store.user) {
       next({

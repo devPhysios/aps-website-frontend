@@ -37,17 +37,13 @@
 import DashBoardSideMenu from '@/components/DashBoardSideMenu.vue'
 import DashBoardCards from '@/components/DashBoardCards.vue'
 import { useUserStore } from '@/stores/UserStore'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import router from '@/router';
 
 const store = useUserStore()
 const sideMenuOpen = ref(false)
 
-onMounted(() => {
-    if (store.user===null) {
-        router.push('/auth/login')
-    }
-})
+
 const capitalize = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }

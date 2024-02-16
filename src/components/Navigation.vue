@@ -53,11 +53,7 @@ const menuOpen = () => {
 }
 
 const directToDashboard = () => {
-  if (users.user) {
-    router.push('/dashboard')
-  } else {
-    router.push('/auth/login')
-  }
+ router.push('/dashboard')
 }
 
 </script>

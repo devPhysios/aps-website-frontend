@@ -20,14 +20,20 @@
           :key="index"
         >
           <div
-            class="w-full rounded-lg text-gray-950 text-xl bg-aps-orange "
+            class="w-full h-[300px] rounded-lg text-gray-950 text-xl relative"
           >
-            <div class="h-[300px] w-full">
+            <div class="h-full w-full">
               <img class="h-full w-full object-cover" :src= data.imgBg>
             </div>
-            <div class="m-1 p-1 md:m-3">
-              <h3 class="md:text-lg text-[14px] font-semibold">{{ data.name}}</h3>
-              <p class="text-[12px] md:text-sm mb-1">{{ data.title }}</p>
+            <div class=" transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50">
+              <div class="bg-aps-orange h-full w-full">
+                <div class="pt-[120px]">
+                  <h3 class="md:text-lg text-[14px] font-semibold">{{ data.name}}</h3>
+                  <p class="text-[12px] md:text-sm mb-1">{{ data.title }}</p>                  
+                </div>
+
+              </div>
+              
             </div>
           </div>
         </Slide>
@@ -49,81 +55,81 @@
     
     const carouselData = ref([
       {
-        name: `Elijah Inioluwa`,
-        title: "President",
-        imgBg: 'src/assets/images/excos/exco1.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0450.jpg',
       },
       
       {
-        name: `Oyekan Oluwatobi`,
-        title: "Vice President",
-        imgBg: 'src/assets/images/excos/exco2.png',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0457.jpg',
       },
     
       {
-        name: `Olajide Ayomide`,
-        title: "General Secretary",
-        imgBg: 'src/assets/images/excos/exco3.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0554.jpg',
       },
   
       {
-        name: `Adeniran Happiness`,
-        title: "Assistant General Secretary",
-        imgBg: 'src/assets/images/excos/exco4.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0560.jpg',
       },
   
       {
-        name: `Mustapha Ogo-Oluwa`,
-        title: "Public Relations Officer",
-        imgBg: 'src/assets/images/excos/exco5.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0682.jpg',
       },
   
       {
-        name: `Awopegba Jonadab`,
-        title: "Social Secretary",
-        imgBg: 'src/assets/images/excos/exco6.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0685.jpg',
       },
     
       {
-        name: `Akinwola Oluwasegun`,
-        title: "Sports Secretary",
-        imgBg: 'src/assets/images/excos/exco7.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0687.jpg',
       },
   
       {
-        name: `Moshood Babatunde`,
-        title: "Financial Secretary",
-        imgBg: 'src/assets/images/excos/exco8.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0720.jpg',
       },
   
       {
-        name: `Olanrewaju Timileyin`,
-        title: "Treasurer",
-        imgBg: 'src/assets/images/excos/exco9.jpg',
+        name: `Dinner Pictures`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/DSC_0777.jpg',
       },
   
       {
-        name: `Adebayo Samuel`,
-        title: "Special Duties Officer",
-        imgBg: 'src/assets/images/excos/exco10.jpg',
+        name: `APS Fit`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/IMG_0846.jpg',
       },
   
       {
-        name: `Solomon Oluwatodimu`,
-        title: "Senate President",
-        imgBg: 'src/assets/images/excos/exco11.jpg',
+        name: `APS Fit`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/IMG_0848.jpg',
       },
   
       {
-        name: `Goodluck Omotayo`,
-        title: "Deputy Senate President",
-        imgBg: 'src/assets/images/excos/exco12.jpg',
+        name: `APS Fit`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/IMG_0849.jpg',
       },
   
       {
-        name: `Egun Jane`,
-        title: "Senate Clerk",
-        imgBg: 'src/assets/images/excos/exco13.jpg',
+        name: `APS Fit`,
+        title: "Every Level",
+        imgBg: 'src/assets/images/IMG_0850.jpg',
       },
     ])
   

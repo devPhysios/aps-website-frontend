@@ -1,0 +1,129 @@
+[
+    {
+      "coursecode": "GES101",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "GES107",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "GES108",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "PHY102",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "PHY103",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "PHY104",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "PHY105",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "PHY118",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "CHE126",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "CHE156",
+      "coursetitle": "",
+      "unit": 4,
+      "level": "100"
+    },
+    {
+      "coursecode": "CHE176",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "CHE191",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "ZOO112",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "ZOO114",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "ZOO115",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "ZOO116",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "ZOO117",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "ZOO118",
+      "coursetitle": "",
+      "unit": 2,
+      "level": "100"
+    },
+    {
+      "coursecode": "CSC101",
+      "coursetitle": "",
+      "unit": 4,
+      "level": "100"
+    },
+    {
+      "coursecode": "STA114",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    },
+    {
+      "coursecode": "PSY101",
+      "coursetitle": "",
+      "unit": 3,
+      "level": "100"
+    }
+  ]
+  

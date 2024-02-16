@@ -55,7 +55,7 @@ const handleLogin = async () => {
     errorMessage.value = null;
     try {
         const rawData = await loginUser(matricNumber.value, password.value);
-        // console.log(response);
+       console.log(rawData.success)
         if (rawData.success === false) {
             console
             if (rawData.error.response.status === 400){
@@ -72,6 +72,7 @@ const handleLogin = async () => {
             }
         } else if (rawData.success === true) {
             const response = rawData.jsonData.responseData;
+            console.log(response.student)
             if (response.student.firstLogin) {
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);

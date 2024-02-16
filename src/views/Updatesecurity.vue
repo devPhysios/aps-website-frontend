@@ -2,7 +2,10 @@
   <div class="container mx-auto flex flex-col items-center justify-center h-full">
     <div class="bg-white p-8 rounded-md shadow-md sm:w-[500px] w-full">
       <h1 class="text-2xl font-bold mb-6">Welcome {{ userDetails.fullName }}</h1>
-
+      <p class="mb-4">This is your first time logging in, please update your security details.</p>
+      <div class="flex justify-end mb-4">
+        <button @click="handleLogout" class="text-red-500 font-bold hover:text-red-700 px-4 py-2 rounded-lg hover:border-red-500">Log Out</button>
+      </div>
       <div class="mb-4">
         <label for="oldPassword" class="block mb-1">Old Password</label>
         <input type="password" id="oldPassword" v-model="oldPassword" class="input-field">
@@ -41,11 +44,17 @@
 
 <script setup>
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 import { loginUser } from '@/utils/useLogin';
 import router from '@/router';
+import { storeToRefs } from 'pinia';
 
+onMounted(() => {
+  if(users.user.firstLogin===false){
+    router.push('/dashboard')
+  }
+});
 
 const users = useUserStore();
 const userDetails = ref(users.user);
@@ -70,6 +79,11 @@ const securityQuestions = [
   "What is the name of the street you grew up on?",
   "What is your favorite food?"
 ];
+
+const handleLogout = () => {
+    users.logout()
+    router.push('/auth/login')
+}
 
 const updateUser = async () => {
   try {

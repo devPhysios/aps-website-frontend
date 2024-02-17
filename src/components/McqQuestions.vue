@@ -18,20 +18,26 @@
         <label for="coursecode" class="block text-sm font-medium text-gray-700">Select Course:</label>
         <select v-model="selectedCourse" id="coursecode"
           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-          <option v-for="course in courses" :value="course.coursecode">{{ course.coursecode }}: {{ course.coursetitle }}</option>
+          <option v-for="course in courses" :value="course.coursecode">{{ course.coursecode }}: {{ course.coursetitle }}
+          </option>
         </select>
       </div>
       <div class="mb-4">
         <label for="question" class="block text-sm font-medium text-gray-700">Enter Question:</label>
-        <textarea v-model="question" id="question" rows="4" :class="{ 'border-red-500': errors.question }" @input="validateQuestion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+        <textarea v-model="question" id="question" rows="4" :class="{ 'border-red-500': errors.question }"
+          @input="validateQuestion"
+          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
         <p v-if="errors.question" class="text-red-500 text-xs mt-1">Question is required</p>
       </div>
       <div v-for="(option, index) in options" :key="index" class="mb-4">
         <label :for="'option' + index" class="block text-sm font-medium text-gray-700">Option {{ index + 1 }}:</label>
-        <input v-model="options[index]" :id="'option' + index" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <button v-if="index > 1" @click.prevent="removeOption(index)" type="button" class="text-red-500 text-sm mt-1">Remove Option</button>
+        <input v-model="options[index]" :id="'option' + index" type="text"
+          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <button v-if="index > 1" @click.prevent="removeOption(index)" type="button"
+          class="text-red-500 text-sm mt-1">Remove Option</button>
       </div>
-      <button @click.prevent="addOption" type="button" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600">Add Option</button>
+      <button @click.prevent="addOption" type="button"
+        class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600">Add Option</button>
       <!-- Correct options -->
       <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700">Select Correct Option(s):</label>
@@ -56,12 +62,15 @@
       </div>
       <div class="mb-4">
         <label for="year" class="block text-sm font-medium text-gray-700">Year:</label>
-        <input v-model="year" id="year" type="text" :class="{ 'border-red-500': errors.year }" @input="validateYear" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <input v-model="year" id="year" type="text" :class="{ 'border-red-500': errors.year }" @input="validateYear"
+          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <p v-if="errors.year" class="text-red-500 text-xs mt-1">Year is required</p>
       </div>
       <div class="mb-4">
         <label for="lecturer" class="block text-sm font-medium text-gray-700">Lecturer:</label>
-        <input v-model="lecturer" id="lecturer" type="text" :class="{ 'border-red-500': errors.lecturer }" @input="validateLecturer" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <input v-model="lecturer" id="lecturer" type="text" :class="{ 'border-red-500': errors.lecturer }"
+          @input="validateLecturer"
+          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <p v-if="errors.lecturer" class="text-red-500 text-xs mt-1">Lecturer is required</p>
       </div>
       <div class="mb-4">
@@ -70,11 +79,13 @@
           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <p class="text-xs text-gray-500">Separate tags by comma (,)</p>
       </div>
-      <button type="submit" @click.prevent="handleSubmit" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600" >Submit</button>
-      <div>
-      <p v-if="successMessage" class="text-green-500 text-xs mt-1">{{ successMessage }}</p>
-      <p v-if="errorMessage" class="text-red-500 text-xs mt-1">{{ errorMessage }}</p>
+      <button type="submit" @click.prevent="handleSubmit"
+        class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Submit</button>
+      <p v-if="successMessage" class="text-green-500 text-2xl mt-1">{{ successMessage }}</p>
+      <p v-if="errorMessage" class="text-red-500 text-2xl mt-1">{{ errorMessage }}</p>
     </div>
+    <div>
+
     </div>
   </div>
 </template>
@@ -95,9 +106,9 @@ const selectedCourse = ref('');
 const question = ref(null);
 const year = ref(null);
 const lecturer = ref('');
-const tags = ref([]);
+const tags = ref('');
 let courses = [];
-const options = ref(['','']); // Initial options
+const options = ref(['', '']); // Initial options
 const correctOptions = ref([]);
 const successMessage = ref(null);
 const errorMessage = ref(null);
@@ -114,7 +125,7 @@ const errors = reactive({
 
 const validateQuestion = () => {
   errors.question = !question.value.trim();
-  
+
 };
 
 const validateYear = () => {
@@ -204,23 +215,23 @@ const handleImageUpload = (event) => {
 }
 
 const resetForm = () => {
-    selectedLevel.value = '100L';
-    selectedCourse.value = '';
-    question.value = '';
-    correctOptions.value = '';
-    options.value = ['',''];
-    year.value = '';
-    lecturer.value = '';
-    tags.value = '';
-    imgURL.value = null;
-    showImageInput.value = false;
-    imageFile.value = null;
-    successCloudinaryMessage.value = null;
-    errorMessageCloudinary.value = null;
-    errors.question = false;
-    errors.answer = false;
-    errors.year = false;
-    errors.lecturer = false;
+  selectedLevel.value = '100L';
+  selectedCourse.value = '';
+  question.value = '';
+  correctOptions.value = '';
+  options.value = ['', ''];
+  year.value = '';
+  lecturer.value = '';
+  tags.value = '';
+  imgURL.value = null;
+  showImageInput.value = false;
+  imageFile.value = null;
+  successCloudinaryMessage.value = null;
+  errorMessageCloudinary.value = null;
+  errors.question = false;
+  errors.answer = false;
+  errors.year = false;
+  errors.lecturer = false;
 };
 
 const handleSubmit = async () => {
@@ -236,36 +247,37 @@ const handleSubmit = async () => {
     // }
     // Use axios to post data to API endpoint
     const token = localStorage.getItem('studentToken');
-        await axios.post('http://localhost:8800/api/v1/mcq/createmcqs', {
-            level: selectedLevel.value,
-            courseCode: selectedCourse.value,
-            question: question.value,
-            year: year.value,
-            lecturer: lecturer.value,
-            options: options.value.join(',').split(',').map((option) => option.trim()),
-            answer: correctOptions.value.join(',').split(',').map((answer) => answer.trim()),
-            imgURL: imgURL.value,
-            tags: tags.value.split(',').map((tag) => tag.trim()),
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-          }
-        );
-           // Display success message
-        successMessage.value = response.data.message || 'Question uploaded successfully';
-        resetForm();
-        setTimeout(() => {
-            successMessage.value = null;
-        }, 5000);
-          
+    await axios.post('http://localhost:8800/api/v1/mcq/createmcqs', {
+      level: selectedLevel.value,
+      courseCode: selectedCourse.value,
+      question: question.value,
+      year: year.value,
+      lecturer: lecturer.value,
+      options: options.value.join(',').split(',').map((option) => option.trim()),
+      answer: correctOptions.value.join(',').split(',').map((answer) => answer.trim()),
+      imgURL: imgURL.value,
+      tags: tags.value ? tags.value.split(',') : [],
+    },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    // Display success message
+    successMessage.value = response.data.message || 'Question uploaded successfully';
+    resetForm();
+    setTimeout(() => {
+      successMessage.value = null;
+    }, 5000);
+
   } catch (error) {
+    console.log(error)
     errorMessage.value = error.response.data.message || 'An error occurred';
     resetForm();
     setTimeout(() => {
-            errorMessage.value = null;
-        }, 5000);
+      errorMessage.value = null;
+    }, 5000);
   }
 };
 

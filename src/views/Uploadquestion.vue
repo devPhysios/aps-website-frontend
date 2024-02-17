@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <!-- <div>
         <McqQuestions />
+    </div> -->
+    <div>
+        <ClozeQuestions />
     </div>
 </template>
 

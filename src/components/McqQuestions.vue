@@ -71,10 +71,10 @@
         <p class="text-xs text-gray-500">Separate tags by comma (,)</p>
       </div>
       <button type="submit" @click.prevent="handleSubmit" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600" >Submit</button>
-    </div>
-    <div>
+      <div>
       <p v-if="successMessage" class="text-green-500 text-xs mt-1">{{ successMessage }}</p>
       <p v-if="errorMessage" class="text-red-500 text-xs mt-1">{{ errorMessage }}</p>
+    </div>
     </div>
   </div>
 </template>
@@ -203,12 +203,32 @@ const handleImageUpload = (event) => {
   uploadToCloudinary();
 }
 
+const resetForm = () => {
+    selectedLevel.value = '100L';
+    selectedCourse.value = '';
+    question.value = '';
+    correctOptions.value = '';
+    options.value = ['',''];
+    year.value = '';
+    lecturer.value = '';
+    tags.value = '';
+    imgURL.value = null;
+    showImageInput.value = false;
+    imageFile.value = null;
+    successCloudinaryMessage.value = null;
+    errorMessageCloudinary.value = null;
+    errors.question = false;
+    errors.answer = false;
+    errors.year = false;
+    errors.lecturer = false;
+};
+
 const handleSubmit = async () => {
   try {
     // Validate form fields
-    validateQuestion();
-    validateYear();
-    validateLecturer();
+    // validateQuestion();
+    // validateYear();
+    // validateLecturer();
     // Validate options
     // options.value.forEach((option, index) => validateOption(index));
     // if (hasErrors.value || !hasCorrectOption.value) {
@@ -233,23 +253,19 @@ const handleSubmit = async () => {
             }
           }
         );
-
-    // Display success message
-    console.log('Question successfully uploaded');
-    // Reset form fields
-    selectedCourse.value = '';
-    question.value = '';
-    year.value = '';
-    lecturer.value = '';
-    options.value = ['',''];
-    correctOptions.value = [];
-    imgURL.value = null;
-    tags.value = '';
-    successMessage.value = 'Question uploaded successfully';
-    // Reset other fields
+           // Display success message
+        successMessage.value = response.data.message || 'Question uploaded successfully';
+        resetForm();
+        setTimeout(() => {
+            successMessage.value = null;
+        }, 5000);
+          
   } catch (error) {
-    // Display error message
-    errorMessage.value = error.response.data.message;
+    errorMessage.value = error.response.data.message || 'An error occurred';
+    resetForm();
+    setTimeout(() => {
+            errorMessage.value = null;
+        }, 5000);
   }
 };
 

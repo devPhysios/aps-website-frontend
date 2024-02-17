@@ -10,6 +10,7 @@ import Dashboard from "../views/Dashboard.vue";
 import UpdateSecurity from "../views/Updatesecurity.vue";
 import Login from "../views/Login.vue";
 import Uploadquestion from "@/views/Uploadquestion.vue";
+import NotFound from "@/views/Notfound.vue";
 
 const routes = [
   {
@@ -65,6 +66,11 @@ const routes = [
     meta : {
       requiresAuth: true,
     }
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound
   },
 ];
 

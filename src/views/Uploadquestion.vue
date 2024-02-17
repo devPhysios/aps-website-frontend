@@ -6,7 +6,7 @@
                 MCQ
             </button>
             <button class="tab-btn" @click="selectedTab = 'cloze'" :class="{ 'active-tab': selectedTab === 'cloze' }">
-                Cloze
+                Cloze (Fill in the blanks)
             </button>
             <button class="tab-btn" @click="selectedTab = 'essay'" :class="{ 'active-tab': selectedTab === 'essay' }">
                 Essay

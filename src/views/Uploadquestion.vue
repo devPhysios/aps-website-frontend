@@ -2,8 +2,11 @@
     <!-- <div>
         <McqQuestions />
     </div> -->
-    <div>
+    <!-- <div>
         <ClozeQuestions />
+    </div> -->
+    <div>
+        <EssayQuestions />
     </div>
 </template>
 

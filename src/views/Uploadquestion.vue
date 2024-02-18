@@ -52,7 +52,7 @@ const selectedTab = ref('mcq');
 
 onMounted(() => {
     if (!users.user.isAcademicCommittee) {
-        router.push('/dashboard');
+        router.push('/not-allowed');
     }
 });
 </script>

@@ -13,6 +13,6 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 function redirectToDashboard() {
-  router.push('/dashboard'); // Replace '/dashboard' with actual route path
+  router.push('/dashboard');
 }
 </script>

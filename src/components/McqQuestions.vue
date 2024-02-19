@@ -5,7 +5,7 @@
       <div class="mb-4">
         <label for="level" class="block text-sm font-medium text-gray-700">Select Level:</label>
         <select v-model="selectedLevel" id="level"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           <option value="100L">100L</option>
           <option value="200L">200L</option>
           <option value="300L">300L</option>
@@ -17,22 +17,21 @@
       <div class="mb-4">
         <label for="coursecode" class="block text-sm font-medium text-gray-700">Select Course:</label>
         <select v-model="selectedCourse" id="coursecode"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           <option v-for="course in courses" :value="course.coursecode">{{ course.coursecode }}: {{ course.coursetitle }}
           </option>
         </select>
       </div>
       <div class="mb-4">
         <label for="question" class="block text-sm font-medium text-gray-700">Enter Question:</label>
-        <textarea v-model="question" id="question" rows="4" :class="{ 'border-red-500': errors.question }"
-          @input="validateQuestion"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
-        <p v-if="errors.question" class="text-red-500 text-xs mt-1">Question is required</p>
+        <textarea v-model="question" id="question" rows="4" :class="{ 'border-red-500': errors.question }" required
+          minlength="2"
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
       </div>
-      <div v-for="(option, index) in options" :key="index" class="mb-4">
+      <div v-for="(option, index) in options" :key="index" class="mb-4 ">
         <label :for="'option' + index" class="block text-sm font-medium text-gray-700">Option {{ index + 1 }}:</label>
         <input v-model="options[index]" :id="'option' + index" type="text"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <button v-if="index > 1" @click.prevent="removeOption(index)" type="button"
           class="text-red-500 text-sm mt-1">Remove Option</button>
       </div>
@@ -54,7 +53,7 @@
       <div v-if="showImageInput" class="mb-4">
         <label for="image" class="block text-sm font-medium text-gray-700">Upload Image:</label>
         <input type="file" @change="handleImageUpload" id="image"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <img :src="imgURL" class="w-64" />
         <p class="text-sm text-gray-600" m-2>{{ imgURL }}</p>
         <p v-if="successCloudinaryMessage" class="text-green-500 text-xs mt-1">{{ successCloudinaryMessage }}</p>
@@ -62,21 +61,18 @@
       </div>
       <div class="mb-4">
         <label for="year" class="block text-sm font-medium text-gray-700">Year:</label>
-        <input v-model="year" id="year" type="text" :class="{ 'border-red-500': errors.year }" @input="validateYear"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <p v-if="errors.year" class="text-red-500 text-xs mt-1">Year is required</p>
+        <input v-model="year" id="year" type="text" :class="{ 'border-red-500': errors.year }"
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
       </div>
       <div class="mb-4">
         <label for="lecturer" class="block text-sm font-medium text-gray-700">Lecturer:</label>
         <input v-model="lecturer" id="lecturer" type="text" :class="{ 'border-red-500': errors.lecturer }"
-          @input="validateLecturer"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <p v-if="errors.lecturer" class="text-red-500 text-xs mt-1">Lecturer is required</p>
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
       </div>
       <div class="mb-4">
         <label for="tags" class="block text-sm font-medium text-gray-700">Tags:</label>
         <input v-model="tags" id="tags" type="text"
-          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <p class="text-xs text-gray-500">Separate tags by comma (,)</p>
       </div>
       <button type="submit" @click.prevent="handleSubmit"
@@ -116,30 +112,9 @@ const successCloudinaryMessage = ref(null);
 const errorMessageCloudinary = ref(null);
 
 const errors = reactive({
-  question: true,
-  year: true,
-  lecturer: true,
-  options: [],
+  options: []
 });
 
-
-const validateQuestion = () => {
-  errors.question = !question.value.trim();
-
-};
-
-const validateYear = () => {
-  errors.year = !year.value.trim();
-};
-
-const validateLecturer = () => {
-  errors.lecturer = !lecturer.value.trim();
-};
-
-const validateOption = (index) => {
-  errors.options[index] = !options.value[index].trim();
-  console.log(errors.options[index]);
-};
 
 // Function to add more options
 const addOption = () => {
@@ -210,8 +185,25 @@ const uploadToCloudinary = async () => {
 
 const handleImageUpload = (event) => {
   imageFile.value = event.target.files[0];
-  console.log(imageFile.value);
-  uploadToCloudinary();
+  let imageSize = imageFile.value.size / 1024;
+  let imageType = imageFile.value.type;
+  if (imageSize > 500) {
+    errorMessageCloudinary.value = 'Image size must not exceed 500kb';
+    imageFile.value = null;
+    setTimeout(() => {
+      errorMessageCloudinary.value = null;
+    }, 5000);
+    return;
+  } else if (imageType !== 'image/jpeg' && imageType !== 'image/png' && imageType !== 'image/jpg' && imageType !== 'image/gif' && imageType !== 'image/svg' && imageType !== 'image/webp' && imageType !== 'image/tiff' && imageType !== 'image/bmp' && imageType !== 'image/ico' && imageType !== 'image/raw' && imageType !== 'image/psd' && imageType !== 'image/heif' && imageType !== 'image/heic' && imageType !== 'image/avif' && imageType !== 'image/jfif' && imageType !== 'image/jp2' && imageType !== 'image/jpx' && imageType !== 'image/jpm' && imageType !== 'image/jxr' && imageType !== 'image/jxl' && imageType !== 'image/bpg' && imageType !== 'image/cgm' && imageType !== 'image/iep' && imageType !== 'image/iepm' && imageType !== 'image/iepb' && imageType !== 'image/ico') {
+    errorMessageCloudinary.value = 'File must be an image';
+    imageFile.value = null;
+    setTimeout(() => {
+      errorMessageCloudinary.value = null;
+    }, 5000);
+    return;
+  } else {
+    uploadToCloudinary();
+  }
 }
 
 const resetForm = () => {
@@ -236,15 +228,6 @@ const resetForm = () => {
 
 const handleSubmit = async () => {
   try {
-    // Validate form fields
-    // validateQuestion();
-    // validateYear();
-    // validateLecturer();
-    // Validate options
-    // options.value.forEach((option, index) => validateOption(index));
-    // if (hasErrors.value || !hasCorrectOption.value) {
-    //   return;
-    // }
     // Use axios to post data to API endpoint
     const token = localStorage.getItem('studentToken');
     await axios.post('http://localhost:8800/api/v1/mcq/createmcqs', {

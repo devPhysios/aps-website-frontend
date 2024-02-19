@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useUserStore } from "@/stores/UserStore";
+import axios from "axios";
 
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
@@ -11,6 +12,7 @@ import UpdateSecurity from "../views/Updatesecurity.vue";
 import Login from "../views/Login.vue";
 import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
+import ViewQuestion from "@/views/Viewquestion.vue";
 
 const routes = [
   {
@@ -30,7 +32,6 @@ const routes = [
     name: "GalleryPage",
     component: Gallery,
   },
-
   {
     path: "/alumni",
     name: "AlumniPage",
@@ -68,6 +69,21 @@ const routes = [
     }
   },
   {
+    path: "/questions/mcq/:id",
+    name: "ViewQuestionPage",
+    component: ViewQuestion,
+    props: true,
+    beforeEnter: async(to, from, next) => {
+      try {
+        // Fetch data from the server
+        await fetchData(to.params.id);
+        next();
+      } catch (error) {
+        next({ name: "NotFound" });
+      }
+    }
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: NotFound
@@ -101,5 +117,13 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+const fetchData = async (id) => {
+  try {
+    const response = await axios.get(`http://localhost:3000/questions/${id}`);
+    return response.data;
+  } catch (error) {
+    router.next({ name: "NotFound" })
+  }
+};
 
 export default router;

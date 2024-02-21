@@ -10,13 +10,13 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    <RouterLink to="#" class="focus:outline-none">
+                    <RouterLink to="/profile" class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Account Settings
+                        Account Information
                     </RouterLink>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Do so so so and so to your account bloody undergraduate.
+                    View Your Full Profile Information.
                 </p>
             </div>
             <span class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -37,11 +37,11 @@
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
                     <RouterLink to="#" class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Account Settings
+                        Question Bank
                     </RouterLink>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Do so so so and so to your account bloody undergraduate.
+                    Check out the question bank.
                 </p>
             </div>
             <span class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -62,11 +62,11 @@
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
                     <RouterLink to="#" class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Account Settings
+                        Constitution
                     </RouterLink>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Do so so so and so to your account bloody undergraduate.
+                    Get acquainted with the APS Constitution.
                 </p>
             </div>
             <span class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -87,11 +87,11 @@
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
                     <RouterLink to="#" class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Account Settings
+                        Orange Book
                     </RouterLink>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Do so so so and so to your account bloody undergraduate.
+                    Get Course Requirements and Information about every course.
                 </p>
             </div>
             <span class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">

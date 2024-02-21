@@ -13,6 +13,7 @@ import Login from "../views/Login.vue";
 import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
 import ViewQuestion from "@/views/Viewquestion.vue";
+import Profile from "@/views/Profile.vue";
 
 const routes = [
   {
@@ -85,6 +86,11 @@ const routes = [
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: NotFound,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile
   },
 ];
 

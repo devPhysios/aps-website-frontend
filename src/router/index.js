@@ -20,13 +20,11 @@ const routes = [
     name: "HomePage",
     component: Home,
   },
-
   {
     path: "/about",
     name: "AboutPage",
     component: About,
   },
-
   {
     path: "/gallery",
     name: "GalleryPage",
@@ -48,7 +46,7 @@ const routes = [
     component: Dashboard,
     meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: "/auth/updatesecurity",
@@ -64,16 +62,16 @@ const routes = [
     path: "/dashboard/uploadquestion",
     name: "UploadQuestionPage",
     component: Uploadquestion,
-    meta : {
+    meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: "/questions/mcq/:id",
     name: "ViewQuestionPage",
     component: ViewQuestion,
     props: true,
-    beforeEnter: async(to, from, next) => {
+    beforeEnter: async (to, from, next) => {
       try {
         // Fetch data from the server
         await fetchData(to.params.id);
@@ -81,12 +79,12 @@ const routes = [
       } catch (error) {
         next({ name: "NotFound" });
       }
-    }
+    },
   },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
-    component: NotFound
+    component: NotFound,
   },
 ];
 
@@ -108,8 +106,7 @@ router.beforeEach((to, from, next) => {
         name: "UpdateSecurityPage",
         query: { redirect: to.fullPath },
       });
-    }
-    else {
+    } else {
       next();
     }
   } else {
@@ -122,7 +119,7 @@ const fetchData = async (id) => {
     const response = await axios.get(`http://localhost:3000/questions/${id}`);
     return response.data;
   } catch (error) {
-    router.next({ name: "NotFound" })
+    router.next({ name: "NotFound" });
   }
 };
 

@@ -22,5 +22,14 @@ export const useUserStore = defineStore("UserStore", () => {
     }
   };
 
-  return { user, login, logout };
+  const save = (data) => {
+    try {
+      localStorage.setItem("user", JSON.stringify(data))
+      user.value = JSON.parse(localStorage.getItem("user"))
+    } catch (err) {
+      comsole.log(err)
+    }
+  }
+
+  return { user, login, logout, save };
 });

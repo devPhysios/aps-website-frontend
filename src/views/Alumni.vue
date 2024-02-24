@@ -20,18 +20,18 @@
             <p class="absolute z-20 top-0 left-[25%] font-alumni2 text-orange-500 text-4xl md:text-6xl lg:text-9xl xl:text-[200px] -rotate-12 drop-shadow-md">Our</p>
           </div>
           <div class=" w-full h-[68px] md:h-[134px] lg:h-[200px] xl:h-[238px] bg-red-400 rounded-md">
-            <img class="w-full h-full object-cover rounded-md" :src= "a1" />
+            <img class="w-full h-full object-cover rounded-md" :src= "a4" />
           </div>
           <div class=" w-full bg-red-400 rounded-md h-[120px] md:h-[280px]">
-            <img class="h-full w-full object-cover rounded-md" :src= "a3" />
+            <img class="h-full w-full object-cover rounded-md" :src= "a5" />
 
           </div>
           <div class="w-full h-[120px] md:h-[280px] bg-red-400 rounded-md">
-            <img class="h-full w-full object-cover rounded-md" :src= "a1" />
+            <img class="h-full w-full object-cover rounded-md" :src= "a6" />
 
           </div>
           <div class="w-full h-[120px] md:h-[280px] bg-red-400 rounded-md">
-            <img class="h-full w-full object-cover rounded-md" :src= "a2" />
+            <img class="h-full w-full object-cover rounded-md" :src= "a7" />
 
           </div>
         </div>
@@ -84,9 +84,13 @@
 </template>
 
 <script setup>
-    import a1 from '@/assets/images/DSC_0457.jpg'
-    import a2 from '@/assets/images/IMG_0848.jpg'
-    import a3 from '@/assets/images/IMG_0850.jpg'
+    import a1 from '@/assets/images/alumni/DSC_0457.jpg'
+    import a2 from '@/assets/images/alumni/IMG_7537.jpg'
+    import a3 from '@/assets/images/alumni/IMG_7539.jpg'
+    import a4 from '@/assets/images/alumni/IMG_7541 1.jpg'
+    import a5 from '@/assets/images/alumni/IMG_7544.jpg'
+    import a6 from '@/assets/images/alumni/IMG_7547.jpg'
+    import a7 from '@/assets/images/alumni/IMG_7548.jpg'
     import AlumniGalleryCarousel from '../components/AlumniGalleryCarousel.vue';
     import PastPresidents from '../components/PastPresidents.vue';
 </script>

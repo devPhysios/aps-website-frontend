@@ -59,23 +59,11 @@
         title: "Every Level",
         imgBg: 'src/assets/images/DSC_0450.jpg',
       },
-      
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0457.jpg',
-      },
-    
+
       {
         name: `Dinner Pictures`,
         title: "Every Level",
         imgBg: 'src/assets/images/DSC_0554.jpg',
-      },
-  
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0560.jpg',
       },
   
       {

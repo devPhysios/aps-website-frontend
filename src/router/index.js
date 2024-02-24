@@ -68,19 +68,19 @@ const routes = [
     },
   },
   {
-    path: "/questions/mcq/:id",
+    path: "/admin/questions/",
     name: "ViewQuestionPage",
     component: ViewQuestion,
-    props: true,
-    beforeEnter: async (to, from, next) => {
-      try {
-        // Fetch data from the server
-        await fetchData(to.params.id);
-        next();
-      } catch (error) {
-        next({ name: "NotFound" });
-      }
-    },
+    // props: true,
+    // beforeEnter: async (to, from, next) => {
+    //   try {
+    //     // Fetch data from the server
+    //     await fetchData(to.params.id);
+    //     next();
+    //   } catch (error) {
+    //     next({ name: "NotFound" });
+    //   }
+    // },
   },
   {
     path: "/:pathMatch(.*)*",

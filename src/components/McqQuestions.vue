@@ -210,7 +210,7 @@ const resetForm = () => {
   selectedLevel.value = '100L';
   selectedCourse.value = '';
   question.value = '';
-  correctOptions.value = '';
+  correctOptions.value = [];
   options.value = ['', ''];
   year.value = '';
   lecturer.value = '';

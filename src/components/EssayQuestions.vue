@@ -84,7 +84,7 @@ import Course400L from '../courses/400L.json';
 import Course500L from '../courses/500L.json';
 
 const selectedLevel = ref('100L');
-const imgURL = ref(null);
+const imgURL = ref('');
 const selectedCourse = ref('');
 const question = ref('');
 const answer = ref('');
@@ -192,9 +192,12 @@ const handleSubmit = async () => {
     try {
         // Use axios to post data to API endpoint
         const token = localStorage.getItem('studentToken');
+        if(answer.value===''){
+            answer.value='No answer yet'
+        }
         const response = await axios.post('http://localhost:8800/api/v1/essayqs/createessayqs', {
             question: question.value,
-            imgURL: imgURL.value || null,
+            imgURL: imgURL.value,
             answer: answer.value,
             courseCode: selectedCourse.value,
             level: selectedLevel.value,

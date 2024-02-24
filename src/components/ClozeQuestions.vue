@@ -79,7 +79,7 @@ import Course200L from '../courses/200L.json';
 import Course300L from '../courses/300L.json';
 import Course400L from '../courses/400L.json';
 import Course500L from '../courses/500L.json';
-import { image } from '@cloudinary/url-gen/qualifiers/source';
+
 
 const selectedLevel = ref('100L');
 const imgURL = ref(null);
@@ -190,9 +190,12 @@ const handleSubmit = async () => {
     try {
         // Use axios to post data to API endpoint
         const token = localStorage.getItem('studentToken');
+        if(answer.value===''){
+            answer.value='No answer yet'
+        }
         const response = await axios.post('http://localhost:8800/api/v1/fitg/createfitg', {
             question: question.value,
-            imgURL: imgURL.value || null,
+            imgURL: imgURL.value,
             answer: answer.value,
             courseCode: selectedCourse.value,
             level: selectedLevel.value,

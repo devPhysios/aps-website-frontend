@@ -27,7 +27,7 @@ export const useUserStore = defineStore("UserStore", () => {
       localStorage.setItem("user", JSON.stringify(data))
       user.value = JSON.parse(localStorage.getItem("user"))
     } catch (err) {
-      comsole.log(err)
+      console.log(err)
     }
   }
 

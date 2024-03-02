@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto flex flex-col items-center justify-center h-screen mb-4 mt-2">
+    <div class="container mx-auto flex flex-col items-center justify-center h-screen mb-4 mt-2 z-40">
         <div class="bg-white p-8 rounded-lg shadow-md sm:w-[700px]">
             <div class="h-[150px] md:pb-0 pb-4">
                 <img class="h-3/4 object-cover mx-auto" :src="apsLogo" />

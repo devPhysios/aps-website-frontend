@@ -18,7 +18,7 @@
                 <select v-model="selectedCourse" id="coursecode"
                     class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option v-for="course in courses" :value="course.coursecode">{{ course.coursecode }}: {{
-                    course.coursetitle }}</option>
+                        course.coursetitle }}</option>
                 </select>
             </div>
             <div class="mb-4">
@@ -212,7 +212,7 @@ const handleSubmit = async () => {
         if (answer.value === '') {
             answer.value = 'No answer yet'
         }
-        const response = await axios.post('https://aps-website-backend.onrender.com/api/v1/essayqs/createessayqs', {
+        const response = await axios.post('http://localhost:8800/api/v1/essayqs/createessayqs', {
             question: question.value,
             imgURL: imgURL.value,
             answer: answer.value,

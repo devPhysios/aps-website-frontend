@@ -18,7 +18,7 @@
                 <select v-model="selectedCourse" id="coursecode"
                     class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option v-for="course in courses" :value="course.coursecode">{{ course.coursecode }}: {{
-                        course.coursetitle }}</option>
+                    course.coursetitle }}</option>
                 </select>
             </div>
             <div class="mb-4">
@@ -42,7 +42,8 @@
                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 <img :src="imgURL" class="w-64" />
                 <p class="text-sm text-gray-600" m-2>{{ imgURL }}</p>
-                <p v-if="successCloudinaryMessage" class="text-green-500 text-xs mt-1">{{ successCloudinaryMessage }}</p>
+                <p v-if="successCloudinaryMessage" class="text-green-500 text-xs mt-1">{{ successCloudinaryMessage }}
+                </p>
                 <p v-if="errorMessageCloudinary" class="text-red-500 text-xs mt-1">{{ errorMessageCloudinary }}</p>
             </div>
             <div class="mb-4">
@@ -63,6 +64,19 @@
             </div>
             <button type="submit" @click.prevent="handleSubmit"
                 class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Submit</button>
+            <div v-if="isLoading" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                <div class="bg-white rounded-lg p-6 shadow-xl">
+                    <svg class="animate-spin h-10 w-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    <p class="text-center mt-3">Please wait...</p>
+                </div>
+            </div>
             <div>
                 <p v-if="successMessage" class="text-green-500 text-2xl mt-1">{{ successMessage }}</p>
                 <p v-if="errorMessage" class="text-red-500 text-2xl mt-1">{{ errorMessage }}</p>
@@ -70,9 +84,9 @@
         </div>
     </div>
 </template>
-  
+
 <script setup>
-import { ref, watch, reactive, computed } from 'vue';
+import { ref, watch } from 'vue';
 import axios from 'axios';
 import Course100L from '../courses/100L.json';
 import Course200L from '../courses/200L.json';
@@ -80,7 +94,7 @@ import Course300L from '../courses/300L.json';
 import Course400L from '../courses/400L.json';
 import Course500L from '../courses/500L.json';
 
-
+const isLoading = ref(false);
 const selectedLevel = ref('100L');
 const imgURL = ref(null);
 const selectedCourse = ref('');
@@ -129,9 +143,10 @@ loadCourses();
 watch(selectedLevel, loadCourses);
 
 const uploadToCloudinary = async () => {
+    isLoading.value = true;
     const formData = new FormData();
     formData.append('file', imageFile.value);
-    formData.append('upload_preset', 'jkg6h2bu'); // Create an upload preset in Cloudinary
+    formData.append('upload_preset', 'jkg6h2bu');
     try {
         const response = await axios.post(
             `https://api.cloudinary.com/v1_1/dp4sbuifi/image/upload`,
@@ -141,14 +156,17 @@ const uploadToCloudinary = async () => {
                 transformations: 'w_400,h_400,c_fill'
             }
         );
+        isLoading.value = false;
         imgURL.value = response.data.secure_url;
         successCloudinaryMessage.value = 'Image uploaded successfully';
     } catch (error) {
+        isLoading.value = false;
         errorMessageCloudinary.value = error.response.data.message;
     }
 };
 
 const resetForm = () => {
+    isLoading.value = false;
     selectedLevel.value = '100L';
     selectedCourse.value = '';
     question.value = '';
@@ -187,13 +205,13 @@ const handleImageUpload = (event) => {
 }
 
 const handleSubmit = async () => {
+    isLoading.value = true;
     try {
-        // Use axios to post data to API endpoint
         const token = localStorage.getItem('studentToken');
-        if(answer.value===''){
-            answer.value='No answer yet'
+        if (answer.value === '') {
+            answer.value = 'No answer yet'
         }
-        const response = await axios.post('http://localhost:8800/api/v1/fitg/createfitg', {
+        const response = await axios.post('https://aps-website-backend.onrender.com/api/v1/fitg/createfitg', {
             question: question.value,
             imgURL: imgURL.value,
             answer: answer.value,
@@ -209,13 +227,14 @@ const handleSubmit = async () => {
                 },
             }
         );
-        // Display success message
+        isLoading.value = false;
         successMessage.value = response.data.message || 'Question uploaded successfully';
         resetForm();
         setTimeout(() => {
             successMessage.value = null;
         }, 5000);
     } catch (error) {
+        isLoading.value = false;
         errorMessage.value = error.response.data.message || 'An error occurred';
         setTimeout(() => {
             errorMessage.value = null;
@@ -223,8 +242,7 @@ const handleSubmit = async () => {
     }
 };
 </script>
-  
+
 <style>
 /* No need to add additional styles, Tailwind CSS classes used inline */
 </style>
-  

@@ -122,7 +122,7 @@ router.beforeEach((to, from, next) => {
 
 const fetchData = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:3000/questions/${id}`);
+    const response = await axios.get(`http://localhost:8800/questions/${id}`);
     return response.data;
   } catch (error) {
     router.next({ name: "NotFound" });

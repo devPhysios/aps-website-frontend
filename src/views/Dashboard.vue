@@ -1,16 +1,9 @@
 <template>
     <section class="flex w-full h-[80vh] bg-gray-50 md:pb-0" v-if="store.user">
-        <div v-if="sideMenuOpen" @click="openSideMenu"
-            class="custom-transition fixed inset-0 bg-gray-500 z-10 opacity-60 md:hidden"></div>
-        <DashBoardSideMenu :sideMenu="sideMenuOpen" @handleEmit="openSideMenu" />
+        <DashBoardSideMenu />
         <!-- <main class="h-full w-full overflow-y-auto"> -->
             <div class="px-8 mx-auto w-full h-full md:w-[70%] overflow-y-auto">
                 <div class="flex justify-between items-center mt-2 p-px md:p-px">
-                    <!-- <span @click="openSideMenu"
-                        class="cursor pointer text-4xl text-aps-green hover:text-yellow-600 md:hidden">
-                        <i class="bi bi-filter-left"></i>
-                    </span> -->
-
                     <h2 class="my-4 font-semibold text-aps-green">
                         Student's Dashboard
                     </h2>

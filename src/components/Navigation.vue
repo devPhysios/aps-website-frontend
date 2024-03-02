@@ -22,10 +22,13 @@
         <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white">
           <a href="https://physiopressui.wordpress.com/home/" target="_blank">PhysioPress</a>
         </li>
+        <li class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white">
+          <a href="https://christnestteens.com/physioray/" target="_blank">PhysioRay</a>
+        </li>
       </div>
     </ul>
     <button @click="directToDashboard"
-      class="md:static absolute z-40 bg-aps-orange top-80 duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
+      class="md:static absolute z-40 bg-aps-orange top-[366px] duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
       :class="[open ? 'left-0' : 'left-[-100%]']">
       <span class="text-white cursor pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10">
         <i class="bi bi-person-circle" @click="menuOpen"></i>

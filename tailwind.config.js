@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     fontFamily: {
-      display: ['Raleway, sans-serif']
+      display: ['Raleway, sans-serif'],
+      alumni: ['Playfair Display', 'serif'],
+      alumni2: ['Pacifico', 'cursive'],
     },
     extend: {
       colors: {

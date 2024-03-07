@@ -1,8 +1,8 @@
 <template>
-    <section class="flex w-full h-[80vh] bg-gray-50 md:pb-0" v-if="store.user">
+    <section class="flex w-full h-[80vh] bg-gray-50 md:h-[69.6vh]" v-if="store.user">
         <DashBoardSideMenu />
         <!-- <main class="h-full w-full overflow-y-auto"> -->
-            <div class="px-8 mx-auto w-full h-full md:w-[70%] overflow-y-auto">
+            <div class="w-[80%] overflow-y-auto mx-4 h-full pl-4 pt-4 bg-gray-50 md:w-[70%] md:h-full pb-3 md:pb-8 md:px-4 md:pl-8">
                 <div class="flex justify-between items-center mt-2 p-px md:p-px">
                     <h2 class="my-4 font-semibold text-aps-green">
                         Student's Dashboard

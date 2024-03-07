@@ -1,5 +1,5 @@
 <template>
-    <div class="grid gap-3 sm:divide-aps-green overflow-hidden rounded-lg sm:bg-gray-200 md:shadow md:grid md:grid-cols-2 md:gap-px md:divide-y-0">
+    <div class="grid gap-3 sm:divide-aps-green overflow-hidden rounded-lg md:bg-gray-200 md:shadow md:grid md:grid-cols-2 md:gap-px md:divide-y-0">
         <div class="shadow rounded rounded-tl-lg rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
             <div>
                 <span class="inline-flex rounded-lg p-3 bg-teal-50 text-teal-700 ring-white">

@@ -7,7 +7,6 @@
                     <h2 class="my-4 font-semibold text-aps-green">
                         Student's Dashboard
                     </h2>
-
                     <button @click="handleLogout"
                         class="custom-transition text-red-500 font-bold hover:text-red-700 px-4 py-2 rounded-lg hover:border-red-500">Log
                         Out</button>

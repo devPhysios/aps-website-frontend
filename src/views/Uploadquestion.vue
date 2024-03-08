@@ -15,7 +15,7 @@
         <!-- Essay Question Component -->
         <transition name="fade">
             <div v-if="selectedTab === 'essay'" class="question-container">
-                <h2 class="question-title">Essay Questions</h2>
+                <h2 class="question-title text-center">Essay Questions</h2>
                 <EssayQuestions />
             </div>
         </transition>
@@ -23,7 +23,7 @@
         <!-- Cloze Question Component -->
         <transition name="fade">
             <div v-if="selectedTab === 'cloze'" class="question-container">
-                <h2 class="question-title">Cloze Questions</h2>
+                <h2 class="question-title text-center">Cloze Questions</h2>
                 <ClozeQuestions />
             </div>
         </transition>
@@ -31,7 +31,7 @@
         <!-- MCQ Question Component -->
         <transition name="fade">
             <div v-if="selectedTab === 'mcq'" class="question-container">
-                <h2 class="question-title">Multiple Choice Questions</h2>
+                <h2 class="question-title text-center">Multiple Choice Questions</h2>
                 <McqQuestions />
             </div>
         </transition>

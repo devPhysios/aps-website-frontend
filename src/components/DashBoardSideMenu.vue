@@ -34,7 +34,7 @@
             </RouterLink>
             <!-- Third One & Fourth One -->
             <div v-if="store.user.isAcademicCommittee">
-                <RouterLink to="/#">
+                <RouterLink to="/dashboard/uploadquestion">
                     <div class="sidemenu__items">
                         <span class="text-[12px] md:text-[20px]">
                             <i class="bi bi-patch-question"></i>

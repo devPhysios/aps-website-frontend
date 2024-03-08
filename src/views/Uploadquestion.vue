@@ -2,22 +2,21 @@
     <div class="container mx-auto p-6">
         <!-- Tab Buttons -->
         <div class="flex mb-4 justify-center space-x-4">
-            <button class="tab-btn" @click="selectedTab = 'mcq'" :class="{ 'active-tab': selectedTab === 'mcq' }">
-                MCQ
+            <button class="tab-btn" @click="selectedTab = 'essay'" :class="{ 'active-tab': selectedTab === 'essay' }">
+                Essay
             </button>
             <button class="tab-btn" @click="selectedTab = 'cloze'" :class="{ 'active-tab': selectedTab === 'cloze' }">
                 Cloze (Fill in the blanks)
             </button>
-            <button class="tab-btn" @click="selectedTab = 'essay'" :class="{ 'active-tab': selectedTab === 'essay' }">
-                Essay
+            <button class="tab-btn" @click="selectedTab = 'mcq'" :class="{ 'active-tab': selectedTab === 'mcq' }">
+                MCQ
             </button>
         </div>
-
-        <!-- MCQ Question Component -->
+        <!-- Essay Question Component -->
         <transition name="fade">
-            <div v-if="selectedTab === 'mcq'" class="question-container">
-                <h2 class="question-title">Multiple Choice Questions</h2>
-                <McqQuestions />
+            <div v-if="selectedTab === 'essay'" class="question-container">
+                <h2 class="question-title">Essay Questions</h2>
+                <EssayQuestions />
             </div>
         </transition>
 
@@ -29,16 +28,16 @@
             </div>
         </transition>
 
-        <!-- Essay Question Component -->
+        <!-- MCQ Question Component -->
         <transition name="fade">
-            <div v-if="selectedTab === 'essay'" class="question-container">
-                <h2 class="question-title">Essay Questions</h2>
-                <EssayQuestions />
+            <div v-if="selectedTab === 'mcq'" class="question-container">
+                <h2 class="question-title">Multiple Choice Questions</h2>
+                <McqQuestions />
             </div>
         </transition>
     </div>
 </template>
-  
+
 <script setup>
 import McqQuestions from '@/components/McqQuestions.vue';
 import ClozeQuestions from '@/components/ClozeQuestions.vue';
@@ -48,7 +47,7 @@ import router from '@/router';
 import { onMounted, ref } from 'vue';
 
 const users = useUserStore();
-const selectedTab = ref('mcq');
+const selectedTab = ref('essay');
 
 onMounted(() => {
     if (!users.user.isAcademicCommittee) {
@@ -56,7 +55,7 @@ onMounted(() => {
     }
 });
 </script>
-  
+
 <style scoped>
 .tab-btn {
     padding: 10px 20px;
@@ -113,4 +112,3 @@ onMounted(() => {
     }
 }
 </style>
-  

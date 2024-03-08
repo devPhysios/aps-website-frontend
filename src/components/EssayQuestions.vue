@@ -1,11 +1,12 @@
 <template>
-    <div class="container mx-auto py-8">
+    <form @submit.prevent="handleSubmit" class="container mx-auto py-8">
         <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-semibold mb-4">Upload Essay Question</h2>
             <div class="mb-4">
                 <label for="level" class="block text-sm font-medium text-gray-700">Select Level:</label>
                 <select v-model="selectedLevel" id="level"
-                    class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    required>
                     <option value="100L">100L</option>
                     <option value="200L">200L</option>
                     <option value="300L">300L</option>
@@ -16,9 +17,10 @@
             <div class="mb-4">
                 <label for="coursecode" class="block text-sm font-medium text-gray-700">Select Course:</label>
                 <select v-model="selectedCourse" id="coursecode"
-                    class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    required>
                     <option v-for="course in courses" :value="course.coursecode">{{ course.coursecode }}: {{
-                        course.coursetitle }}</option>
+        course.coursetitle }}</option>
                 </select>
             </div>
             <div class="mb-4">
@@ -31,7 +33,6 @@
                 <input v-model="answer" id="answer" type="text"
                     class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             </div>
-            <!-- Add button for adding image -->
             <div class="mb-4">
                 <button @click="addImage" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600">Add
                     Image</button>
@@ -62,10 +63,10 @@
                     class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 <p class="text-xs text-gray-500">Separate tags by comma (,)</p>
             </div>
-            <button type="submit" @click.prevent="handleSubmit"
+            <button type="submit"
                 class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Submit</button>
             <div v-if="isLoading" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
-                <div class="bg-white rounded-lg p-6 shadow-xl">
+                <div class="bg-white rounded-lg p-6 shadow-xl flex items-center justify-center">
                     <svg class="animate-spin h-10 w-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
@@ -82,7 +83,7 @@
                 <p v-if="errorMessage" class="text-red-500 text-2xl mt-1">{{ errorMessage }}</p>
             </div>
         </div>
-    </div>
+    </form>
 </template>
 
 <script setup>

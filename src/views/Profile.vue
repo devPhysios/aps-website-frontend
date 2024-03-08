@@ -1,90 +1,27 @@
 <template>
-    <section class="flex">
+    <section class="flex w-full min-h-full bg-gray-50 md:min-h-full">
         <DashBoardSideMenu />
-        <div class="w-full mx-auto h-full pt-4 pl-4 bg-gray-50">
-            <h2 class="text-aps-green font-bold text-xl">Profile Information</h2>
-            <div class="shadow py-4 px-4 max-w-[500px] mx-auto">
+        <div class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6">
+            <h2 class="text-aps-green font-bold text-lg pb-4">Profile Information</h2>
+            <div class="shadow py-4 px-4 max-w-[500px] mx-auto md:mx-4">
                 <div class="mb-4">
                     <div class="flex items-center justify-between">
                         <h3 class="mb-2 font-bold text-lg text-gray-500">
                             Personal Information
                         </h3>
                         <button
-                            class="text-blue-400 text-md font-semibold"
-                            @click="editMode = !editMode"
+                            class="text-md font-semibold"
+                            :class="editMode ? 'text-gray-400 cursor-not-allowed' : 'text-blue-500 cursor-pointer'"
+                            @click="editMode = true"
+                            :disabled="editMode"
                         >
-                            {{ !editMode ? "Open Edit" : "Close Edit" }}
+                            Edit
                         </button>
                     </div>
-                    <!-- First Parameter -->
-                    <div class="mb-px">
-                        <label class="font-bold text-[13px] text-gray-400">
-                            Full Name
-                        </label>
-                        <div class="flex gap-2 items-center border border-gray-100">
-                            <span class="text-gray-400 border border-gray-100 px-2">
-                                <i class="bi bi-person text-2xl"></i>
-                            </span>
-                            <div class="text-gray-400 font-semibold">{{ fullName }}</div>
-                        </div>
-                    </div>
-                    <!-- Second Parameter -->
-                    <div class="mb-px">
-                        <label class="font-bold text-[13px] text-gray-400">
-                            Matric Number
-                        </label>
-                        <div class="flex gap-2 items-center border border-gray-100">
-                            <span class="text-gray-400 border border-gray-100 px-2">
-                                <i class="bi bi-person-vcard text-2xl"></i>
-                            </span>
-                            <div class="text-gray-400 font-semibold">{{ store.user.matricNumber }}</div>
-                        </div>
-                    </div>
-                    <div class="mb-px">
-                        <label class="font-bold text-[13px] text-gray-400">
-                            Program
-                        </label>
-                        <div class="flex gap-2 items-center border border-gray-100">
-                            <span class="text-gray-400 border border-gray-100 px-2">
-                                <i class="bi bi-award text-2xl"></i>
-                            </span>
-                            <div class="text-gray-400 font-semibold">{{ store.user.program }}</div>
-                        </div>
-                    </div>
-                    <!-- Third Parameter -->
-                    <div class="flex gap-[20px]">
-                        <div class="mb-px w-1/2">
-                            <label class="font-bold text-[13px] text-gray-400">
-                                Level
-                            </label>
-                            <div class="flex gap-2 items-center border border-gray-100">
-                                <span class="text-gray-400 border border-gray-100 px-2">
-                                    <i class="bi bi-bar-chart-steps text-2xl"></i>
-                                </span>
-                                <div class="text-gray-400 font-semibold">{{ store.user.level }}</div>
-                            </div>
-                        </div>
+                    <!-- Non-editable Parameters -->
+                    <ProfileInformation />
 
-                        <div class="mb-px w-1/2">
-                            <label class="font-bold text-[13px] text-gray-400">
-                                Set
-                            </label>
-                            <div class="flex gap-2 items-center border border-gray-100">
-                                <span class="text-gray-400 border border-gray-100 px-2">
-                                    <i class="bi bi-people text-2xl"></i>
-                                </span>
-                                <input
-                                type="text"
-                                class="font-semibold border-0 w-full focus:outline-0 bg-transparent"
-                                :class="editMode ? 'text-gray-400' : 'text-gray-300'"
-                                placeholder="Class Set e.g., 2k23"
-                                :readonly="!editMode"
-                                v-model="classSet"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fourth Parameter -->
+                    <!-- First Parameter -->
                     <div class="mb-px">
                         <label class="font-bold text-[13px] text-gray-400">
                             Email
@@ -96,14 +33,14 @@
                             <input
                                 type="email"
                                 class="font-semibold border-0 w-full focus:outline-0"
-                                :class="editMode ? 'text-gray-400' : 'text-gray-300'"
+                                :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                 placeholder="No email address"
                                 :readonly="!editMode"
                                 v-model="emailAddress"
                             />
                         </div>
                     </div>
-                    <!-- Fifth Parameter -->
+                    <!-- Second Parameter -->
                     <div class="mb-px">
                         <label class="font-bold text-[13px] text-gray-400">
                             Hall of Residence
@@ -115,14 +52,14 @@
                             <input
                                 type="text"
                                 class="font-semibold border-0 w-full focus:outline-0"
-                                :class="editMode ? 'text-gray-400' : 'text-gray-300'"
+                                :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                 placeholder="Hall Of Residence"
                                 :readonly="!editMode"
                                 v-model="hallOfResidence"
                             />
                         </div>
                     </div>
-                    <!-- Sixth Parameter -->
+                    <!-- Third Parameter -->
                     <div class="mb-px">
                         <label class="font-bold text-[13px] text-gray-400">
                             Room Number
@@ -134,14 +71,14 @@
                             <input
                                 type="text"
                                 class="font-semibold border-0 focus:outline-0 w-full"
-                                :class="editMode ? 'text-gray-400' : 'text-gray-300'"
+                                :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                 placeholder="Room Number e.g., A22"
                                 :readonly="!editMode"
                                 v-model="roomNumber"
                             />
                         </div>
                     </div>
-                    <!-- Seventh Parameter -->
+                    <!-- Fourth Parameter -->
                     <div class="mb-px">
                         <label class="font-bold text-[13px] text-gray-400">
                             Sex
@@ -154,7 +91,7 @@
                                 v-model="selectedOption"
                                 :disabled="!editMode"
                                 class="w-full focus:outline-0 font-semibold"
-                                :class="editMode ? 'text-gray-400' : 'text-gray-300'"
+                                :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                             >
                                 <option value="gender">Sex</option>
                                 <option value="male">Male</option>
@@ -163,7 +100,7 @@
                             </select>
                         </div>
                     </div>
-                    <!-- Eighth Parameter -->
+                    <!-- Fifth Parameter -->
                     <div class="mb-px">
                         <label class="font-bold text-[13px] text-gray-400">
                             Date Of Birth
@@ -177,7 +114,7 @@
                                     type="number"
                                     :readonly="!editMode"
                                     class="font-semibold border-0 focus:outline-0 w-[50px] text-center"
-                                    :class="editMode ? 'text-gray-400' : 'text-gray-300'"
+                                    :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                     v-model="month"
                                     maxlength="2"
                                     placeholder="mm"
@@ -187,7 +124,7 @@
                                     type="number"
                                     :readonly="!editMode"
                                     class="w-[50px] font-semibold border-0 focus:outline-0 text-center"
-                                    :class="editMode ? 'text-gray-400' : 'text-gray-300'"
+                                    :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                     v-model="day"
                                     maxlength="2"
                                     placeholder="dd"
@@ -208,53 +145,7 @@
                 <hr>
 
                 <div class="my-4">
-                    <h3 class="mb-2 font-bold text-lg text-gray-500">
-                            Administrative Information
-                    </h3>
-                    <!-- First Parameter -->
-                    <div class="mb-2 pl-4">
-                        <h4 class="font-bold text-[16px] text-gray-400">
-                            Executive Member: 
-                            <span class="font-medium text-[14px]">
-                                {{ store.user.isExecutive ? "Member" : "Not a Member" }}
-                            </span>
-                        </h4>
-                    </div>
-                    <!-- Second Parameter -->
-                    <div class="mb-2 pl-4">
-                        <h4 class="font-bold text-[16px] text-gray-400">
-                            Academic Committee: 
-                            <span class="font-medium text-[14px]">
-                                {{ store.user.isAcademicCommittee ? "Member" : "Not a Member" }}
-                            </span>
-                        </h4>
-                    </div>
-                    <!-- Third Parameter -->
-                    <div class="mb-2 pl-4">
-                        <h4 class="font-bold text-[16px] text-gray-400">
-                            Senate Member: 
-                            <span class="font-medium text-[14px]">
-                                {{ store.user.isSenator ? "Member" : "Not a Member" }}
-                            </span>
-                        </h4>
-                    </div>
-                    <!-- Fourth Parameter -->
-                    <div class="mb-2 pl-4">
-                        <h4 class="font-bold text-[16px] text-gray-400">
-                            Alumnus: 
-                            <span class="font-medium text-[14px]">
-                                {{ store.user.isAlumni ? "An Alumnus" : "Not an Alumnus" }}
-                            </span>
-                        </h4>
-                    </div>
-                    <!-- Fifth Parameter -->
-                    <div class="mb-2 pl-4">
-                        <h4 class="font-bold text-[16px] text-gray-400">
-                            Post(s): 
-                            <span class="font-medium text-[14px]" v-if="store.user.post.length === 0">None</span>
-                            <span class="font-medium text-[14px]" v-else v-for="(p,index) in store.user.post" :key="index">{{ p }}</span>
-                        </h4>
-                    </div>
+                    <AdministrativeRoles />
                 </div>
             </div>
         </div>
@@ -265,13 +156,12 @@
 import { useUserStore } from '@/stores/UserStore'
 import { saveData } from '@/utils/useSaveData'
 import { ref } from 'vue'
-import capitalize from '@/utils/capitalize'
 
 import DashBoardSideMenu from '@/components/DashBoardSideMenu.vue'
+import AdministrativeRoles from '@/components/AdministrativeRoles.vue'
+import ProfileInformation from '@/components/ProfileInformation.vue'
 
 const store = useUserStore()
-
-const fullName = ref(`${ store.user.lastName.toUpperCase() }, ${ capitalize(store.user.firstName) } ${ capitalize(store.user.middleName) }`)
 
 const editMode = ref(false)
 const emailAddress = ref(store.user.email || null)
@@ -280,7 +170,6 @@ const roomNumber = ref(store.user.roomNo || null)
 const selectedOption = ref(store.user.gender || "gender")
 const month = ref(store.user.monthOfBirth || null)
 const day = ref(store.user.dayOfBirth || null)
-const classSet = ref(store.user.classSet || null)
 
 const handleSubmit = async() => {
     const data = JSON.stringify({
@@ -290,7 +179,6 @@ const handleSubmit = async() => {
         roomNo: roomNumber.value,
         hallOfResidence: hallOfResidence.value,
         email: emailAddress.value,
-        classSet: classSet.value
     })
 
     const { jsonData } = await saveData(store.user.id, data)

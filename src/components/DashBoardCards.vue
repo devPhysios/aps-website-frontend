@@ -60,7 +60,7 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    <RouterLink to="#" class="focus:outline-none">
+                    <RouterLink to="/constitution" class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Constitution
                     </RouterLink>

@@ -4,7 +4,7 @@
         <div class="md:flex ">
             <div class="flex-1 p-5">
                 <strong>
-                    <h1 class=" underline-green-500 text-white">
+                    <h1 class="underline-green-500 text-white">
                         Our Address</h1>
                 </strong>
                 <div class="flex items-center">
@@ -38,10 +38,14 @@
                 <div class="flex-1 p-5">
                     <div class="text-white">
                         <!-- <p> -->
-                        <ul class="list-none">
                             <strong>
                                 <h1>Quick Links </h1>
                             </strong>
+                            <div class="flex items-center">
+                                <div class="w-1/4 h-1 bg-green-400"></div>
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                            </div>
+                        <ul class="list-none">
                             <li>
                                 <RouterLink to="/">
                                     Home

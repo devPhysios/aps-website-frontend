@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto font-display">
         <table class="table-auto w-full">
             <thead>
                 <tr class="bg-gray-800 text-white">

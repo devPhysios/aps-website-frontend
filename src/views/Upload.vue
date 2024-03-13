@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto p-8">
+    <div class="container mx-auto p-8 font-display">
         <h1 class="text-2xl font-bold mb-4">Upload to Gallery</h1>
 
         <input type="file" @change="handleImageUpload" class="mb-4 border border-gray-400 p-2 w-full" />

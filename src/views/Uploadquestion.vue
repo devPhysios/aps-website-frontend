@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto p-6">
+    <div class="container mx-auto p-6 font-display">
         <!-- Tab Buttons -->
         <div class="flex mb-4 justify-center space-x-4">
             <button class="tab-btn" @click="selectedTab = 'essay'" :class="{ 'active-tab': selectedTab === 'essay' }">

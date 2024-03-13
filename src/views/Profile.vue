@@ -1,5 +1,5 @@
 <template>
-    <section class="flex w-full min-h-full bg-gray-50 md:min-h-full">
+    <section class="flex w-full min-h-full bg-gray-50 font-display md:min-h-full">
         <DashBoardSideMenu />
         <div class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6">
             <h2 class="text-aps-green font-bold text-lg pb-4">Profile Information</h2>
@@ -176,9 +176,9 @@ const handleSubmit = async() => {
         dayOfBirth: day.value,
         monthOfBirth: month.value,
         gender: selectedOption.value,
-        roomNo: roomNumber.value,
-        hallOfResidence: hallOfResidence.value,
-        email: emailAddress.value,
+        roomNo: roomNumber.value.toUpperCase(),
+        hallOfResidence: hallOfResidence.value.toUpperCase(),
+        email: emailAddress.value.toLowerCase(),
     })
 
     const { jsonData } = await saveData(store.user.id, data)

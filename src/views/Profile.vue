@@ -176,9 +176,9 @@ const handleSubmit = async() => {
         dayOfBirth: day.value,
         monthOfBirth: month.value,
         gender: selectedOption.value,
-        roomNo: roomNumber.value,
-        hallOfResidence: hallOfResidence.value,
-        email: emailAddress.value,
+        roomNo: roomNumber.value.toUpperCase(),
+        hallOfResidence: hallOfResidence.value.toUpperCase(),
+        email: emailAddress.value.toLowerCase(),
     })
 
     const { jsonData } = await saveData(store.user.id, data)

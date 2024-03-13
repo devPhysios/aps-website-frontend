@@ -14,6 +14,7 @@ import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
 import ViewQuestion from "@/views/Viewquestion.vue";
 import Profile from "@/views/Profile.vue";
+import Const from "@/views/Const.vue"
 
 const routes = [
   {
@@ -40,6 +41,11 @@ const routes = [
     path: "/upload",
     name: "UploadPage",
     component: Upload,
+  },
+  {
+    path: "/constitution",
+    name: "ConstitutionPage",
+    component: Const,
   },
   {
     path: "/dashboard",

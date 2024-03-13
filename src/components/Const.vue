@@ -12,7 +12,10 @@
               :key="index" class="text-center">
           <button class="carousel__item text-center bg-aps-orange rounded-2xl w-full p-4  font-semibold hover:bg-aps-green my-2" @click="slideTo(data.page - 1)">{{ data.name }}</button>
           </div>
-      
+
+          <div class="card flex justify-content-center">
+        <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    </div>
 
     <Carousel
       v-bind="settings"
@@ -56,6 +59,17 @@
   import { ref } from 'vue'
   import { Carousel, Slide, Pagination } from 'vue3-carousel'
   import 'vue3-carousel/dist/carousel.css'
+  import PrimeVue from 'primevue/config';
+  import Dropdown from 'primevue/dropdown';
+
+  const selectedCity = ref();
+  const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
   
   const carouselData = ref([
   { 

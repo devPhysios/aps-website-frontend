@@ -29,5 +29,5 @@
 </template>
 
 <script setup>
-    import APSLogo from "../assets/images/aps-logo.png"
+    import APSLogo from "@/assets/images/aps-logo.png"
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto flex flex-col items-center justify-center h-full" v-if="users.user">
+  <div class="font-display container mx-auto flex flex-col items-center justify-center h-full" v-if="users.user">
     <div class="bg-white p-8 rounded-md shadow-md sm:w-[500px] w-full">
       <h1 class="text-2xl font-bold mb-6">Welcome {{ userDetails.fullName }}</h1>
       <p class="mb-4">This is your first time logging in <i>or you just reset your password</i>, please update your security details.</p>

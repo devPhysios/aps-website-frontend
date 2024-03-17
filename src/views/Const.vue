@@ -10,20 +10,15 @@
 
     <!-- Dropdown list for section navigation -->
     <div class="text-center">
-      <select class="text-center bg-aps-orange rounded-2xl w-full p-4 font-semibold hover:bg-aps-green my-2" v-model="selectedSection" @change="navigateToSection">
+      <select class="text-center bg-aps-orange rounded-2xl w-full p-4 font-semibold hover:bg-aps-green my-2"
+        v-model="selectedSection" @change="navigateToSection">
         <option v-for="(data, index) in carouselData" :key="index" :value="index">{{ data.name }}</option>
       </select>
     </div>
 
     <!-- Carousel component -->
-    <Carousel
-      v-bind="settings"
-      :wrap-around="true"
-      :autoplay="0"
-      :pause-autoplay-on-hover="true"
-      :breakpoints="breakpoints"
-      v-model="currentSlide"
-    >
+    <Carousel v-bind="settings" :wrap-around="true" :autoplay="0" :pause-autoplay-on-hover="true"
+      :breakpoints="breakpoints" v-model="currentSlide">
       <!-- Slide content -->
       <Slide v-for="(item, index) in carouselData" :key="index" class="h-full p-4">
         <div class="w-full rounded-lg text-gray-950 text-xl bg-white">

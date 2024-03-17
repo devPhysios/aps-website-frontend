@@ -10,15 +10,20 @@
 
     <!-- Dropdown list for section navigation -->
     <div class="text-center">
-      <select class="text-center bg-aps-orange rounded-2xl w-full p-4 font-semibold hover:bg-aps-green my-2"
-        v-model="selectedSection" @change="navigateToSection">
+      <select class="text-center bg-aps-orange rounded-2xl w-full p-4 font-semibold hover:bg-aps-green my-2" v-model="selectedSection" @change="navigateToSection">
         <option v-for="(data, index) in carouselData" :key="index" :value="index">{{ data.name }}</option>
       </select>
     </div>
 
     <!-- Carousel component -->
-    <Carousel v-bind="settings" :wrap-around="true" :autoplay="0" :pause-autoplay-on-hover="true"
-      :breakpoints="breakpoints" v-model="currentSlide">
+    <Carousel
+      v-bind="settings"
+      :wrap-around="true"
+      :autoplay="0"
+      :pause-autoplay-on-hover="true"
+      :breakpoints="breakpoints"
+      v-model="currentSlide"
+    >
       <!-- Slide content -->
       <Slide v-for="(item, index) in carouselData" :key="index" class="h-full p-4">
         <div class="w-full rounded-lg text-gray-950 text-xl bg-white">
@@ -48,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
@@ -978,25 +983,19 @@ const carouselData = ref([
 const currentSlide = ref(0);
 const selectedSection = ref(0);
 
-// const slideTo = (val) => {
-//   carouselData.page = val
-//   currentSlide.value = val
-//   console.log(val);
-
-// };
-
-
 const settings = ref({
   itemsToShow: 1,
   itemsToScroll: 1,
   snapAlign: 'center',
 });
+
 const breakpoints = ref({
   768: {
     itemsToShow: 1,
     snapAlign: 'center',
   },
 });
+
 // Function to navigate to the selected section
 const navigateToSection = () => {
   currentSlide.value = selectedSection.value;
@@ -1007,6 +1006,11 @@ const slideTo = (val) => {
   selectedSection.value = val;
   currentSlide.value = val;
 };
+
+// Watch for changes in currentSlide and update selectedSection accordingly
+watch(currentSlide, (newValue) => {
+  selectedSection.value = newValue;
+});
 </script>
 
 <style scoped>

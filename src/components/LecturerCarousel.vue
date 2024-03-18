@@ -22,7 +22,7 @@
             class="w-full rounded-lg text-gray-950 text-xl bg-aps-orange "
           >
             <div class="h-[300px] w-full">
-              <img class="h-full w-full object-cover" :src= data.imgBg>
+              <img class="h-full w-full object-cover rounded-md" :src= data.imgBg>
             </div>
             <div class="m-1 p-1 md:m-3">
               <h3 class="md:text-lg text-[14px] font-semibold">{{ data.name}}</h3>
@@ -49,62 +49,68 @@
       {
         name: `Prof. Adesola C. Odole`,
         title: "Head of Department",
-        imgBg: 'src/assets/images/lecturers/lecturer1.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer1b.jpg',
       },
       
       {
         name: `Prof. Aderonke O. Akinpelu`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer7.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer7b.jpg',
+      },
+
+      {
+        name: `Prof. A.F Adeniyi`,
+        title: "",
+        imgBg: 'src/assets/images/lecturers/lecturer8B.png',
       },
     
       {
         name: `Prof. Babatunde O. Adegoke`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer3.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer3b.jpg',
       },
   
       {
         name: `Prof. O. Ayanniyi`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer9.png',
+        imgBg: 'src/assets/images/lecturers/lecturer9b.png',
       },
   
       {
         name: `Dr Olumide O. Dada`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer5.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer5b.jpg',
       },
   
       {
         name: `Dr Adeoluwa O. Jaiyesimi`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer6.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer6b.jpg',
       },
     
       {
         name: `Dr Margaret B. Fatudimu`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer4.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer4b.jpg',
       },
 
   
       {
         name: `Dr Omoyemi O. Ogwumike`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer2.jpg',
+        imgBg: 'src/assets/images/lecturers/lecturer2b.jpg',
       },
   
       {
         name: `Dr Ayodeji A. Fabunmi`,
         title: "",
-        imgBg: 'src/assets/images/lecturers/lecturer10.png',
+        imgBg: 'src/assets/images/lecturers/lecturer10b.png',
       },
   
       {
         name: `Dr Olubukola A. Olaleye`,
         title: " ",
-        imgBg: 'src/assets/images/lecturers/lecturer11.png',
+        imgBg: 'src/assets/images/lecturers/lecturer11b.png',
       },
   
       {

@@ -23,7 +23,7 @@
           class="w-full rounded-lg text-gray-950 text-xl bg-aps-orange "
         >
           <div class="h-[300px] w-full">
-            <img class="h-full w-full object-cover" :src= data.imgBg>
+            <img class="h-full w-full object-cover rounded-lg" :src= data.imgBg>
           </div>
           <div class="m-1 p-1 md:m-3">
             <h3 class="md:text-lg text-[14px] font-semibold">{{ data.name}}</h3>
@@ -50,79 +50,79 @@
     {
       name: `Elijah Inioluwa`,
       title: "President",
-      imgBg: 'src/assets/images/excos/exco1.jpg',
+      imgBg: 'src/assets/images/excos/exco1b.jpg',
     },
     
     {
       name: `Oyekan Oluwatobi`,
       title: "Vice President",
-      imgBg: 'src/assets/images/excos/exco2.png',
+      imgBg: 'src/assets/images/excos/exco2b.png',
     },
   
     {
       name: `Olajide Ayomide`,
       title: "General Secretary",
-      imgBg: 'src/assets/images/excos/exco3.jpg',
+      imgBg: 'src/assets/images/excos/exco3b.jpg',
     },
 
     {
       name: `Adeniran Happiness`,
       title: "Assistant General Secretary",
-      imgBg: 'src/assets/images/excos/exco4.jpg',
+      imgBg: 'src/assets/images/excos/exco4b.jpg',
     },
 
     {
       name: `Mustapha Ogo-Oluwa`,
       title: "Public Relations Officer",
-      imgBg: 'src/assets/images/excos/exco5.jpg',
+      imgBg: 'src/assets/images/excos/exco5b.jpg',
     },
 
     {
       name: `Awopegba Jonadab`,
       title: "Social Secretary",
-      imgBg: 'src/assets/images/excos/exco6.jpg',
+      imgBg: 'src/assets/images/excos/exco6b.jpg',
     },
   
     {
       name: `Akinwola Oluwasegun`,
       title: "Sports Secretary",
-      imgBg: 'src/assets/images/excos/exco7.jpg',
+      imgBg: 'src/assets/images/excos/exco7b.jpg',
     },
 
     {
       name: `Moshood Babatunde`,
       title: "Financial Secretary",
-      imgBg: 'src/assets/images/excos/exco8.jpg',
+      imgBg: 'src/assets/images/excos/exco8b.jpg',
     },
 
     {
       name: `Olanrewaju Timileyin`,
       title: "Treasurer",
-      imgBg: 'src/assets/images/excos/exco9.jpg',
+      imgBg: 'src/assets/images/excos/exco9b.jpg',
     },
 
     {
       name: `Adebayo Samuel`,
       title: "Special Duties Officer",
-      imgBg: 'src/assets/images/excos/exco10.jpg',
+      imgBg: 'src/assets/images/excos/exco10b.jpg',
     },
 
     {
       name: `Solomon Oluwatodimu`,
       title: "Senate President",
-      imgBg: 'src/assets/images/excos/exco11.jpg',
+      imgBg: 'src/assets/images/excos/exco11b.jpg',
     },
 
     {
       name: `Goodluck Omotayo`,
       title: "Deputy Senate President",
-      imgBg: 'src/assets/images/excos/exco12.jpg',
+      imgBg: 'src/assets/images/excos/exco12b.jpg',
     },
 
     {
       name: `Egun Jane`,
       title: "Senate Clerk",
-      imgBg: 'src/assets/images/excos/exco13.jpg',
+      imgBg: 'src/assets/images/excos/exco13b.jpg',
     },
   ])
 

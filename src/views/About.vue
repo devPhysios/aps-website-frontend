@@ -2,7 +2,7 @@
     <div class="font-display">
 <!-- This is the ABOUT US section beginning--->
         <div class="bg-gray-200 md:flex md:justify-between md:items-center gap-4 p-8">
-            <div class="md:w-3/4 pb-2 md:pb-0">
+            <div class="md:w-3/4 pb-2 md:pb-0 md:pr-4 lg:pr-24">
                 <p class="text-3xl font-extrabold text-center md:text-left mb-4">History</p>
                 <p class="md:text-left justify-normal text-justify">
                     Physiotherapy, also known as physical therapy, is a healthcare profession that focuses on optimizing human movement and function. It involves the assessment, diagnosis, and treatment of various physical conditions and injuries to enhance an individual's overall well-being.
@@ -18,8 +18,8 @@
 
                 </p>
             </div>
-            <div class="h-full md:w-3/4">
-                <img class="h-full w-full object-cover" :src= "apsBuilding1" />
+            <div class="h-full md:w-1/4">
+                <img class="h-full w-full md:w-[450px] object-cover" :src= "apsBuilding1" />
             </div>
         </div>
 <!-- This is the ABOUT US section end--->
@@ -58,8 +58,8 @@ therapy and the spark symbolizes electrotherapy.
                     <li>6. To organize activities that will harmonize the pre-clinical and clinical students.</li>
                 </ul>
             </div>
-            <div class="h-full md:w-3/4">
-                <img class="h-full w-full object-cover" :src= "apsBuilding2" />
+            <div class="h-full w-full md:w-1/4">
+                <img class="h-3/4 w-full md:w-[350px] object-cover" :src= "apsBuilding2" />
             </div>
         </div>
 <!-- This is the OUR AIMS section end--->

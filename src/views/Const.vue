@@ -1,4 +1,6 @@
 <template>
+  <SideDashboard />
+
   <section class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold pl-4 pt-2">APS CONSTITUTION</p>
@@ -12,7 +14,7 @@
     <div class="text-center">
       <select class="text-center bg-aps-orange rounded-2xl w-full p-4 font-semibold hover:bg-aps-green my-2"
         v-model="selectedSection" @change="navigateToSection">
-        <option v-for="(data, index) in carouselData" :key="index" :value="index">{{ data.name }}</option>
+        <option v-for="(data, index) in carouselData" :key="index" :value="index" class="text-center bg-aps-orange rounded-2xl p-4 font-semibold hover:bg-aps-green my-2">{{ data.name }}</option>
       </select>
     </div>
 
@@ -51,6 +53,7 @@
 import { ref, watch } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
+import SideDashboard from '../components/DashBoardSideMenu.vue'
 
 const carouselData = ref([
   {

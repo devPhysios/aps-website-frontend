@@ -1,5 +1,6 @@
 <template>
-  <!-- <DashBoardSideMenu /> -->
+  <SideDashboard />
+
   <section class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold pl-4 pt-2">APS CONSTITUTION</p>
@@ -52,7 +53,7 @@
 import { ref, watch } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
-import DashBoardSideMenu from '../components/DashBoardSideMenu.vue'
+import SideDashboard from '../components/DashBoardSideMenu.vue'
 
 const carouselData = ref([
   {
@@ -986,12 +987,12 @@ const settings = ref({
   snapAlign: 'center',
 });
 
-const breakpoints = ref({
-  768: {
-    itemsToShow: 1,
-    snapAlign: 'center',
-  },
-});
+// const breakpoints = ref({
+//   768: {
+//     itemsToShow: 1,
+//     snapAlign: 'center',
+//   },
+// });
 
 // Function to navigate to the selected section
 const navigateToSection = () => {
@@ -1011,6 +1012,10 @@ watch(currentSlide, (newValue) => {
 </script>
 
 <style scoped>
+.carousel {
+  height: 100%;
+}
+
 .carousel__slide {
   padding: 20px;
 }

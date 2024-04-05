@@ -94,7 +94,7 @@ const handleLogin = async () => {
             }
         }
     } catch (error) {
-        errorMessage.value = error.message;
+        errorMessage.value = "An error occurred, please try again";
     } finally {
         isLoading.value = false;
     }

@@ -1,6 +1,6 @@
 <template>
     <div class="flex w-full h-[100vh] gap-2 bg-gray-50 md:h-[70vh] font-display" v-if="store.user">
-        <DashBoardSideMenu />
+        <!-- <DashBoardSideMenu /> -->
         
         <section class="w-[80%] ml-2">
             <div class="my-1">
@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import DashBoardSideMenu from "../components/DashBoardSideMenu.vue"
+// import DashBoardSideMenu from "../components/DashBoardSideMenu.vue"
 import { useUserStore } from '@/stores/UserStore'
 import constitutionData from "@/data"
 import { ref } from "vue"

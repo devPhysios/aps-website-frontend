@@ -14,7 +14,14 @@ import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
 import ViewQuestion from "@/views/Viewquestion.vue";
 import Profile from "@/views/Profile.vue";
-import Constitution from "@/views/Constitution.vue"
+import Constitution from "@/views/Const.vue";
+import Questions from "@/views/Questions.vue";
+import PQ100L from "@/views/PQ100L.vue";
+import PQ200L from "@/views/PQ200L.vue";
+import PQ300L from "@/views/PQ300L.vue";
+import PQ400L from "@/views/PQ400L.vue";
+import PQ500L from "@/views/PQ500L.vue";
+
 
 const routes = [
   {
@@ -38,6 +45,51 @@ const routes = [
     component: Alumni,
   },
   {
+    path: "/pq100l",
+    name: "PQ100LPage",
+    component: PQ100L,
+  },
+  {
+    path: "/pq200l",
+    name: "PQ200LPage",
+    component: PQ200L,
+  },
+  {
+    path: "/pq300l",
+    name: "PQ300LPage",
+    component: PQ300L,
+  },
+  {
+    path: "/pq400l",
+    name: "PQ400LPage",
+    component: PQ400L,
+  },
+  {
+    path: "/100",
+    name: "PQ100LPage",
+    component: PQ100L,
+  },
+  {
+    path: "/200",
+    name: "PQ200LPage",
+    component: PQ200L,
+  },
+  {
+    path: "/300",
+    name: "PQ300LPage",
+    component: PQ300L,
+  },
+  {
+    path: "/400",
+    name: "PQ400LPage",
+    component: PQ400L,
+  },
+  {
+    path: "/500",
+    name: "PQ500LPage",
+    component: PQ500L,
+  },
+  {
     path: "/upload",
     name: "UploadPage",
     component: Upload,
@@ -46,6 +98,17 @@ const routes = [
     path: "/constitution",
     name: "ConstitutionPage",
     component: Constitution,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/questions",
+    name: "QuestionsPage",
+    component: Questions,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/dashboard",

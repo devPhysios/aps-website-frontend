@@ -22,7 +22,6 @@ import PQ300L from "@/views/PQ300L.vue";
 import PQ400L from "@/views/PQ400L.vue";
 import PQ500L from "@/views/PQ500L.vue";
 
-
 const routes = [
   {
     path: "/",
@@ -45,49 +44,44 @@ const routes = [
     component: Alumni,
   },
   {
-    path: "/pq100l",
+    path: "/dashboard/questions/100",
     name: "PQ100LPage",
     component: PQ100L,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: "/pq200l",
+    path: "/dashboard/questions/200",
     name: "PQ200LPage",
     component: PQ200L,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: "/pq300l",
+    path: "/dashboard/questions/300",
     name: "PQ300LPage",
     component: PQ300L,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: "/pq400l",
+    path: "/dashboard/questions/400",
     name: "PQ400LPage",
     component: PQ400L,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: "/100",
-    name: "PQ100LPage",
-    component: PQ100L,
-  },
-  {
-    path: "/200",
-    name: "PQ200LPage",
-    component: PQ200L,
-  },
-  {
-    path: "/300",
-    name: "PQ300LPage",
-    component: PQ300L,
-  },
-  {
-    path: "/400",
-    name: "PQ400LPage",
-    component: PQ400L,
-  },
-  {
-    path: "/500",
+    path: "/dashboard/questions/500",
     name: "PQ500LPage",
     component: PQ500L,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/upload",
@@ -99,16 +93,16 @@ const routes = [
     name: "ConstitutionPage",
     component: Constitution,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
-    path: "/questions",
+    path: "/dashboard/questions",
     name: "QuestionsPage",
     component: Questions,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: "/dashboard",
@@ -159,7 +153,7 @@ const routes = [
   {
     path: "/profile",
     name: "Profile",
-    component: Profile
+    component: Profile,
   },
 ];
 

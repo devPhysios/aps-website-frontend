@@ -21,6 +21,7 @@ import PQ200L from "@/views/PQ200L.vue";
 import PQ300L from "@/views/PQ300L.vue";
 import PQ400L from "@/views/PQ400L.vue";
 import PQ500L from "@/views/PQ500L.vue";
+import CourseQuestions from "@/views/Coursequestions.vue";
 
 const routes = [
   {
@@ -82,6 +83,12 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+  },
+  {
+    path: "/dashboard/questions/:level/:course",
+    name: 'CourseQuestions',
+    component: CourseQuestions,
+    props: true
   },
   {
     path: "/upload",

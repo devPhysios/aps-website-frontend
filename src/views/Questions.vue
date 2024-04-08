@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen bg-gradient-to-r from-orange-100 via-orange-200 to-amber-100 flex justify-center items-center">
+    <div class="py-5 bg-gradient-to-r from-orange-100 via-orange-200 to-amber-100 flex justify-center items-center">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div v-for="level in levels" :key="level.id" class="p-6 rounded-lg shadow-md hover:shadow-xl transform transition duration-300 ease-in-out hover:scale-105 cursor-pointer" :class="`bg-${level.color}-400 hover:bg-green-500`">
           <router-link :to="`/dashboard/questions/${level.id}`">

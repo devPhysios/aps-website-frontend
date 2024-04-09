@@ -16,11 +16,7 @@ import ViewQuestion from "@/views/Viewquestion.vue";
 import Profile from "@/views/Profile.vue";
 import Constitution from "@/views/Const.vue";
 import Questions from "@/views/Questions.vue";
-import PQ100L from "@/views/PQ100L.vue";
-import PQ200L from "@/views/PQ200L.vue";
-import PQ300L from "@/views/PQ300L.vue";
-import PQ400L from "@/views/PQ400L.vue";
-import PQ500L from "@/views/PQ500L.vue";
+import LevelQuestions from "@/views/Levelquestions.vue";
 import CourseQuestions from "@/views/Coursequestions.vue";
 
 const routes = [
@@ -45,41 +41,10 @@ const routes = [
     component: Alumni,
   },
   {
-    path: "/dashboard/questions/100",
-    name: "PQ100LPage",
-    component: PQ100L,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/dashboard/questions/200",
-    name: "PQ200LPage",
-    component: PQ200L,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/dashboard/questions/300",
-    name: "PQ300LPage",
-    component: PQ300L,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/dashboard/questions/400",
-    name: "PQ400LPage",
-    component: PQ400L,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/dashboard/questions/500",
-    name: "PQ500LPage",
-    component: PQ500L,
+    path: "/dashboard/questions/:level",
+    name: "LevelQuestions",
+    component: LevelQuestions,
+    props:true,
     meta: {
       requiresAuth: true,
     },
@@ -88,7 +53,10 @@ const routes = [
     path: "/dashboard/questions/:level/:course",
     name: 'CourseQuestions',
     component: CourseQuestions,
-    props: true
+    props: true,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/upload",

@@ -2,7 +2,9 @@
   <nav class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full">
     <div class="flex items-center md:pb-0">
       <span class="mr-1 cursor pointer w-12 h-full">
-        <img class="h-full w-full" :src="logo" alt="Logo" />
+        <a href="/">
+          <img class="h-full w-full" :src="logo" alt="Logo" />
+        </a>
       </span>
     </div>
     <span @click="menuOpen"
@@ -56,7 +58,7 @@ const menuOpen = () => {
 }
 
 const directToDashboard = () => {
- router.push('/dashboard')
+  router.push('/dashboard')
 }
 
 </script>

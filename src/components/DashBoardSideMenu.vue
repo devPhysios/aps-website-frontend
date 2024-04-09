@@ -24,7 +24,7 @@
                 </div>
             </RouterLink>
             <!-- Second One -->
-            <RouterLink to="/#">
+            <RouterLink to="/payment">
                 <div class="sidemenu__items">
                     <span class="text-[12px] md:text-[20px]">
                         <i class="bi bi-cash-stack"></i>

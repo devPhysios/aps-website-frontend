@@ -18,6 +18,7 @@ import Constitution from "@/views/Const.vue";
 import Questions from "@/views/Questions.vue";
 import LevelQuestions from "@/views/Levelquestions.vue";
 import CourseQuestions from "@/views/Coursequestions.vue";
+import Payment from "@/views/Payment.vue";
 
 const routes = [
   {
@@ -129,6 +130,11 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+  },
+  {
+    path: "/payment",
+    name: "Payment",
+    component: Payment,
   },
 ];
 

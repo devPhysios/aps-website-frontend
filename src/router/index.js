@@ -22,6 +22,7 @@ import PQ300L from "@/views/PQ300L.vue";
 import PQ400L from "@/views/PQ400L.vue";
 import PQ500L from "@/views/PQ500L.vue";
 import CourseQuestions from "@/views/Coursequestions.vue";
+import Payment from "@/views/Payment.vue";
 
 const routes = [
   {
@@ -161,6 +162,11 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+  },
+  {
+    path: "/payment",
+    name: "Payment",
+    component: Payment,
   },
 ];
 

@@ -19,6 +19,7 @@ import Questions from "@/views/Questions.vue";
 import LevelQuestions from "@/views/Levelquestions.vue";
 import CourseQuestions from "@/views/Coursequestions.vue";
 import Payment from "@/views/Payment.vue";
+import InternalServerError from "@/views/Internalservererror.vue";
 
 const routes = [
   {
@@ -121,11 +122,7 @@ const routes = [
     //   }
     // },
   },
-  {
-    path: "/:pathMatch(.*)*",
-    name: "NotFound",
-    component: NotFound,
-  },
+  
   {
     path: "/profile",
     name: "Profile",
@@ -135,6 +132,16 @@ const routes = [
     path: "/payment",
     name: "Payment",
     component: Payment,
+  },
+  {
+    path: "/500",
+    name: "InternalServerError",
+    component: InternalServerError,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

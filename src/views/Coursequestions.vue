@@ -66,7 +66,7 @@
             <!-- MCQ Questions -->
             <div v-if="currentTab === 'MCQ'">
                 <div v-for="(question, index) in paginatedMCQQuestions" :key="question._id" class="mb-6">
-                    <h2 class="text-lg font-semibold mb-2">{{ index + 1 }}. {{ question.question }}</h2>
+                    <h2 class="text-lg font-semibold mb-2"> {{ (pageIndex *20) + index + 1 }}. {{ question.question }}</h2>
                     <ul class="list-disc ml-6">
                         <li v-for="(option, optionIndex) in question.options" :key="optionIndex">{{ option }}</li>
                     </ul>
@@ -101,7 +101,7 @@
             <!-- Essay Questions -->
             <div v-else-if="currentTab === 'Essay'">
                 <div v-for="(question, index) in paginatedEssayQuestions" :key="question._id" class="mb-6">
-                    <h2 class="text-lg font-semibold mb-2">{{ index + 1 }}. {{ question.question }}</h2>
+                    <h2 class="text-lg font-semibold mb-2">{{ (pageIndex *20) + index + 1 }}. {{ question.question }}</h2>
                     <button @click="revealAnswer(index, 'Essay')"
                         class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none">Reveal/Hide
                         Answer</button>
@@ -133,7 +133,7 @@
             <!-- Cloze Questions -->
             <div v-else-if="currentTab === 'Cloze'">
                 <div v-for="(question, index) in paginatedClozeQuestions" :key="question._id" class="mb-6">
-                    <h2 class="text-lg font-semibold mb-2">{{ index + 1 }}. {{ question.question }}</h2>
+                    <h2 class="text-lg font-semibold mb-2">{{ (pageIndex *20) + index + 1 }}. {{ question.question }}</h2>
                     <button @click="revealAnswer(index, 'Cloze')"
                         class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none">Reveal/Hide
                         Answer</button>
@@ -189,6 +189,7 @@ const courseData = ref({});
 const currentPageMCQ = ref(1);
 const currentPageEssay = ref(1);
 const currentPageCloze = ref(1);
+const pageIndex = ref(0)
 const perPage = 20;
 const showAnswerMCQ = ref([]);
 const showAnswerEssay = ref([]);
@@ -243,12 +244,15 @@ function previousPage(tab) {
     switch (tab) {
         case 'MCQ':
             currentPageMCQ.value -= 1;
+            pageIndex.value -= 1;
             break;
         case 'Essay':
             currentPageEssay.value -= 1;
+            pageIndex.value -= 1;
             break;
         case 'Cloze':
             currentPageCloze.value -= 1;
+            pageIndex.value -= 1;
             break;
         default:
             break;
@@ -259,12 +263,15 @@ function nextPage(tab) {
     switch (tab) {
         case 'MCQ':
             currentPageMCQ.value += 1;
+            pageIndex.value += 1;
             break;
         case 'Essay':
             currentPageEssay.value += 1;
+            pageIndex.value += 1;
             break;
         case 'Cloze':
             currentPageCloze.value += 1;
+            pageIndex.value += 1;
             break;
         default:
             break;
@@ -312,7 +319,8 @@ onMounted(async () => {
             console.error('Failed to fetch questions:', data.error);
         }
     } catch (error) {
-        console.error('Error fetching questions:', error);
+        // console.error('Error fetching questions:', error);
+        router.push('/500');
     }
 });
 

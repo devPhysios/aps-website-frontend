@@ -320,7 +320,8 @@ onMounted(async () => {
         }
     } catch (error) {
         // console.error('Error fetching questions:', error);
-        router.push('/500');
+        console.log('Current URL:', window.location.href);
+        router.push({ path: '/500', query: { returnUrl: window.location.href } });
     }
 });
 

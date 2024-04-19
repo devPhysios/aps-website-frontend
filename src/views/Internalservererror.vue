@@ -27,9 +27,10 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute()
 const countdown = ref(6);
 
 onMounted(() => {
@@ -37,17 +38,28 @@ onMounted(() => {
     countdown.value -= 1;
     if (countdown.value === 0) {
       clearInterval(interval);
-      redirectToParent();
+      redirectToParent(route.query.returnUrl);;
     }
   }, 1000);
 });
-console.log(router.currentRoute.value.path)
-function redirectToParent() {
-  const currentPathSegments = router.currentRoute.value.path.split("/");
-  currentPathSegments.pop(); // Remove the last segment (the current route)
-  const parentRoutePath = currentPathSegments.join("/");
-  console.log(parentRoutePath)
-  router.push(parentRoutePath);
+console.log('Hello')
+console.log('Received Url:', route.query.returnUrl)
+function redirectToParent(returnUrl) {
+  let parentRoutePath;
+  if (returnUrl) {
+    // Split the returnUrl into segments
+    const returnUrlSegments = returnUrl.split('/');
+    // Remove the last segment (the current route)
+    returnUrlSegments.pop();
+    // Join the segments back together to form the parent route path
+    parentRoutePath = returnUrlSegments.join('/');
+    console.log(parentRoutePath)
+  } else {
+    // If no returnUrl is provided, redirect to /dashboard
+    parentRoutePath = '/dashboard';
+  }
+
+  window.location.href = parentRoutePath;
 }
 </script>
 

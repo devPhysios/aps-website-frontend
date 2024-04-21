@@ -3,138 +3,573 @@
     "coursecode": "ANA301",
     "coursetitle": "Gross Anatomy of Head and Neck and Neuro Anatomy",
     "unit": 3,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Osteology of the skull, mandible & the cervical vertebrae",
+      "The neck (skin, fascia, superficial vessels and nerves)",
+      "The triangles of the neck",
+      "The deep vessels and nerves of the neck",
+      "The root of the neck",
+      "The neck viscera",
+      "Cervical sympathetic trunk",
+      "Lymphatic drainage of the Head and Neck",
+      "The scalp and face",
+      "Parotid region",
+      "The temporomandibular joint",
+      "Gross features of the brain (sulci, gyri, sensory and motor areas)",
+      "External features & core structures of a cerebrum, cerebellum or brainstem",
+      "The peripheral nervous system (cranial and spinal nerves)",
+      "Autonomic nervous system (sympathetic and parasympathetic nervous systems)",
+      "Introduction to pathways in the CNS: Nuclei, projections, associations, and commissural pathways",
+      "Cerebrospinal fluid: formation, composition, circulation, function, clinical considerations, and the ventricular system",
+      "Spinal cord",
+      "Blood supply to the central nervous system"
+    ],
+    "aim": "This course aims to provide students with a detailed understanding of the gross anatomy of the head and neck, as well as neuroanatomy.",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES103",
     "coursetitle": "Government, Society and The Economy",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": ["Please check the textbook"],
+    "aim": "Please check the textbook",
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES301",
     "coursetitle": "Introduction Entrepreneurial Skills",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "History and Concepts of Entrepreneurship",
+      "Introduction to Entrepreneural Skills",
+      "Creativity and Innovation for Business Success",
+      "Opportunities for Entrepreneurs and Human Resources Management",
+      "Small Business Management and Feasibility Studies",
+      "Introduction to Marketing",
+      "Introduction to Networking",
+      "Intellectual Property Technology Transfer",
+      "Determining Capital Requirement & Financial Management",
+      "Legal Issues in Small Business Management in Nigeria",
+      "Business Social Responsibilities & environmental Considerations",
+      "Business Ethics",
+      "Business Case Study and Case Methodology",
+      "Child Rights in Business"
+    ],
+    "aim": "Having a course such as this - Introduction to Entrepreneurial skills, as a tool for entrepreneurship education would go a long way in creating awareness of the entrepreneurship space in the country, as well as introducing the students to the necessary skills and mindsets that would set them on the course of impacting the country's economy. The expectation is that students at the end of this course, GES 301 (Introduction to Entrepreneurial Skills) would acquire the needed basic skills to be wealth and job creators",
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "NUT305",
     "coursetitle": "Public Health Nutrition",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "aim": "Learners will be equipped with requisite theoretical knowledge of public health nutrition problems as well as develop their capacity to provide effective and sustainable solutions at the community and population levels",
+    "topics": [
+      "Primary Health Care and Nutrition",
+      "Frameworks in Nutrition, causes of malnutrition",
+      "Malnutrition-infection cycle",
+      "Nutrition and Development; Population and demographic issues. Effect of malnutrition on nhealth, physical and mental development",
+      "Aetiology, Causes, Prevention and Intervention programmes to address Protein Energy Malnutrition",
+      "Aetiology, Causes, Prevention and intervention programmes to address Micronutrient deficiencies and other emerging nutritional problems of public health importance",
+      "Micronutrient deficiencies control (fortification, supplementation, and dietary diversification)",
+      "Nutritional surveillance",
+      "Maternal and Child Nutrition - Importance and Current situation in Nigeria",
+      "Child Survival strategies, ENAs",
+      "Basics of Nutritional epidemiology"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PST301",
     "coursetitle": "Physiotherapy posting in paediatrics",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "History taking",
+      "Physical examination",
+      "Measurement of degree of disability",
+      "Clinical judgments",
+      "Management of children with various conditions such as cerebral palsy, infantile brachial plexus injuries, spina bifida, acute flaccid paralysis, post-immobilization stiffness, progressive muscular dystrophy, Down's syndrome",
+      "Communication of treatment goals, plans, exercise home assignments, and advice to parents/carers"
+    ],
+    "objectives": [
+      "Demonstrate skills in history taking and physical examination in paediatric disorders",
+      "Demonstrate skills in analysing clinical data, setting of goals and identifying treatment outcomes for paediatric conditions",
+      "Demonstrate skills in communicating management plan with parents/carers",
+      "Demonstrate skills in managing paediatric conditions commonly seen in physiotherapy clinics"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this clinical posting is to provide students with practical experience in paediatric physiotherapy. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical analysis, communication with parents/carers, and management of paediatric conditions commonly seen in physiotherapy clinics.",
+    "category": "C"
   },
   {
     "coursecode": "PST302",
     "coursetitle": "Physiotherapy posting in Orthopaedics & Traumatology",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "History taking",
+      "Physical examination",
+      "Assessment procedures",
+      "Clinical reasoning",
+      "Clinical judgments",
+      "Treatment and evaluation of patients with orthopaedic conditions such as fractures, dislocations, osteoarthritis, rheumatoid arthritis, back pain, neck pain, spinal stenosis, soft tissue injuries",
+      "Communication of treatment goals and plans to patients"
+    ],
+    "objectives": [
+      "Take history, carry out physical examination and other relevant assessment procedures on patients with orthopaedic conditions",
+      "Demonstrate skills in clinical reasoning and in making clinical judgments in different orthopaedic conditions",
+      "Demonstrate skills in communicating treatment goals and plans with patients with orthopaedic conditions",
+      "Demonstrate skills in managing and evaluating patients with orthopaedic conditions commonly seen in physiotherapy"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this clinical posting is to provide students with practical experience in orthopaedic physiotherapy. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical reasoning, communication with patients, and management of orthopaedic conditions commonly seen in physiotherapy.",
+    "category": "C"
   },
   {
     "coursecode": "PST311",
     "coursetitle": "Introduction to Physiotherapy Profession and Practice",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Definition of profession",
+      "Criteria for professionalism",
+      "Definition, philosophy, and scope of Physiotherapy",
+      "Historical development abroad and in Nigeria including major contributors",
+      "Physiotherapy professional bodies",
+      "Registration/Licensing bodies",
+      "Professional responsibilities to NSP & MRTB",
+      "Roles of physiotherapy in promotion, preservation, and restoration of physical function",
+      "Ethical principles in healthcare",
+      "Codes of ethics of physiotherapy professional bodies",
+      "Steps in clinical decision-making process",
+      "Musculoskeletal assessment and manual muscle testing",
+      "Clinical decision-making",
+      "Documentation methods and benefits",
+      "Evidence-based decision making and practice",
+      "Importance and rights of patients and family in healthcare",
+      "Responsibilities of the clinician and the patient",
+      "Clinician-patient relationship, respect, and confidentiality",
+      "Teamwork",
+      "Emotional responses to and strategies for managing patient behavior",
+      "Patient's safety and comfort",
+      "Ethical issues in clinical practice",
+      "Manual muscle testing"
+    ],
+    "objectives": [
+      "Define physiotherapy and describe its scope",
+      "List criteria for professionalism",
+      "Describe the code of ethics in general healthcare and physiotherapy profession",
+      "Discuss ethical issues in physiotherapy and clinical practice in general",
+      "Describe the steps and requirements for clinical decision making",
+      "Describe methods and benefits of health information documentation",
+      "Take history from patients/carers, perform manual muscle test and musculoskeletal assessment and make inferences from information collected",
+      "Explain the importance of teamwork",
+      "Define evidence-based practice (EBP)",
+      "Identify the components of EBP",
+      "Enumerate the importance of EBP"
+    ],
+    "pre-requisites": ["ANA 201", "ANA 202", "ANA 203"],
+    "aim": "This course aims to introduce students to the profession and practice of physiotherapy, covering topics such as the definition and scope of physiotherapy, professionalism, ethical principles, clinical decision making, documentation methods, evidence-based practice, and the importance of teamwork.",
+    "category": "C"
   },
   {
     "coursecode": "PST312",
     "coursetitle": "Biomechanics",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Bio-mechanical principles as related to human motion",
+      "Relationship of anatomical structures to physical functions",
+      "Range of muscle work (inner, middle and outer)",
+      "Types of muscle contraction",
+      "Group action of muscles agonists, antagonists, fixators, synergists etc",
+      "Principles of motion and force as applied to the body at rest and in motion",
+      "Muscular analysis of common activities of daily living",
+      "Analysis of normal human gait",
+      "Methods of kinetic and kinematic gait analysis",
+      "Range of motion and causes of limitation",
+      "Types of instruments for and methods of measuring range of joint motion",
+      "Goniometry"
+    ],
+    "objectives": [
+      "Analyse muscle work involved in common activities of daily living",
+      "Discuss the importance of group actions of muscles",
+      "Analyze normal human gait",
+      "Apply biomechanical principles to modify human motion",
+      "Measure ranges of motion of peripheral and spinal joints"
+    ],
+    "pre-requisites": ["ANA 201", "ANA 203", "PHY 271"],
+    "aim": "This course aims to provide students with an understanding of biomechanical principles related to human motion, including muscle work, muscle contraction, group actions of muscles, principles of motion and force, analysis of human gait, and methods of measuring range of joint motion.",
+    "category": "R"
   },
   {
     "coursecode": "PST313",
     "coursetitle": "Exercise Physiology",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Review of food substrates & final common pathway of metabolism",
+      "Energy systems of the body",
+      "Body system responses to acute exercise",
+      "Physiological adjustments or adaptations of body systems to chronic exercise in health and disease",
+      "Concept of wellness and health promotion",
+      "Physical fitness in health and disease - definition, assessment methods, and exercise training programmes",
+      "Body composition assessment - anthropometry, somatotyping, adiposity indices",
+      "Body size classifications and weight control programmes"
+    ],
+    "objectives": [
+      "Describe the energy systems of the body",
+      "Explain the physiological basis of exercise testing and prescription",
+      "Describe physiological adjustments to acute and chronic exercises",
+      "Assess and evaluate patients/clients for physical fitness/weight control programmes"
+    ],
+    "pre-requisites": ["PIO205", "PIO207"],
+    "aim": "This course aims to provide students with an understanding of exercise physiology, including the energy systems of the body, physiological responses to acute and chronic exercise, assessment of physical fitness and weight control programmes, and concepts of wellness and health promotion.",
+    "category": "R"
   },
   {
     "coursecode": "PST314",
     "coursetitle": "Pain and Pain Control",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Anatomy and Physiology of Pain",
+      "Basic concepts in pain measurement in humans",
+      "Psychosocial aspects of pain",
+      "General principles of pain evaluation and management",
+      "Drug treatment - NSAIDS, antidepressants, anticonvulsants, opioids, nerve blockers",
+      "Physiotherapy/Rehabilitation - dry needling, TENS, interferential current, electro-analgesic methods, cold and heat modalities, manipulation and massage, therapeutic exercises, behavioral interventions",
+      "Multidisciplinary pain management - contributions of other health professionals"
+    ],
+    "objectives": [
+      "Describe the anatomy and physiology of pain and pain transmission",
+      "Explain pain modulation and enumerate physiotherapy modalities for pain modulation",
+      "Discuss drug and other methods of pain management"
+    ],
+    "pre-requisites": ["PIO207"],
+    "aim": "The course aims to provide students with an understanding of pain and pain control, including the anatomy and physiology of pain, pain measurement, psychosocial aspects, drug treatment, and physiotherapy modalities for pain modulation.",
+    "category": "R"
   },
   {
     "coursecode": "PST315",
     "coursetitle": "Exercise Therapy I",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Goals of therapeutic exercise",
+      "Fundamental and derived starting positions",
+      "Classification of movement/exercise",
+      "Mobility or Range of Motion (ROM) exercises",
+      "Resistance exercises",
+      "Methods of facilitation of movement",
+      "Physiological responses to muscle strengthening",
+      "Application of techniques to different body regions"
+    ],
+    "objectives": [
+      "Describe the general goals of exercise therapy",
+      "Classify exercises and differentiate between fundamental and derived starting positions",
+      "Describe the goals, indications, precautions, and contraindications to mobility/ROM, resistance, and stretching exercises",
+      "Explain the principles and physiological responses to muscle strengthening"
+    ],
+    "pre-requisites": ["ANA201", "ANA203", "PIO207"],
+    "aim": "The course aims to provide students with an understanding of exercise therapy, including the goals of therapeutic exercise, classification of exercises, techniques for mobility/ROM and resistance exercises, and physiological responses to muscle strengthening.",
+    "category": "C"
   },
   {
     "coursecode": "PST316",
     "coursetitle": "Clinical Anatomy & Physiology",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Anatomy & Physiology",
+      "Clinical Applications",
+      "Medical Terminologies"
+    ],
+    "objectives": [
+      "Identify anatomical structures in the body",
+      "Explain the physiology of the human body, including the integration of the nervous, muscular, and cardiovascular systems",
+      "Understand the clinical aspects of the human body"
+    ],
+    "pre-requisites": null,
+    "aim": "This course provides a comprehensive introduction to physiology with a focus on clinical relevance, linking gross anatomy to physiological functions. It covers the clinical aspects of each body system to form a basis for physiotherapy treatment, tying anatomical information directly to realistic clinical scenarios.",
+    "category": "C"
   },
   {
     "coursecode": "PST317",
     "coursetitle": "Pharmacology for Physiotherapy",
     "unit": 3,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Scope of Pharmacology",
+      "Routes of Drug Administration",
+      "Drug Absorption, Distribution, Metabolism, and Excretion",
+      "Factors Affecting Drug Actions",
+      "Principles of Drug Actions",
+      "Drug Interaction",
+      "Anatomy and Physiology of Autonomic Transmission",
+      "Cholinergic Transmission",
+      "Neuromuscular Transmission and Blockers",
+      "Adrenergic Transmission",
+      "Cardioactive and Antihypertensive Drugs",
+      "Pharmacology of Conditions Commonly Seen in Physiotherapy",
+      "Opioid and Non-opioid Analgesics",
+      "Muscle Relaxants",
+      "Hypnosedatives",
+      "Local Anaesthetics"
+    ],
+    "objectives": [
+      "Describe routes of drug administration and anatomy and physiology of drug transmission",
+      "Differentiate between the uses of opioids and other types of pain relieving drugs",
+      "Identify and explain the actions of drugs used in conditions commonly seen in physiotherapy",
+      "Explain how drugs may facilitate or hinder physiotherapy procedures"
+    ],
+    "pre-requisites": null,
+    "aim": "This course provides an understanding of pharmacology relevant to physiotherapy practice. It covers the scope of pharmacology, routes of drug administration, drug actions and interactions, and the anatomy and physiology of autonomic transmission. Students learn about drugs commonly used in physiotherapy, including pain relievers, muscle relaxants, and local anaesthetics.",
+    "category": "R"
   },
   {
     "coursecode": "PST320",
     "coursetitle": "Electrotherapy I: Conductive Heat & Cold and Therapeutic Ultrasound",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Human Body Isotherms and Thermal Regulation",
+      "Physical Principles of Heat and Cold Modalities",
+      "Physiological Responses to Heat and Cold Application",
+      "Therapeutic Uses, Indications, and Contraindications of Heat and Cold Modalities",
+      "Selection of Modalities for Specific Conditions",
+      "Conductive Heat Modalities",
+      "Conductive Cold Modalities",
+      "Generation of Ultrasound Waves",
+      "Parameters for Therapeutic Ultrasound",
+      "Physical Principles Governing the Use of Ultrasound",
+      "Methods and Procedures of Ultrasound Application",
+      "Physiological Effects of Ultrasound",
+      "Therapeutic Uses and Indications of Ultrasound",
+      "Contraindications and Safety Measures for Ultrasound"
+    ],
+    "objectives": [
+      "Describe human body isotherms and thermal regulation",
+      "Discuss basic principles governing the application and uses of ultrasound, conductive heat, and cold modalities",
+      "Describe physiological effects, uses, indications, and contraindications of ultrasound, conductive heat, and cold modalities",
+      "Justify selection of modalities for specific conditions"
+    ],
+    "pre-requisites": "PHY 271",
+    "aim": "This course introduces students to the principles and applications of conductive heat and cold modalities, as well as therapeutic ultrasound in physiotherapy. Students learn about human body temperature regulation, physical principles of modalities, and their therapeutic uses, indications, and contraindications. They also gain the ability to select appropriate modalities for specific conditions.",
+    "category": "C"
   },
   {
     "coursecode": "PST321",
     "coursetitle": "Electrotherapy II: Electromagnetic Rays and Energy",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Electromagnetic Spectrum and Components Used in Electrotherapy",
+      "Basic Principles of Electromagnetic Rays and Energy",
+      "Physiological Effects of Electromagnetic Modalities",
+      "Therapeutic Uses and Indications of Electromagnetic Modalities",
+      "Contraindications and Safety Measures for Electromagnetic Modalities",
+      "Justification for Selection of Modalities for Specific Conditions",
+      "Generation and Description of Infrared Rays",
+      "Generation and Description of Ultraviolet Rays",
+      "Generation and Description of Microwaves",
+      "Generation and Description of Continuous and Pulsed Electromagnetic Energy (Shortwave Diathermy)",
+      "Principles of Application and Methods and Procedures"
+    ],
+    "objectives": [
+      "Describe the electromagnetic spectrum and identify components used in electrotherapy",
+      "Discuss basic principles governing the application and uses of electromagnetic rays and energy",
+      "Describe physiological effects, uses, indications, and contraindications of each electromagnetic rays/energy modality",
+      "Justify selection of modalities for specific conditions"
+    ],
+    "pre-requisites": "PHY 271 & 272",
+    "aim": "This course provides students with knowledge of electromagnetic rays and energy used in electrotherapy. Students learn about the electromagnetic spectrum, basic principles of application, physiological effects, therapeutic uses, and contraindications of each modality. They also develop the ability to select appropriate modalities for specific conditions.",
+    "category": "C"
   },
   {
     "coursecode": "PST322",
     "coursetitle": "Manual Therapy I: Massage",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Historical Development of Massage as a Modality in Physiotherapy",
+      "Definition and Classification of Massage",
+      "Physiological Effects of Massage",
+      "Therapeutic Uses and Indications",
+      "Contraindications to Massage",
+      "Application of Various Massage Manipulations to Body Regions",
+      "Adjunct Therapies: Postural Drainage, Bandaging, Limb Elevation",
+      "Specialized Techniques: Myofascial Release, Reflexology"
+    ],
+    "objectives": [
+      "Explain what massage is and differentiate between various types of massage manipulations",
+      "Discuss indications and contraindications to massage",
+      "Apply appropriate massage manipulations to different body regions and for specific conditions",
+      "Describe the principles of myofascial release and reflexology"
+    ],
+    "pre-requisites": "ANA 201, 202, 203",
+    "aim": "This course provides students with a comprehensive understanding of massage therapy as a modality in physiotherapy. Students learn about the historical development, definition, and classification of massage, along with its physiological effects, therapeutic uses, indications, and contraindications. They also gain practical skills in applying various massage manipulations to different body regions and for specific conditions, as well as understanding specialized techniques such as myofascial release and reflexology.",
+    "category": "C"
   },
   {
     "coursecode": "PST323",
     "coursetitle": "Exercise Therapy II",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "General Principles of Therapeutic Exercises",
+      "Guidelines for Therapeutic Exercises in Managing Osteoarthritis & Rheumatoid Arthritis",
+      "Therapeutic Exercises for Common Musculoskeletal Conditions in Various Body Parts",
+      "Therapeutic Exercises for Patients Undergoing Surgical Procedures",
+      "Therapeutic Exercises for Neurological Conditions",
+      "Therapeutic Exercises for Vascular Conditions",
+      "Special Areas of Therapeutic Exercise: Pregnancy and Postpartum Periods, Pulmonary Diseases, Weak Pelvic Floor Muscles"
+    ],
+    "objectives": [
+      "Describe guidelines for therapeutic exercises in managing various types of conditions",
+      "Describe guidelines for therapeutic exercises in managing patients undergoing surgical procedures",
+      "Describe precautions and contraindications to therapeutic exercises for various conditions",
+      "Develop and instruct patients in exercise programmes for various conditions and body parts"
+    ],
+    "pre-requisites": "ANA 201, 202, 203; PIO 207",
+    "aim": "This course aims to equip students with the knowledge and skills necessary to design and implement exercise therapy programmes for various conditions and body parts. Students learn general principles and guidelines for therapeutic exercises, including management of osteoarthritis, rheumatoid arthritis, musculoskeletal conditions, surgical procedures, neurological conditions, vascular conditions, and special populations such as pregnant and postpartum women, individuals with pulmonary diseases, and those with weak pelvic floor muscles.",
+    "category": "C"
   },
   {
     "coursecode": "PST324",
     "coursetitle": "Manual Therapy II: Spinal and Peripheral Joint Mobilization",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Definitions of Joint Mobilization",
+      "Physiological and Accessory Motions",
+      "Basic Concepts of Joint Motion",
+      "Indications and Contraindications to Joint Mobilization",
+      "Procedures for Applying Joint Mobilization",
+      "Specific Mobilization Techniques for Different Body Parts",
+      "Manual Traction for Cervical and Lumbar Spine",
+      "Safety Considerations Before Mobilizations",
+      "Approaches to Spinal Mobilization/Manipulation"
+    ],
+    "objectives": [
+      "Differentiate between mobilization and manipulation and between physiological and accessory motion",
+      "Explain the basic concepts of joint motion",
+      "Enumerate the indications for and contraindications to joint mobilization",
+      "Describe the procedure (including concave-convex rule) for and apply joint mobilization to different parts of the body",
+      "Describe the different approaches to spinal mobilization (manipulation)"
+    ],
+    "pre-requisites": "ANA 201, 202, 203",
+    "aim": "This course aims to provide students with the knowledge and skills necessary to perform spinal and peripheral joint mobilization techniques effectively and safely. Students will learn about the definitions of joint mobilization, physiological and accessory motions, basic concepts of joint motion, indications and contraindications to joint mobilization, procedures for applying joint mobilization, specific mobilization techniques for different body parts, manual traction for cervical and lumbar spine, safety considerations before mobilizations, and approaches to spinal mobilization/ manipulation.",
+    "category": "C"
   },
   {
     "coursecode": "PST325",
     "coursetitle": "Pathokinesiology",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Definition and Classification of Motor Skills",
+      "Analysis of Motor Skills",
+      "Analysis of Normal and Abnormal Human Postures",
+      "Identification and Analysis of Abnormal Human Gait and Motor Skills in Specific Conditions",
+      "Clinical Application of Motor Skills in Various Conditions",
+      "Corrective Therapy for Abnormal Human Motions and Postures",
+      "Ambulation Aids and Gait Patterns Using Assistive Devices"
+    ],
+    "objectives": [
+      "Analyze and compare normal and abnormal human motions including gait",
+      "Differentiate between gross and fine motor skills",
+      "Describe corrective therapy for abnormal motor skills",
+      "Describe different types of ambulation aids and identify their indications",
+      "Correctly prescribe and train gait patterns with ambulation aids"
+    ],
+    "pre-requisites": "ANA 201, 202, 203, PHY 271",
+    "aim": "This course aims to provide students with an understanding of pathokinesiology, focusing on the analysis of normal and abnormal human motions, motor skills, and postures. Students will learn to differentiate between gross and fine motor skills, analyze and compare normal and abnormal human motions including gait, prescribe corrective therapy for abnormal motor skills, identify different types of ambulation aids and their indications, and prescribe and train gait patterns with ambulation aids.",
+    "category": "C"
   },
   {
     "coursecode": "PST326",
     "coursetitle": "Practical Electrotherapy I",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": ["Practical aspects of PST320", "Practical aspects of PST321"],
+    "objectives": [
+      "Make all necessary preparations (tray, patients, machine) prior to application of electrotherapy modalities",
+      "Demonstrate skills in communicating relevant information to simulated patients prior to applying electrotherapy modalities",
+      "Demonstrate skills in applying each electrotherapy modality",
+      "Demonstrate skills in documenting treatment given to simulated patients"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with practical skills in the application of electrotherapy modalities. By the end of the course, students should be able to make all necessary preparations prior to applying electrotherapy modalities, communicate relevant information to simulated patients, apply each electrotherapy modality effectively, and document treatment given to simulated patients.",
+    "category": "C"
   },
   {
     "coursecode": "PST327",
     "coursetitle": "Practical Exercise Therapy & Kinesiology",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Practical aspects of PST313",
+      "Practical aspects of PST315",
+      "Practical aspects of PST323",
+      "Practical aspects of PST325"
+    ],
+    "objectives": [
+      "Demonstrate skills in selecting appropriate exercises for different purposes and specific conditions",
+      "Demonstrate skills in instructing simulated patients in exercises",
+      "Provide progression in an exercise programme",
+      "Measure range of motion of peripheral and spinal joints",
+      "Analyze motor skills involved in Activities of Daily Living (ADLs)",
+      "Identify and correct abnormal gait and other motor skills in different conditions",
+      "Instruct and train simulated patients in various crutch gaits"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with practical skills in exercise therapy and kinesiology. By the end of the course, students should be able to select appropriate exercises for different purposes and conditions, instruct simulated patients in exercises, provide progression in exercise programs, measure range of motion, analyze motor skills in ADLs, identify and correct abnormal gait and motor skills, and instruct patients in various crutch gaits.",
+    "category": "C"
   },
   {
     "coursecode": "PST328",
     "coursetitle": "Practical Manual Therapy",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": ["Practical aspects of PST322", "Practical aspects of PST324"],
+    "objectives": [
+      "Demonstrate skills in applying massage manipulations for different purposes and to different parts of the body",
+      "Perform mobilization techniques to major peripheral joints",
+      "Describe the techniques of spinal manipulations"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with practical skills in manual therapy. By the end of the course, students should be able to apply massage manipulations for different purposes and body parts, perform mobilization techniques on major peripheral joints, and describe techniques of spinal manipulations.",
+    "category": "C"
   },
   {
     "coursecode": "PST329",
     "coursetitle": "Pathology",
     "unit": 2,
-    "level": 300
+    "level": 300,
+    "topics": [
+      "Pathology of diseases",
+      "Cellular basis of diseases",
+      "Inflammation and healing",
+      "Immune mechanisms",
+      "Physical agents in injury and disease",
+      "Drug, chemical and radiation induced injuries",
+      "Atrophy, hypertrophy, degeneration, oedema, thrombosis, infarction",
+      "Bacterial and viral diseases, fungal infections",
+      "Metaplasia, Neoplasia and Tumours",
+      "Inherited diseases"
+    ],
+    "objectives": null,
+    "pre-requisites": null,
+    "aim": "This course covers the pathology of diseases, including the cellular basis, inflammation, healing, immune mechanisms, and various types of injuries. It also discusses bacterial and viral diseases, neoplasia, and inherited diseases.",
+    "category": "C"
   }
 ]

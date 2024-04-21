@@ -3,102 +3,326 @@
     "coursecode": "ANA201",
     "coursetitle": "Gross Anatomy of the Limbs and Cavities",
     "unit": 4,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Upper limb",
+      "Lower limb",
+      "Thoracic cavity",
+      "Abdominal cavity",
+      "Pelvis & Perineum"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ANA202",
     "coursetitle": "General and Systemic Embryology",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "aim": null,
+    "topics": [
+      "Gametogenesis, Ovulation, Fertilization & Implantation",
+      "Formation of bilaminar germ disc",
+      "Formation of trilaminar germ disc",
+      "Organogenesis",
+      "Birth: Fetal period, Fetal Membrane, Placenta",
+      "Development of the Urogenital System"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ANA203",
     "coursetitle": "General and Systemic Histology",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "aim": null,
+    "topics": [
+      "Cell and cell cycle",
+      "Epithelial tissue",
+      "Connective tissue",
+      "Muscle tissue",
+      "Nervous tissue",
+      "Cardiovascular system"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "BIC201",
     "coursetitle": "Cell Biochemistry",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "aim": "The course aims to provide an understanding of the molecular organization of the cell, including its types, diversity, and organelles. It also covers the chemical composition of cells and the role of biomolecules.",
+    "topics": [
+      "Hierarchy of molecular organization of the cell",
+      "Cell types, constancy, and diversity",
+      "Cell organelles of prokaryotes and eukaryotes",
+      "Centrifugation",
+      "Methods of fractionation",
+      "Structure, function, and fraction of extracellular organelles",
+      "Enzymes",
+      "Chemical composition of cells",
+      "Water and biomolecules: proteins, carbohydrates, lipids, DNA, etc."
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES102",
     "coursetitle": "African Culture and Civilization",
     "unit": 2,
-    "level": 200
+    "level": 200,
+    "aim": null,
+    "topics": [
+      "African cultures",
+      "African civilization",
+      "Critical thinking",
+      "Training of the mind",
+      "Relevance of the humanities",
+      "Concepts of African cultures and civilization",
+      "Nigeria"
+    ],
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES106",
     "coursetitle": "Philosophy, Logic and Critical Thinking",
     "unit": 2,
-    "level": 200
+    "level": 200,
+    "aim": "The course aims to sensitize non-philosophy and non-humanities students to the relevance of philosophy and logical thinking.",
+    "topics": [
+      "Philosophy and human existence",
+      "Logical thinking",
+      "Meaning and significance of philosophy to human existence",
+      "Search for meaning and value in the universe",
+      "Introduction to critical thinking in human endeavors"
+    ],
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES201",
     "coursetitle": "Use of English II",
     "unit": 2,
-    "level": 200
+    "level": 200,
+    "aim": "The course aims to introduce students to various aspects of the English language and literature, including essay writing, formal letter writing, punctuation, pronunciation, literary analysis, and poetry.",
+    "topics": [
+      "Outlining, Paragraphs and Paragraph Development",
+      "Introduction to Essay and Types",
+      "Formal Letter Writing",
+      "Punctuation",
+      "Sound System of English",
+      "Suprasegmentals: Stress patterns in English",
+      "Introduction to Literary Studies: Subgenres and elements",
+      "Prose fiction: A literary study of Chinua Achebe's Things Fall Apart",
+      "Drama: A literary study of Keye Abiona's Even Kins Are Guilty: A Traditional Play",
+      "Poetry: A literary study of selected anthology of poems"
+    ],
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "NUT202",
     "coursetitle": "Introduction to Foods and Nutrition II",
     "unit": 2,
-    "level": 200
+    "level": 200,
+    "aim": "This course aims to provide foundational knowledge of basic concepts in food and nutrition, with a secondary objective of understanding the consequences of undernutrition, hidden hunger, and overnutrition.",
+    "topics": [
+      "Macronutrient and micronutrient deficiency",
+      "Energy metabolism and balance",
+      "Energy Generation from Foods",
+      "Energy Production and Metabolism in Humans",
+      "Balance, Weight Control and Physical Fitness",
+      "Introduction to Micronutrients (Vitamins)"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY271",
     "coursetitle": "Physics For Biology I",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "aim": "The course aims to introduce learners to the basic knowledge of physics required in clinical science fields such as physiotherapy, medical laboratory science, and biochemistry, focusing on the application of physics to biological systems.",
+    "topics": [
+      "Kinematics and the Algebra of Vectors",
+      "First, Second, and Third Laws of Motion by Isaac Newton and Their Applications",
+      "Elastic Property of Materials and Strength of Materials",
+      "Momentum and Its Application to Concussion, Fracture, and Similar Medical Situations during Collision",
+      "Energy Conservation and Thermodynamics and Their Applications to Metabolism in the Body System",
+      "Application of Angular Momentum, Harmonic Motion, and Diffusion to Osmotic Pressure and Movement of Substances in the Body System",
+      "Motion of Gas Molecules, Intermolecular Collision, Distribution Function, and Transport Processes in the Body",
+      "External Fields, Centrifuge, and",
+      "Measurement of Weight of Molecules"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY272",
     "coursetitle": "Physics for Biology II",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Elementary Kinematics and Vector Algebra",
+      "Newton's Laws of Motion",
+      "Statics: Forces Acting on a Human Body",
+      "Elasticity and Strength of Materials",
+      "Momentum Conservation; Application to Concussion and Fracture during Impacts, and to Similar Medical Situations",
+      "Conservation of Energy; The First Law of Thermodynamics; Applications to Metabolism and Work Done by Various Organs of the Body",
+      "Angular Momentum and Torque",
+      "Harmonic Motion and Diffusion; Application to Osmotic Pressure and Passage of Substances through Capillary Walls",
+      "Molecular Motion in Gases: Distribution Functions and the Boltzmann Principles",
+      "Intermolecular Collisions and Transport Processes",
+      "Equilibrium in External Fields; The Centrifuge and Measurement of Molecular Weight"
+    ],
+    "aim": "The course aims to provide elementary knowledge of physics to biology students.",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PIO205",
     "coursetitle": "General Physiology I",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Blood Composition",
+      "Blood Formation and Functions",
+      "Haemostasis",
+      "Electrophysiology of the Heart",
+      "Cardiac Cycle",
+      "Venous Return",
+      "Haemorrhage",
+      "Circulatory Adjustments to Exercise",
+      "Physiology of Respiration"
+    ],
+    "aim": "The course covers various aspects of human physiology.",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PIO206",
     "coursetitle": "General Physiology II",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Digestive System",
+      "Renal System",
+      "Endocrine Physiology",
+      "Reproductive System"
+    ],
+    "aim": "A continuation of PIO 205",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PIO207",
     "coursetitle": "General Physiology III",
     "unit": 2,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Sensory System",
+      "Transmission of Impulses",
+      "Synaptic Transmission",
+      "Physiology of Muscles",
+      "Central Nervous System",
+      "Cortex, Brainstem, and Cerebellum",
+      "Spinal Cord Function",
+      "Physiology of Hearing",
+      "Physiology of Vision",
+      "Physiology of Taste",
+      "Physiology of Smell"
+    ],
+    "aim": "This course covers the physiology of the Nervous System.",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PSY202",
     "coursetitle": "Abnormal Psychology",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Anxiety Disorders",
+      "Mood Disorders",
+      "Schizophrenic Disorders",
+      "Dissociative Disorders",
+      "Somatoform Disorders",
+      "Personality Disorders",
+      "Substance-Related Disorders",
+      "Eating Disorders",
+      "Sleep Disorders",
+      "Sexual Disorders and Dysfunction",
+      "Developmental Disorders",
+      "Cognitive Disorders"
+    ],
+    "aim": "This course provides an introduction to various psychological disorders and psychopathologies, both globally and within the context of Nigerian society.",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "NUT201",
     "coursetitle": "Introductory Food and Nutrition I",
     "unit": 2,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Dietary Macronutrients",
+      "Calculating Energy Requirement and Content of Commonly-Consumed Nigerian Foods",
+      "Food Log Assignment",
+      "Dietary Proteins",
+      "Dietary Fats",
+      "Introduction to Food Groups",
+      "Digestion and Metabolism of Carbohydrates, Proteins & Fats/Oils"
+    ],
+    "aim": "This course aims to provide foundational knowledge of basic concepts in food and nutrition. It also aims to guide students on cultivating healthy eating habits.",
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "SOC212",
     "coursetitle": "Evolution of Culture and Society",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Anthropology",
+      "Anthropological Perspectives",
+      "Human Origins",
+      "Cultural Achievements",
+      "Social and Cultural Anthropology",
+      "Physical Anthropology",
+      "Institutional Arrangements (Family and Kinship)",
+      "Subsistence and Economic Systems",
+      "Political Organization",
+      "Belief Systems and Religious Practices",
+      "Individual Identity",
+      "Relationship Between Individuals and Cultures",
+      "Socio-cultural Change Processes",
+      "Radical Perspectives"
+    ],
+    "aim": null,
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "STA204",
     "coursetitle": "General statistics II",
     "unit": 3,
-    "level": 200
+    "level": 200,
+    "topics": [
+      "Scope for Statistical Methods in Biology, Agriculture, Physical Sciences, and Engineering",
+      "Measures of Location, Partition, and Dispersion",
+      "Introduction to Combinatorics, Densities, and Distributions",
+      "Mathematical Expectations (Mean, Variance, and Covariance)",
+      "Chebyshev's Inequalities and Law of Large Numbers",
+      "Non-Parametric Tests",
+      "Exploratory Data Analysis, Simple Linear Regression, and Correlation",
+      "Analysis of Variance/Covariance",
+      "Introduction to Statistical Packages"
+    ],
+    "aim": "This course aims to provide students with a foundation in statistical methods applicable to various fields such as biology, agriculture, physical sciences, and engineering.",
+    "category": "R",
+    "pre-requisites": null
   }
 ]

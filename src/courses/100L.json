@@ -3,126 +3,449 @@
     "coursecode": "STA114",
     "coursetitle": "General Statistics",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Data Types, Collection, Sources, Quality and Measurement Scales",
+      "Presentation of Data",
+      "Measure of Centre/Location",
+      "Measure of Variation, Variance, Standard Deviation, Coefficient of Variation, The Emperical Rule and the Chebyschev's Rule",
+      "Measures of Partition: Measures of Relative Position - Quartiles, Interquartile Range, Deciles and percentiles, Z - Score and Detection of Outliers",
+      "Measures of Shape: Skewness (using Measures of Center, Karl Pearson Coefficient), Kurtosis (Using Karl Pearson Coefficient)"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY102",
     "coursetitle": "Introductory Mechanics and Properties of Matter",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Rectilinear motions",
+      "Newton's laws of motion",
+      "Gravitation",
+      "Satellites",
+      "Radial escape velocity",
+      "Work and energy",
+      "Friction",
+      "Viscosity",
+      "Orbital motion",
+      "Moments",
+      "Energy of rotation",
+      "Simple harmonic motion",
+      "Properties of solids",
+      "Elasticity",
+      "Surface tension",
+      "Capillary effects"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY103",
     "coursetitle": "Introductory Heat and Thermodynamics",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Temperature scales",
+      "Laws of thermodynamics",
+      "Calorimetry",
+      "Expansion of liquids",
+      "Gas properties",
+      "Heat engines",
+      "Heat pumps",
+      "Refrigeration",
+      "Absolute zero of Temperature",
+      "Thermal conductivity",
+      "Types of radiation",
+      "Energy spectrum of radiation"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY104",
     "coursetitle": "Introductory Electricity and Magnetism",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Coulomb's law",
+      "Electric charges and methods of charging",
+      "Electric field intensity",
+      "Charge distribution in conductors and insulators",
+      "Electric potential",
+      "Potential gradient",
+      "Electrical potential energy",
+      "Capacitors and dielectrics",
+      "Ohm's law",
+      "Analysis of direct-current circuits",
+      "Cells",
+      "Kirchhoff's laws",
+      "Wheatstone bridge",
+      "Potentiometer",
+      "Electrodynamics of charge particles",
+      "Magnetic fields",
+      "Magnetic forces",
+      "Electromagnetic induction",
+      "A.C. voltages",
+      "The transformer"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY105",
     "coursetitle": "Introductory Waves, Optics and Modern Physics",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Atomic structure",
+      "Isotopes",
+      "Radioactivity",
+      "Vacuum and semiconductor devices",
+      "Cathode-ray and X-ray tubes",
+      "Types and properties of waves",
+      "Sound and light energies",
+      "Doppler effect",
+      "Superposition of waves",
+      "Reflection and refraction of waves",
+      "Huygens' principle",
+      "Propagation of sound",
+      "Optical refraction of light",
+      "Lens maker's formula",
+      "Properties of lenses",
+      "Aberrations",
+      "Polarization",
+      "Interference",
+      "Dispersion of light",
+      "Photometry",
+      "Light spectrum analysis"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PHY118",
     "coursetitle": "Experimental Physics I",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Experimental techniques",
+      "Observation",
+      "Measurements",
+      "Data collection",
+      "Data analysis",
+      "Deduction"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "CHE126",
     "coursetitle": "Inorganic Chemistry I",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Electronic configuration",
+      "Periodicity",
+      "Extraction of metals",
+      "Comparative chemistry of group IA, IIA, and IVA elements",
+      "Introduction to Nuclear Chemistry",
+      "Introduction to Transition Metals",
+      "Quantum Numbers, Atomic Orbitals, and Electron Configurations",
+      "Aufbau process",
+      "Hybridization"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "CHE156",
     "coursetitle": "Physical Chemistry I",
     "unit": 4,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Atoms",
+      "Molecules",
+      "Structures",
+      "Bonding",
+      "Inter-molecular forces",
+      "Kinetic theory of matter",
+      "Thermo-chemistry",
+      "Rates of reaction",
+      "Equilibrium",
+      "Acids",
+      "Bases",
+      "Salts",
+      "Redox reactions",
+      "Electrochemistry"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "CHE176",
     "coursetitle": "Organic Chemistry I",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": "Basic concepts of organic chemistry including the definition and importance of organic chemistry, atoms, atomic and molecular orbitals including bonding, unique nature of carbon, hybridization, determination of molecular composition and structure of organic compounds, functional group classes of organic compounds, nomenclature of organic compounds, reaction mechanism and kinetics, types of organic reactions, and factors affecting organic reactions.",
+    "topics": [
+      "Atoms, atomic and molecular orbitals including bonding",
+      "Unique nature of carbon",
+      "Hybridization",
+      "Determination of molecular composition and structure of organic compounds",
+      "Functional group classes of organic compounds",
+      "Nomenclature of organic compounds",
+      "Reaction mechanism and kinetics",
+      "Types of organic reactions",
+      "Factors affecting organic reactions",
+      "Synthesis, reactions, and uses of Alkanes including petroleum, Alkenes, Alkynes, Benzene and aromatic compounds, Haloalkanes, Alkanols, Alkoxyalkanes, Alkanamines, Carbonyl compounds (alkanals and alkanones), Carboxylic acids and derivatives",
+      "Brief introduction to bio-molecules: Carbohydrates, Proteins, Synthetic polymers",
+      "Introduction to spectroscopy: Infra-red, UV, NMR, Mass Spectroscopy",
+      "Basic concepts of organic synthesis"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "CHE191",
     "coursetitle": "Practical Chemistry for 100 Level",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Practical aspects of CHE 157",
+      "Practical aspects of CHE 127",
+      "Practical aspects of CHE 177"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "CSC101",
     "coursetitle": "Introduction to Computer Science",
     "unit": 4,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Overview of Computer Science",
+      "Computer system structure",
+      "Historical development of computer systems",
+      "Generations of computer systems",
+      "Computer operations",
+      "Internal structure of computer hardware",
+      "Microcomputer technology",
+      "Computer numbering system",
+      "Computer arithmetic",
+      "Computer data representation schemes",
+      "Problem solving with computers",
+      "Elements of programming languages",
+      "Computers in society",
+      "Internet and its facilities",
+      "Basic file processing concepts",
+      "Introduction to computer programming using VISUAL BASIC",
+      "Algorithms",
+      "Data Structures & Logic",
+      "Laboratory exercises in VISUAL BASIC programming and the Internet"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "PSY101",
     "coursetitle": "Introduction to Psycho-biology Basis of Behavior",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "topics": [
+      "Basic units of the nervous system",
+      "Hierarchical structure of the brain",
+      "Sensory processes",
+      "Consciousness",
+      "Visual sensation",
+      "Auditory processes",
+      "Chemical processes",
+      "Fundamentals of motivations"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES101",
     "coursetitle": "Use of English",
-    "unit": 2,
-    "level": 100
+    "unit": 3,
+    "level": 100,
+    "aim": "This is an intensive English language course, specifically designed to help new students to develop correct and appropriate usage of the language. In particular, the course is aimed at developing in the students the listening language skills as well as refining the structure of English appropriately. The different aspects of the grammar of English such as parts of speech, phrases, clauses, concord, voice, direct and indirect speech, as well as tense, mood and aspect will be taught.",
+    "topics": [
+      "Grammar of English",
+      "Parts of speech",
+      "Phrases",
+      "Clauses",
+      "Concord",
+      "Voice",
+      "Direct and indirect speech",
+      "Tense",
+      "Mood",
+      "Aspect"
+    ],
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES107",
     "coursetitle": "Reproductive Health: Sexually Transmitted Infections [STIs] and Human Immunodeficiency Virus [HIV]",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": "The aim of this course is to provide students with knowledge and critical understanding of reproductive health, human sexuality and sexual health, including epidemiology of sexually transmitted diseases with emphasis on HIV. It is envisioned that this course will equip the students with knowledge and skill to protect themselves against HIV infection and other STIs as well as prepare them to serve as agents of change in their present and future communities in the global efforts to control the scourge of HIV/AIDS.",
+    "topics": [
+      "Reproductive health",
+      "Human sexuality",
+      "Sexual health",
+      "Epidemiology of sexually transmitted diseases",
+      "HIV/AIDS"
+    ],
+    "category": "C",
+    "pre-requisites": null
   },
   {
     "coursecode": "GES108",
     "coursetitle": "Introduction to French",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": "Introduction to French (GES 108) is designed for beginners in an Anglophone setting to acquire the four competences of communicative approach, namely, oral and written communication skills, oral and written expression skills of French. At the end of the first semester, students of various disciplines will be able to express themselves in simple and correct French, and the knowledge of the foreign language will make them students without borders and more marketable. Soyez les bienvenus!",
+    "topics": [
+      "Bonjour",
+      "Mon Village",
+      "Ma Famille",
+      "A la Cour",
+      "A la Banque",
+      "Description de l'Université de Ibadan",
+      "AU CYBERCAFE",
+      "EXPRIMER SES GOUTS",
+      "A l'Hôpital",
+      "Un Jour A La Ferme",
+      "QUAND MA SŒUR ETAIT PETITE"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ZOO112",
     "coursetitle": "The Mammalian Body",
     "unit": 3,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Integumentary system",
+      "Musculoskeletal system",
+      "Nervous system",
+      "Circulatory system",
+      "Respiratory system",
+      "Digestive system",
+      "Excretory system",
+      "Reproductive system",
+      "Dissection of small mammals"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ZOO115",
     "coursetitle": "Introductory Ecology",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Introduction of organisms and the environment",
+      "Interrelationships between organisms and the environment",
+      "Concept of population",
+      "Production ecology of the environment",
+      "Trophic levels",
+      "Food chains",
+      "Food webs",
+      "Impacts of human activities on the environment"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ZOO114",
     "coursetitle": "Principles of Cell Biology and Genetics",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Cell structure and function",
+      "Cellular basis of biological organization",
+      "Macromolecular basis of life",
+      "Principles of Bioethics",
+      "Genetic inheritance and variation",
+      "Information transfer",
+      "Energy production and utilization",
+      "Embryogenesis and growth"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ZOO116",
     "coursetitle": "Introductory Invertebrate Zoology",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Inter-relationships within and among taxa",
+      "Life histories of representatives of major phyla",
+      "Agricultural significance of important invertebrate species",
+      "Veterinary significance of important invertebrate species",
+      "Medical significance of important invertebrate species"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ZOO117",
     "coursetitle": "Introductory Vertebrate Zoology",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": null,
+    "topics": [
+      "Concept of evolution",
+      "General classification of vertebrates",
+      "Characteristics and life history of representatives of:",
+      "- Fishes",
+      "- Amphibians",
+      "- Reptiles",
+      "- Birds",
+      "- Mammals",
+      "Vertebrates of medical importance",
+      "Vertebrates of veterinary importance",
+      "Vertebrates of agricultural importance"
+    ],
+    "category": "R",
+    "pre-requisites": null
   },
   {
     "coursecode": "ZOO118",
     "coursetitle": "Practical Zoology",
     "unit": 2,
-    "level": 100
+    "level": 100,
+    "aim": "This course will enable practical learning of the basic concepts in Zoology.",
+    "topics": [
+      "Laboratory Safety Principles and Use of Microscope",
+      "Cell Structure, Cell Communication",
+      "Protozoan Protist",
+      "Early Embryogenesis, Cleavage and Blastulation, Gastrulation",
+      "Circulatory System (Mammalian Heart, Circulation), Population Ecology (Biotic and Abiotic Factors)"
+    ],
+    "category": "R",
+    "pre-requisites": null
   }
 ]

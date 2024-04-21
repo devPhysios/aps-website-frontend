@@ -1,135 +1,557 @@
 [
-    {
-      "coursecode": "PST401",
-      "coursetitle": "Physiotherapy posting in Medicine & Neurology",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST402",
-      "coursetitle": "Physiotherapy posting in Neurosurgery",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST403",
-      "coursetitle": "Posting in Medical Imaging",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST404",
-      "coursetitle": "Posting in Psychiatry",
-      "unit": 1,
-      "level": 400
-    },
-    {
-      "coursecode": "PST405",
-      "coursetitle": "Posting in Surgery",
-      "unit": 3,
-      "level": 400
-    },
-    {
-      "coursecode": "PST410",
-      "coursetitle": "Electrotherapy III: Direct , Low & Medium Frequency Stimulating Currents & Electro-diagnosis",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST411",
-      "coursetitle": "Practical Electrotherapy II",
-      "unit": 1,
-      "level": 400
-    },
-    {
-      "coursecode": "PST412",
-      "coursetitle": "Clinical Reasoning & Physical Diagnosis",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST413",
-      "coursetitle": "Hydrotherapy",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST414",
-      "coursetitle": "Skeletal & Soft Tissue Injuries",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST415",
-      "coursetitle": "Orthopaedic Conditions",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST416",
-      "coursetitle": "Paediatrics I",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST417",
-      "coursetitle": "Health Measurement & Outcomes Assessment",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST418",
-      "coursetitle": "Orthotics and Prosthetics",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST419",
-      "coursetitle": "Seminars on Issues in Health Care",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST420",
-      "coursetitle": "Research Methodology",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST421",
-      "coursetitle": "Respiratory Conditions",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST422",
-      "coursetitle": "Neurology I",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST423",
-      "coursetitle": "Paediatrics II",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST424",
-      "coursetitle": "Cardiovascular disorders",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST425",
-      "coursetitle": "Biostatistics",
-      "unit": 2,
-      "level": 400
-    },
-    {
-      "coursecode": "PST426",
-      "coursetitle": "Sports Physiotherapy",
-      "unit": 2,
-      "level": 400
-    }
-  ]
-  
+  {
+    "coursecode": "PST401",
+    "coursetitle": "Physiotherapy posting in Medicine & Neurology",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "History taking",
+      "Physical examination",
+      "Assessment procedures",
+      "Clinical reasoning",
+      "Clinical judgments",
+      "Treatment and evaluation of patients with medical and neurological conditions such as Stroke, Parkinson's disease, Diabetes mellitus, Guillain-Barre syndrome",
+      "Communication of management plan and other information with patients",
+      "Goal setting"
+    ],
+    "objectives": [
+      "Take history, carry out physical examination and other relevant assessment procedures on patients with medical and neurological conditions",
+      "Demonstrate skills in clinical reasoning and in making clinical judgments in different medical and neurological conditions",
+      "Demonstrate skills in communicating management plan and other information with patients",
+      "Demonstrate skills in managing and evaluating patients with common medical and neurological conditions seen in physiotherapy"
+    ],
+    "pre-requisites": "PST312",
+    "aim": "The aim of this clinical posting is to provide students with practical experience in physiotherapy for medical and neurological conditions. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical reasoning, communication with patients, and management of common medical and neurological conditions seen in physiotherapy.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST402",
+    "coursetitle": "Physiotherapy posting in Neurosurgery",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "History taking",
+      "Physical examination",
+      "Assessment procedures",
+      "Clinical reasoning",
+      "Clinical judgments",
+      "Treatment and evaluation of patients with head and spinal cord injuries and other conditions requiring neurosurgery such as post excision of tumor within the skull",
+      "Communication of management plan and other information with patients"
+    ],
+    "objectives": [
+      "Take history, carry out physical examination and other relevant assessment procedures on patients with head and spinal cord injuries and other conditions requiring neurosurgery",
+      "Demonstrate skills in clinical reasoning and in making clinical judgments in head and spinal cord injuries and other conditions requiring neurosurgery",
+      "Demonstrate skills in communicating management plan and other information with patients",
+      "Demonstrate skills in managing and evaluating patients with head and spinal cord injuries and other conditions requiring neurosurgery"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this clinical posting is to provide students with practical experience in physiotherapy for patients undergoing neurosurgery. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical reasoning, communication with patients, and management of patients with head and spinal cord injuries and other conditions requiring neurosurgery.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST403",
+    "coursetitle": "Posting in Medical Imaging",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Medical imaging facilities and their preferential uses (radiographs, ultrasound scan, CT scan, MRI)",
+      "Reading and interpretation of radiographs for common conditions managed by physiotherapy",
+      "Terminologies in radiology and their recognition in radiographs",
+      "Reading and interpretation of CT scan and MRI with emphasis on diagnosis of disorders of brain and the spine",
+      "Clinical values of other specialized procedures (myelogram, bronchogram, angiogram, barium meals, etc.)"
+    ],
+    "objectives": [
+      "Read and interpret radiographs, CT scan and MRI of conditions commonly seen in physiotherapy",
+      "Demonstrate understanding of terminologies in radiology and their recognition in radiographs",
+      "Interpret CT scan and MRI with emphasis on diagnosis of disorders of brain and the spine",
+      "Understand the clinical values of other specialized procedures"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with the necessary skills to read and interpret medical imaging results commonly used in physiotherapy practice. By the end of the course, students should be able to interpret radiographs, CT scans, and MRIs of conditions such as fractures, osteoarthritis, spinal disorders, and brain abnormalities.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST404",
+    "coursetitle": "Posting in Psychiatry",
+    "unit": 1,
+    "level": 400,
+    "topics": [
+      "Relationships between physical and psychological disorders",
+      "Psychopathology of pain",
+      "Common mental disorders associated with painful conditions",
+      "Somatoform and factitious disorders",
+      "Basic psychological therapies relevant to physiotherapy",
+      "Behavioural and emotional disorders associated with common physiotherapy conditions"
+    ],
+    "objectives": [
+      "Explain the relationship between physical and psychological disorders",
+      "Describe mental disorders associated with painful conditions",
+      "Identify somatoform and factitious disorders",
+      "Describe behavioural and emotional disorders associated with common physiotherapy conditions"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with an understanding of the relationship between physical and psychological disorders, as well as common mental disorders associated with painful conditions. Students will also learn about somatoform and factitious disorders, along with basic psychological therapies relevant to physiotherapy.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST405",
+    "coursetitle": "Posting in Surgery",
+    "unit": 3,
+    "level": 400,
+    "topics": [
+      "Assessment of patients before and after surgery",
+      "Management of patients before, during, and after surgical operations",
+      "Observation of surgical procedures in the theatre",
+      "Monitoring and management of patients during immediate post-operative periods",
+      "Monitoring and management of patients during admission"
+    ],
+    "objectives": [
+      "Describe assessment of patients before and after surgery",
+      "Outline the management of patients before, during, and after surgical operations"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with practical exposure to surgical procedures and patient care in various surgical units. Students will learn about the assessment and management of patients before, during, and after surgery, as well as observe surgical procedures and participate in post-operative care.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST410",
+    "coursetitle": "Electrotherapy III: Direct , Low & Medium Frequency Stimulating Currents & Electro-diagnosis",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Direct/galvanic current-electrical parameters and application - iontophoresis (including treatment of hyperhidrosis)",
+      "Low frequency currents - faradic type, interrupted direct, sinusoidal currents. Principles and methods of application",
+      "Therapeutic uses (nerve stimulation, stimulation of denervated muscles), indications, contraindications for, dangers of, precautionary measures",
+      "Electro-diagnosis (strength - duration curves, nerve conduction test, EMG)",
+      "Electro-analgesia - revision of pain modulation (pain gate theory). Transcutaneous Electrical Nerve Stimulation (TENS), interferential currents, diadynamic currents, high voltage pulsed galvanic current, Russian/Rebox currents"
+    ],
+    "objectives": [
+      "Describe the electrical parameters of direct, low and medium frequency currents",
+      "Discuss basic principles governing the application and uses of direct, low and medium frequency stimulating currents (iontophoresis, nerve and muscle stimulation, electro-diagnosis and electro-analgesia)",
+      "Enumerate indications, dangers and contraindications of low and medium frequency stimulating currents"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with advanced knowledge and skills in the application of direct, low, and medium frequency stimulating currents and electrodiagnosis. By the end of the course, students should be able to describe the electrical parameters of these currents, discuss their applications and uses, and enumerate their indications, dangers, and contraindications.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST411",
+    "coursetitle": "Practical Electrotherapy II",
+    "unit": 1,
+    "level": 400,
+    "topics": ["Practical aspects of PST410"],
+    "objectives": [
+      "Demonstrate skills in selecting and applying appropriate stimulating currents for different purposes and conditions",
+      "Demonstrate skills in electro-diagnosis"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with practical experience in selecting and applying appropriate stimulating currents for different purposes and conditions, as well as in electro-diagnosis. By the end of the course, students should be able to demonstrate proficiency in these skills.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST412",
+    "coursetitle": "Clinical Reasoning & Physical Diagnosis",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Definitions of diagnosis, physical diagnosis, medical diagnosis and differential diagnosis",
+      "Importance of physical diagnosis in physiotherapy",
+      "Overview of clinical reasoning skills and clinical decision making",
+      "Models of clinical reasoning process",
+      "Overview of clinical decision making skills",
+      "Drawing inferences from clinical data (history taking, health measurement, physical examination, vital signs, end-feels etc)",
+      "Specific provocative movement tests and physical diagnosis in musculoskeletal conditions",
+      "Physical diagnosis in neurological, paediatric, cardiopulmonary and other conditions",
+      "Case studies/simulation for clinical reasoning"
+    ],
+    "objectives": [
+      "Describe and differentiate among different models of clinical reasoning process",
+      "Demonstrate competence in differential diagnosis and clinical decision making in some musculoskeletal conditions requiring physiotherapy",
+      "Demonstrate competence in differential diagnosis and clinical decision making in some cardiopulmonary, paediatric and other conditions requiring physiotherapy"
+    ],
+    "pre-requisites": "PST311",
+    "aim": "The aim of this course is to equip students with the knowledge and skills necessary for clinical reasoning and physical diagnosis in physiotherapy practice. By the end of the course, students should be able to describe different models of clinical reasoning, demonstrate competence in differential diagnosis and clinical decision making for various musculoskeletal, cardiopulmonary, paediatric, and other conditions.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST413",
+    "coursetitle": "Hydrotherapy",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Historical background",
+      "Hydrodynamic laws (Archimedes Law, Pascal's Law, Surface tension, etc.)",
+      "Body immersion and weightlessness",
+      "Types of therapeutic pools",
+      "Whirlpools and baths",
+      "Pool accessories",
+      "Therapeutic pool environment (temperature, pH, humidity, ventilation, water hygiene)",
+      "Methods of exercise in therapeutic pools (conventional method and Bad-Ragaz method)",
+      "Physiological effects, therapeutic uses, indications, contraindications, dangers, and safety measures",
+      "Application to specific conditions (paralytic, spastic, rheumatic, orthopedic)",
+      "Pool plants components, care, and maintenance",
+      "Advantages and disadvantages of exercises in water versus exercises on land"
+    ],
+    "objectives": [
+      "Explain the advantages of exercises in water over exercises on land",
+      "Explain the application of hydrodynamic laws to hydrotherapy",
+      "Describe basic methods of exercises in water",
+      "Instruct patients in exercises in a therapeutic pool",
+      "Select appropriate hydrotherapy medium for different parts of the body"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with an understanding of hydrotherapy principles and techniques. By the end of the course, students should be able to explain the advantages of exercises in water, apply hydrodynamic laws to hydrotherapy, describe methods of exercises in water, instruct patients in therapeutic pool exercises, and select appropriate hydrotherapy mediums for different body parts.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST414",
+    "coursetitle": "Skeletal & Soft Tissue Injuries",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Fractures: definition, classification, complications, healing (delayed, mal, and non-union)",
+      "Dislocations",
+      "General principles of management of fractures and dislocations",
+      "General management of fractures (closed and open reductions, immobilizations, internal and external fixations) and dislocations (reductions and immobilizations)",
+      "Physiotherapy management during and post-immobilization including training in assisted walking",
+      "General management of acute and chronic soft tissue injuries (muscular, tendinous, and ligamentous injuries, tendinitis, tenosynovitis, fasciitis, ACL repairs, meniscal repairs, etc.)",
+      "Burns: types, severity calculation, methods of management, complications, cardiovascular implications of extensive burns, role of physiotherapy before and after healing, role of pressure garment",
+      "Amputation: Immediate post-operative, pre-prosthetic and post-prosthetic care",
+      "Whiplash injuries, fracture & dislocation of the spinal column"
+    ],
+    "objectives": [
+      "Describe the general and physiotherapy management of fractures and dislocations",
+      "Describe physiotherapy management of soft tissue injuries",
+      "Explain the role of physiotherapy in the care of patients with burns and amputations"
+    ],
+    "pre-requisites": "ANA 201, ANA 203, ANA 301",
+    "aim": "The aim of this course is to provide students with an understanding of skeletal and soft tissue injuries and their physiotherapy management. By the end of the course, students should be able to describe the management of fractures, dislocations, and soft tissue injuries, as well as explain the role of physiotherapy in the care of patients with burns and amputations.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST415",
+    "coursetitle": "Orthopaedic Conditions",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Joint disorders: osteoarthritis, rheumatoid arthritis, juvenile rheumatoid arthritis, gout, temporomandibular joint disorders, haemophilic arthritis",
+      "Spinal disorders: neck pain, back pain, sacroiliac joint pain, cervical and lumbar spondylosis (intervertebral disc lesions), spinal stenosis, spondylolisthesis, ankylosing spondylitis",
+      "Infectious conditions: septic arthritis, tuberculous arthritis, osteomyelitis",
+      "Bone disorders: osteoporosis, osteomalacia, Paget's disease, etc.",
+      "Musculoskeletal deformities: scoliosis, kyphosis, kyphoscoliosis",
+      "Myofascial pain syndrome",
+      "Fibromyalgia",
+      "Connective tissue disorders: polymyositis, systemic lupus erythematosus",
+      "Joint replacements (hip and knee), acute care (including precautions and safety) following surgeries (special consideration for old/elderly patients)"
+    ],
+    "objectives": [
+      "Describe the pathological basis, aetiology, and clinical features of common orthopaedic conditions",
+      "Describe assessment procedures for common orthopaedic conditions seen in physiotherapy",
+      "Describe physiotherapy management of common orthopaedic conditions seen in physiotherapy"
+    ],
+    "pre-requisites": "ANA 201, ANA 203, ANA 301",
+    "aim": "The aim of this course is to provide students with an understanding of common orthopaedic conditions, including their pathological basis, clinical features, assessment procedures, and physiotherapy management. By the end of the course, students should be able to describe and assess common orthopaedic conditions and implement appropriate physiotherapy interventions.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST416",
+    "coursetitle": "Paediatrics I",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Motor development during the first five years of life: important considerations in motor development (growth/maturation of the brain after birth, environment), sequence, principles of development",
+      "Introduction to motor control theories; reflex development and testing",
+      "Cerebral palsy: definition, aetiology, clinical features, and classification; assessment; treatment approaches (Neuro-developmental Therapy/Bobath's method)",
+      "Spina Bifida",
+      "Mental retardation (Downs Syndrome)",
+      "Autism",
+      "Acute flaccid paralysis: poliomyelitis, sciatic nerve injection palsy, Guillain-Barre Syndrome",
+      "Brachial plexus injuries: Erb's palsy, Klumpke's paralysis, Duchenne Klumpke's paralysis",
+      "Muscular dystrophies"
+    ],
+    "objectives": [
+      "Describe the sequence, principles of, and factors influencing movement development during the first five years of life",
+      "Describe the pathological basis, aetiology, and clinical features of neuromotor and neuromuscular conditions in children",
+      "Describe the assessment procedures for neuromotor and neuromuscular conditions in children",
+      "Describe physiotherapy management of neuromotor and neuromuscular conditions in children"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with an understanding of paediatric physiotherapy, focusing on motor development during the first five years of life and the assessment and management of neuromotor and neuromuscular conditions in children. By the end of the course, students should be able to describe the development of motor skills in children, assess neuromotor and neuromuscular conditions, and implement appropriate physiotherapy interventions for paediatric patients.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST417",
+    "coursetitle": "Health Measurement & Outcomes Assessment",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Definition of health measurement",
+      "Population and individual health statistics",
+      "Physiotherapy measurements and clinical decision making",
+      "Outcomes assessment",
+      "Identification of outcomes",
+      "Selection of outcome measures",
+      "Methods of integrating outcomes assessment into clinical practice",
+      "Psychometric properties: validity, reliability, and utility",
+      "Measurement of specific variables: vital signs, pain, disability, functional performance, anthropometric variables, physical fitness measurement (stress test), lung function tests, motor function tests"
+    ],
+    "objectives": [
+      "Explain the importance of health measurement to clinical decision making",
+      "Identify and measure outcomes in conditions commonly seen in physiotherapy",
+      "Describe psychometric properties of health measuring instruments"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to equip students with the knowledge and skills necessary to understand and apply health measurement and outcomes assessment in physiotherapy practice. By the end of the course, students should be able to explain the significance of health measurement in clinical decision making, identify and measure outcomes relevant to physiotherapy practice, and evaluate the psychometric properties of health measuring instruments.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST418",
+    "coursetitle": "Orthotics and Prosthetics",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Orthotics",
+      "Indications, contraindications, dangers, and precautionary measures of orthotic devices",
+      "Types of orthotic devices: AFO, KAFO, HKAFO, THKAFO, insoles, cock-up splints, cervical collars, lumbar corsets, Boston brace, and other braces for correction of scoliosis",
+      "Materials for fabrication of orthotic devices: Plaster of Paris (POP), Scotch cast, Polyvinyl Chloride (PVC)",
+      "Fabrication of simple orthotic devices: night splint, knee extension splint/back slab, cock-up splint, etc.",
+      "Prescription and criteria for selection of orthoses",
+      "Prosthetics",
+      "Overview of types of prostheses",
+      "Physiotherapy in amputee rehabilitation: patient education on care, maintenance, and uses of prostheses; dangers, complications, and contraindications",
+      "Practical stump bandaging",
+      "Care, uses, and prescription of wheelchairs",
+      "One-week posting in plaster techniques"
+    ],
+    "objectives": [
+      "Correctly prescribe orthotic devices for different conditions",
+      "Demonstrate competence in fabricating simple orthotic devices",
+      "Correctly prescribe the right types of prostheses for different types of amputations",
+      "Perform stump bandaging"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with the knowledge and skills necessary to prescribe, fabricate, and utilize orthotic and prosthetic devices in physiotherapy practice. By the end of the course, students should be able to correctly prescribe orthotic devices for various conditions, demonstrate proficiency in fabricating simple orthotic devices, prescribe appropriate prostheses for different types of amputations, and perform stump bandaging effectively.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST419",
+    "coursetitle": "Seminars on Issues in Health Care",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "International Health: definitions and classifications",
+      "ICD & ICF",
+      "Evidence-based practice",
+      "Determinants of health and health promotion",
+      "The Nigerian health environment and policies",
+      "Individual and population health statistics",
+      "Evidence-based decision making and practice",
+      "Healthcare of selected populations (women, children, and the elderly)",
+      "Ethical issues in general clinical practice",
+      "Ethical issues in physiotherapy practice",
+      "Public and private financing of health services",
+      "National Health Insurance Scheme",
+      "HIV/AIDS",
+      "Euthanasia in Nigeria"
+    ],
+    "objectives": [
+      "Acquire skills for seminar presentation (search, collate information, and make presentations)",
+      "Discuss current issues in health care"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to provide students with an understanding of various issues in health care, both locally and globally. Through seminars and discussions, students will acquire the skills necessary for effective presentation and engage in critical discussions on current topics in health care, including international health, evidence-based practice, ethical issues, healthcare financing, and specific health concerns in Nigeria such as HIV/AIDS and euthanasia.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST420",
+    "coursetitle": "Research Methodology",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Research in physiotherapy: focus on the 21st-century research",
+      "Identification of research problems",
+      "Literature search and review: peripheral and core literature, electronic search engines, importance of meta-analysis, use of literature to guide research",
+      "Research designs and sampling methods",
+      "Variables: independent & dependent",
+      "Data collection, storage, analysis, and presentation",
+      "Referencing styles",
+      "Manuscript preparation for dissertation and journal publication"
+    ],
+    "objectives": [
+      "Identify research problems",
+      "Describe what literature search and review entail",
+      "Describe different research designs and sampling methods",
+      "Describe the process of investigating a research problem"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of this course is to equip students with the knowledge and skills necessary to conduct research in the field of physiotherapy. By focusing on contemporary research methodologies, students will learn how to identify research problems, conduct literature searches, select appropriate research designs and sampling methods, collect and analyze data, and present research findings. Additionally, students will learn about referencing styles and manuscript preparation for dissertation and journal publication.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST421",
+    "coursetitle": "Respiratory Conditions",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Overview of respiratory system",
+      "Management of patients with respiratory conditions using problem-oriented medical system",
+      "Subjective assessment: breathlessness, wheeze, cough, sputum",
+      "Objective assessment: auscultation, spirometry, chest shapes and movement, breathing pattern, chest radiography, blood gas analysis and implication for management",
+      "Principles of management and outcomes measurement in respiratory care",
+      "Physiotherapy techniques: active cycle of breathing, glossopharyngeal breathing, forced expiratory technique, manual hyperventilation, breathing control, airway clearance techniques and adjunct, non-invasive ventilation, basic life support",
+      "Management of specific respiratory conditions: COPD, asthma, bronchiectasis, pulmonary edema, pulmonary tuberculosis, carcinomas, post-surgical conditions e.g. lobectomy, thoracotomy, pneumonectomy",
+      "Pulmonary rehabilitation and reconditioning",
+      "Health education and promotion: smoking cessation, nutrition, and other lifestyle modifications",
+      "Paediatric respiratory care"
+    ],
+    "objectives": [
+      "Describe the workings of the respiratory system and function",
+      "Describe the relationship between the cardiovascular system and respiratory conditions",
+      "Explain the underlying principles in the physiotherapy management of respiratory conditions",
+      "Outline physiotherapy management for patients with respiratory conditions"
+    ],
+    "pre-requisites": null,
+    "aim": "The aim of PST421 is to provide students with a comprehensive understanding of respiratory conditions and their physiotherapy management. By covering topics such as the overview of the respiratory system, subjective and objective assessments, principles of management, and specific respiratory conditions, students will develop the knowledge and skills necessary to assess, treat, and manage patients with respiratory conditions effectively. Additionally, the course aims to equip students with the ability to educate patients on health promotion strategies and lifestyle modifications to improve respiratory health.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST422",
+    "coursetitle": "Neurology I",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Introduction to neurology and neurological rehabilitation",
+      "Philosophical basis of traditional approaches to neuro-rehabilitation",
+      "Current motor control theory and comparison to traditional theories",
+      "Aetiology, pathological basis, and clinical features of neurological conditions",
+      "Treatment plans for neurological conditions",
+      "Epidemiology of neurological disorders",
+      "Upper and lower motor neuron disorders",
+      "Traditional approaches to neuro-rehabilitation (e.g., PNF, Brunstroms, Bobath, Rood)",
+      "Modern approaches to neuro-rehabilitation (neuroplasticity, neurodynamics, neuroadaptation)",
+      "Types, causes, and management of peripheral nerve lesions (e.g., Bell's palsy, sciatic nerve palsy, gun-shot injuries)",
+      "Medical and physiotherapy management of lesions within the skull (e.g., head injuries, stroke, space-occupying lesions)",
+      "The Rehabilitation Team",
+      "Assessment tools and outcome measures in neurological physiotherapy"
+    ],
+    "objectives": [
+      "Describe the philosophical basis of traditional approaches to neuro-rehabilitation",
+      "Explain the current motor control theory and compare it to traditional theories",
+      "Describe the aetiology, pathological basis, and clinical features of neurological conditions",
+      "Outline treatment plans for neurological conditions"
+    ],
+    "pre-requisites": "ANA301, PIO207",
+    "aim": "PST422 aims to provide students with a comprehensive understanding of neurology and neurological rehabilitation. By covering topics such as traditional and modern approaches to neuro-rehabilitation, motor control theory, and neurological conditions, students will develop the knowledge and skills necessary to assess, treat, and manage patients with neurological disorders effectively. Additionally, the course aims to familiarize students with assessment tools and outcome measures used in neurological physiotherapy and the interdisciplinary nature of rehabilitation teams.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST423",
+    "coursetitle": "Paediatrics II",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Flaccid paralysis in children",
+      "Orthopaedic problems in childhood",
+      "Congenital foot deformities",
+      "Congenital hip dislocations",
+      "Osteogenesis Imperfecta",
+      "Torticolis",
+      "Juvenile rheumatoid arthritis",
+      "Muscular dystrophies",
+      "Cardiorespiratory disorders in children",
+      "Cystic fibrosis",
+      "Asthma",
+      "Rheumatic fever"
+    ],
+    "objectives": [
+      "Describe the aetiology, pathological basis, and clinical features of paediatric conditions",
+      "Explain how to assess children with the conditions listed",
+      "Outline treatment plans for paediatric conditions"
+    ],
+    "pre-requisites": null,
+    "aim": "PST423 focuses on expanding students' understanding of paediatric physiotherapy by covering a range of paediatric conditions and their assessment, management, and treatment. By studying the aetiology, pathological basis, and clinical features of paediatric conditions, students will gain insights into the unique challenges of paediatric physiotherapy practice. The course also aims to equip students with the skills to assess children with various conditions effectively and develop comprehensive treatment plans tailored to individual patient needs.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST424",
+    "coursetitle": "Cardiovascular disorders",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Review of basic physiological principles and dynamics of circulation",
+      "Heart physiology and cardiac cycle",
+      "ECG normal and abnormal",
+      "Thrombosis",
+      "Embolism",
+      "Thoracic outlet syndrome",
+      "Congenital heart deformities",
+      "Hypertensive heart disease",
+      "Corpulmonale",
+      "Congestive heart failure",
+      "Heart attack",
+      "Cardiac arrest",
+      "Ischaemic heart disease",
+      "Myocardial infarction",
+      "Principles of cardiac rehabilitation"
+    ],
+    "objectives": [
+      "Describe the aetiology, pathological basis, and clinical features of different cardiovascular conditions",
+      "Describe how to assess patients with different cardiovascular conditions",
+      "Outline treatment plans for different cardiovascular conditions",
+      "Explain the principles of cardiac rehabilitation"
+    ],
+    "pre-requisites": null,
+    "aim": "PST424 aims to provide students with a comprehensive understanding of cardiovascular disorders and their management in the context of physiotherapy practice. By covering topics such as basic physiological principles, cardiac function, ECG interpretation, and specific cardiovascular conditions, students will gain the knowledge and skills necessary to assess and treat patients with cardiovascular disorders effectively. Additionally, the course aims to familiarize students with the principles of cardiac rehabilitation, emphasizing the importance of holistic care and long-term management for patients with cardiovascular conditions.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST425",
+    "coursetitle": "Biostatistics",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "Importance and central role of statistics in research",
+      "Review - types of variables, scales of measurement, concept of sampling, data collection",
+      "Reduction, summarization, and presentation of data",
+      "Probability",
+      "The Normal distribution",
+      "Sampling methods",
+      "Tests of hypothesis (significant difference, correlation, regression etc)",
+      "Parametric and non-parametric tests"
+    ],
+    "objectives": [
+      "Discuss the importance of statistics to research",
+      "Describe scientific methods of collating and summarizing data",
+      "Select and apply appropriate statistical tests for testing hypotheses"
+    ],
+    "pre-requisites": null,
+    "aim": "PST425 introduces students to the fundamental principles and techniques of biostatistics, emphasizing their importance in research within the field of physiotherapy. By covering topics such as data collection, summarization, and statistical testing, the course aims to equip students with the necessary skills to analyze research data effectively and make informed decisions based on statistical evidence. Through a combination of lectures and practical exercises, students will develop a solid understanding of statistical methods and their application in physiotherapy research.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST426",
+    "coursetitle": "Sports Physiotherapy",
+    "unit": 2,
+    "level": 400,
+    "topics": [
+      "The physiotherapist in a sports setting - relationship with athletes, coaches, other members of the sports medicine team, and other workers",
+      "Prevention of sports injuries - health education for athletes and coaches",
+      "Assessment of fitness of athletes - cardiopulmonary fitness, motor skill, anthropometric evaluation, etc.",
+      "Common injuries in different sports",
+      "Specific sports injuries - soccer, sprinting, long-distance running, jumper's knee, etc.",
+      "Physical management of sports injuries to facilitate quick recovery",
+      "Classification of sports injuries",
+      "Types and causes of sports injuries",
+      "Risk factors for injuries in sports",
+      "Teamwork in sports medicine"
+    ],
+    "objectives": [
+      "Discuss the roles of physiotherapy in sports medicine",
+      "Describe injuries associated with different sports",
+      "Outline a plan of management for the injured sportsman/woman"
+    ],
+    "pre-requisites": null,
+    "aim": "PST426 provides students with a comprehensive understanding of the role of physiotherapy in sports medicine and the management of sports-related injuries. Through lectures and practical exercises, students will learn about injury prevention strategies, assessment techniques for athlete fitness, and the physical management of various sports injuries. By the end of the course, students will be equipped with the knowledge and skills to effectively work with athletes, coaches, and other members of the sports medicine team to optimize athlete performance and facilitate quick recovery from injuries.",
+    "category": "C"
+  }
+]

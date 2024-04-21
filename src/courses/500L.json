@@ -1,93 +1,358 @@
 [
-    {
-      "coursecode": "PST501",
-      "coursetitle": "Physiotherapy Posting in General & Cardiothoracic Surgery and Oncology",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST502",
-      "coursetitle": "Physiotherapy Posting in O & G and Reconstructive Surgery",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST503",
-      "coursetitle": "Summative Physiotherapy Posting",
-      "unit": 4,
-      "level": 500
-    },
-    {
-      "coursecode": "PST511",
-      "coursetitle": "Students Industrial (Clinical) Work Experience Scheme (SIWES)",
-      "unit": 3,
-      "level": 500
-    },
-    {
-      "coursecode": "PST512",
-      "coursetitle": "Neurology II",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST513",
-      "coursetitle": "Research Proposal Seminar",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST514",
-      "coursetitle": "Physiotherapy in Intensive Care",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST515",
-      "coursetitle": "Physiotherapy in Geriatrics",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST516",
-      "coursetitle": "Ergonomics & Workplace",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST517",
-      "coursetitle": "Principles of Management for Physiotherapy",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST518",
-      "coursetitle": "Disability Issues",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST521",
-      "coursetitle": "Physiotherapy in Women's Health",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST522",
-      "coursetitle": "Terminal illnesses & Palliative Care",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST523",
-      "coursetitle": "Community-Based & Primary Care Physiotherapy",
-      "unit": 2,
-      "level": 500
-    },
-    {
-      "coursecode": "PST524",
-      "coursetitle": "Research Project",
-      "unit": 6,
-      "level": 500
-    }
-  ]
-  
+  {
+    "coursecode": "PST501",
+    "coursetitle": "Physiotherapy Posting in General & Cardiothoracic Surgery and Oncology",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "History taking from patients with cancer and those who have had surgery",
+      "Physical examination of patients with cancer and those who have had surgery",
+      "Assessment procedures for patients with cancer and those who have had surgery",
+      "Clinical reasoning and making clinical judgments",
+      "Communication of management plans and information with patients",
+      "Management and evaluation of patients who have had surgery and those with cancer"
+    ],
+    "objectives": [
+      "Take history, carry out physical examination, and other relevant assessment procedures on patients with cancer and those who have had surgery",
+      "Demonstrate skills in clinical reasoning and making clinical judgments",
+      "Demonstrate skills in communicating management plans and other information with patients",
+      "Demonstrate skills in managing and evaluating patients who have had surgery and those with cancer"
+    ],
+    "pre-requisites": null,
+    "aim": "PST501 is a clinical posting that provides students with practical experience in working with patients who have undergone general surgery and those with cancer. Students will learn to conduct comprehensive history taking, physical examination, and relevant assessment procedures for these patient populations. Additionally, students will develop skills in clinical reasoning, making clinical judgments, and communicating treatment plans effectively to patients. By the end of the posting, students will be proficient in managing and evaluating patients in these clinical settings.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST502",
+    "coursetitle": "Physiotherapy Posting in O & G and Reconstructive Surgery",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Instructing pregnant women in appropriate exercises before and after birth",
+      "History taking from patients with gynaecological problems, burns, those who have had reconstructive surgery",
+      "Physical examination of patients with gynaecological problems, burns, those who have had reconstructive surgery",
+      "Assessment procedures for patients with gynaecological problems, burns, those who have had reconstructive surgery",
+      "Clinical reasoning and making clinical judgments",
+      "Communication of management plans and information with patients",
+      "Management and evaluation of patients with gynaecological problems, burns, those who have had reconstructive surgery"
+    ],
+    "objectives": [
+      "Instruct pregnant women in appropriate exercises before and after childbirth",
+      "Take history, carry out physical examination, and other relevant assessment procedures on patients with gynaecological problems, burns, those who have had reconstructive surgery",
+      "Demonstrate skills in clinical reasoning and making clinical judgments on patients with gynaecological problems, burns, those who have had reconstructive surgery",
+      "Demonstrate skills in communicating management plans and other information with patients",
+      "Demonstrate skills in managing and evaluating patients with gynaecological problems, burns, those who have had reconstructive surgery"
+    ],
+    "pre-requisites": null,
+    "aim": "PST502 is a clinical posting designed to provide students with practical experience in working with obstetric and gynaecological patients as well as patients who have undergone reconstructive surgery. Students will learn to instruct pregnant women in appropriate exercises before and after childbirth. Additionally, students will develop skills in history taking, physical examination, assessment procedures, clinical reasoning, and making clinical judgments for patients with gynaecological problems, burns, and those who have had reconstructive surgery. Furthermore, students will learn effective communication of treatment plans and management with patients and gain proficiency in managing and evaluating patients in these clinical settings.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST503",
+    "coursetitle": "Summative Physiotherapy Posting",
+    "unit": 4,
+    "level": 500,
+    "topics": [
+      "Physiotherapy posting in Paediatics - 8 days",
+      "Physiotherapy posting in Orthopaedics - 8 days",
+      "Physiotherapy posting in Neuromedicine - 8 days",
+      "Physiotherapy posting in Neurosurgery - 8 days",
+      "Physiotherapy posting in General & Cardiothoracic Surgery and Oncology - 8 days",
+      "Physiotherapy posting in O & G and Reconstructive Surgery - 8 days"
+    ],
+    "objectives": [
+      "Demonstrate skills in managing and evaluating patients in various clinical settings",
+      "Demonstrate effective communication of management plans and information with patients",
+      "Demonstrate proficiency in clinical reasoning and making clinical judgments",
+      "Demonstrate comprehensive history taking, physical examination, and relevant assessment procedures for patients in various clinical settings"
+    ],
+    "pre-requisites": null,
+    "aim": "PST503 is a summative clinical posting that provides students with the opportunity to integrate and apply the knowledge and skills acquired in previous courses to various clinical settings. Students will rotate through different clinical areas, including Paediatrics, Orthopaedics, Neuromedicine, Neurosurgery, General & Cardiothoracic Surgery, and Oncology, as well as Obstetrics & Gynaecology and Reconstructive Surgery. By the end of the posting, students will have demonstrated proficiency in managing and evaluating patients, effective communication of management plans, clinical reasoning, making clinical judgments, and conducting comprehensive history taking, physical examination, and relevant assessment procedures in different clinical settings.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST511",
+    "coursetitle": "Students Industrial (Clinical) Work Experience Scheme (SIWES)",
+    "unit": 3,
+    "level": 500,
+    "topics": null,
+    "objectives": "12 weeks SIWES training program in various clinical settings",
+    "pre-requisites": null,
+    "aim": "The aim of the SIWES program is to provide students with practical experience in a clinical setting. Students will spend 6 weeks in a clinical environment where they will have the opportunity to apply the knowledge and skills they have acquired in the classroom to real-life situations. By the end of the program, students will have gained valuable experience that will help them in their future careers as physiotherapists.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST512",
+    "coursetitle": "Neurology II",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Assessment, management, and evaluation of lesions within the spinal column (paraplegia, quadriplegia, Tabes dorsalis)",
+      "Assessment, management, and evaluation of neuropathies (myelinopathy, axonopathy) such as multiple sclerosis and Guillain-Barre Syndrome",
+      "Assessment, management, and evaluation of Syringomyelia",
+      "Assessment, management, and evaluation of neuromuscular junction disorders (Myasthenia gravis)",
+      "Assessment, management, and evaluation of metabolic neuropathy",
+      "Assessment, management, and evaluation of cranial nerve injuries and Motor neurone disorders",
+      "Assessment, management, and evaluation of neurological complications of infectious diseases e.g., HIV/AIDS",
+      "Assistive devices in neurological rehabilitation",
+      "Community re-integration of neurological ill patients"
+    ],
+    "objectives": [
+      "Describe the etiology, pathological basis, and clinical features of neurological conditions listed in the course content",
+      "Outline treatment plans for the neurological conditions listed in the course content"
+    ],
+    "pre-requisites": "PST422 Neurology I",
+    "aim": "PST512 is a course focusing on advancing students' knowledge and skills in neurology. It covers the assessment, management, and evaluation of various neurological conditions, including spinal column lesions, neuropathies, neuromuscular junction disorders, cranial nerve injuries, motor neurone disorders, and neurological complications of infectious diseases. Students will also learn about assistive devices in neurological rehabilitation and the community re-integration of neurological ill patients. Prerequisite for this course is PST422 Neurology I.",
+    "category": "C"
+  },
+  {
+    "coursecode": "PST513",
+    "coursetitle": "Research Proposal Seminar",
+    "unit": 2,
+    "level": 500,
+    "topics": null,
+    "objectives": [
+      "Identify a research problem",
+      "Review literature relevant to the research problem",
+      "Identify the objectives and significance of the research",
+      "Describe the design, sampling method, and methods of investigating an identified research problem",
+      "Present a seminar on an identified research problem"
+    ],
+    "pre-requisites": null,
+    "aim": "PST513, Research Proposal Seminar, aims to equip students with the skills necessary for developing and presenting a research proposal. Throughout the course, students will learn how to identify research problems, review relevant literature, define research objectives, and describe the design and methods for investigating the identified research problem. By the end of the course, students will be able to present a seminar on their identified research problem.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST514",
+    "coursetitle": "Physiotherapy in Intensive Care",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Assessment of critically ill patients in intensive care unit",
+      "Implications for physiotherapy in intensive care",
+      "Differentiating between acute care and intensive care physiotherapy",
+      "Precautionary and safety measures in intensive care physiotherapy",
+      "Management of patients following specific surgeries (e.g., partial or total hip arthroplasty, total knee arthroplasty, Iliazarov procedure)",
+      "Importance of early mobilization of patients out of bed, with special consideration for geriatric patients",
+      "Common problems encountered in intensive care units and their management",
+      "Physiotherapy techniques for patients on mechanical ventilation and care of unconscious patients"
+    ],
+    "objectives": [
+      "Describe what intensive care physiotherapy entails",
+      "Differentiate between acute care and intensive care physiotherapy",
+      "Discuss precautionary and safety measures in giving intensive care physiotherapy",
+      "Understand the assessment of critically ill patients in intensive care units",
+      "Recognize implications for physiotherapy in intensive care",
+      "Understand the management of patients following specific surgeries",
+      "Recognize the importance of early mobilization in acute care",
+      "Identify common problems in intensive care units and their management",
+      "Learn physiotherapy techniques for patients on mechanical ventilation and care of unconscious patients"
+    ],
+    "pre-requisites": null,
+    "aim": "PST514, Physiotherapy in Intensive Care and Acute Care, aims to provide students with the knowledge and skills necessary for managing critically ill patients in intensive care units and patients in acute care settings. The course covers assessment procedures for critically ill patients, differentiation between acute and intensive care physiotherapy, precautionary and safety measures, management of post-surgical patients, importance of early mobilization, and common problems encountered in intensive care units.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST515",
+    "coursetitle": "Physiotherapy in Geriatrics",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Theories of ageing",
+      "Physiological effects of ageing",
+      "Common disorders in the elderly (e.g., diabetes mellitus, hypertension, musculoskeletal disorders)",
+      "Methods of evaluation in geriatric care",
+      "Management approaches in the care of the elderly",
+      "Safety issues in the care of the elderly",
+      "Challenges for physiotherapists in an ageing world population",
+      "Challenges of caring for the elderly in Nigeria",
+      "Comparison of home care versus institutional care",
+      "Interdisciplinary approach in geriatric care"
+    ],
+    "objectives": [
+      "Describe physiological changes associated with ageing",
+      "Explain theories of ageing",
+      "Identify common disorders in the elderly",
+      "Understand methods of evaluation in geriatric care",
+      "Discuss management approaches in the care of the elderly",
+      "Address safety issues in the care of the elderly",
+      "Recognize challenges for physiotherapists in an ageing world population",
+      "Discuss challenges of caring for the elderly in Nigeria",
+      "Compare home care versus institutional care",
+      "Understand the importance of interdisciplinary approach in geriatric care"
+    ],
+    "pre-requisites": null,
+    "aim": "PST515, Physiotherapy in Geriatrics, aims to equip students with the knowledge and skills necessary for providing effective care to elderly patients. The course covers theories of ageing, physiological effects of ageing, common disorders in the elderly, evaluation methods, management approaches, safety issues, challenges for physiotherapists in an ageing population, challenges of caring for the elderly in Nigeria, comparison of home care versus institutional care, and the importance of interdisciplinary approach in geriatric care.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST516",
+    "coursetitle": "Ergonomics & Workplace",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Definition and goal of ergonomics",
+      "Simple and complex work systems",
+      "Description of human-machine systems",
+      "Basic body mechanics",
+      "Musculoskeletal problems in sitting and standing",
+      "Anthropometric principles in workspace and equipment design",
+      "Different types of office chairs",
+      "Ergonomic adaptation of machines and general conditions",
+      "Ergonomic advice and occupational health physiotherapy"
+    ],
+    "objectives": [
+      "Define and describe the goal of ergonomics",
+      "Explain the importance of ergonomics to occupational health physiotherapy practice",
+      "Measure some structural anthropometric variables in the workstation",
+      "Give simple ergonomic advice to minimize work-related musculoskeletal disorders"
+    ],
+    "pre-requisites": null,
+    "aim": "PST516, Ergonomics & Workplace Physiotherapy, aims to provide students with knowledge and skills related to ergonomics in the workplace and its relevance to occupational health physiotherapy practice. The course covers topics such as the definition and goal of ergonomics, human-machine systems, basic body mechanics, musculoskeletal problems, anthropometric principles, types of office chairs, ergonomic adaptation, and occupational health physiotherapy.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST517",
+    "coursetitle": "Principles of Management for Physiotherapy",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Nigerian Health Care policy, environment & delivery system",
+      "Physiotherapy practice in Nigeria",
+      "Principles of management",
+      "Personnel management theory & applications",
+      "Negotiation for conflict resolution",
+      "Work design & recruitment",
+      "Fiscal management",
+      "Operations management",
+      "Estates planning",
+      "Ethical principles applied to moral issues in healthcare",
+      "Healthcare marketing",
+      "Establishment and operation of a private physiotherapy practice"
+    ],
+    "objectives": [
+      "Describe the characteristics of a modern organization",
+      "Describe practical ways of developing an effective style of personnel management",
+      "Explain why a physiotherapy manager needs to have some understanding of financial management",
+      "Differentiate between policies and procedures",
+      "Describe the steps involved in planning facilities for physiotherapy practice"
+    ],
+    "pre-requisites": null,
+    "aim": "PST517, Principles of Management for Physiotherapy, aims to equip students with the knowledge and skills necessary for effective management in physiotherapy practice. The course covers topics such as Nigerian healthcare policy, physiotherapy practice in Nigeria, principles of management, personnel management, conflict resolution, fiscal management, operations management, estates planning, ethical principles, healthcare marketing, and establishment and operation of a private physiotherapy practice.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST518",
+    "coursetitle": "Disability Issues",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Common causes of long-term disabilities",
+      "Psychosocial issues",
+      "Care settings",
+      "Participation in society",
+      "Policies and advocacies related to disability",
+      "Comparison of disability issues in Nigeria and other parts of the world"
+    ],
+    "objectives": [
+      "Describe issues pertaining to people with long-term disabilities and their families within the social and cultural context"
+    ],
+    "pre-requisites": null,
+    "aim": "PST518, Disability Issues, aims to provide students with an understanding of the various issues faced by people with long-term disabilities and their families in social and cultural contexts. The course covers topics such as common causes of long-term disabilities, psychosocial issues, care settings, participation in society, policies and advocacies related to disability, and a comparison of disability issues in Nigeria and other parts of the world.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST521",
+    "coursetitle": "Physiotherapy in Women's Health",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Obstetrics: Cycle of the woman's life",
+      "Pregnancy care",
+      "Labour and delivery",
+      "Postnatal care",
+      "Complications of labour requiring physiotherapy",
+      "Gynaecology: Pelvic inflammatory diseases, stress incontinence, Vesico-vaginal fistula",
+      "Role of physiotherapy in gynaecological conditions",
+      "Precautionary measures in exercise during pregnancy and after childbirth"
+    ],
+    "objectives": [
+      "Describe exercise programs for women before and after childbirth",
+      "Assess and manage women with complications of labor and gynecological problems requiring physiotherapy",
+      "Take precautionary measures in instructing women in exercise during pregnancy and after childbirth"
+    ],
+    "pre-requisites": null,
+    "aim": "PST521, Physiotherapy in Women's Health, aims to equip students with the knowledge and skills to provide physiotherapeutic care to women across various stages of life, with a focus on pregnancy, childbirth, and gynecological issues. The course covers topics such as prenatal care, pain relief in labor, postnatal care, complications of labor requiring physiotherapy, gynecological conditions, and precautionary measures in exercise during pregnancy and after childbirth.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST522",
+    "coursetitle": "Terminal illnesses & Palliative Care",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Terminal illnesses (e.g., Cancer and AIDS)",
+      "Common health problems in terminally ill patients",
+      "Specific health problems related to specific conditions",
+      "Philosophy of palliative care",
+      "Ethical issues in palliative care",
+      "Pain control in terminally ill patients",
+      "Pharmacologic management of cancer pain",
+      "Roles of radiotherapy, chemotherapy, and surgery in palliation",
+      "Role of Physiotherapy in the care of terminally ill patients",
+      "Communication skills in palliative care",
+      "Death and dying",
+      "Spiritual support",
+      "Bereavement",
+      "Palliative care organizations in Nigeria and Africa (Uganda)"
+    ],
+    "objectives": [
+      "Explain the philosophy of palliative care",
+      "Discuss the role of physiotherapy in palliative care"
+    ],
+    "pre-requisites": null,
+    "aim": "PST522, Terminal Illness & Palliative Care, aims to provide students with an understanding of terminal illnesses and the principles of palliative care. The course covers various topics such as common health problems in terminally ill patients, pain control, pharmacologic management of cancer pain, ethical issues, and the role of physiotherapy in the care of terminally ill patients. Additionally, it addresses communication skills, spiritual support, and bereavement in palliative care, as well as the landscape of palliative care organizations in Nigeria and Africa.",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST523",
+    "coursetitle": "Community-Based & Primary Care Physiotherapy",
+    "unit": 2,
+    "level": 500,
+    "topics": [
+      "Differences between community-based and hospital-based physiotherapy services",
+      "Philosophy of Primary Health Care",
+      "State of Community-Based and Primary Health Care physiotherapy services in Nigeria",
+      "Principles of health education and screening",
+      "Establishing physiotherapy clinics in communities",
+      "Itinerant and domiciliary services",
+      "Organisation of domiciliary physiotherapy services",
+      "Philosophy of Community-Based Rehabilitation (CBR)"
+    ],
+    "objectives": [
+      "Discuss the differences between community-based and hospital-based physiotherapy services",
+      "Explain the philosophy of Primary Health Care",
+      "Discuss the state of Community-Based and Primary Health Care physiotherapy services in Nigeria"
+    ],
+    "pre-requisites": null,
+    "aim": "PST523, Community-Based Physiotherapy & Primary Care Physiotherapy, aims to equip students with knowledge and skills relevant to providing physiotherapy services in community and primary care settings. The course covers the differences between community-based and hospital-based services, the philosophy of Primary Health Care, and the state of physiotherapy services in Nigeria. Additionally, it addresses principles of health education and screening, establishment of physiotherapy clinics in communities, itinerant and domiciliary services, and the philosophy of Community-Based Rehabilitation (CBR).",
+    "category": "R"
+  },
+  {
+    "coursecode": "PST524",
+    "coursetitle": "Research Project",
+    "unit": 6,
+    "level": 500,
+    "topics": null,
+    "objectives": [
+      "Identify a research problem",
+      "Review literature relevant to the research problem",
+      "Identify the objectives and significance of the research",
+      "Describe the design, sampling method, and methods of investigating an identified research problem",
+      "Conduct research and present findings"
+    ],
+    "pre-requisites": null,
+    "aim": "PST524, Research Project, aims to provide students with the opportunity to conduct independent research on a topic of interest within the field of physiotherapy. Throughout the course, students will identify a research problem, review relevant literature, define research objectives, describe the design and methods for investigating the research problem, conduct research, and present their findings. By the end of the course, students will have developed research skills and contributed to the body of knowledge in physiotherapy.",
+    "category": "C"
+  }
+]

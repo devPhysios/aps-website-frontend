@@ -29,11 +29,6 @@ const routes = [
     component: Home,
   },
   {
-    path: "/index.html",
-    name: "HomePage",
-    component: Home,
-  },
-  {
     path: "/about",
     name: "AboutPage",
     component: About,
@@ -157,7 +152,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 

@@ -152,7 +152,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes,
 });
 
@@ -177,15 +177,15 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-const fetchData = async (id) => {
-  try {
-    const response = await axios.get(
-      `https://aps-website-backend.onrender.com/questions/${id}`
-    );
-    return response.data;
-  } catch (error) {
-    router.next({ name: "NotFound" });
-  }
-};
+// const fetchData = async (id) => {
+//   try {
+//     const response = await axios.get(
+//       `https://aps-website-backend.onrender.com/questions/${id}`
+//     );
+//     return response.data;
+//   } catch (error) {
+//     router.next({ name: "NotFound" });
+//   }
+// };
 
 export default router;

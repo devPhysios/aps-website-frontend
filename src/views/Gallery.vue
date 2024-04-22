@@ -1,8 +1,13 @@
 <template>
   <section class="text-white bg-green-100 font-display">
     <div class="flex flex-col text-center w-full p-8">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-black">Memories We Created</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-black">Get a peek into our community with snapshots of dinners, outreach, sports, and more. See the heart of who we are.</p>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-black">
+        Memories We Created
+      </h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-black">
+        Get a peek into our community with snapshots of dinners, outreach,
+        sports, and more. See the heart of who we are.
+      </p>
     </div>
   </section>
   <div>
@@ -16,8 +21,8 @@
       >
         <div class="relative">
           <img
-            :src="image.src"
-            :alt="image.alt"
+            :src="image.imageUrl"
+            :alt="image.title"
             class="w-full h-auto object-cover rounded-lg"
           />
           <div
@@ -26,9 +31,11 @@
             <div class="bg-aps-orange h-full w-full">
               <div class="pt-[35%]">
                 <h3 class="md:text-lg text-[14px] font-semibold text-center">
-                  aaaaa
+                  {{ image.title }}
                 </h3>
-                <p class="text-[12px] md:text-sm text-center mb-1">aaaaaa</p>
+                <p class="text-[12px] md:text-sm text-center mb-1">
+                  {{ image.description }}
+                </p>
               </div>
             </div>
           </div>
@@ -51,6 +58,25 @@
         Next
       </button>
     </div>
+    <!-- Loader icon -->
+    <div v-if="loading" class="flex justify-center mt-4">
+      <!-- Loader SVG icon -->
+      <svg class="animate-spin h-8 w-8 text-green-500" viewBox="0 0 24 24">
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A8.004 8.004 0 014 12H0c0 6.627 5.373 12 12 12v-4c-3.86 0-7.255-1.54-9.798-4.045l1.414-1.414z"
+        ></path>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -59,6 +85,7 @@ import { ref, computed, onMounted } from "vue";
 import axios from "axios";
 
 const webimages = ref([]);
+const loading = ref(true); // Loading state
 
 onMounted(async () => {
   try {
@@ -66,76 +93,30 @@ onMounted(async () => {
       "https://aps-website-backend.onrender.com/api/v1/gallery"
     );
     webimages.value = response.data.images;
+    loading.value = false; // Set loading to false once data is fetched
     console.log(webimages.value);
   } catch (error) {
     console.error("Error fetching images:", error);
+    loading.value = false; // Set loading to false in case of error
   }
 });
 
-const images = [
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-  { src: "src/assets/images/DSC_0554.jpg", alt: "Image 3" },
-  // Add more images as needed
-];
+// Commenting out the hardcoded 'images' array
+// const images = [
+//   { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
+//   { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
+//   ...
+// ];
 
 const currentPage = ref(1);
 const pageSize = 15;
 
-const totalPages = computed(() => Math.ceil(images.length / pageSize));
+const totalPages = computed(() => Math.ceil(webimages.value.length / pageSize));
 
 const displayedImages = computed(() => {
   const startIndex = (currentPage.value - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  return images.slice(startIndex, endIndex);
+  return webimages.value.slice(startIndex, endIndex);
 });
 
 function nextPage() {
@@ -149,6 +130,7 @@ function prevPage() {
     currentPage.value--;
   }
 }
+
 const randomSize = () => {
   const sizes = ["1", "2", "3", "4"];
   return sizes[Math.floor(Math.random() * sizes.length)];

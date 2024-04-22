@@ -43,6 +43,7 @@ const allowedLevels = ['100', '200', '300', '400', '500'];
 if (!allowedLevels.includes(level)) {
     router.replace('/not-found');
 } else {
+    window.scrollTo(0, 0);
     import(`../courses/${level}L.json`)
         .then(module => {
             courses.value = module.default;

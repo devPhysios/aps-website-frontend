@@ -28,13 +28,18 @@
           <div
             class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
           >
-            <div class="bg-aps-orange h-full w-full">
-              <div class="pt-[35%]">
+            <div class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display">
+              <div class="h-full flex flex-col justify-center items-center">
                 <h3 class="md:text-lg text-[14px] font-semibold text-center">
                   {{ image.title }}
                 </h3>
-                <p class="text-[12px] md:text-sm text-center mb-1">
+                <p class="text-[12px] h-full md:text-sm text-center mb-1">
                   {{ image.description }}
+                </p>
+                <p class="text-[12px] md:text-sm text-center mb-1">
+                  <span v-for="(feature, index) in image.features" :key="index">
+                    {{ feature }},
+                  </span>
                 </p>
               </div>
             </div>

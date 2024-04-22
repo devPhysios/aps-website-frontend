@@ -127,3 +127,13 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+h3 {
+    font-size: 12px;
+}
+
+p {
+    font-size: 10px;
+}
+</style>

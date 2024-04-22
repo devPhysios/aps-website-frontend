@@ -1,11 +1,11 @@
 <template> 
   <section class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-blue-100 rounded-md">
     <div class="my-1">
-      <p class="text-4xl font-bold pl-4 pt-2">Our Leaders</p>
+      <p class="text-2xl md:text-4xl font-bold pl-4 pt-2">Our Leaders</p>
       <div class="flex items-center pl-4">
-        <div class="md:w-1/4 w-3/4 bg-aps-green h-[4px]"></div>
-        <div class="rounded-full h-4 w-4 bg-aps-orange"></div>
-      </div>      
+          <div class="w-[30%] bg-aps-green h-[4px] md:w-1/4"></div>
+          <div class="rounded-full h-4 w-4 bg-aps-orange"></div>
+      </div>
     </div>
 
     <Carousel

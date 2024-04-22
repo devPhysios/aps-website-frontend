@@ -14,22 +14,21 @@
 
 
                 <div class="flex items-center">
-                    <div>
-                        <p class="text-white">Association of Physiotherapy Students,
-                            <br>
-                            Department of Physiotherapy, Faculty of clinical <br>
-                            Sciences, College of Medicine, University of <br>
-                            Ibadan.
+                    <div class="flex items-center gap-4">
+                        <div><i class="bi bi-geo-alt-fill text-white"></i></div>
+                        <p class="text-white">Room EE, Alexander Brown Hall, University College Hospital, Ibadan.
                         </p>
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <div>
+                    <div class="flex items-center gap-4">
+                        <div><i class="bi bi-envelope-open-fill text-white"></i></div>
                         <p class="text-white"> &nbsp;apsuiibadan@gmail.com</p>
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <div>
+                    <div class="flex items-center gap-4">
+                        <div><i class="bi bi-telephone-fill text-white"></i></div>
                         <p class="text-white">+234 81213080920</p>
                     </div>
                 </div>

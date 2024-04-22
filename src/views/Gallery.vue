@@ -86,9 +86,7 @@
     </div> -->
     <div class="flex flex-col text-center w-full p-8">
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-black">Memories We Created</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-black">Welcome to the our Gallery, where we showcase the vibrant
-          journey of our association through captivating images and moments captured in time. Explore our gallery to
-          witness the essence of our community and the impactful events that shape our collective experience.</p>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-black">Get a peek into our community with snapshots of dinners, outreach, sports, and more. See the heart of who we are.</p>
     </div>
   </section>
   <div>

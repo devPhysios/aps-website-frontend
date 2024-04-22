@@ -61,23 +61,41 @@
       },
       
       {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0457.jpg',
+        name: `Matriculation`,
+        title: "100 Level",
+        imgBg: 'src/assets/images/100l.jpg',
       },
-    
+
+      {
+        name: `Dinner Pictures`,
+        title: "200 Level",
+        imgBg: 'src/assets/images/200l.jpg',
+      },
+
+      {
+        name: `Dinner Pictures`,
+        title: "300 Level",
+        imgBg: 'src/assets/images/300l.jpg',
+      },
+
+      {
+        name: `Dinner Pictures`,
+        title: "400 Level",
+        imgBg: 'src/assets/images/400l.jpg',
+      },
+
+      {
+        name: `Dinner Pictures`,
+        title: "500 Level",
+        imgBg: 'src/assets/images/500l.jpg',
+      },
+
       {
         name: `Dinner Pictures`,
         title: "Every Level",
         imgBg: 'src/assets/images/DSC_0554.jpg',
       },
-  
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0560.jpg',
-      },
-  
+
       {
         name: `Dinner Pictures`,
         title: "Every Level",

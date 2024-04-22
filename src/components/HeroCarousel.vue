@@ -2,12 +2,12 @@
   <Carousel :wrap-around="true" :autoplay="2000" :pause-autoplay-on-hover="true">
     <Slide v-for="(data, index) in carouselData" :key="index">
 
-      <div class="flex flex-col justify-center items-center w-full min-h-[80vh] text-aps-white text-xl gap-2 font-display"
+      <div class="flex flex-col justify-center items-center w-full min-h-[80vh] text-aps-white  gap-2 font-display"
         :style="{ background: `#555 url(${data.imgBg}) no-repeat center/cover`, backgroundBlendMode: 'multiply' }">
-        <h3 class="text-lg mb-3">{{ data.text.toUpperCase() }}</h3>
+        <h3 class="text-xl mb-3">{{ data.text.toUpperCase() }}</h3>
         <p class="mb-4">{{ data.subtitle }}</p>
         <router-link :to='data.link'>
-          <button class="bg-aps-green text-aps-white px-2 py-1 rounded-md hover:bg-aps-orange">
+          <button class="bg-aps-green text-aps-white  rounded-md hover:bg-aps-orange px-3 py-3">
             {{ data.ctaBtn }}
           </button>
         </router-link>
@@ -29,17 +29,17 @@ import { RouterLink } from 'vue-router';
 
 const carouselData = ref([
   {
-    text: `Association of physiotherapy students university of Ibadan`,
+    text: `Association of Physiotherapy Students University of Ibadan`,
     subtitle: "Welcome To Our Official Website",
-    imgBg: 'src/assets/images/IMG_0849.jpg',
+    imgBg: 'src/assets/images/500l.jpg',
     ctaBtn: "About Us",
     link: "/about"
   },
 
   {
-    text: "get to meet us",
-    subtitle: "Meet Our Founders, Lecturers, Excos And Students",
-    imgBg: 'src/assets/images/IMG_0848.jpg',
+    text: "Gallery: Moments Captured",
+    subtitle: "Explore Our Vibrant Community",
+    imgBg: 'src/assets/images/100l.jpg',
     ctaBtn: "Explore Gallery",
     link: "/gallery"
   },
@@ -47,7 +47,7 @@ const carouselData = ref([
   {
     text: "services made easy",
     subtitle: "Pay Your Fees, Access Materials and Past Questions",
-    imgBg: 'src/assets/images/IMG_0846.jpg',
+    imgBg: 'src/assets/images/400l.jpg',
     ctaBtn: "Explore Services",
     link: "/"
   },

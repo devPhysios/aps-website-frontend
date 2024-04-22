@@ -28,7 +28,7 @@
         <div class="bg-green-200 md:flex md:justify-between md:items-center gap-4 p-4 m-8">
             <div class="h-[150px] md:w-3/4 md:pb-0 pb-4">
                 <img class= "h-full object-cover mx-auto" :src= "apsLogo" />
-            </div>            
+            </div>
             <div class="md:w-3/4">
                 <p class="text-3xl font-extrabold text-center md:text-right mb-4">Our Logo's Meaning</p>
                 <p class="text-justify md:text-right">

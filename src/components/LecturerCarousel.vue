@@ -1,11 +1,7 @@
 <template> 
     <div class=" p-1 md:p-6 my-8 ml-8 md:m-8 font-display bg-blue-100 rounded-md">
-      <div class="my-1">
-        <p class="text-4xl font-bold pl-4 pt-2">Our Lecturers</p>
-        <div class="flex items-center pl-4">
-          <div class="md:w-1/4 w-3/4 bg-aps-green h-[4px]"></div>
-          <div class="rounded-full h-4 w-4 bg-aps-orange"></div>
-        </div>
+      <div class="p-4">
+        <p class="text-3xl font-extrabold text-center md:text-left">Our Lecturers</p>
       </div>
   
       <Carousel

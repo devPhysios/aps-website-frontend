@@ -8,7 +8,7 @@
                         Student's Dashboard
                     </h2>
                     <button @click="handleLogout"
-                        class="custom-transition text-sm text-red-500 font-bold hover:text-red-700 px-4 py-2 rounded-lg md:text-lg hover:border-red-500">
+                        class="custom-transition text-[14px] text-red-500 font-bold hover:text-red-700 px-4 py-2 rounded-lg md:text-lg hover:border-red-500">
                         Log Out
                     </button>
                 </div>

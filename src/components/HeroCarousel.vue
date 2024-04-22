@@ -29,7 +29,7 @@ import { RouterLink } from 'vue-router';
 
 import img500 from "@/assets/images/500l.jpg"
 import img400 from "@/assets/images/400l.jpg"
-import img100 from "@/assets/images/400l.jpg"
+import img100 from "@/assets/images/100l.jpg"
 
 const carouselData = ref([
   {

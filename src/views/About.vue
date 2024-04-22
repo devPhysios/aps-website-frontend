@@ -80,7 +80,7 @@ therapy and the spark symbolizes electrotherapy.
     import apsBuilding1 from '@/assets/images/dept/dept02.png'
     import apsBuilding2 from '@/assets/images/dept/dept01.png'
     import apsLogo from '@/assets/images/aps-logo.png'
-    import Lecturerscarousel from "../components/LecturerCarousel.vue"
+    import Lecturerscarousel from "@/components/LecturerCarousel.vue"
 
 
 </script>

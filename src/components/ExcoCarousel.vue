@@ -50,79 +50,79 @@
     {
       name: `Elijah Inioluwa`,
       title: "President",
-      imgBg: 'src/assets/images/excos/exco1b.jpg',
+      imgBg: '@/assets/images/excos/exco1b.jpg',
     },
     
     {
       name: `Oyekan Oluwatobi`,
       title: "Vice President",
-      imgBg: 'src/assets/images/excos/exco2b.png',
+      imgBg: '@/assets/images/excos/exco2b.png',
     },
   
     {
       name: `Olajide Ayomide`,
       title: "General Secretary",
-      imgBg: 'src/assets/images/excos/exco3b.jpg',
+      imgBg: '@/assets/images/excos/exco3b.jpg',
     },
 
     {
       name: `Adeniran Happiness`,
       title: "Assistant General Secretary",
-      imgBg: 'src/assets/images/excos/exco4b.jpg',
+      imgBg: '@/assets/images/excos/exco4b.jpg',
     },
 
     {
       name: `Mustapha Ogo-Oluwa`,
       title: "Public Relations Officer",
-      imgBg: 'src/assets/images/excos/exco5b.jpg',
+      imgBg: '@/assets/images/excos/exco5b.jpg',
     },
 
     {
       name: `Awopegba Jonadab`,
       title: "Social Secretary",
-      imgBg: 'src/assets/images/excos/exco6b.jpg',
+      imgBg: '@/assets/images/excos/exco6b.jpg',
     },
   
     {
       name: `Akinwola Oluwasegun`,
       title: "Sports Secretary",
-      imgBg: 'src/assets/images/excos/exco7b.jpg',
+      imgBg: '@/assets/images/excos/exco7b.jpg',
     },
 
     {
       name: `Moshood Babatunde`,
       title: "Financial Secretary",
-      imgBg: 'src/assets/images/excos/exco8b.jpg',
+      imgBg: '@/assets/images/excos/exco8b.jpg',
     },
 
     {
       name: `Olanrewaju Timileyin`,
       title: "Treasurer",
-      imgBg: 'src/assets/images/excos/exco9b.jpg',
+      imgBg: '@/assets/images/excos/exco9b.jpg',
     },
 
     {
       name: `Adebayo Samuel`,
       title: "Special Duties Officer",
-      imgBg: 'src/assets/images/excos/exco10b.jpg',
+      imgBg: '@/assets/images/excos/exco10b.jpg',
     },
 
     {
       name: `Solomon Oluwatodimu`,
       title: "Senate President",
-      imgBg: 'src/assets/images/excos/exco11b.jpg',
+      imgBg: '@/assets/images/excos/exco11b.jpg',
     },
 
     {
       name: `Goodluck Omotayo`,
       title: "Deputy Senate President",
-      imgBg: 'src/assets/images/excos/exco12b.jpg',
+      imgBg: '@/assets/images/excos/exco12b.jpg',
     },
 
     {
       name: `Egun Jane`,
       title: "Senate Clerk",
-      imgBg: 'src/assets/images/excos/exco13b.jpg',
+      imgBg: '@/assets/images/excos/exco13b.jpg',
     },
   ])
 

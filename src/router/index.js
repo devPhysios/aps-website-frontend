@@ -2,14 +2,14 @@ import { createRouter, createWebHistory } from "vue-router";
 import { useUserStore } from "@/stores/UserStore";
 import axios from "axios";
 
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Gallery from "../views/Gallery.vue";
-import Alumni from "../views/Alumni.vue";
-import Upload from "../views/Upload.vue";
-import Dashboard from "../views/Dashboard.vue";
-import UpdateSecurity from "../views/Updatesecurity.vue";
-import Login from "../views/Login.vue";
+import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
+import Gallery from "@/views/Gallery.vue";
+import Alumni from "@/views/Alumni.vue";
+import Upload from "@/views/Upload.vue";
+import Dashboard from "@/views/Dashboard.vue";
+import UpdateSecurity from "@/views/Updatesecurity.vue";
+import Login from "@/views/Login.vue";
 import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
 import ViewQuestion from "@/views/Viewquestion.vue";
@@ -20,6 +20,7 @@ import LevelQuestions from "@/views/Levelquestions.vue";
 import CourseQuestions from "@/views/Coursequestions.vue";
 import Payment from "@/views/Payment.vue";
 import InternalServerError from "@/views/Internalservererror.vue";
+import Blog from "@/views/Blog.vue";
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     component: Gallery,
   },
   {
+    path: "/blog",
+    name: "BlogPage",
+    component: Blog,
+  },
+  {
     path: "/alumni",
     name: "AlumniPage",
     component: Alumni,
@@ -46,14 +52,14 @@ const routes = [
     path: "/dashboard/questions/:level",
     name: "LevelQuestions",
     component: LevelQuestions,
-    props:true,
+    props: true,
     meta: {
       requiresAuth: true,
     },
   },
   {
     path: "/dashboard/questions/:level/:course",
-    name: 'CourseQuestions',
+    name: "CourseQuestions",
     component: CourseQuestions,
     props: true,
     meta: {
@@ -122,7 +128,7 @@ const routes = [
     //   }
     // },
   },
-  
+
   {
     path: "/profile",
     name: "Profile",
@@ -173,7 +179,9 @@ router.beforeEach((to, from, next) => {
 
 const fetchData = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:8800/questions/${id}`);
+    const response = await axios.get(
+      `https://aps-website-backend.onrender.com/questions/${id}`
+    );
     return response.data;
   } catch (error) {
     router.next({ name: "NotFound" });

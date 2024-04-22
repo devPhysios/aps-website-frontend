@@ -14,5 +14,5 @@ import NavigationMenu from "./components/Navigation.vue"
 
 
 <style scoped>
-@import '/src/assets/index.css';
+@import '@/assets/index.css';
 </style>

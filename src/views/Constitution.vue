@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-// import DashBoardSideMenu from "../components/DashBoardSideMenu.vue"
+// import DashBoardSideMenu from "@/components/DashBoardSideMenu.vue"
 import { useUserStore } from '@/stores/UserStore'
 import constitutionData from "@/data"
 import { ref } from "vue"

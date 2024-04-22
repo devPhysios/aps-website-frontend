@@ -4,7 +4,7 @@
         <!-- <main class="h-full w-full overflow-y-auto"> -->
             <div class="w-[80%] overflow-y-auto mx-4 h-full pl-4 pt-4 bg-gray-50 md:w-[70%] md:h-full pb-3 md:pb-8 md:px-4 md:pl-8">
                 <div class="flex justify-between items-center mt-2 p-px md:p-px">
-                    <h2 class="text-sm my-4 font-semibold text-aps-green md:text-lg">
+                    <h2 class="text-[14px] my-4 font-semibold text-aps-green md:text-lg">
                         Student's Dashboard
                     </h2>
                     <button @click="handleLogout"
@@ -13,7 +13,7 @@
                     </button>
                 </div>
 
-                <div class="text-sm border-l-4 border-aps-green px-2 my-4 md:text-lg">
+                <div class="text-[14px] border-l-4 border-aps-green px-2 my-4 md:text-lg">
                     <b>Hello, </b>
                     <span>{{ capitalize(store.user.firstName) }} {{ capitalize(store.user.lastName) }}</span>
                 </div>

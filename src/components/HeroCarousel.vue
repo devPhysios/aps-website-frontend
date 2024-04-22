@@ -30,6 +30,8 @@ import { RouterLink } from 'vue-router';
 import img500 from "@/assets/images/500l.jpg"
 import img400 from "@/assets/images/400l.jpg"
 import img100 from "@/assets/images/100l.jpg"
+import img200 from "@/assets/images/200l.jpg"
+import img300 from "@/assets/images/300l.jpg"
 
 const carouselData = ref([
   {
@@ -51,8 +53,7 @@ const carouselData = ref([
   {
     text: "services made easy",
     subtitle: "Pay Your Fees, Access Materials and Past Questions",
-<<<<<<< HEAD
-    imgBg: 'src/assets/images/400l.jpg',
+    imgBg: img400,
     ctaBtn: "Student Portal",
     link: "/"
   },
@@ -60,7 +61,7 @@ const carouselData = ref([
   {
     text: "PhysioPress",
     subtitle: "Students Association's Press Website",
-    imgBg: 'src/assets/images/300l.jpg',
+    imgBg: img300,
     ctaBtn: "PhysioPress",
     link: "/"
   },
@@ -68,12 +69,8 @@ const carouselData = ref([
   {
     text: "PhysioRay",
     subtitle: "Explore our association's journal repository from insightful student perspectives.",
-    imgBg: 'src/assets/images/200l.jpg',
+    imgBg: img200,
     ctaBtn: "PhysioRay",
-=======
-    imgBg: img400,
-    ctaBtn: "Explore Services",
->>>>>>> 7a2b424f68acbe4dc43f217c883b8c62ca8ddcf3
     link: "/"
   },
 ])

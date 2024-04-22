@@ -29,6 +29,11 @@ const routes = [
     component: Home,
   },
   {
+    path: "/index.html",
+    name: "HomePage",
+    component: Home,
+  },
+  {
     path: "/about",
     name: "AboutPage",
     component: About,

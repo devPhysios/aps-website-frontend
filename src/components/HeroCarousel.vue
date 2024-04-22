@@ -55,7 +55,7 @@ const carouselData = ref([
     subtitle: "Pay Your Fees, Access Materials and Past Questions",
     imgBg: img400,
     ctaBtn: "Student Portal",
-    link: "/"
+    link: "/dashboard"
   },
 
   {
@@ -63,7 +63,7 @@ const carouselData = ref([
     subtitle: "Students Association's Press Website",
     imgBg: img300,
     ctaBtn: "PhysioPress",
-    link: "/"
+    link: "https://physiopressui.wordpress.com/home/"
   },
 
   {
@@ -71,7 +71,7 @@ const carouselData = ref([
     subtitle: "Explore our association's journal repository from insightful student perspectives.",
     imgBg: img200,
     ctaBtn: "PhysioRay",
-    link: "/"
+    link: "https://christnestteens.com/physioray/"
   },
 ])
 </script>

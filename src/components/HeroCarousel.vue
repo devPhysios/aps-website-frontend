@@ -51,8 +51,29 @@ const carouselData = ref([
   {
     text: "services made easy",
     subtitle: "Pay Your Fees, Access Materials and Past Questions",
+<<<<<<< HEAD
+    imgBg: 'src/assets/images/400l.jpg',
+    ctaBtn: "Student Portal",
+    link: "/"
+  },
+
+  {
+    text: "PhysioPress",
+    subtitle: "Students Association's Press Website",
+    imgBg: 'src/assets/images/300l.jpg',
+    ctaBtn: "PhysioPress",
+    link: "/"
+  },
+
+  {
+    text: "PhysioRay",
+    subtitle: "Explore our association's journal repository from insightful student perspectives.",
+    imgBg: 'src/assets/images/200l.jpg',
+    ctaBtn: "PhysioRay",
+=======
     imgBg: img400,
     ctaBtn: "Explore Services",
+>>>>>>> 7a2b424f68acbe4dc43f217c883b8c62ca8ddcf3
     link: "/"
   },
 ])

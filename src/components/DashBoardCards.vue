@@ -130,10 +130,10 @@
 
 <style scoped>
 h3 {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 p {
-    font-size: 12px;
+    font-size: 10px;
 }
 </style>

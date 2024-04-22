@@ -45,84 +45,98 @@
   import { ref } from 'vue'
   import { Carousel, Slide, Pagination } from 'vue3-carousel'
   import 'vue3-carousel/dist/carousel.css'
-  
+
+  import president from '@/assets/images/excos/exco1b.jpg'
+  import vpresident from '@/assets/images/excos/exco2b.png'
+  import gensec from '@/assets/images/excos/exco3b.jpg'
+  import ags from '@/assets/images/excos/exco4b.jpg'
+  import pro from '@/assets/images/excos/exco5b.jpg'
+  import socialsec from '@/assets/images/excos/exco6b.jpg'
+  import sportssec from '@/assets/images/excos/exco7b.jpg'
+  import finsec from '@/assets/images/excos/exco8b.jpg'
+  import treasurer from '@/assets/images/excos/exco9b.jpg'
+  import sdo from '@/assets/images/excos/exco10b.jpg'
+  import senatepres from '@/assets/images/excos/exco11b.jpg'
+  import depsp from '@/assets/images/excos/exco12b.jpg'
+  import senateClerk from '@/assets/images/excos/exco13b.jpg'
+
   const carouselData = ref([
     {
       name: `Elijah Inioluwa`,
       title: "President",
-      imgBg: '@/assets/images/excos/exco1b.jpg',
+      imgBg: president,
     },
     
     {
       name: `Oyekan Oluwatobi`,
       title: "Vice President",
-      imgBg: '@/assets/images/excos/exco2b.png',
+      imgBg: vpresident,
     },
   
     {
       name: `Olajide Ayomide`,
       title: "General Secretary",
-      imgBg: '@/assets/images/excos/exco3b.jpg',
+      imgBg: gensec,
     },
 
     {
       name: `Adeniran Happiness`,
       title: "Assistant General Secretary",
-      imgBg: '@/assets/images/excos/exco4b.jpg',
+      imgBg: ags,
     },
 
     {
       name: `Mustapha Ogo-Oluwa`,
       title: "Public Relations Officer",
-      imgBg: '@/assets/images/excos/exco5b.jpg',
+      imgBg: pro,
     },
 
     {
       name: `Awopegba Jonadab`,
       title: "Social Secretary",
-      imgBg: '@/assets/images/excos/exco6b.jpg',
+      imgBg: socialsec,
     },
   
     {
       name: `Akinwola Oluwasegun`,
       title: "Sports Secretary",
-      imgBg: '@/assets/images/excos/exco7b.jpg',
+      imgBg: sportssec,
     },
 
     {
       name: `Moshood Babatunde`,
       title: "Financial Secretary",
-      imgBg: '@/assets/images/excos/exco8b.jpg',
+      imgBg: finsec,
     },
 
     {
       name: `Olanrewaju Timileyin`,
       title: "Treasurer",
-      imgBg: '@/assets/images/excos/exco9b.jpg',
+      imgBg: treasurer,
     },
 
     {
       name: `Adebayo Samuel`,
       title: "Special Duties Officer",
-      imgBg: '@/assets/images/excos/exco10b.jpg',
+      imgBg: sdo,
     },
 
     {
       name: `Solomon Oluwatodimu`,
       title: "Senate President",
-      imgBg: '@/assets/images/excos/exco11b.jpg',
+      imgBg: senatepres,
     },
 
     {
       name: `Goodluck Omotayo`,
       title: "Deputy Senate President",
-      imgBg: '@/assets/images/excos/exco12b.jpg',
+      imgBg: depsp,
     },
 
     {
       name: `Egun Jane`,
       title: "Senate Clerk",
-      imgBg: '@/assets/images/excos/exco13b.jpg',
+      imgBg: senateClerk,
     },
   ])
 

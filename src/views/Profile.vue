@@ -111,22 +111,22 @@
                             </span>
                             <div class="flex items-center gap-2">
                                 <input
-                                    type="number"
+                                    type="text"
                                     :readonly="!editMode"
                                     class="font-semibold border-0 focus:outline-0 w-[50px] text-center"
                                     :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                     v-model="month"
-                                    maxlength="2"
+                                    maxLength="2"
                                     placeholder="mm"
                                 />
                                 <span class="text-gray-400 font-semibold">/</span>
                                 <input
-                                    type="number"
+                                    type="text"
                                     :readonly="!editMode"
                                     class="w-[50px] font-semibold border-0 focus:outline-0 text-center"
                                     :class="editMode ? 'text-gray-500' : 'text-gray-400'"
                                     v-model="day"
-                                    maxlength="2"
+                                    maxLength="2"
                                     placeholder="dd"
                                 />
                             </div>
@@ -155,7 +155,7 @@
 <script setup>
 import { useUserStore } from '@/stores/UserStore'
 import { saveData } from '@/utils/useSaveData'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 import DashBoardSideMenu from '@/components/DashBoardSideMenu.vue'
 import AdministrativeRoles from '@/components/AdministrativeRoles.vue'
@@ -170,6 +170,33 @@ const roomNumber = ref(store.user.roomNo || null)
 const selectedOption = ref(store.user.gender || "gender")
 const month = ref(store.user.monthOfBirth || null)
 const day = ref(store.user.dayOfBirth || null)
+
+const isValidNumber = (value) => {
+    return /^\d+$/.test(value)
+}
+
+const isValidDay = (monthValue, dayValue) => {
+    const month = parseInt(monthValue)
+    const day = parseInt(dayValue)
+    if (month === 2) {
+        return day >= 1 && day <= 29
+    } else if ([4, 6, 9, 11].includes(month)) {
+        return day >= 1 && day <= 30
+    } else {
+        return day >= 1 && day <= 31
+    }
+}
+
+watch(month.value, (newMonth) => {
+    if (!isValidDay(newMonth, day.value)) {
+        day.value = ''
+    }
+});
+watch(day.value, (newDay) => {
+    if (!isValidNumber(newDay) || !isValidDay(month.value, newDay)) {
+        day.value = ''
+    }
+});
 
 const handleSubmit = async() => {
     const data = JSON.stringify({

@@ -27,11 +27,15 @@ import { Carousel, Slide, Pagination } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 import { RouterLink } from 'vue-router';
 
+import img500 from "@/assets/images/500l.jpg"
+import img400 from "@/assets/images/400l.jpg"
+import img100 from "@/assets/images/400l.jpg"
+
 const carouselData = ref([
   {
     text: `Association of Physiotherapy Students University of Ibadan`,
     subtitle: "Welcome To Our Official Website",
-    imgBg: 'src/assets/images/500l.jpg',
+    imgBg: img500,
     ctaBtn: "About Us",
     link: "/about"
   },
@@ -39,7 +43,7 @@ const carouselData = ref([
   {
     text: "Gallery: Moments Captured",
     subtitle: "Explore Our Vibrant Community",
-    imgBg: 'src/assets/images/100l.jpg',
+    imgBg: img100,
     ctaBtn: "Explore Gallery",
     link: "/gallery"
   },
@@ -47,7 +51,7 @@ const carouselData = ref([
   {
     text: "services made easy",
     subtitle: "Pay Your Fees, Access Materials and Past Questions",
-    imgBg: 'src/assets/images/400l.jpg',
+    imgBg: img400,
     ctaBtn: "Explore Services",
     link: "/"
   },

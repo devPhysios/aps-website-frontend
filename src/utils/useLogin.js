@@ -1,18 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const loginUser = async (matricNumber, password) => {
-    try {
-        const response = await axios.post('http://localhost:8800/api/v1/auth/login', {
-            matricNumber,
-            password
-        }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+  try {
+    const response = await axios.post(
+      "https://aps-website-backend.onrender.com/api/v1/auth/login",
+      {
+        matricNumber,
+        password,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        return { jsonData: response.data, success: true };
-    } catch (error) {
-        return { error, success: false };
-    }
+    return { jsonData: response.data, success: true };
+  } catch (error) {
+    return { error, success: false };
+  }
 };

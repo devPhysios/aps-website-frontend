@@ -57,79 +57,79 @@
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0450.jpg',
+        imgBg: '@/assets/images/DSC_0450.jpg',
       },
       
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0457.jpg',
+        imgBg: '@/assets/images/DSC_0457.jpg',
       },
     
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0554.jpg',
+        imgBg: '@/assets/images/DSC_0554.jpg',
       },
   
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0560.jpg',
+        imgBg: '@/assets/images/DSC_0560.jpg',
       },
   
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0682.jpg',
+        imgBg: '@/assets/images/DSC_0682.jpg',
       },
   
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0685.jpg',
+        imgBg: '@/assets/images/DSC_0685.jpg',
       },
     
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0687.jpg',
+        imgBg: '@/assets/images/DSC_0687.jpg',
       },
   
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0720.jpg',
+        imgBg: '@/assets/images/DSC_0720.jpg',
       },
   
       {
         name: `Dinner Pictures`,
         title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0777.jpg',
+        imgBg: '@/assets/images/DSC_0777.jpg',
       },
   
       {
         name: `APS Fit`,
         title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0846.jpg',
+        imgBg: '@/assets/images/IMG_0846.jpg',
       },
   
       {
         name: `APS Fit`,
         title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0848.jpg',
+        imgBg: '@/assets/images/IMG_0848.jpg',
       },
   
       {
         name: `APS Fit`,
         title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0849.jpg',
+        imgBg: '@/assets/images/IMG_0849.jpg',
       },
   
       {
         name: `APS Fit`,
         title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0850.jpg',
+        imgBg: '@/assets/images/IMG_0850.jpg',
       },
     ])
   

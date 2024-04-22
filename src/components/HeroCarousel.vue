@@ -31,7 +31,7 @@ const carouselData = ref([
   {
     text: `Association of physiotherapy students university of Ibadan`,
     subtitle: "Welcome To Our Official Website",
-    imgBg: 'src/assets/images/IMG_0849.jpg',
+    imgBg: '@/assets/images/IMG_0849.jpg',
     ctaBtn: "About Us",
     link: "/about"
   },
@@ -39,7 +39,7 @@ const carouselData = ref([
   {
     text: "get to meet us",
     subtitle: "Meet Our Founders, Lecturers, Excos And Students",
-    imgBg: 'src/assets/images/IMG_0848.jpg',
+    imgBg: '@/assets/images/IMG_0848.jpg',
     ctaBtn: "Explore Gallery",
     link: "/gallery"
   },
@@ -47,7 +47,7 @@ const carouselData = ref([
   {
     text: "services made easy",
     subtitle: "Pay Your Fees, Access Materials and Past Questions",
-    imgBg: 'src/assets/images/IMG_0846.jpg',
+    imgBg: '@/assets/images/IMG_0846.jpg',
     ctaBtn: "Explore Services",
     link: "/"
   },

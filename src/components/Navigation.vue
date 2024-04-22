@@ -64,7 +64,7 @@ const directToDashboard = () => {
 </script>
 
 <style scoped>
-@import '/src/assets/index.css';
+@import '@/assets/index.css';
 
 .modal-enter-active,
 .modal-leave-active {

@@ -91,6 +91,6 @@
     import a5 from '@/assets/images/alumni/IMG_7544.jpg'
     import a6 from '@/assets/images/alumni/IMG_7547.jpg'
     import a7 from '@/assets/images/alumni/IMG_7548.jpg'
-    import AlumniGalleryCarousel from '../components/AlumniGalleryCarousel.vue';
-    import PastPresidents from '../components/PastPresidents.vue';
+    import AlumniGalleryCarousel from '@/components/AlumniGalleryCarousel.vue';
+    import PastPresidents from '@/components/PastPresidents.vue';
 </script>

@@ -53,7 +53,7 @@
 import { ref, watch } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
-// import SideDashboard from '../components/DashBoardSideMenu.vue'
+// import SideDashboard from '@/components/DashBoardSideMenu.vue'
 
 const carouselData = ref([
   {

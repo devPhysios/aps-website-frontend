@@ -50,7 +50,7 @@
     {
       name: `Elijah Inioluwa`,
       title: "President",
-      imgBg: '@/assets/images/excos/exco1b.jpg',
+      imgBg: 'src/assets/images/excos/exco1b.jpg',
     },
     
     {

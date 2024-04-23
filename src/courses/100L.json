@@ -14,7 +14,8 @@
       "Measures of Shape: Skewness (using Measures of Center, Karl Pearson Coefficient), Kurtosis (Using Karl Pearson Coefficient)"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY102",
@@ -41,7 +42,8 @@
       "Capillary effects"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY103",
@@ -64,7 +66,8 @@
       "Energy spectrum of radiation"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY104",
@@ -95,7 +98,8 @@
       "The transformer"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY105",
@@ -127,7 +131,8 @@
       "Light spectrum analysis"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY118",
@@ -144,7 +149,8 @@
       "Deduction"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "CHE126",
@@ -164,7 +170,8 @@
       "Hybridization"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "CHE156",
@@ -189,7 +196,8 @@
       "Electrochemistry"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "CHE176",
@@ -213,7 +221,8 @@
       "Basic concepts of organic synthesis"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "CHE191",
@@ -227,7 +236,8 @@
       "Practical aspects of CHE 177"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "CSC101",
@@ -257,7 +267,8 @@
       "Laboratory exercises in VISUAL BASIC programming and the Internet"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PSY101",
@@ -275,7 +286,8 @@
       "Fundamentals of motivations"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES101",
@@ -296,7 +308,8 @@
       "Aspect"
     ],
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES107",
@@ -312,7 +325,8 @@
       "HIV/AIDS"
     ],
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES108",
@@ -334,7 +348,8 @@
       "QUAND MA SŒUR ETAIT PETITE"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ZOO112",
@@ -354,7 +369,8 @@
       "Dissection of small mammals"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ZOO115",
@@ -373,7 +389,8 @@
       "Impacts of human activities on the environment"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ZOO114",
@@ -392,7 +409,8 @@
       "Embryogenesis and growth"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ZOO116",
@@ -408,7 +426,8 @@
       "Medical significance of important invertebrate species"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ZOO117",
@@ -430,7 +449,8 @@
       "Vertebrates of agricultural importance"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ZOO118",
@@ -446,6 +466,7 @@
       "Circulatory System (Mammalian Heart, Circulation), Population Ecology (Biotic and Abiotic Factors)"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   }
 ]

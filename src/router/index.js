@@ -20,6 +20,9 @@ import LevelQuestions from "@/views/Levelquestions.vue";
 import CourseQuestions from "@/views/Coursequestions.vue";
 import Payment from "@/views/Payment.vue";
 import InternalServerError from "@/views/Internalservererror.vue";
+import YellowBook from "@/views/Yellowbook.vue";
+import LevelYellowBook from "@/views/Levelyellowbook.vue";
+import CourseYellowBook from "@/views/Courseyellowbook.vue";
 
 const routes = [
   {
@@ -46,15 +49,42 @@ const routes = [
     path: "/dashboard/questions/:level",
     name: "LevelQuestions",
     component: LevelQuestions,
-    props:true,
+    props: true,
     meta: {
       requiresAuth: true,
     },
   },
   {
     path: "/dashboard/questions/:level/:course",
-    name: 'CourseQuestions',
+    name: "CourseQuestions",
     component: CourseQuestions,
+    props: true,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/dashboard/yellowbook/:level",
+    name: "LevelYellowBook",
+    component: LevelYellowBook,
+    props: true,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/dashboard/yellowbook/:level/:course",
+    name: "CourseYellowBook",
+    component: CourseYellowBook,
+    props: true,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/dashboard/yellowbook",
+    name: "YellowBook",
+    component: YellowBook,
     props: true,
     meta: {
       requiresAuth: true,
@@ -64,6 +94,9 @@ const routes = [
     path: "/upload",
     name: "UploadPage",
     component: Upload,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/constitution",
@@ -122,7 +155,7 @@ const routes = [
     //   }
     // },
   },
-  
+
   {
     path: "/profile",
     name: "Profile",
@@ -171,13 +204,13 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-const fetchData = async (id) => {
-  try {
-    const response = await axios.get(`http://localhost:8800/questions/${id}`);
-    return response.data;
-  } catch (error) {
-    router.next({ name: "NotFound" });
-  }
-};
+// const fetchData = async (id) => {
+//   try {
+//     const response = await axios.get(`http://localhost:8800/questions/${id}`);
+//     return response.data;
+//   } catch (error) {
+//     router.next({ name: "NotFound" });
+//   }
+// };
 
 export default router;

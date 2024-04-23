@@ -4,6 +4,7 @@
     "coursetitle": "Gross Anatomy of the Limbs and Cavities",
     "unit": 4,
     "level": 200,
+    "aim": null,
     "topics": [
       "Upper limb",
       "Lower limb",
@@ -12,7 +13,8 @@
       "Pelvis & Perineum"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ANA202",
@@ -29,7 +31,8 @@
       "Development of the Urogenital System"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "ANA203",
@@ -46,7 +49,8 @@
       "Cardiovascular system"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "BIC201",
@@ -66,7 +70,8 @@
       "Water and biomolecules: proteins, carbohydrates, lipids, DNA, etc."
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES102",
@@ -84,7 +89,8 @@
       "Nigeria"
     ],
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES106",
@@ -100,7 +106,8 @@
       "Introduction to critical thinking in human endeavors"
     ],
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES201",
@@ -121,7 +128,8 @@
       "Poetry: A literary study of selected anthology of poems"
     ],
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "NUT202",
@@ -138,7 +146,8 @@
       "Introduction to Micronutrients (Vitamins)"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY271",
@@ -158,7 +167,8 @@
       "Measurement of Weight of Molecules"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PHY272",
@@ -180,7 +190,8 @@
     ],
     "aim": "The course aims to provide elementary knowledge of physics to biology students.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PIO205",
@@ -200,7 +211,8 @@
     ],
     "aim": "The course covers various aspects of human physiology.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PIO206",
@@ -215,7 +227,8 @@
     ],
     "aim": "A continuation of PIO 205",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PIO207",
@@ -237,7 +250,8 @@
     ],
     "aim": "This course covers the physiology of the Nervous System.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PSY202",
@@ -260,7 +274,8 @@
     ],
     "aim": "This course provides an introduction to various psychological disorders and psychopathologies, both globally and within the context of Nigerian society.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "NUT201",
@@ -278,7 +293,8 @@
     ],
     "aim": "This course aims to provide foundational knowledge of basic concepts in food and nutrition. It also aims to guide students on cultivating healthy eating habits.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "SOC212",
@@ -303,7 +319,8 @@
     ],
     "aim": null,
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "STA204",
@@ -323,6 +340,7 @@
     ],
     "aim": "This course aims to provide students with a foundation in statistical methods applicable to various fields such as biology, agriculture, physical sciences, and engineering.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   }
 ]

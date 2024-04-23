@@ -20,7 +20,7 @@
       "Demonstrate skills in communicating management plan and other information with patients",
       "Demonstrate skills in managing and evaluating patients with common medical and neurological conditions seen in physiotherapy"
     ],
-    "pre-requisites": "PST312",
+    "prerequisites": ["PST312"],
     "aim": "The aim of this clinical posting is to provide students with practical experience in physiotherapy for medical and neurological conditions. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical reasoning, communication with patients, and management of common medical and neurological conditions seen in physiotherapy.",
     "category": "C"
   },
@@ -44,7 +44,7 @@
       "Demonstrate skills in communicating management plan and other information with patients",
       "Demonstrate skills in managing and evaluating patients with head and spinal cord injuries and other conditions requiring neurosurgery"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this clinical posting is to provide students with practical experience in physiotherapy for patients undergoing neurosurgery. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical reasoning, communication with patients, and management of patients with head and spinal cord injuries and other conditions requiring neurosurgery.",
     "category": "C"
   },
@@ -66,7 +66,7 @@
       "Interpret CT scan and MRI with emphasis on diagnosis of disorders of brain and the spine",
       "Understand the clinical values of other specialized procedures"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with the necessary skills to read and interpret medical imaging results commonly used in physiotherapy practice. By the end of the course, students should be able to interpret radiographs, CT scans, and MRIs of conditions such as fractures, osteoarthritis, spinal disorders, and brain abnormalities.",
     "category": "C"
   },
@@ -89,7 +89,7 @@
       "Identify somatoform and factitious disorders",
       "Describe behavioural and emotional disorders associated with common physiotherapy conditions"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with an understanding of the relationship between physical and psychological disorders, as well as common mental disorders associated with painful conditions. Students will also learn about somatoform and factitious disorders, along with basic psychological therapies relevant to physiotherapy.",
     "category": "R"
   },
@@ -109,7 +109,7 @@
       "Describe assessment of patients before and after surgery",
       "Outline the management of patients before, during, and after surgical operations"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with practical exposure to surgical procedures and patient care in various surgical units. Students will learn about the assessment and management of patients before, during, and after surgery, as well as observe surgical procedures and participate in post-operative care.",
     "category": "C"
   },
@@ -130,7 +130,7 @@
       "Discuss basic principles governing the application and uses of direct, low and medium frequency stimulating currents (iontophoresis, nerve and muscle stimulation, electro-diagnosis and electro-analgesia)",
       "Enumerate indications, dangers and contraindications of low and medium frequency stimulating currents"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with advanced knowledge and skills in the application of direct, low, and medium frequency stimulating currents and electrodiagnosis. By the end of the course, students should be able to describe the electrical parameters of these currents, discuss their applications and uses, and enumerate their indications, dangers, and contraindications.",
     "category": "C"
   },
@@ -144,7 +144,7 @@
       "Demonstrate skills in selecting and applying appropriate stimulating currents for different purposes and conditions",
       "Demonstrate skills in electro-diagnosis"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with practical experience in selecting and applying appropriate stimulating currents for different purposes and conditions, as well as in electro-diagnosis. By the end of the course, students should be able to demonstrate proficiency in these skills.",
     "category": "C"
   },
@@ -169,7 +169,7 @@
       "Demonstrate competence in differential diagnosis and clinical decision making in some musculoskeletal conditions requiring physiotherapy",
       "Demonstrate competence in differential diagnosis and clinical decision making in some cardiopulmonary, paediatric and other conditions requiring physiotherapy"
     ],
-    "pre-requisites": "PST311",
+    "prerequisites": ["PST311"],
     "aim": "The aim of this course is to equip students with the knowledge and skills necessary for clinical reasoning and physical diagnosis in physiotherapy practice. By the end of the course, students should be able to describe different models of clinical reasoning, demonstrate competence in differential diagnosis and clinical decision making for various musculoskeletal, cardiopulmonary, paediatric, and other conditions.",
     "category": "C"
   },
@@ -199,7 +199,7 @@
       "Instruct patients in exercises in a therapeutic pool",
       "Select appropriate hydrotherapy medium for different parts of the body"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with an understanding of hydrotherapy principles and techniques. By the end of the course, students should be able to explain the advantages of exercises in water, apply hydrodynamic laws to hydrotherapy, describe methods of exercises in water, instruct patients in therapeutic pool exercises, and select appropriate hydrotherapy mediums for different body parts.",
     "category": "C"
   },
@@ -224,7 +224,7 @@
       "Describe physiotherapy management of soft tissue injuries",
       "Explain the role of physiotherapy in the care of patients with burns and amputations"
     ],
-    "pre-requisites": "ANA 201, ANA 203, ANA 301",
+    "prerequisites": ["ANA201", "ANA203", "ANA301"],
     "aim": "The aim of this course is to provide students with an understanding of skeletal and soft tissue injuries and their physiotherapy management. By the end of the course, students should be able to describe the management of fractures, dislocations, and soft tissue injuries, as well as explain the role of physiotherapy in the care of patients with burns and amputations.",
     "category": "C"
   },
@@ -249,7 +249,7 @@
       "Describe assessment procedures for common orthopaedic conditions seen in physiotherapy",
       "Describe physiotherapy management of common orthopaedic conditions seen in physiotherapy"
     ],
-    "pre-requisites": "ANA 201, ANA 203, ANA 301",
+    "prerequisites": ["ANA201", "ANA203", "ANA301"],
     "aim": "The aim of this course is to provide students with an understanding of common orthopaedic conditions, including their pathological basis, clinical features, assessment procedures, and physiotherapy management. By the end of the course, students should be able to describe and assess common orthopaedic conditions and implement appropriate physiotherapy interventions.",
     "category": "C"
   },
@@ -275,7 +275,7 @@
       "Describe the assessment procedures for neuromotor and neuromuscular conditions in children",
       "Describe physiotherapy management of neuromotor and neuromuscular conditions in children"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with an understanding of paediatric physiotherapy, focusing on motor development during the first five years of life and the assessment and management of neuromotor and neuromuscular conditions in children. By the end of the course, students should be able to describe the development of motor skills in children, assess neuromotor and neuromuscular conditions, and implement appropriate physiotherapy interventions for paediatric patients.",
     "category": "C"
   },
@@ -300,7 +300,7 @@
       "Identify and measure outcomes in conditions commonly seen in physiotherapy",
       "Describe psychometric properties of health measuring instruments"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to equip students with the knowledge and skills necessary to understand and apply health measurement and outcomes assessment in physiotherapy practice. By the end of the course, students should be able to explain the significance of health measurement in clinical decision making, identify and measure outcomes relevant to physiotherapy practice, and evaluate the psychometric properties of health measuring instruments.",
     "category": "C"
   },
@@ -329,7 +329,7 @@
       "Correctly prescribe the right types of prostheses for different types of amputations",
       "Perform stump bandaging"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with the knowledge and skills necessary to prescribe, fabricate, and utilize orthotic and prosthetic devices in physiotherapy practice. By the end of the course, students should be able to correctly prescribe orthotic devices for various conditions, demonstrate proficiency in fabricating simple orthotic devices, prescribe appropriate prostheses for different types of amputations, and perform stump bandaging effectively.",
     "category": "C"
   },
@@ -358,7 +358,7 @@
       "Acquire skills for seminar presentation (search, collate information, and make presentations)",
       "Discuss current issues in health care"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with an understanding of various issues in health care, both locally and globally. Through seminars and discussions, students will acquire the skills necessary for effective presentation and engage in critical discussions on current topics in health care, including international health, evidence-based practice, ethical issues, healthcare financing, and specific health concerns in Nigeria such as HIV/AIDS and euthanasia.",
     "category": "C"
   },
@@ -383,7 +383,7 @@
       "Describe different research designs and sampling methods",
       "Describe the process of investigating a research problem"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to equip students with the knowledge and skills necessary to conduct research in the field of physiotherapy. By focusing on contemporary research methodologies, students will learn how to identify research problems, conduct literature searches, select appropriate research designs and sampling methods, collect and analyze data, and present research findings. Additionally, students will learn about referencing styles and manuscript preparation for dissertation and journal publication.",
     "category": "C"
   },
@@ -410,7 +410,7 @@
       "Explain the underlying principles in the physiotherapy management of respiratory conditions",
       "Outline physiotherapy management for patients with respiratory conditions"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of PST421 is to provide students with a comprehensive understanding of respiratory conditions and their physiotherapy management. By covering topics such as the overview of the respiratory system, subjective and objective assessments, principles of management, and specific respiratory conditions, students will develop the knowledge and skills necessary to assess, treat, and manage patients with respiratory conditions effectively. Additionally, the course aims to equip students with the ability to educate patients on health promotion strategies and lifestyle modifications to improve respiratory health.",
     "category": "C"
   },
@@ -440,7 +440,7 @@
       "Describe the aetiology, pathological basis, and clinical features of neurological conditions",
       "Outline treatment plans for neurological conditions"
     ],
-    "pre-requisites": "ANA301, PIO207",
+    "prerequisites": ["ANA301", "PIO207"],
     "aim": "PST422 aims to provide students with a comprehensive understanding of neurology and neurological rehabilitation. By covering topics such as traditional and modern approaches to neuro-rehabilitation, motor control theory, and neurological conditions, students will develop the knowledge and skills necessary to assess, treat, and manage patients with neurological disorders effectively. Additionally, the course aims to familiarize students with assessment tools and outcome measures used in neurological physiotherapy and the interdisciplinary nature of rehabilitation teams.",
     "category": "C"
   },
@@ -468,7 +468,7 @@
       "Explain how to assess children with the conditions listed",
       "Outline treatment plans for paediatric conditions"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "PST423 focuses on expanding students' understanding of paediatric physiotherapy by covering a range of paediatric conditions and their assessment, management, and treatment. By studying the aetiology, pathological basis, and clinical features of paediatric conditions, students will gain insights into the unique challenges of paediatric physiotherapy practice. The course also aims to equip students with the skills to assess children with various conditions effectively and develop comprehensive treatment plans tailored to individual patient needs.",
     "category": "C"
   },
@@ -500,7 +500,7 @@
       "Outline treatment plans for different cardiovascular conditions",
       "Explain the principles of cardiac rehabilitation"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "PST424 aims to provide students with a comprehensive understanding of cardiovascular disorders and their management in the context of physiotherapy practice. By covering topics such as basic physiological principles, cardiac function, ECG interpretation, and specific cardiovascular conditions, students will gain the knowledge and skills necessary to assess and treat patients with cardiovascular disorders effectively. Additionally, the course aims to familiarize students with the principles of cardiac rehabilitation, emphasizing the importance of holistic care and long-term management for patients with cardiovascular conditions.",
     "category": "C"
   },
@@ -524,7 +524,7 @@
       "Describe scientific methods of collating and summarizing data",
       "Select and apply appropriate statistical tests for testing hypotheses"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "PST425 introduces students to the fundamental principles and techniques of biostatistics, emphasizing their importance in research within the field of physiotherapy. By covering topics such as data collection, summarization, and statistical testing, the course aims to equip students with the necessary skills to analyze research data effectively and make informed decisions based on statistical evidence. Through a combination of lectures and practical exercises, students will develop a solid understanding of statistical methods and their application in physiotherapy research.",
     "category": "C"
   },
@@ -550,7 +550,7 @@
       "Describe injuries associated with different sports",
       "Outline a plan of management for the injured sportsman/woman"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "PST426 provides students with a comprehensive understanding of the role of physiotherapy in sports medicine and the management of sports-related injuries. Through lectures and practical exercises, students will learn about injury prevention strategies, assessment techniques for athlete fitness, and the physical management of various sports injuries. By the end of the course, students will be equipped with the knowledge and skills to effectively work with athletes, coaches, and other members of the sports medicine team to optimize athlete performance and facilitate quick recovery from injuries.",
     "category": "C"
   }

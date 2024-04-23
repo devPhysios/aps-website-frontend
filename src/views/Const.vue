@@ -1,7 +1,7 @@
 <template>
   <!-- <SideDashboard /> -->
 
-  <section class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-blue-100 rounded-md">
+  <section class="px-1 md:px-6 font-display pt-20 bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold pl-4 pt-2">APS CONSTITUTION</p>
       <div class="flex items-center pl-4">

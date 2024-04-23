@@ -90,6 +90,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import axios from "axios";
+import router from "@/router";
 
 const webimages = ref([]);
 const loading = ref(true); // Loading state
@@ -105,15 +106,10 @@ onMounted(async () => {
   } catch (error) {
     console.error("Error fetching images:", error);
     loading.value = false; // Set loading to false in case of error
+    router.push('/500')
   }
 });
 
-// Commenting out the hardcoded 'images' array
-// const images = [
-//   { src: "src/assets/images/DSC_0554.jpg", alt: "Image 1" },
-//   { src: "src/assets/images/DSC_0554.jpg", alt: "Image 2" },
-//   ...
-// ];
 
 const currentPage = ref(1);
 const pageSize = 15;
@@ -121,9 +117,10 @@ const pageSize = 15;
 const totalPages = computed(() => Math.ceil(webimages.value.length / pageSize));
 
 const displayedImages = computed(() => {
+  const shuffledImages = shuffleArray(webimages.value);
   const startIndex = (currentPage.value - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  return webimages.value.slice(startIndex, endIndex);
+  const endIndex = Math.min(startIndex + pageSize, shuffledImages.length);
+  return shuffledImages.slice(startIndex, endIndex);
 });
 
 function nextPage() {
@@ -138,11 +135,21 @@ function prevPage() {
   }
 }
 
+// Function to shuffle an array
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 const randomSize = () => {
   const sizes = ["1", "2", "3", "4"];
   return sizes[Math.floor(Math.random() * sizes.length)];
 };
 </script>
+
 
 <style scoped>
 .masonry-item {

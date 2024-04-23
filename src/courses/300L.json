@@ -4,6 +4,7 @@
     "coursetitle": "Gross Anatomy of Head and Neck and Neuro Anatomy",
     "unit": 3,
     "level": 300,
+    "objectives": null,
     "topics": [
       "Osteology of the skull, mandible & the cervical vertebrae",
       "The neck (skin, fascia, superficial vessels and nerves)",
@@ -27,7 +28,7 @@
     ],
     "aim": "This course aims to provide students with a detailed understanding of the gross anatomy of the head and neck, as well as neuroanatomy.",
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null
   },
   {
     "coursecode": "GES103",
@@ -37,7 +38,8 @@
     "topics": ["Please check the textbook"],
     "aim": "Please check the textbook",
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "GES301",
@@ -62,7 +64,8 @@
     ],
     "aim": "Having a course such as this - Introduction to Entrepreneurial skills, as a tool for entrepreneurship education would go a long way in creating awareness of the entrepreneurship space in the country, as well as introducing the students to the necessary skills and mindsets that would set them on the course of impacting the country's economy. The expectation is that students at the end of this course, GES 301 (Introduction to Entrepreneurial Skills) would acquire the needed basic skills to be wealth and job creators",
     "category": "C",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "NUT305",
@@ -84,7 +87,8 @@
       "Basics of Nutritional epidemiology"
     ],
     "category": "R",
-    "pre-requisites": null
+    "prerequisites": null,
+    "objectives": null
   },
   {
     "coursecode": "PST301",
@@ -105,7 +109,7 @@
       "Demonstrate skills in communicating management plan with parents/carers",
       "Demonstrate skills in managing paediatric conditions commonly seen in physiotherapy clinics"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this clinical posting is to provide students with practical experience in paediatric physiotherapy. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical analysis, communication with parents/carers, and management of paediatric conditions commonly seen in physiotherapy clinics.",
     "category": "C"
   },
@@ -129,7 +133,7 @@
       "Demonstrate skills in communicating treatment goals and plans with patients with orthopaedic conditions",
       "Demonstrate skills in managing and evaluating patients with orthopaedic conditions commonly seen in physiotherapy"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this clinical posting is to provide students with practical experience in orthopaedic physiotherapy. By the end of the posting, students should be able to demonstrate skills in history taking, physical examination, clinical reasoning, communication with patients, and management of orthopaedic conditions commonly seen in physiotherapy.",
     "category": "C"
   },
@@ -176,7 +180,7 @@
       "Identify the components of EBP",
       "Enumerate the importance of EBP"
     ],
-    "pre-requisites": ["ANA 201", "ANA 202", "ANA 203"],
+    "prerequisites": ["ANA201", "ANA202", "ANA203"],
     "aim": "This course aims to introduce students to the profession and practice of physiotherapy, covering topics such as the definition and scope of physiotherapy, professionalism, ethical principles, clinical decision making, documentation methods, evidence-based practice, and the importance of teamwork.",
     "category": "C"
   },
@@ -206,7 +210,7 @@
       "Apply biomechanical principles to modify human motion",
       "Measure ranges of motion of peripheral and spinal joints"
     ],
-    "pre-requisites": ["ANA 201", "ANA 203", "PHY 271"],
+    "prerequisites": ["ANA201", "ANA203", "PHY271"],
     "aim": "This course aims to provide students with an understanding of biomechanical principles related to human motion, including muscle work, muscle contraction, group actions of muscles, principles of motion and force, analysis of human gait, and methods of measuring range of joint motion.",
     "category": "R"
   },
@@ -231,7 +235,7 @@
       "Describe physiological adjustments to acute and chronic exercises",
       "Assess and evaluate patients/clients for physical fitness/weight control programmes"
     ],
-    "pre-requisites": ["PIO205", "PIO207"],
+    "prerequisites": ["PIO205", "PIO207"],
     "aim": "This course aims to provide students with an understanding of exercise physiology, including the energy systems of the body, physiological responses to acute and chronic exercise, assessment of physical fitness and weight control programmes, and concepts of wellness and health promotion.",
     "category": "R"
   },
@@ -254,7 +258,7 @@
       "Explain pain modulation and enumerate physiotherapy modalities for pain modulation",
       "Discuss drug and other methods of pain management"
     ],
-    "pre-requisites": ["PIO207"],
+    "prerequisites": ["PIO207"],
     "aim": "The course aims to provide students with an understanding of pain and pain control, including the anatomy and physiology of pain, pain measurement, psychosocial aspects, drug treatment, and physiotherapy modalities for pain modulation.",
     "category": "R"
   },
@@ -279,7 +283,7 @@
       "Describe the goals, indications, precautions, and contraindications to mobility/ROM, resistance, and stretching exercises",
       "Explain the principles and physiological responses to muscle strengthening"
     ],
-    "pre-requisites": ["ANA201", "ANA203", "PIO207"],
+    "prerequisites": ["ANA201", "ANA203", "PIO207"],
     "aim": "The course aims to provide students with an understanding of exercise therapy, including the goals of therapeutic exercise, classification of exercises, techniques for mobility/ROM and resistance exercises, and physiological responses to muscle strengthening.",
     "category": "C"
   },
@@ -298,7 +302,7 @@
       "Explain the physiology of the human body, including the integration of the nervous, muscular, and cardiovascular systems",
       "Understand the clinical aspects of the human body"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "This course provides a comprehensive introduction to physiology with a focus on clinical relevance, linking gross anatomy to physiological functions. It covers the clinical aspects of each body system to form a basis for physiotherapy treatment, tying anatomical information directly to realistic clinical scenarios.",
     "category": "C"
   },
@@ -331,7 +335,7 @@
       "Identify and explain the actions of drugs used in conditions commonly seen in physiotherapy",
       "Explain how drugs may facilitate or hinder physiotherapy procedures"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "This course provides an understanding of pharmacology relevant to physiotherapy practice. It covers the scope of pharmacology, routes of drug administration, drug actions and interactions, and the anatomy and physiology of autonomic transmission. Students learn about drugs commonly used in physiotherapy, including pain relievers, muscle relaxants, and local anaesthetics.",
     "category": "R"
   },
@@ -362,7 +366,7 @@
       "Describe physiological effects, uses, indications, and contraindications of ultrasound, conductive heat, and cold modalities",
       "Justify selection of modalities for specific conditions"
     ],
-    "pre-requisites": "PHY 271",
+    "prerequisites": ["PHY271"],
     "aim": "This course introduces students to the principles and applications of conductive heat and cold modalities, as well as therapeutic ultrasound in physiotherapy. Students learn about human body temperature regulation, physical principles of modalities, and their therapeutic uses, indications, and contraindications. They also gain the ability to select appropriate modalities for specific conditions.",
     "category": "C"
   },
@@ -390,7 +394,7 @@
       "Describe physiological effects, uses, indications, and contraindications of each electromagnetic rays/energy modality",
       "Justify selection of modalities for specific conditions"
     ],
-    "pre-requisites": "PHY 271 & 272",
+    "prerequisites": ["PHY271", "PHY271"],
     "aim": "This course provides students with knowledge of electromagnetic rays and energy used in electrotherapy. Students learn about the electromagnetic spectrum, basic principles of application, physiological effects, therapeutic uses, and contraindications of each modality. They also develop the ability to select appropriate modalities for specific conditions.",
     "category": "C"
   },
@@ -415,7 +419,7 @@
       "Apply appropriate massage manipulations to different body regions and for specific conditions",
       "Describe the principles of myofascial release and reflexology"
     ],
-    "pre-requisites": "ANA 201, 202, 203",
+    "prerequisites": ["ANA201", "ANA202", "ANA203"],
     "aim": "This course provides students with a comprehensive understanding of massage therapy as a modality in physiotherapy. Students learn about the historical development, definition, and classification of massage, along with its physiological effects, therapeutic uses, indications, and contraindications. They also gain practical skills in applying various massage manipulations to different body regions and for specific conditions, as well as understanding specialized techniques such as myofascial release and reflexology.",
     "category": "C"
   },
@@ -439,7 +443,7 @@
       "Describe precautions and contraindications to therapeutic exercises for various conditions",
       "Develop and instruct patients in exercise programmes for various conditions and body parts"
     ],
-    "pre-requisites": "ANA 201, 202, 203; PIO 207",
+    "prerequisites": ["ANA201", "ANA202", "ANA203", "PIO207"],
     "aim": "This course aims to equip students with the knowledge and skills necessary to design and implement exercise therapy programmes for various conditions and body parts. Students learn general principles and guidelines for therapeutic exercises, including management of osteoarthritis, rheumatoid arthritis, musculoskeletal conditions, surgical procedures, neurological conditions, vascular conditions, and special populations such as pregnant and postpartum women, individuals with pulmonary diseases, and those with weak pelvic floor muscles.",
     "category": "C"
   },
@@ -466,7 +470,7 @@
       "Describe the procedure (including concave-convex rule) for and apply joint mobilization to different parts of the body",
       "Describe the different approaches to spinal mobilization (manipulation)"
     ],
-    "pre-requisites": "ANA 201, 202, 203",
+    "prerequisites": ["ANA201", "ANA202", "ANA203"],
     "aim": "This course aims to provide students with the knowledge and skills necessary to perform spinal and peripheral joint mobilization techniques effectively and safely. Students will learn about the definitions of joint mobilization, physiological and accessory motions, basic concepts of joint motion, indications and contraindications to joint mobilization, procedures for applying joint mobilization, specific mobilization techniques for different body parts, manual traction for cervical and lumbar spine, safety considerations before mobilizations, and approaches to spinal mobilization/ manipulation.",
     "category": "C"
   },
@@ -491,7 +495,7 @@
       "Describe different types of ambulation aids and identify their indications",
       "Correctly prescribe and train gait patterns with ambulation aids"
     ],
-    "pre-requisites": "ANA 201, 202, 203, PHY 271",
+    "prerequisites": ["ANA201", "ANA202", "ANA203", "PHY271"],
     "aim": "This course aims to provide students with an understanding of pathokinesiology, focusing on the analysis of normal and abnormal human motions, motor skills, and postures. Students will learn to differentiate between gross and fine motor skills, analyze and compare normal and abnormal human motions including gait, prescribe corrective therapy for abnormal motor skills, identify different types of ambulation aids and their indications, and prescribe and train gait patterns with ambulation aids.",
     "category": "C"
   },
@@ -507,7 +511,7 @@
       "Demonstrate skills in applying each electrotherapy modality",
       "Demonstrate skills in documenting treatment given to simulated patients"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with practical skills in the application of electrotherapy modalities. By the end of the course, students should be able to make all necessary preparations prior to applying electrotherapy modalities, communicate relevant information to simulated patients, apply each electrotherapy modality effectively, and document treatment given to simulated patients.",
     "category": "C"
   },
@@ -531,7 +535,7 @@
       "Identify and correct abnormal gait and other motor skills in different conditions",
       "Instruct and train simulated patients in various crutch gaits"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with practical skills in exercise therapy and kinesiology. By the end of the course, students should be able to select appropriate exercises for different purposes and conditions, instruct simulated patients in exercises, provide progression in exercise programs, measure range of motion, analyze motor skills in ADLs, identify and correct abnormal gait and motor skills, and instruct patients in various crutch gaits.",
     "category": "C"
   },
@@ -546,7 +550,7 @@
       "Perform mobilization techniques to major peripheral joints",
       "Describe the techniques of spinal manipulations"
     ],
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "The aim of this course is to provide students with practical skills in manual therapy. By the end of the course, students should be able to apply massage manipulations for different purposes and body parts, perform mobilization techniques on major peripheral joints, and describe techniques of spinal manipulations.",
     "category": "C"
   },
@@ -568,7 +572,7 @@
       "Inherited diseases"
     ],
     "objectives": null,
-    "pre-requisites": null,
+    "prerequisites": null,
     "aim": "This course covers the pathology of diseases, including the cellular basis, inflammation, healing, immune mechanisms, and various types of injuries. It also discusses bacterial and viral diseases, neoplasia, and inherited diseases.",
     "category": "C"
   }

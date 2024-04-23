@@ -28,7 +28,9 @@
           <div
             class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
           >
-            <div class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display">
+            <div
+              class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display"
+            >
               <div class="h-full flex flex-col justify-center items-center">
                 <h3 class="md:text-lg text-[14px] font-semibold text-center">
                   {{ image.title }}
@@ -47,23 +49,6 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center gap-4 p-4 bg-green-100">
-      <button
-        @click="prevPage"
-        :disabled="currentPage === 1"
-        class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange"
-      >
-        Previous
-      </button>
-      <button
-        @click="nextPage"
-        :disabled="currentPage === totalPages"
-        class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange"
-      >
-        Next
-      </button>
-    </div>
-    <!-- Loader icon -->
     <div v-if="loading" class="flex justify-center mt-4">
       <!-- Loader SVG icon -->
       <svg class="animate-spin h-8 w-8 text-green-500" viewBox="0 0 24 24">
@@ -82,6 +67,23 @@
         ></path>
       </svg>
     </div>
+    <div class="flex justify-center gap-4 p-4 bg-green-100">
+      <button
+        @click="prevPage"
+        :disabled="currentPage === 1"
+        class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange"
+      >
+        Previous
+      </button>
+      <button
+        @click="nextPage"
+        :disabled="currentPage === totalPages"
+        class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange"
+      >
+        Next
+      </button>
+    </div>
+    <!-- Loader icon -->
   </div>
 </template>
 

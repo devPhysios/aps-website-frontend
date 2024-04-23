@@ -2,7 +2,7 @@
   <section
     class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-blue-100 rounded-md"
   >
-    <div class="my-1">
+    <div class="my-1" :onclick="directToGallery">
       <p class="text-2xl md:text-4xl font-bold pl-4 pt-2">Gallery</p>
       <div class="flex items-center pl-4">
         <div class="w-[30%] bg-aps-green h-[4px] md:w-1/4"></div>
@@ -71,6 +71,7 @@ import { ref, onMounted, computed } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import axios from "axios"; // Import axios for HTTP requests
 import "vue3-carousel/dist/carousel.css";
+import router from "@/router";
 
 const webimages = ref([]);
 const loading = ref(true); // Initialize loading state
@@ -107,6 +108,10 @@ const carouselData = computed(() => {
     return []; // Return empty array if webimages is not loaded
   }
 });
+
+function directToGallery () {
+  router.push('/gallery')
+}
 
 // Define settings and breakpoints
 const settings = ref({

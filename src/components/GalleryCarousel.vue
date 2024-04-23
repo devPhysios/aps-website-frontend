@@ -36,7 +36,9 @@
       :breakpoints="breakpoints"
     >
       <Slide v-for="(data, index) in carouselData" :key="index">
-        <div class="w-full h-[300px] rounded-lg text-gray-950 text-xl relative">
+        <div
+          class="w-full h-[300px] rounded-lg text-gray-950 text-xl relative mx-3"
+        >
           <div class="h-full w-full">
             <img class="h-full w-full object-cover" :src="data.imgBg" />
           </div>

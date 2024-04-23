@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full">
+  <nav class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full fixed z-[50]">
     <div class="flex items-center md:pb-0">
       <span class="mr-1 cursor pointer w-12 h-full">
         <a href="/">
@@ -36,6 +36,7 @@
         <i class="bi bi-person-circle" @click="menuOpen"></i>
       </span></button>
   </nav>
+  <div @click="menuOpen" class="w-full bg-orange-500/60 fixed z-[39] backdrop-blur-md duration-700 ease-in" :class="[open ? 'h-screen' : 'h-[0]']"></div>
 </template>
 
 <script setup>

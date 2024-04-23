@@ -80,7 +80,6 @@ const handleLogin = async () => {
             }
         } else if (rawData.success === true) {
             const response = rawData.jsonData.responseData;
-            console.log(response.student)
             if (response.student.firstLogin) {
                 users.login(response.student);
                 localStorage.setItem("studentToken", response.token);

@@ -45,10 +45,12 @@
           >
             <div class="bg-aps-orange h-full w-full">
               <div class="pt-[120px]">
-                <h3 class="md:text-lg text-[14px] font-semibold">
+                <h3 class="md:text-lg text-[14px] font-extrabold">
                   {{ data.name }}
                 </h3>
-                <p class="text-[12px] md:text-sm mb-1">{{ data.title }}</p>
+                <p class="text-[12px] md:text-sm mb-1 font-bold">
+                  {{ data.title }}
+                </p>
               </div>
             </div>
           </div>
@@ -89,71 +91,16 @@ onMounted(async () => {
 const carouselData = computed(() => {
   // Check if webimages has been loaded
   if (!loading.value && webimages.value.length > 0) {
-    return [
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      },
-      {
-        name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg:
-          webimages.value[Math.floor(Math.random() * webimages.value.length)]
-            .imageUrl,
-      }
-    ];
+    // Shuffle the webimages array to randomize the order
+    const shuffledImages = webimages.value.sort(() => Math.random() - 0.5);
+    // Take the first 7 images from the shuffled array
+    const selectedImages = shuffledImages.slice(0, 7);
+
+    return selectedImages.map((image) => ({
+      name: "APS Gallery",
+      title: image.title,
+      imgBg: image.imageUrl,
+    }));
   } else {
     return []; // Return empty array if webimages is not loaded
   }

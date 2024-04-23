@@ -36,7 +36,7 @@
         <i class="bi bi-person-circle" @click="menuOpen"></i>
       </span></button>
   </nav>
-  <div @click="menuOpen" class="w-full bg-orange-500/60 fixed z-[39] backdrop-blur-md duration-700 ease-in" :class="[open ? 'h-screen' : 'h-[0]']"></div>
+  <div @click="menuOpen" class="w-full bg-orange-500/60 fixed z-[39] backdrop-blur-md md:hidden duration-700 ease-in" :class="[open ? 'h-screen' : 'h-[0]']"></div>
 </template>
 
 <script setup>

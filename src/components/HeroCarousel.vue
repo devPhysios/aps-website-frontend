@@ -1,5 +1,5 @@
 <template>
-  <Carousel :wrap-around="true" :autoplay="2000" :pause-autoplay-on-hover="true">
+  <Carousel :wrap-around="true" :autoplay="10000" :pause-autoplay-on-hover="true">
     <Slide v-for="(data, index) in carouselData" :key="index">
 
       <div class="flex flex-col justify-center items-center w-full min-h-[80vh] text-aps-white  gap-2 font-display"

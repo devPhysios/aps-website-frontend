@@ -1,5 +1,5 @@
 <template>
-    <div class="font-display">
+    <div class="font-display pt-14">
 <!-- This is the ABOUT US section beginning--->
         <div class="bg-gray-200 md:flex md:justify-between md:items-center gap-4 p-8">
             <div class="md:w-3/4 pb-2 md:pb-0 md:pr-4 lg:pr-24">

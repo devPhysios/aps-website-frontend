@@ -1,5 +1,5 @@
 <template>
-    <div class="font-display">
+    <div class="font-display pt-20">
       <div class="w-full
        p-1">
         <div class="grid grid-cols-3 md:gap-4 gap-3 h-full md:p-12 p-3">

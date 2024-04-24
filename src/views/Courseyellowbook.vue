@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 pt-20">
+  <nav class="bg-gray-200 pb-4 sticky font-display top-0 z-10 pt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>
@@ -19,7 +19,7 @@
       </ol>
     </div>
   </nav>
-  <div class="max-w-4xl mx-auto px-4 py-8">
+  <div class="font-display max-w-4xl mx-auto px-4 py-8">
     <!-- Course Title and Code -->
     <h1 class="text-3xl font-bold mb-4">
       {{ course.coursetitle }} - {{ course.coursecode }}

@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 pt-20">
+  <nav class=" font-display bg-gray-200 pb-4 sticky top-0 z-10 pt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>
@@ -19,7 +19,7 @@
       </ol>
     </div>
   </nav>
-  <div class="grid grid-cols md:grid-cols-3 lg:grid-cols-4 gap-6 m-5">
+  <div class="font-display grid grid-cols md:grid-cols-3 lg:grid-cols-4 gap-6 m-5">
     <div
       v-for="course in courses"
       :key="course.coursecode"

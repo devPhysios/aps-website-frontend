@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-8 font-display">
+  <div class="font-display container mx-auto p-8 font-display">
     <h1 class="text-2xl font-bold mb-4">Upload to Gallery</h1>
 
     <input
@@ -46,7 +46,7 @@
 
     <div
       v-if="Object.keys(validationErrors).length > 0"
-      class="mt-4 bg-red-100 p-4 rounded"
+      class=" font-display mt-4 bg-red-100 p-4 rounded"
     >
       <ul>
         <li v-for="(error, field) in validationErrors" :key="field">

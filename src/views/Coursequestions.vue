@@ -1,6 +1,6 @@
 <!-- CourseQuestions.vue -->
 <template>
-  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 pt-20">
+  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 pt-20 font-display">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>
@@ -20,7 +20,7 @@
       </ol>
     </div>
   </nav>
-  <div class="max-w-4xl mx-auto p-4">
+  <div class="max-w-4xl mx-auto p-4 font-display">
     <!-- Fetch Course Details -->
     <div v-if="course" class="bg-white shadow-md rounded-lg p-6 mb-6">
       <h1 class="text-2xl font-semibold mb-4">{{ course.coursetitle }}</h1>
@@ -64,7 +64,7 @@
     </div>
 
     <!-- Fetch Questions -->
-    <div v-if="loading" class="flex justify-center items-center">
+    <div v-if="loading" class="flex justify-center items-center font-display">
       <svg
         class="animate-spin h-5 w-5 mr-3"
         xmlns="http://www.w3.org/2000/svg"

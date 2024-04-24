@@ -1,15 +1,15 @@
 <template>
   
-  <div class="pt-20 w-full font-display pb-2 px-4 bg-yellow-100 z-[20] rounded-md text-center fixed flex justify-between items-center gap-4">
+      <marquee class="pt-20 w-full font-display pb-2 px-4 bg-yellow-100 z-[20] rounded-md text-center fixed flex justify-between items-center gap-4">
         <div>
-            <p class="font-bold text-center text-md">Call For Donations</p>
+            <p class="font-bold text-center text-[10px] md:text-md">Call For Donations</p>
         </div>
-        <div class="justify-normal text-center text-sm flex gap-2">
+        <div class="justify-normal text-center text-[8px] md:text-sm flex gap-2">
           <p class="font-bold">Account Number: <span class="font-normal cursor-pointer" @click="copyToClipboard">0034046597</span></p>
           <p><span class="font-bold">Account Name:</span> Association Of Physiotherapy Students, UI</p>
           <p><span class="font-bold">Bank Name:</span> Access Bank Plc</p>
         </div>
-      </div>
+      </marquee>
 
 
     <div class="font-display pt-20">

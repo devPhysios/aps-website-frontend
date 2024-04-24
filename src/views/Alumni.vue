@@ -1,5 +1,19 @@
 <template>
+  
+  <div class="pt-20 w-full font-display pb-2 px-4 bg-yellow-100 z-[20] rounded-md text-center fixed flex justify-between items-center gap-4">
+        <div>
+            <p class="font-bold text-center text-md">Call For Donations</p>
+        </div>
+        <div class="justify-normal text-center text-sm flex gap-2">
+          <p class="font-bold">Account Number: <span class="font-normal cursor-pointer" @click="copyToClipboard">0034046597</span></p>
+          <p><span class="font-bold">Account Name:</span> Association Of Physiotherapy Students, UI</p>
+          <p><span class="font-bold">Bank Name:</span> Access Bank Plc</p>
+        </div>
+      </div>
+
+
     <div class="font-display pt-20">
+
       <div class="w-full
        p-1">
         <div class="grid grid-cols-3 md:gap-4 gap-3 h-full md:p-12 p-3">
@@ -69,13 +83,17 @@
           [APS] Alumni Relations Team</p>
       </div>
 
-      <div class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-yellow-100 rounded-md">
-        <div class="">
+      <div class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-yellow-100 rounded-md text-center">
+        <div>
             <p class="font-bold text-center text-2xl md:text-4xl ">Call For Donations</p>
         </div>
-        <p class="p-4 justify-normal text-justify">
-          
-        </p>
+        <div class="p-4 justify-normal text-center text-xl">
+          <p class="font-bold">Account Number: <span class="font-normal cursor-pointer" @click="copyToClipboard">0034046597</span></p> 
+          <br/>
+          <p><span class="font-bold">Account Name:</span> Association Of Physiotherapy Students, UI</p>
+          <br/>
+          <p><span class="font-bold">Bank Name:</span> Access Bank Plc</p>
+        </div>
       </div>
 
     </div>
@@ -93,4 +111,18 @@
     import a7 from '@/assets/images/alumni/IMG_7548.jpg'
     import AlumniGalleryCarousel from '@/components/AlumniGalleryCarousel.vue';
     import PastPresidents from '@/components/PastPresidents.vue';
+
+    import { ref } from 'vue';
+
+    const textToCopy = ref("0034046597");
+
+    const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(textToCopy.value);
+    alert("Text copied to clipboard: " + textToCopy.value);
+  } catch (error) {
+    console.error('Failed to copy text to clipboard:', error);
+    alert('Failed to copy text to clipboard');
+  }
+};
 </script>

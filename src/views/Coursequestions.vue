@@ -1,6 +1,6 @@
 <!-- CourseQuestions.vue -->
 <template>
-  <nav class="bg-gray-200 py-4 sticky top-0 z-10">
+  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 pt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>

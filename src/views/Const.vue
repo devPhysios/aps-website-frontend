@@ -1,7 +1,31 @@
 <template>
   <!-- <SideDashboard /> -->
-
-  <section class="px-1 md:px-6 font-display pt-20 bg-blue-100 rounded-md">
+  <nav class="bg-gray-100 pb-4 sticky top-0 z-10 pt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center space-x-4">
+        <li>
+          <a href="/" class="text-gray-600 hover:text-gray-800 underline"
+            >Home</a
+          >
+        </li>
+        <li>
+          <RouterLink to="/dashboard">
+                    <h3 class="text-gray-600 hover:text-gray-800 underline">Dashboard</h3>
+            </RouterLink>
+        </li>
+        <li v-for="(crumb, index) in breadcrumbs" :key="index">
+          <span class="text-gray-400 hidden sm:inline">/</span>
+          <!-- Hide on small devices -->
+          <a
+            :href="crumb.link"
+            class="text-gray-600 hover:text-gray-800 underline"
+            >{{ crumb.title }}</a
+          >
+        </li>
+      </ol>
+    </div>
+  </nav>
+  <section class="px-1 md:px-6 font-display pt-4 bg-blue-100 rounded-md">
     <div class="my-1">
       <p class="text-4xl font-bold pl-4 pt-2">APS CONSTITUTION</p>
       <div class="flex items-center pl-4">

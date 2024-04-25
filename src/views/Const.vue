@@ -74,10 +74,11 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 // import SideDashboard from '@/components/DashBoardSideMenu.vue'
+
 
 const carouselData = ref([
   {
@@ -1004,6 +1005,10 @@ const carouselData = ref([
 
 const currentSlide = ref(0);
 const selectedSection = ref(0);
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
 const settings = ref({
   itemsToShow: 1,

@@ -46,7 +46,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 const levels = ref([
   { id: 100, name: "100 Level", description: "First year students" },

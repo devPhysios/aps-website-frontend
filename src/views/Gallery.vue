@@ -12,37 +12,42 @@
   </section>
   <div>
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-8 bg-green-100"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-8 bg-green-100"
     >
       <div
         v-for="(image, index) in displayedImages"
         :key="index"
-        :class="`col-span-${randomSize()} h-auto`"
+        class="flex justify-center"
       >
-        <div class="relative">
-          <img
-            :src="image.imageUrl"
-            :alt="image.title"
-            class="w-full h-auto object-cover rounded-lg"
-          />
-          <div
-            class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
-          >
+        <div class="max-w-md md:max-w-lg lg:max-w-xl">
+          <div class="relative">
+            <img
+              :src="image.imageUrl"
+              :alt="image.title"
+              class="w-full h-auto object-cover rounded-lg"
+            />
             <div
-              class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display"
+              class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
             >
-              <div class="h-full flex flex-col justify-center items-center">
-                <h3 class="md:text-lg text-[14px] font-semibold text-center">
-                  {{ image.title }}
-                </h3>
-                <p class="text-[12px] h-full md:text-sm text-center mb-1">
-                  {{ image.description }}
-                </p>
-                <p class="text-[12px] md:text-sm text-center mb-1">
-                  <span v-for="(feature, index) in image.features" :key="index">
-                    {{ feature }},
-                  </span>
-                </p>
+              <div
+                class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display"
+              >
+                <div class="h-full flex flex-col justify-center items-center">
+                  <h3 class="md:text-lg text-[14px] font-semibold text-center">
+                    {{ image.title }}
+                  </h3>
+                  <p class="text-[12px] h-full md:text-sm text-center mb-1">
+                    {{ image.description }}
+                  </p>
+                  <p class="text-[12px] md:text-sm text-center mb-1">
+                    <span
+                      v-for="(feature, index) in image.features"
+                      :key="index"
+                    >
+                      {{ feature }},
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -83,7 +88,6 @@
         Next
       </button>
     </div>
-    <!-- Loader icon -->
   </div>
 </template>
 
@@ -96,6 +100,7 @@ const webimages = ref([]);
 const loading = ref(true); // Loading state
 
 onMounted(async () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   try {
     const response = await axios.get(
       "https://aps-website-backend.onrender.com/api/v1/gallery"
@@ -106,10 +111,9 @@ onMounted(async () => {
   } catch (error) {
     console.error("Error fetching images:", error);
     loading.value = false; // Set loading to false in case of error
-    router.push('/500')
+    router.push("/500");
   }
 });
-
 
 const currentPage = ref(1);
 const pageSize = 15;
@@ -124,12 +128,14 @@ const displayedImages = computed(() => {
 });
 
 function nextPage() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   if (currentPage.value < totalPages.value) {
     currentPage.value++;
   }
 }
 
 function prevPage() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   if (currentPage.value > 1) {
     currentPage.value--;
   }
@@ -144,12 +150,11 @@ function shuffleArray(array) {
   return array;
 }
 
-const randomSize = () => {
-  const sizes = ["1", "2", "3", "4"];
-  return sizes[Math.floor(Math.random() * sizes.length)];
-};
+const shouldStackImages = computed(() => {
+  // Check if screen width is smaller than medium breakpoint
+  return window.innerWidth < 768; // Adjust breakpoint if needed
+});
 </script>
-
 
 <style scoped>
 .masonry-item {

@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 const route = useRoute();
@@ -49,6 +49,10 @@ const courses = ref([]);
 const props = defineProps({
   level: String,
 });
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
 // Check if the level parameter is valid
 const allowedLevels = ["100", "200", "300", "400", "500"];

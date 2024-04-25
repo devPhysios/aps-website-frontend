@@ -429,7 +429,7 @@ const paginatedClozeQuestions = computed(() => {
 });
 
 function previousPage(tab) {
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   switch (tab) {
     case "MCQ":
       currentPageMCQ.value -= 1;
@@ -449,7 +449,7 @@ function previousPage(tab) {
 }
 
 function nextPage(tab) {
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   switch (tab) {
     case "MCQ":
       currentPageMCQ.value += 1;
@@ -505,7 +505,7 @@ function revealAnswer(index, questionType) {
 
 // Fetch Questions
 onMounted(async () => {
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   try {
     // Fetch questions from the API backend
     const { data } = await axios.get(

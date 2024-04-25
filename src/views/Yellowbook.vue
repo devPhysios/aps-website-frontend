@@ -21,7 +21,7 @@
   </nav>
 
   <div
-    class=" font-display py-5 bg-gradient-to-r from-gray-100 via-gray-200 to-amber-100 flex justify-center items-center"
+    class="font-display py-5 bg-gradient-to-r from-gray-100 via-gray-200 to-amber-100 flex justify-center items-center"
   >
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
@@ -46,7 +46,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 const levels = ref([
   { id: 100, name: "100 Level", description: "First year students" },

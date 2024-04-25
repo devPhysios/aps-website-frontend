@@ -102,6 +102,7 @@ const courseCode = ref(route.params.course);
 const courseData = ref({});
 // Fetch Course Details
 onMounted(async () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   import(`../courses/${level.value}L.json`)
     .then((module) => {
       courses.value = module.default;

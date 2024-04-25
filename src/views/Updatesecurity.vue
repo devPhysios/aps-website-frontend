@@ -106,6 +106,7 @@ import { loginUser } from "@/utils/useLogin";
 import router from "@/router";
 
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   const users = useUserStore();
   if (!users.user || users.user.firstLogin === false) {
     router.push("/dashboard");

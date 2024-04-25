@@ -46,7 +46,7 @@
 
     <div
       v-if="Object.keys(validationErrors).length > 0"
-      class=" font-display mt-4 bg-red-100 p-4 rounded"
+      class="font-display mt-4 bg-red-100 p-4 rounded"
     >
       <ul>
         <li v-for="(error, field) in validationErrors" :key="field">
@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 
 const imageFile = ref(null);
@@ -86,6 +86,10 @@ const handleImageUpload = (event) => {
   imageFile.value = event.target.files[0];
   uploadToCloudinary();
 };
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 const uploadToCloudinary = async () => {
   const formData = new FormData();
@@ -158,7 +162,7 @@ const submitData = async () => {
     submissionMessage.value = "Image submitted successfully!";
     messageType.value = "success";
     setTimeout(() => resetForm(), 5000);
-    console.log("Data submitted successfully!");
+    cwindow.scrollTo({ top: 0, behavior: 'smooth' })
   } catch (error) {
     console.error("Submission error:", error);
     submissionMessage.value = "There was an error. Please try again.";

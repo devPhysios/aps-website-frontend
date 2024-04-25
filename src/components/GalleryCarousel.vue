@@ -73,44 +73,50 @@ import axios from "axios"; // Import axios for HTTP requests
 import "vue3-carousel/dist/carousel.css";
 import router from "@/router";
 
-const webimages = ref([]);
+const selectedImages = ref([]);
+
 const loading = ref(true); // Initialize loading state
 
 onMounted(async () => {
   try {
-    const response = await axios.get(
-      "https://aps-website-backend.onrender.com/api/v1/gallery"
-    );
-    webimages.value = response.data.images;
+    // Check if selectedImages is already populated
+    if (selectedImages.value.length === 0) {
+      const response = await axios.get(
+        "https://aps-website-backend.onrender.com/api/v1/gallery"
+      );
+      const images = response.data.images;
+      // Select 7 random images from the fetched data
+      selectedImages.value = selectRandomImages(images, 10);
+    }
     loading.value = false; // Set loading to false once data is fetched
-    console.log(webimages.value);
   } catch (error) {
     console.error("Error fetching images:", error);
     loading.value = false; // Set loading to false in case of error
   }
 });
 
-// Define carouselData as a computed property to ensure it's updated when webimages changes
-const carouselData = computed(() => {
-  // Check if webimages has been loaded
-  if (!loading.value && webimages.value.length > 0) {
-    // Shuffle the webimages array to randomize the order
-    const shuffledImages = webimages.value.sort(() => Math.random() - 0.5);
-    // Take the first 7 images from the shuffled array
-    const selectedImages = shuffledImages.slice(0, 7);
+// Define a function to select random images from an array
+function selectRandomImages(images, count) {
+  const shuffledImages = images.sort(() => Math.random() - 0.5);
+  return shuffledImages.slice(0, count);
+}
 
-    return selectedImages.map((image) => ({
+// Define carouselData as a computed property to ensure it's updated when selectedImages changes
+const carouselData = computed(() => {
+  // Check if selectedImages has been loaded
+  if (!loading.value && selectedImages.value.length > 0) {
+    return selectedImages.value.map((image) => ({
       name: "APS Gallery",
       title: image.title,
       imgBg: image.imageUrl,
     }));
   } else {
-    return []; // Return empty array if webimages is not loaded
+    return []; // Return empty array if selectedImages is not loaded
   }
 });
 
-function directToGallery () {
-  router.push('/gallery')
+function directToGallery() {
+  router.push("/gallery");
 }
 
 // Define settings and breakpoints

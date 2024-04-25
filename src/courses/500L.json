@@ -76,7 +76,7 @@
     "unit": 3,
     "level": 500,
     "topics": null,
-    "objectives": "12 weeks SIWES training program in various clinical settings",
+    "objectives": ["12 weeks SIWES training program in various clinical settings"],
     "prerequisites": null,
     "aim": "The aim of the SIWES program is to provide students with practical experience in a clinical setting. Students will spend 6 weeks in a clinical environment where they will have the opportunity to apply the knowledge and skills they have acquired in the classroom to real-life situations. By the end of the program, students will have gained valuable experience that will help them in their future careers as physiotherapists.",
     "category": "C"
@@ -343,7 +343,7 @@
     "coursetitle": "Research Project",
     "unit": 6,
     "level": 500,
-    "topics": "Research Project",
+    "topics": ["Research Project"],
     "objectives": [
       "Identify a research problem",
       "Review literature relevant to the research problem",

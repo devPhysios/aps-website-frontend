@@ -1,127 +1,230 @@
 <template>
-    <aside class="custom-transition w-[100px] bg-white pt-[80px] md:static md:w-60 md:pt-8">
-        <div class="side-container">
-            <div class="img relative">
-                <img :src="store.user.profilePicture || avatar" :alt="store.user.firstName">
-                <div v-if="editImage" class="flex flex-col items-center w-full mx-auto gap-2">
-                    <input
-                        type="file"
-                        class="box-border border-0 w-[90%] mx-auto focus:outline-0 text-[12px]"
-                    />
-                    <button class="custom-transition text-[12px] rounded py-1 px-[2px] text-white bg-blue-400 w-[90%] md:text-[18px] hover:bg-blue-500" type="button" @click="handleUpload">Upload Image</button>
-                </div>
-                <span title="Upload Image" @click="editImage = !editImage" class="absolute top-[-6px] right-2 text-gray-500 md:text-xl cursor-pointer md:right-8 md:top-[-2px]">
-                    <i class="bi bi-pencil-square"></i>
-                </span>
-            </div>
-            <!-- First One -->
-            <RouterLink to="/dashboard">
-                <div class="sidemenu__items">
-                    <span class="text-[12px] md:text-[20px]">
-                        <i class="bi bi-ui-checks-grid"></i>
-                    </span>
-                    <h3 class="text-[12px] md:text-[20px]">Dashboard</h3>
-                </div>
-            </RouterLink>
-            <!-- Second One -->
-            <RouterLink to="/payment">
-                <div class="sidemenu__items">
-                    <span class="text-[12px] md:text-[20px]">
-                        <i class="bi bi-cash-stack"></i>
-                    </span>
-                        <h3 class="text-[12px] md:text-[20px]">Payment</h3>
-                </div>
-            </RouterLink>
-            <!-- Third One & Fourth One -->
-            <div v-if="store.user.isAcademicCommittee">
-                <RouterLink to="/dashboard/uploadquestion">
-                    <div class="sidemenu__items">
-                        <span class="text-[12px] md:text-[20px]">
-                            <i class="bi bi-patch-question"></i>
-                        </span>
-                            <h3 class="text-center text-[12px] md:text-[20px]">Upload Questions</h3>
-                    </div>
-                </RouterLink>
-            </div>
+  <aside
+    class="custom-transition w-[100px] bg-white pt-[10px] md:static md:w-60 md:pt-8"
+  >
+    <div class="side-container">
+      <div class="img relative">
+        <img
+          :src="store.user.profilePicture || avatar"
+          :alt="store.user.firstName[0]"
+        />
+        <div
+          v-if="editImage"
+          class="flex flex-col items-center w-full mx-auto gap-2"
+        >
+          <input
+            type="file"
+            class="box-border border-0 w-[90%] mx-auto focus:outline-0 text-[12px]"
+            @change="handleFileChange"
+          />
+          <button
+            class="custom-transition text-[12px] rounded py-1 px-[2px] text-white bg-blue-400 w-[90%] md:text-[18px] hover:bg-blue-500"
+            type="button"
+            @click="handleUpload"
+          >
+            Upload Image
+          </button>
         </div>
-    </aside>
+        <div
+          v-if="uploadProgress !== null"
+          class="w-full bg-gray-200 rounded-full h-2.5"
+        >
+          <div
+            class="bg-blue-600 h-2.5 rounded-full"
+            :style="{ width: `${uploadProgress}%` }"
+          >
+            {{ uploadProgress }}%
+          </div>
+        </div>
+        <div
+          v-if="serverProgress !== null"
+          class="w-full bg-gray-200 rounded-full h-2.5"
+        >
+          <div
+            class="bg-green-600 h-2.5 rounded-full"
+            :style="{ width: `${serverProgress}%` }"
+          >
+            {{ serverProgress }}%
+          </div>
+        </div>
+        <span
+          title="Upload Image"
+          @click="editImage = !editImage"
+          class="absolute top-[-6px] right-2 text-gray-500 md:text-xl cursor-pointer md:right-8 md:top-[-2px]"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </span>
+      </div>
+      <!-- First One -->
+      <RouterLink to="/dashboard">
+        <div class="sidemenu__items">
+          <span class="text-[12px] md:text-[20px]">
+            <i class="bi bi-ui-checks-grid"></i>
+          </span>
+          <h3 class="text-[12px] md:text-[20px]">Dashboard</h3>
+        </div>
+      </RouterLink>
+      <!-- Second One -->
+      <RouterLink to="/payment">
+        <div class="sidemenu__items">
+          <span class="text-[12px] md:text-[20px]">
+            <i class="bi bi-cash-stack"></i>
+          </span>
+          <h3 class="text-[12px] md:text-[20px]">Payment</h3>
+        </div>
+      </RouterLink>
+      <!-- Third One & Fourth One -->
+      <div v-if="store.user.isAcademicCommittee">
+        <RouterLink to="/dashboard/uploadquestion">
+          <div class="sidemenu__items">
+            <span class="text-[12px] md:text-[20px]">
+              <i class="bi bi-patch-question"></i>
+            </span>
+            <h3 class="text-center text-[12px] md:text-[20px]">
+              Upload Questions
+            </h3>
+          </div>
+        </RouterLink>
+      </div>
+    </div>
+  </aside>
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-import { useUserStore } from '@/stores/UserStore'
-import { ref, onMounted } from 'vue'
-import { initializeApp } from 'firebase/app'
-import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-import { getAnalytics } from "firebase/analytics"
+// import { avatar } from "../data";
+import { RouterLink } from "vue-router";
+import { useUserStore } from "@/stores/UserStore";
+import { ref as vueRef, onMounted } from "vue";
+import { storage, imagesCollectionRef } from "../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { addDoc } from "firebase/firestore";
+import axios from "axios";
 
-const fileInput = ref(null)
-const editImage = ref(false)
+const imageFile = vueRef(null);
+const editImage = vueRef(false);
+const store = useUserStore();
+const user = store.user;
+const uploadProgress = vueRef(null);
+const serverProgress = vueRef(null);
 
-const store = useUserStore()
+onMounted(() => {
+  console.log(user.firstName, user.lastName, user.matricNumber, user.classSet);
+});
 
-const firebaseConfig = {
-  apiKey: "AIzaSyC2NwSP4_xDsBmJiaDgOLOUfjRFCfcMHBk",
-  authDomain: "aps-gallery-ccc2f.firebaseapp.com",
-  databaseURL: "https://aps-gallery-ccc2f-default-rtdb.firebaseio.com",
-  projectId: "aps-gallery-ccc2f",
-  storageBucket: "aps-gallery-ccc2f.appspot.com",
-  messagingSenderId: "36827335455",
-  appId: "1:36827335455:web:c267f990b6219573b33e2a",
-  measurementId: "G-SSEWV46REJ"
-}
+const avatar = `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}&background=random`;
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
-const storage = getStorage(app)
+const handleFileChange = (event) => {
+  imageFile.value = event.target.files[0];
+};
 
-const avatar = "data:image/png;base64,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"
+const createProfile = async (data) => {
+  try {
+    await addDoc(imagesCollectionRef, data);
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+};
+
+const sendToServer = async (imgURL) => {
+  serverProgress.value = 0;
+  try {
+    const token = localStorage.getItem("studentToken");
+    const progressHandler = (event) => {
+      serverProgress.value = Math.round((100 * event.loaded) / event.total);
+      console.log(`Upload progress: ${serverProgress.value}%`);
+    };
+
+    const response = await axios.patch(
+      "https://aps-website-backend.onrender.com/api/v1/dashboard/profile",
+      {
+        profilePicture: imgURL,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        onUploadProgress: progressHandler,
+      }
+    );
+
+    if (response.status === 200) {
+      store.updateProfilePicture(imgURL);
+      console.log("Image link successfully sent to backend!");
+    } else {
+      console.error("Error sending image link to backend");
+    }
+
+    serverProgress.value = null;
+  } catch (error) {
+    serverProgress.value = null;
+    console.error("Error sending image link to backend ", error);
+  }
+};
 
 const handleUpload = () => {
-    // console.log("Submitted")
-    const imageUrl = ref(null)
-    const uploadError = ref(null)
-
-    onMounted(async () => {
-    if (!fileInput.value) return
-
-    const storageRef = storageRef(storage, `images/${fileInput.value.name}`)
-    const uploadTask = uploadBytesResumable(storageRef, fileInput.value)
-
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        console.log('Upload is ' + progress + '% complete')
-      },
-      (error) => {
-        uploadError.value = error;
-        console.error('Upload failed:', error)
-      },
-      async () => {
-        imageUrl.value = await getDownloadURL(storageRef);
-      }
-    )
-  })
-
-  console.log(imageUrl.value, uploadError.value)
-
-  return { imageUrl, uploadError }
-}
+  editImage.value = false;
+  let imageSize = imageFile.value.size / 1024;
+  let imageType = imageFile.value.type;
+  if (!imageFile.value) {
+    console.log("No file selected");
+    return;
+  }
+  if (imageSize > 1024) {
+    console.log("File must not exceed 1MB");
+    return;
+  }
+  if (
+    imageType !== "image/jpeg" &&
+    imageType !== "image/png" &&
+    imageType !== "image/jpg"
+  ) {
+    console.log("File must be an image");
+    return;
+  }
+  const { name, type } = imageFile.value;
+  const storageRef = ref(storage, `images/${name}`);
+  const uploadTask = uploadBytesResumable(storageRef, imageFile.value, {
+    contentType: type,
+  });
+  uploadProgress.value = 0;
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      uploadProgress.value = Math.floor(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+    },
+    (error) => {
+      console.log(error);
+    },
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        const data = {
+          matricNumber: user.matricNumber,
+          fullName: `${user.firstName} ${user.lastName}`,
+          set: user.classSet,
+          url: downloadURL,
+        };
+        console.log("File available at", downloadURL);
+        createProfile(data);
+        uploadProgress.value = null;
+        sendToServer(downloadURL);
+      });
+    }
+  );
+};
 </script>
 
 <style scoped>
 .side-container {
-    @apply flex flex-col gap-4 w-full h-full rounded-tr-lg md:rounded-tr-none md:gap-6;
+  @apply flex flex-col gap-4 w-full h-full rounded-tr-lg md:rounded-tr-none md:gap-6;
 }
 
 .sidemenu__items {
-    @apply border-b border-b-gray-100 min-w-full flex flex-col items-center gap-px font-medium text-gray-500 py-2 px-4 hover:shadow md:flex-row md:gap-2;
+  @apply border-b border-b-gray-100 min-w-full flex flex-col items-center gap-px font-medium text-gray-500 py-2 px-4 hover:shadow md:flex-row md:gap-2;
 }
 
 img {
-    @apply w-[80px] h-[80px] rounded-full object-cover mx-auto mb-10 md:w-[200px] md:h-[200px];
+  @apply w-[80px] h-[80px] rounded-full object-cover mx-auto mb-10 md:w-[200px] md:h-[200px];
 }
 </style>

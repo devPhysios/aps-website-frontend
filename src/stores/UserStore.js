@@ -24,12 +24,19 @@ export const useUserStore = defineStore("UserStore", () => {
 
   const save = (data) => {
     try {
-      localStorage.setItem("user", JSON.stringify(data))
-      user.value = JSON.parse(localStorage.getItem("user"))
+      localStorage.setItem("user", JSON.stringify(data));
+      user.value = JSON.parse(localStorage.getItem("user"));
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
-  return { user, login, logout, save };
+  const updateProfilePicture = (profilePicture) => {
+    if (user.value) {
+      user.value.profilePicture = profilePicture;
+      save(user.value);
+    }
+  };
+
+  return { user, login, logout, save, updateProfilePicture };
 });

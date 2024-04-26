@@ -96,8 +96,13 @@ import { RouterLink } from "vue-router";
 import { useUserStore } from "@/stores/UserStore";
 import { ref as vueRef, onMounted } from "vue";
 import { storage, imagesCollectionRef } from "../firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { addDoc } from "firebase/firestore";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
+import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
 import axios from "axios";
 
 const imageFile = vueRef(null);
@@ -107,9 +112,21 @@ const user = store.user;
 const uploadProgress = vueRef(null);
 const serverProgress = vueRef(null);
 
-onMounted(() => {
-  console.log(user.firstName, user.lastName, user.matricNumber, user.classSet);
-});
+const getExistingDocument = async (matricNumber) => {
+  const q = query(
+    imagesCollectionRef,
+    where("matricNumber", "==", matricNumber)
+  );
+  const querySnapshot = await getDocs(q);
+
+  // If a document exists, return it
+  if (!querySnapshot.empty) {
+    return querySnapshot.docs[0];
+  }
+
+  // If no document exists, return null
+  return null;
+};
 
 const avatar = `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}&background=random`;
 
@@ -165,14 +182,17 @@ const handleUpload = () => {
   editImage.value = false;
   let imageSize = imageFile.value.size / 1024;
   let imageType = imageFile.value.type;
+
   if (!imageFile.value) {
     console.log("No file selected");
     return;
   }
+
   if (imageSize > 1024) {
     console.log("File must not exceed 1MB");
     return;
   }
+
   if (
     imageType !== "image/jpeg" &&
     imageType !== "image/png" &&
@@ -181,37 +201,50 @@ const handleUpload = () => {
     console.log("File must be an image");
     return;
   }
+
   const { name, type } = imageFile.value;
   const storageRef = ref(storage, `images/${name}`);
-  const uploadTask = uploadBytesResumable(storageRef, imageFile.value, {
-    contentType: type,
-  });
-  uploadProgress.value = 0;
-  uploadTask.on(
-    "state_changed",
-    (snapshot) => {
-      uploadProgress.value = Math.floor(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-    },
-    (error) => {
-      console.log(error);
-    },
-    () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        const data = {
-          matricNumber: user.matricNumber,
-          fullName: `${user.firstName} ${user.lastName}`,
-          set: user.classSet,
-          url: downloadURL,
-        };
-        console.log("File available at", downloadURL);
-        createProfile(data);
-        uploadProgress.value = null;
-        sendToServer(downloadURL);
-      });
+
+  // Check if a document with the same matricNumber exists
+  getExistingDocument(user.matricNumber).then(async (existingDoc) => {
+    if (existingDoc) {
+      // If a document exists, delete the existing document and image
+      await deleteDoc(existingDoc.ref);
+      const existingImageRef = ref(storage, existingDoc.data().url);
+      await deleteObject(existingImageRef);
     }
-  );
+    // Upload the new image
+    const uploadTask = uploadBytesResumable(storageRef, imageFile.value, {
+      contentType: type,
+    });
+
+    uploadProgress.value = 0;
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        uploadProgress.value = Math.floor(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          const data = {
+            matricNumber: user.matricNumber,
+            fullName: `${user.firstName} ${user.lastName}`,
+            set: user.classSet,
+            url: downloadURL,
+          };
+          console.log("File available at", downloadURL);
+          createProfile(data);
+          uploadProgress.value = null;
+          sendToServer(downloadURL);
+        });
+      }
+    );
+  });
 };
 </script>
 

@@ -10,6 +10,22 @@
       </p>
     </div>
   </section>
+  <div class="flex justify-center bg-green-100">
+    <input
+      v-model="searchQuery"
+      type="text"
+      placeholder="Search by name, title, or tag"
+      class="px-4 py-2 border rounded-l-md focus:outline-none w-[50%]"
+      @keyup.enter="searchImages"
+    />
+    <button
+      @click="searchImages"
+      class="px-4 py-2 bg-aps-green text-white rounded-r-md hover:bg-aps-orange"
+    >
+      Search
+    </button>
+  </div>
+
   <div>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-8 bg-green-100"
@@ -97,7 +113,8 @@ import axios from "axios";
 import router from "@/router";
 
 const webimages = ref([]);
-const loading = ref(true); // Loading state
+const loading = ref(true);
+const searchQuery = ref("");
 
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -106,53 +123,81 @@ onMounted(async () => {
       "https://aps-website-backend.onrender.com/api/v1/gallery"
     );
     webimages.value = response.data.images;
-    loading.value = false; // Set loading to false once data is fetched
-    console.log(webimages.value);
+    loading.value = false;
   } catch (error) {
     console.error("Error fetching images:", error);
-    loading.value = false; // Set loading to false in case of error
+    loading.value = false;
     router.push("/500");
   }
 });
 
-const currentPage = ref(1);
-const pageSize = 15;
+const filterImages = (searchQuery, images) => {
+  if (!searchQuery) {
+    return images;
+  }
 
-const totalPages = computed(() => Math.ceil(webimages.value.length / pageSize));
+  const query = searchQuery.toLowerCase();
+  return images.filter((image) => {
+    const title = image.title.toLowerCase();
+    const description = image.description.toLowerCase();
+    const tags = image.features.map((feature) => feature.toLowerCase());
+
+    return (
+      title.includes(query) ||
+      description.includes(query) ||
+      tags.some((tag) => tag.includes(query))
+    );
+  });
+};
+
+function shuffleArray(array) {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
+
+const filteredImages = computed(() =>
+  filterImages(searchQuery.value, webimages.value)
+);
 
 const displayedImages = computed(() => {
-  const shuffledImages = shuffleArray(webimages.value);
+  const shuffledImages = shuffleArray(filteredImages.value);
   const startIndex = (currentPage.value - 1) * pageSize;
   const endIndex = Math.min(startIndex + pageSize, shuffledImages.length);
   return shuffledImages.slice(startIndex, endIndex);
 });
 
-function nextPage() {
+const currentPage = ref(1);
+const pageSize = 15;
+
+const totalPages = computed(() =>
+  Math.ceil(filteredImages.value.length / pageSize)
+);
+
+const nextPage = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (currentPage.value < totalPages.value) {
     currentPage.value++;
   }
-}
+};
 
-function prevPage() {
+const prevPage = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (currentPage.value > 1) {
     currentPage.value--;
   }
-}
+};
 
-// Function to shuffle an array
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+const searchImages = () => {
+  currentPage.value = 1;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const shouldStackImages = computed(() => {
-  // Check if screen width is smaller than medium breakpoint
-  return window.innerWidth < 768; // Adjust breakpoint if needed
+  return window.innerWidth < 768;
 });
 </script>
 

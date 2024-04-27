@@ -5,7 +5,7 @@
     <div class="side-container">
       <div class="img relative">
         <img
-          :src="store.user.profilePicture || avatar"
+          :src="profilePicture || avatar"
           :alt="store.user.firstName"
         />
         <div

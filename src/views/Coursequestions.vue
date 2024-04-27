@@ -36,11 +36,10 @@
         :disabled="!mcqQuestionsExist"
         :class="{
           'bg-blue-500 text-white': currentTab === 'MCQ' && mcqQuestionsExist,
-          'bg-red-500 text-white cursor-not-allowed':
-            currentTab === 'MCQ' && !mcqQuestionsExist,
-          'bg-white text-gray-600 hover:bg-gray-200': currentTab !== 'MCQ',
+          'bg-red-500 text-white cursor-not-allowed': !mcqQuestionsExist,
+          'bg-green-500 text-gray-600 hover:bg-gray-200': currentTab !== 'MCQ',
         }"
-        class="flex-1 px-4 py-2 rounded-l-lg focus:outline-none"
+        class="flex-1 px-4 py-2 rounded-l-lg focus:outline-none mx-2"
       >
         MCQ
       </button>
@@ -50,11 +49,11 @@
         :class="{
           'bg-blue-500 text-white':
             currentTab === 'Essay' && essayQuestionsExist,
-          'bg-red-500 text-white cursor-not-allowed':
-            currentTab === 'Essay' && !essayQuestionsExist,
-          'bg-white text-gray-600 hover:bg-gray-200': currentTab !== 'Essay',
+          'bg-red-500 text-white cursor-not-allowed': !essayQuestionsExist,
+          'bg-green-500 text-gray-600 hover:bg-gray-200':
+            currentTab !== 'Essay',
         }"
-        class="flex-1 px-4 py-2 focus:outline-none"
+        class="flex-1 px-4 py-2 focus:outline-none mx-2"
       >
         Essay
       </button>
@@ -64,11 +63,11 @@
         :class="{
           'bg-blue-500 text-white':
             currentTab === 'Cloze' && clozeQuestionsExist,
-          'bg-red-500 text-white cursor-not-allowed':
-            currentTab === 'Cloze' && !clozeQuestionsExist,
-          'bg-white text-gray-600 hover:bg-gray-200': currentTab !== 'Cloze',
+          'bg-red-500 text-white cursor-not-allowed': !clozeQuestionsExist,
+          'bg-green-500 text-gray-600 hover:bg-gray-200':
+            currentTab !== 'Cloze',
         }"
-        class="flex-1 px-4 py-2 rounded-r-lg focus:outline-none"
+        class="flex-1 px-4 py-2 rounded-r-lg focus:outline-none mx-2"
       >
         Cloze
       </button>

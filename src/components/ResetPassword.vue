@@ -1,16 +1,6 @@
 <template>
   <div class="flex justify-center items-center h-screen bg-gray-100">
     <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-      <transition name="fade">
-        <div v-if="successMessage" class="mt-6 p-2 text-center text-green-600">
-          {{ successMessage }}
-        </div>
-      </transition>
-      <transition name="fade">
-        <div v-if="errorMessage" class="mt-6 p-2 text-center text-red-600">
-          {{ errorMessage }}
-        </div>
-      </transition>
       <h2 class="text-2xl font-semibold text-center mb-6">Reset Password</h2>
 
       <form @submit.prevent="resetPassword" class="space-y-6">
@@ -78,15 +68,15 @@
 </template>
 
 <script setup>
+import {useToast} from "vue-toastification";
 import { ref } from "vue";
 import axios from "axios";
 import router from "@/router";
 
+const toast = useToast();
 const matricNumber = ref("");
 const securityQuestion = ref("");
 const securityAnswer = ref("");
-const successMessage = ref("");
-const errorMessage = ref("");
 const securityQuestions = [
   "What is your mother's maiden name?",
   "What was the name of your first pet?",
@@ -108,7 +98,7 @@ const resetForm = () => {
 
 const resetPassword = async () => {
   if (!matricNumber.value || !securityQuestion.value || !securityAnswer.value) {
-    errorMessage.value = "Please fill in all fields";
+    toast.warning("Please fill in all the fields")
     return;
   }
   try {
@@ -120,21 +110,17 @@ const resetPassword = async () => {
         securityAnswer: securityAnswer.value,
       }
     );
-    successMessage.value = response.data.message;
+    toast.success("Password reset successful");
     resetForm();
     setTimeout(() => {
-      successMessage.value = "Come, let's update your security details";
+      toast.success("Come, let's update your security details")
       setTimeout(async () => {
         location.reload();
       }, 2500);
     }, 2500);
   } catch (error) {
-    console.log(error.response.data.error);
-    errorMessage.value = error.response.data.error;
+    toast.error(error.response.data.error)
     resetForm();
-    setTimeout(() => {
-      errorMessage.value = "";
-    }, 2500);
   }
 };
 </script>

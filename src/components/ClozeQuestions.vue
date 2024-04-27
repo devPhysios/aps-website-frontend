@@ -79,12 +79,6 @@
         />
         <img :src="imgURL" class="w-64" />
         <p class="text-sm text-gray-600" m-2>{{ imgURL }}</p>
-        <p v-if="successCloudinaryMessage" class="text-green-500 text-xs mt-1">
-          {{ successCloudinaryMessage }}
-        </p>
-        <p v-if="errorMessageCloudinary" class="text-red-500 text-xs mt-1">
-          {{ errorMessageCloudinary }}
-        </p>
       </div>
       <div class="mb-4">
         <label for="year" class="block text-sm font-medium text-gray-700"
@@ -158,19 +152,12 @@
           <p class="text-center mt-3">Please wait...</p>
         </div>
       </div>
-      <div>
-        <p v-if="successMessage" class="text-green-500 text-2xl mt-1">
-          {{ successMessage }}
-        </p>
-        <p v-if="errorMessage" class="text-red-500 text-2xl mt-1">
-          {{ errorMessage }}
-        </p>
-      </div>
     </div>
   </form>
 </template>
 
 <script setup>
+import { useToast } from "vue-toastification";
 import { ref, watch } from "vue";
 import axios from "axios";
 import Course100L from "../courses/100L.json";
@@ -179,6 +166,7 @@ import Course300L from "../courses/300L.json";
 import Course400L from "../courses/400L.json";
 import Course500L from "../courses/500L.json";
 
+const toast = useToast();
 const isLoading = ref(false);
 const selectedLevel = ref("100L");
 const imgURL = ref(null);
@@ -188,10 +176,6 @@ const answer = ref("");
 const year = ref("");
 const lecturer = ref("");
 const tags = ref("");
-const successMessage = ref(null);
-const errorMessage = ref(null);
-const successCloudinaryMessage = ref(null);
-const errorMessageCloudinary = ref(null);
 let courses = [];
 const showImageInput = ref(false);
 const imageFile = ref(null);
@@ -215,10 +199,7 @@ const loadCourses = () => {
     }
     // Add other levels
   } catch (error) {
-    errorMessage.value = error.message || "An error occurred";
-    setTimeout(() => {
-      errorMessage.value = null;
-    }, 5000);
+    toast.error("Error loading courses. Please refresh or try again later");
   }
 };
 
@@ -242,10 +223,10 @@ const uploadToCloudinary = async () => {
     );
     isLoading.value = false;
     imgURL.value = response.data.secure_url;
-    successCloudinaryMessage.value = "Image uploaded successfully";
+    toast.success("Image uploaded successfully");
   } catch (error) {
     isLoading.value = false;
-    errorMessageCloudinary.value = error.response.data.message;
+    toast.error("Error uploading image. Please try again");
   }
 };
 
@@ -261,8 +242,6 @@ const resetForm = () => {
   imgURL.value = null;
   showImageInput.value = false;
   imageFile.value = null;
-  successCloudinaryMessage.value = null;
-  errorMessageCloudinary.value = null;
 };
 
 const handleImageUpload = (event) => {
@@ -270,45 +249,16 @@ const handleImageUpload = (event) => {
   let imageSize = imageFile.value.size / 1024;
   let imageType = imageFile.value.type;
   if (imageSize > 500) {
-    errorMessageCloudinary.value = "Image size must not exceed 500kb";
+    toast.error("File size must not exceed 500KB");
     imageFile.value = null;
-    setTimeout(() => {
-      errorMessageCloudinary.value = null;
-    }, 5000);
     return;
   } else if (
     imageType !== "image/jpeg" &&
     imageType !== "image/png" &&
-    imageType !== "image/jpg" &&
-    imageType !== "image/gif" &&
-    imageType !== "image/svg" &&
-    imageType !== "image/webp" &&
-    imageType !== "image/tiff" &&
-    imageType !== "image/bmp" &&
-    imageType !== "image/ico" &&
-    imageType !== "image/raw" &&
-    imageType !== "image/psd" &&
-    imageType !== "image/heif" &&
-    imageType !== "image/heic" &&
-    imageType !== "image/avif" &&
-    imageType !== "image/jfif" &&
-    imageType !== "image/jp2" &&
-    imageType !== "image/jpx" &&
-    imageType !== "image/jpm" &&
-    imageType !== "image/jxr" &&
-    imageType !== "image/jxl" &&
-    imageType !== "image/bpg" &&
-    imageType !== "image/cgm" &&
-    imageType !== "image/iep" &&
-    imageType !== "image/iepm" &&
-    imageType !== "image/iepb" &&
-    imageType !== "image/ico"
+    imageType !== "image/jpg"
   ) {
-    errorMessageCloudinary.value = "File must be an image";
+    toast.error("File must be an image (JPEG, PNG, or JPG)");
     imageFile.value = null;
-    setTimeout(() => {
-      errorMessageCloudinary.value = null;
-    }, 5000);
     return;
   } else {
     uploadToCloudinary();
@@ -341,18 +291,11 @@ const handleSubmit = async () => {
       }
     );
     isLoading.value = false;
-    successMessage.value =
-      response.data.message || "Question uploaded successfully";
+    toast.success("Question uploaded successfully");
     resetForm();
-    setTimeout(() => {
-      successMessage.value = null;
-    }, 5000);
   } catch (error) {
     isLoading.value = false;
-    errorMessage.value = error.response.data.message || "An error occurred";
-    setTimeout(() => {
-      errorMessage.value = null;
-    }, 5000);
+    toast.error("Error uploading question. Please try again");
   }
 };
 </script>

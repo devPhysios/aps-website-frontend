@@ -6,7 +6,7 @@
       <div class="img relative">
         <img
           :src="store.user.profilePicture || avatar"
-          :alt="store.user.firstName[0]"
+          :alt="store.user.firstName"
         />
         <div
           v-if="editImage"
@@ -91,10 +91,10 @@
 </template>
 
 <script setup>
-// import { avatar } from "../data";
+import { useToast } from "vue-toastification";
 import { RouterLink } from "vue-router";
 import { useUserStore } from "@/stores/UserStore";
-import { ref as vueRef, onMounted } from "vue";
+import { ref as vueRef, onMounted, computed } from "vue";
 import { storage, imagesCollectionRef } from "../firebase";
 import {
   ref,
@@ -105,12 +105,25 @@ import {
 import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
 import axios from "axios";
 
+const toast = useToast();
 const imageFile = vueRef(null);
 const editImage = vueRef(false);
 const store = useUserStore();
 const user = store.user;
 const uploadProgress = vueRef(null);
 const serverProgress = vueRef(null);
+
+const profilePicture = computed(() => {
+  try {
+    if (store.user.profilePicture) {
+      new URL(store.user.profilePicture);
+      return store.user.profilePicture;
+    }
+  } catch (error) {
+    console.error("Error loading profile picture:", error);
+  }
+  return avatar;
+});
 
 const getExistingDocument = async (matricNumber) => {
   const q = query(
@@ -131,7 +144,26 @@ const getExistingDocument = async (matricNumber) => {
 const avatar = `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}&background=random`;
 
 const handleFileChange = (event) => {
-  imageFile.value = event.target.files[0];
+  const file = event.target.files[0];
+  const fileSize = file.size / 1024; // Size in KB
+  const fileType = file.type;
+
+  if (fileSize > 1000) {
+    toast.error("File size must not exceed 1MB", { timeout: 3000 });
+    imageFile.value = null;
+    return;
+  }
+
+  if (
+    fileType !== "image/jpeg" &&
+    fileType !== "image/png" &&
+    fileType !== "image/jpg"
+  ) {
+    toast.error("File must be an image (JPEG, PNG, or JPG)", { timeout: 3000 });
+    imageFile.value = null;
+    return;
+  }
+  imageFile.value = file;
 };
 
 const createProfile = async (data) => {
@@ -139,6 +171,7 @@ const createProfile = async (data) => {
     await addDoc(imagesCollectionRef, data);
   } catch (error) {
     console.error("Error adding document: ", error);
+    toast.error("Error updating image", { timeout: 3000 });
   }
 };
 
@@ -148,7 +181,6 @@ const sendToServer = async (imgURL) => {
     const token = localStorage.getItem("studentToken");
     const progressHandler = (event) => {
       serverProgress.value = Math.round((100 * event.loaded) / event.total);
-      console.log(`Upload progress: ${serverProgress.value}%`);
     };
 
     const response = await axios.patch(
@@ -163,42 +195,40 @@ const sendToServer = async (imgURL) => {
         onUploadProgress: progressHandler,
       }
     );
-
     if (response.status === 200) {
       store.updateProfilePicture(imgURL);
-      console.log("Image link successfully sent to backend!");
+      toast.success("Profile picture updated successfully", { timeout: 3000 });
     } else {
-      console.error("Error sending image link to backend");
+      toast.error("Error updating profile picture", { timeout: 3000 });
     }
-
     serverProgress.value = null;
   } catch (error) {
     serverProgress.value = null;
-    console.error("Error sending image link to backend ", error);
+    toast.error("Error sending image link to backend", { timeout: 3000 });
   }
 };
 
 const handleUpload = () => {
   editImage.value = false;
-  let imageSize = imageFile.value.size / 1024;
-  let imageType = imageFile.value.type;
-
-  if (!imageFile.value) {
-    console.log("No file selected");
-    return;
-  }
-
-  if (imageSize > 1024) {
-    console.log("File must not exceed 1MB");
+  if (imageFile.value.size > 1024000) {
+    console.log(imageFile.value.size)
+    toast.error("File size must not exceed 1MB", { timeout: 3000 });
+    imageFile.value = null;
     return;
   }
 
   if (
-    imageType !== "image/jpeg" &&
-    imageType !== "image/png" &&
-    imageType !== "image/jpg"
+    imageFile.value.type !== "image/jpeg" &&
+    imageFile.value.type !== "image/png" &&
+    imageFile.value.type !== "image/jpg"
   ) {
-    console.log("File must be an image");
+    toast.error("File must be an image (JPEG, PNG, or JPG)", { timeout: 3000 });
+    imageFile.value = null;
+    return;
+  }
+
+  if (!imageFile.value) {
+    toast.error("No file selected", { timeout: 3000 });
     return;
   }
 
@@ -227,7 +257,7 @@ const handleUpload = () => {
         );
       },
       (error) => {
-        console.log(error);
+        toast.error(error.message, { timeout: 3000 });
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -237,10 +267,10 @@ const handleUpload = () => {
             set: user.classSet,
             url: downloadURL,
           };
-          console.log("File available at", downloadURL);
           createProfile(data);
           uploadProgress.value = null;
           sendToServer(downloadURL);
+          toast.success("Image uploaded successfully", { timeout: 3000 });
         });
       }
     );

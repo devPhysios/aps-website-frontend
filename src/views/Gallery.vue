@@ -89,20 +89,61 @@
       </svg>
     </div>
     <div class="flex justify-center gap-4 p-4 bg-green-100">
-      <button
-        @click="prevPage"
-        :disabled="currentPage === 1"
-        class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange"
-      >
-        Previous
-      </button>
-      <button
-        @click="nextPage"
-        :disabled="currentPage === totalPages"
-        class="bg-aps-green text-aps-white px-6 py-4 rounded-md hover:bg-aps-orange"
-      >
-        Next
-      </button>
+      <div class="flex items-center">
+        <button
+          v-if="currentPage !== 1"
+          @click="prevPage"
+          class="text-aps-green hover:text-aps-orange transition-colors duration-300"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <span class="mx-4 text-gray-700">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+        <button
+          v-if="currentPage !== totalPages"
+          @click="nextPage"
+          class="text-aps-green hover:text-aps-orange transition-colors duration-300"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="ml-4 flex items-center">
+        <label for="pageInput" class="mr-2 text-gray-700">Go to page:</label>
+        <input
+          id="pageInput"
+          v-model="jumpToPage"
+          type="number"
+          min="1"
+          :max="totalPages"
+          class="w-16 px-2 py-1 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-aps-green"
+          @keyup.enter="goToPage"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -115,6 +156,7 @@ import router from "@/router";
 const webimages = ref([]);
 const loading = ref(true);
 const searchQuery = ref("");
+const jumpToPage = ref(1);
 
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -130,6 +172,13 @@ onMounted(async () => {
     router.push("/500");
   }
 });
+
+const goToPage = () => {
+  const pageNumber = Math.max(1, Math.min(jumpToPage.value, totalPages.value));
+  currentPage.value = pageNumber;
+  jumpToPage.value = pageNumber;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const filterImages = (searchQuery, images) => {
   if (!searchQuery) {
@@ -206,5 +255,14 @@ const shouldStackImages = computed(() => {
   display: inline-block;
   margin-bottom: 1em;
   width: 100%;
+}
+.pagination-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>

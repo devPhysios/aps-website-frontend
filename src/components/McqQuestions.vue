@@ -329,8 +329,8 @@ const resetForm = () => {
   question.value = "";
   correctOptions.value = [];
   options.value = ["", ""];
-  year.value = "";
-  lecturer.value = "";
+  // year.value = "";
+  // lecturer.value = "";
   tags.value = "";
   imgURL.value = null;
   showImageInput.value = false;

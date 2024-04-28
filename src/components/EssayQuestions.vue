@@ -237,8 +237,8 @@ const resetForm = () => {
   // selectedCourse.value = "";
   question.value = "";
   answer.value = "";
-  year.value = "";
-  lecturer.value = "";
+  // year.value = "";
+  // lecturer.value = "";
   tags.value = "";
   imgURL.value = null;
   showImageInput.value = false;

@@ -54,7 +54,6 @@
           v-model="answer"
           id="answer"
           rows="2"
-          required
           class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         ></textarea>
       </div>

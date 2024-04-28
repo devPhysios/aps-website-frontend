@@ -1,7 +1,7 @@
 <template>
     <div v-if="loginComponent" class="pt-12 font-display">
         <StudentLogin />
-        <p class="text-center mt-[-80px] text-1xl">
+        <p class="text-center mt-[-185px] pb-48 text-1xl">
             <p @click="resetPassword" class="text-blue-500 hover:underline">Forgot Password?</p>
         </p>
     </div>

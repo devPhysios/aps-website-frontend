@@ -2,8 +2,10 @@
   <section
     class="flex w-full h-[80vh] bg-gray-50 md:h-[69.6vh] font-display pt-20"
     v-if="store.user"
-  >
+  > 
+  <div class="overflow-y-auto h-full md:h-full">
     <DashBoardSideMenu />
+  </div>
     <!-- <main class="h-full w-full overflow-y-auto"> -->
     <div
       class="w-[80%] overflow-y-auto mx-4 h-full pl-4 pt-4 bg-gray-50 md:w-[70%] md:h-full pb-3 md:pb-8 md:px-4 md:pl-8"

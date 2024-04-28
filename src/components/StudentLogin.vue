@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto flex flex-col items-center justify-center h-screen mb-4 mt-2 z-40"
+    class="container mx-auto flex flex-col items-center justify-center mt-2 pb-48"
   >
     <div class="bg-white p-8 rounded-lg shadow-md sm:w-[700px]">
       <div class="h-[150px] md:pb-0 pb-4">
@@ -44,7 +44,7 @@
         v-if="isLoading"
         class="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50"
       >
-        <div class="bg-white rounded-lg p-6 shadow-xl">
+        <div class="bg-white rounded-lg p-6 shadow-xl flex justify-center">
           <svg
             class="animate-spin h-10 w-10 text-blue-500"
             xmlns="http://www.w3.org/2000/svg"

@@ -32,12 +32,13 @@ import img400 from "@/assets/images/400l.jpg"
 import img100 from "@/assets/images/100l.jpg"
 import img200 from "@/assets/images/200l.jpg"
 import img300 from "@/assets/images/300l.jpg"
+import img1 from "@/assets/images/1.jpg"
 
 const carouselData = ref([
   {
     text: `Association of Physiotherapy Students University of Ibadan`,
     subtitle: "Welcome To Our Official Website",
-    imgBg: img500,
+    imgBg: img1,
     ctaBtn: "About Us",
     link: "/about"
   },
@@ -72,6 +73,13 @@ const carouselData = ref([
     imgBg: img200,
     ctaBtn: "PhysioRay",
     link: "https://christnestteens.com/physioray/"
+  },
+
+  {
+    text: "",
+    subtitle: "",
+    imgBg: img500,
+    link: ""
   },
 ])
 </script>

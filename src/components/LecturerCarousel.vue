@@ -40,85 +40,99 @@
     import { ref } from 'vue'
     import { Carousel, Slide, Pagination } from 'vue3-carousel'
     import 'vue3-carousel/dist/carousel.css'
-    
+
+    import img1 from "@/assets/images/lecturers/lecturer1b.jpg"
+    import img2 from "@/assets/images/lecturers/lecturer7b.jpg"
+    import img3 from "@/assets/images/lecturers/lecturer8B.png"
+    import img4 from "@/assets/images/lecturers/lecturer3b.jpg"
+    import img5 from "@/assets/images/lecturers/lecturer9b.png"
+    import img6 from "@/assets/images/lecturers/lecturer5b.jpg"
+    import img7 from "@/assets/images/lecturers/lecturer6b.jpg"
+    import img8 from "@/assets/images/lecturers/lecturer4b.jpg"
+    import img9 from "@/assets/images/lecturers/lecturer2b.jpg"
+    import img10 from "@/assets/images/lecturers/lecturer10b.png"
+    import img11 from "@/assets/images/lecturers/lecturer11b.png"
+    import img12 from "@/assets/images/lecturers/lecturer.jpg"
+    import img13 from "@/assets/images/lecturers/lecturer.jpg"
+        
     const carouselData = ref([
       {
         name: `Prof. Adesola C. Odole`,
         title: "Head of Department",
-        imgBg: '@/assets/images/lecturers/lecturer1b.jpg',
+        imgBg: img1,
       },
       
       {
         name: `Prof. Aderonke O. Akinpelu`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer7b.jpg',
+        imgBg: img2,
       },
 
       {
         name: `Prof. A.F Adeniyi`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer8B.png',
+        imgBg: img3,
       },
     
       {
         name: `Prof. Babatunde O. Adegoke`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer3b.jpg',
+        imgBg: img4,
       },
   
       {
         name: `Prof. O. Ayanniyi`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer9b.png',
+        imgBg: img5,
       },
   
       {
         name: `Dr Olumide O. Dada`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer5b.jpg',
+        imgBg: img6,
       },
   
       {
         name: `Dr Adeoluwa O. Jaiyesimi`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer6b.jpg',
+        imgBg: img7,
       },
     
       {
         name: `Dr Margaret B. Fatudimu`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer4b.jpg',
+        imgBg: img8,
       },
 
   
       {
         name: `Dr Omoyemi O. Ogwumike`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer2b.jpg',
+        imgBg: img9,
       },
   
       {
         name: `Dr Ayodeji A. Fabunmi`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer10b.png',
+        imgBg: img10,
       },
   
       {
         name: `Dr Olubukola A. Olaleye`,
         title: " ",
-        imgBg: '@/assets/images/lecturers/lecturer11b.png',
+        imgBg: img11,
       },
   
       {
         name: `Dr Nse A. Odunaiya`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer.jpg',
+        imgBg: img12,
       },
 
       {
         name: `Mr Olusegun V. Sotiloye`,
         title: "",
-        imgBg: '@/assets/images/lecturers/lecturer.jpg',
+        imgBg: img13,
       },
     ])
   

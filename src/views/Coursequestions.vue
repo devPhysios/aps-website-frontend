@@ -29,6 +29,16 @@
       <p><strong>Unit:</strong> {{ course.unit }}</p>
     </div>
 
+    <!-- Search Bar -->
+    <div class="mb-4">
+      <input
+        v-model="searchQuery"
+        type="text"
+        placeholder="Search questions..."
+        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-double focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
     <!-- Create Tabs -->
     <div class="flex mb-4">
       <button
@@ -134,9 +144,8 @@
         />
       </svg>
     </div>
-
     <!-- Implement Question Types -->
-    <div v-if="!loading && questions.length > 0">
+    <div v-if="!loading && filteredQuestions">
       <!-- MCQ Questions -->
       <div v-if="currentTab === 'MCQ'">
         <div
@@ -190,10 +199,14 @@
         <!-- Pagination for MCQ Questions -->
         <div class="flex justify-center items-center mt-4">
           <button
-            @click="currentPageMCQ = 1"
+            @click="
+              currentPageMCQ = 1;
+              pageIndex = 0;
+              scrollToTop();
+            "
             :disabled="currentPageMCQ === 1"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
-            :class="{ 'cursor-not-allowed': currentPageMCQ === 1 }"
+            :class="{ 'cursor-not-allowed bg-red-500': currentPageMCQ === 1 }"
           >
             First
           </button>
@@ -201,7 +214,7 @@
             @click="previousPage('MCQ')"
             :disabled="currentPageMCQ === 1"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
-            :class="{ 'cursor-not-allowed': currentPageMCQ === 1 }"
+            :class="{ 'cursor-not-allowed bg-red-500': currentPageMCQ === 1 }"
           >
             Prev
           </button>
@@ -210,30 +223,36 @@
               v-model="currentPageMCQ"
               type="number"
               min="1"
-              :max="totalPages('MCQ')"
+              :max="totalPages('MCQ', filteredQuestions)"
               class="px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               @input="handlePageInput('MCQ', $event.target.value)"
             />
             <span class="px-2 py-1 bg-gray-200 rounded-md"
-              >of {{ totalPages("MCQ") }}</span
+              >of {{ totalPages("MCQ", filteredQuestions) }}</span
             >
           </div>
           <button
             @click="nextPage('MCQ')"
-            :disabled="currentPageMCQ === totalPages('MCQ')"
+            :disabled="currentPageMCQ === totalPages('MCQ', filteredQuestions)"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
             :class="{
-              'cursor-not-allowed': currentPageMCQ === totalPages('MCQ'),
+              'cursor-not-allowed bg-red-500':
+                currentPageMCQ === totalPages('MCQ', filteredQuestions),
             }"
           >
             Next
           </button>
           <button
-            @click="currentPageMCQ = totalPages('MCQ')"
-            :disabled="currentPageMCQ === totalPages('MCQ')"
+            @click="
+              currentPageMCQ = totalPages('MCQ', filteredQuestions);
+              pageIndex = totalPages('MCQ', filteredQuestions) - 1;
+              scrollToTop();
+            "
+            :disabled="currentPageMCQ === totalPages('MCQ', filteredQuestions)"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
             :class="{
-              'cursor-not-allowed': currentPageMCQ === totalPages('MCQ'),
+              'cursor-not-allowed bg-red-500':
+                currentPageMCQ === totalPages('MCQ', filteredQuestions),
             }"
           >
             Last
@@ -284,10 +303,14 @@
         <!-- Pagination for Essay Questions -->
         <div class="flex justify-center items-center mt-4">
           <button
-            @click="currentPageEssay = 1"
+            @click="
+              currentPageEssay = 1;
+              pageIndex = 0;
+              scrollToTop();
+            "
             :disabled="currentPageEssay === 1"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
-            :class="{ 'cursor-not-allowed': currentPageEssay === 1 }"
+            :class="{ 'bg-red-500 cursor-not-allowed': currentPageEssay === 1 }"
           >
             First
           </button>
@@ -295,7 +318,7 @@
             @click="previousPage('Essay')"
             :disabled="currentPageEssay === 1"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
-            :class="{ 'cursor-not-allowed': currentPageEssay === 1 }"
+            :class="{ 'bg-red-500 cursor-not-allowed': currentPageEssay === 1 }"
           >
             Prev
           </button>
@@ -304,30 +327,40 @@
               v-model="currentPageEssay"
               type="number"
               min="1"
-              :max="totalPages('Essay')"
+              :max="totalPages('Essay', filteredQuestions)"
               class="px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               @input="handlePageInput('Essay', $event.target.value)"
             />
             <span class="px-2 py-1 bg-gray-200 rounded-md"
-              >of {{ totalPages("Essay") }}</span
+              >of {{ totalPages("Essay", filteredQuestions) }}</span
             >
           </div>
           <button
             @click="nextPage('Essay')"
-            :disabled="currentPageEssay === totalPages('Essay')"
+            :disabled="
+              currentPageEssay === totalPages('Essay', filteredQuestions)
+            "
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
             :class="{
-              'cursor-not-allowed': currentPageEssay === totalPages('Essay'),
+              'cursor-not-allowed bg-red-500':
+                currentPageEssay === totalPages('Essay', filteredQuestions),
             }"
           >
             Next
           </button>
           <button
-            @click="currentPageEssay = totalPages('Essay')"
-            :disabled="currentPageEssay === totalPages('Essay')"
+            @click="
+              currentPageEssay = totalPages('Essay', filteredQuestions);
+              pageIndex = totalPages('Essay', filteredQuestions) - 1;
+              scrollToTop();
+            "
+            :disabled="
+              currentPageEssay === totalPages('Essay', filteredQuestions)
+            "
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
             :class="{
-              'cursor-not-allowed': currentPageEssay === totalPages('Essay'),
+              'cursor-not-allowed bg-red-500':
+                currentPageEssay === totalPages('Essay', filteredQuestions),
             }"
           >
             Last
@@ -378,10 +411,14 @@
         <!-- Pagination for Cloze Questions -->
         <div class="flex justify-center items-center mt-4">
           <button
-            @click="currentPageCloze = 1"
+            @click="
+              currentPageCloze = 1;
+              pageIndex = 0;
+              scrollToTop();
+            "
             :disabled="currentPageCloze === 1"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
-            :class="{ 'cursor-not-allowed': currentPageCloze === 1 }"
+            :class="{ 'cursor-not-allowed bg-red-500': currentPageCloze === 1 }"
           >
             First
           </button>
@@ -389,7 +426,7 @@
             @click="previousPage('Cloze')"
             :disabled="currentPageCloze === 1"
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
-            :class="{ 'cursor-not-allowed': currentPageCloze === 1 }"
+            :class="{ 'cursor-not-allowed bg-red-500': currentPageCloze === 1 }"
           >
             Prev
           </button>
@@ -398,30 +435,40 @@
               v-model="currentPageCloze"
               type="number"
               min="1"
-              :max="totalPages('Cloze')"
+              :max="totalPages('Cloze', filteredQuestions)"
               class="px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               @input="handlePageInput('Cloze', $event.target.value)"
             />
             <span class="px-2 py-1 bg-gray-200 rounded-md"
-              >of {{ totalPages("Cloze") }}</span
+              >of {{ totalPages("Cloze", filteredQuestions) }}</span
             >
           </div>
           <button
             @click="nextPage('Cloze')"
-            :disabled="currentPageCloze === totalPages('Cloze')"
+            :disabled="
+              currentPageCloze === totalPages('Cloze', filteredQuestions)
+            "
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
             :class="{
-              'cursor-not-allowed': currentPageCloze === totalPages('Cloze'),
+              'cursor-not-allowed bg-red-500':
+                currentPageCloze === totalPages('Cloze', filteredQuestions),
             }"
           >
             Next
           </button>
           <button
-            @click="currentPageCloze = totalPages('Cloze')"
-            :disabled="currentPageCloze === totalPages('Cloze')"
+            @click="
+              currentPageCloze = totalPages('Cloze', filteredQuestions);
+              pageIndex = totalPages('Cloze', filteredQuestions) - 1;
+              scrollToTop();
+            "
+            :disabled="
+              currentPageCloze === totalPages('Cloze', filteredQuestions)
+            "
             class="mx-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none"
             :class="{
-              'cursor-not-allowed': currentPageCloze === totalPages('Cloze'),
+              'cursor-not-allowed bg-red-500':
+                currentPageCloze === totalPages('Cloze', filteredQuestions),
             }"
           >
             Last
@@ -469,6 +516,9 @@ const essayQuestionsExist = computed(() =>
 const clozeQuestionsExist = computed(() =>
   questions.value.some((q) => q.type === "Fill in the Gap")
 );
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const breadcrumbs = ref([
   { title: "Dashboard", link: "/dashboard" },
@@ -482,6 +532,13 @@ const breadcrumbs = ref([
     link: `/dashboard/questions/${route.params.level}/${route.params.course}`,
   },
 ]);
+const searchQuery = ref("");
+
+const filteredQuestions = computed(() => {
+  const regex = new RegExp(searchQuery.value, "i");
+  const filtered = questions.value.filter((q) => regex.test(q.question));
+  return filtered;
+});
 
 // Fetch Course Details
 onMounted(async () => {
@@ -508,27 +565,48 @@ onMounted(async () => {
 });
 
 const paginatedMCQQuestions = computed(() => {
+  if (!filteredQuestions) {
+    return [];
+  }
+  if (filteredQuestions.value.length <= perPage){
+    currentPageMCQ.value = 1;
+  };
   const startIndex = (currentPageMCQ.value - 1) * perPage;
   const endIndex = startIndex + perPage;
-  return questions.value
+  const paginatedQuestions = filteredQuestions.value
     .filter((q) => q.type === "MCQ")
     .slice(startIndex, endIndex);
+  return paginatedQuestions;
 });
 
 const paginatedEssayQuestions = computed(() => {
+  if (!filteredQuestions) {
+    return [];
+  }
+  if(filteredQuestions.value.length <= perPage){
+    currentPageEssay.value = 1;
+  }
   const startIndex = (currentPageEssay.value - 1) * perPage;
   const endIndex = startIndex + perPage;
-  return questions.value
+  const paginatedQuestions = filteredQuestions.value
     .filter((q) => q.type === "Essay")
     .slice(startIndex, endIndex);
+  return paginatedQuestions;
 });
 
 const paginatedClozeQuestions = computed(() => {
+  if (!filteredQuestions) {
+    return [];
+  }
+  if(filteredQuestions.value.length <= perPage){
+    currentPageCloze.value = 1;
+  }
   const startIndex = (currentPageCloze.value - 1) * perPage;
   const endIndex = startIndex + perPage;
-  return questions.value
+  const paginatedQuestions = filteredQuestions.value
     .filter((q) => q.type === "Fill in the Gap")
     .slice(startIndex, endIndex);
+  return paginatedQuestions;
 });
 
 function handlePageInput(tab, value) {
@@ -538,7 +616,7 @@ function handlePageInput(tab, value) {
       if (
         !isNaN(parsedValue) &&
         parsedValue >= 1 &&
-        parsedValue <= totalPages("MCQ")
+        parsedValue <= totalPages("MCQ", filteredQuestions)
       ) {
         currentPageMCQ.value = parsedValue;
       } else {
@@ -549,7 +627,7 @@ function handlePageInput(tab, value) {
       if (
         !isNaN(parsedValue) &&
         parsedValue >= 1 &&
-        parsedValue <= totalPages("Essay")
+        parsedValue <= totalPages("Essay", filteredQuestions)
       ) {
         currentPageEssay.value = parsedValue;
       } else {
@@ -560,7 +638,7 @@ function handlePageInput(tab, value) {
       if (
         !isNaN(parsedValue) &&
         parsedValue >= 1 &&
-        parsedValue <= totalPages("Cloze")
+        parsedValue <= totalPages("Cloze", filteredQuestions)
       ) {
         currentPageCloze.value = parsedValue;
       } else {
@@ -612,20 +690,22 @@ function nextPage(tab) {
   }
 }
 
-function totalPages(tab) {
+function totalPages(tab, questions) {
+  if (!questions) {
+    return 0;
+  }
   switch (tab) {
     case "MCQ":
       return Math.ceil(
-        questions.value.filter((q) => q.type === "MCQ").length / perPage
+        questions.filter((q) => q.type === "MCQ").length / perPage
       );
     case "Essay":
       return Math.ceil(
-        questions.value.filter((q) => q.type === "Essay").length / perPage
+        questions.filter((q) => q.type === "Essay").length / perPage
       );
     case "Cloze":
       return Math.ceil(
-        questions.value.filter((q) => q.type === "Fill in the Gap").length /
-          perPage
+        questions.filter((q) => q.type === "Fill in the Gap").length / perPage
       );
     default:
       return 0;
@@ -664,7 +744,6 @@ onMounted(async () => {
     }
   } catch (error) {
     // console.error('Error fetching questions:', error);
-    console.log("Current URL:", window.location.href);
     router.push({ path: "/500", query: { returnUrl: window.location.href } });
   }
 });

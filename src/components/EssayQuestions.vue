@@ -59,7 +59,7 @@
       </div>
       <div class="mb-4">
         <button
-          @click="addImage"
+          @click.prevent="addImage"
           class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600"
         >
           Add Image
@@ -231,7 +231,7 @@ const uploadToCloudinary = async () => {
 };
 
 const resetForm = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: "smooth" });
   isLoading.value = false;
   // selectedLevel.value = "100L";
   // selectedCourse.value = "";

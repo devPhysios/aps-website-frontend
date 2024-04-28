@@ -61,7 +61,7 @@
       </div>
       <div class="mb-4">
         <button
-          @click="addImage"
+          @click.prevent="addImage"
           class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600"
         >
           Add Image

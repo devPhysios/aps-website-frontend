@@ -34,7 +34,7 @@
       <input
         v-model="searchQuery"
         type="text"
-        placeholder="Search questions..."
+        :placeholder="searchPlaceholder"
         class="px-4 py-2 border border-gray-300 rounded-md focus:outline-double focus:ring-2 focus:ring-blue-500"
       />
     </div>
@@ -520,6 +520,10 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+const searchPlaceholder = computed(
+  () => `Search ${currentTab.value} questions`
+);
+
 const breadcrumbs = ref([
   { title: "Dashboard", link: "/dashboard" },
   { title: "Past Questions", link: "/dashboard/questions" },
@@ -568,9 +572,9 @@ const paginatedMCQQuestions = computed(() => {
   if (!filteredQuestions) {
     return [];
   }
-  if (filteredQuestions.value.length <= perPage){
+  if (filteredQuestions.value.length <= perPage) {
     currentPageMCQ.value = 1;
-  };
+  }
   const startIndex = (currentPageMCQ.value - 1) * perPage;
   const endIndex = startIndex + perPage;
   const paginatedQuestions = filteredQuestions.value
@@ -583,7 +587,7 @@ const paginatedEssayQuestions = computed(() => {
   if (!filteredQuestions) {
     return [];
   }
-  if(filteredQuestions.value.length <= perPage){
+  if (filteredQuestions.value.length <= perPage) {
     currentPageEssay.value = 1;
   }
   const startIndex = (currentPageEssay.value - 1) * perPage;
@@ -598,7 +602,7 @@ const paginatedClozeQuestions = computed(() => {
   if (!filteredQuestions) {
     return [];
   }
-  if(filteredQuestions.value.length <= perPage){
+  if (filteredQuestions.value.length <= perPage) {
     currentPageCloze.value = 1;
   }
   const startIndex = (currentPageCloze.value - 1) * perPage;

@@ -322,6 +322,7 @@ const handleImageUpload = (event) => {
 };
 
 const resetForm = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   // isLoading.value = false;
   // selectedLevel.value = "100L";
   selectedCourse.value = "";

@@ -33,6 +33,7 @@
     <div class="mb-4">
       <input
         v-model="searchQuery"
+        @input="handleInput(`${currentTab}`)"
         type="text"
         :placeholder="searchPlaceholder"
         class="px-4 py-2 border border-gray-300 rounded-md focus:outline-double focus:ring-2 focus:ring-blue-500"
@@ -154,7 +155,7 @@
           class="mb-6"
         >
           <h2 class="text-lg font-semibold mb-2">
-            {{ pageIndex * 20 + index + 1 }}. {{ question.question }}
+            {{ (currentPageMCQ - 1) * 20 + index + 1 }}. {{ question.question }}
           </h2>
           <ul class="list-disc ml-6">
             <li
@@ -520,6 +521,16 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+function handleInput(tab) {
+  if (tab === "MCQ") {
+    currentPageMCQ.value = 1;
+  } else if (tab === "Essay") {
+    currentPageEssay.value = 1;
+  } else {
+    currentPageCloze.value = 1;
+  }
+}
+
 const searchPlaceholder = computed(
   () => `Search ${currentTab.value} questions`
 );
@@ -572,9 +583,7 @@ const paginatedMCQQuestions = computed(() => {
   if (!filteredQuestions) {
     return [];
   }
-  if (filteredQuestions.value.length <= perPage) {
-    currentPageMCQ.value = 1;
-  }
+
   const startIndex = (currentPageMCQ.value - 1) * perPage;
   const endIndex = startIndex + perPage;
   const paginatedQuestions = filteredQuestions.value
@@ -587,9 +596,6 @@ const paginatedEssayQuestions = computed(() => {
   if (!filteredQuestions) {
     return [];
   }
-  if (filteredQuestions.value.length <= perPage) {
-    currentPageEssay.value = 1;
-  }
   const startIndex = (currentPageEssay.value - 1) * perPage;
   const endIndex = startIndex + perPage;
   const paginatedQuestions = filteredQuestions.value
@@ -601,9 +607,6 @@ const paginatedEssayQuestions = computed(() => {
 const paginatedClozeQuestions = computed(() => {
   if (!filteredQuestions) {
     return [];
-  }
-  if (filteredQuestions.value.length <= perPage) {
-    currentPageCloze.value = 1;
   }
   const startIndex = (currentPageCloze.value - 1) * perPage;
   const endIndex = startIndex + perPage;

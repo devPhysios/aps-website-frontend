@@ -16,6 +16,7 @@
       type="text"
       placeholder="Search by name, title, or tag"
       class="px-4 py-2 border rounded-l-md focus:outline-none w-[50%]"
+      @input="handleInput"
       @keyup.enter="searchImages"
     />
     <button
@@ -157,6 +158,7 @@ const webimages = ref([]);
 const loading = ref(true);
 const searchQuery = ref("");
 const jumpToPage = ref(1);
+const shuffle = ref(true);
 
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -184,13 +186,11 @@ const filterImages = (searchQuery, images) => {
   if (!searchQuery) {
     return images;
   }
-
   const query = searchQuery.toLowerCase();
   return images.filter((image) => {
     const title = image.title.toLowerCase();
     const description = image.description.toLowerCase();
     const tags = image.features.map((feature) => feature.toLowerCase());
-
     return (
       title.includes(query) ||
       description.includes(query) ||
@@ -207,16 +207,26 @@ function shuffleArray(array) {
   }
   return shuffledArray;
 }
-
 const filteredImages = computed(() =>
   filterImages(searchQuery.value, webimages.value)
 );
 
+function handleInput () {
+  currentPage.value = 1
+}
+
 const displayedImages = computed(() => {
-  const shuffledImages = shuffleArray(filteredImages.value);
-  const startIndex = (currentPage.value - 1) * pageSize;
-  const endIndex = Math.min(startIndex + pageSize, shuffledImages.length);
-  return shuffledImages.slice(startIndex, endIndex);
+  if (shuffle.value === true) {
+    const shuffledImages = shuffleArray(filteredImages.value);
+    const startIndex = (currentPage.value - 1) * pageSize;
+    const endIndex = Math.min(startIndex + pageSize, shuffledImages.length);
+    return shuffledImages.slice(startIndex, endIndex);
+  } else {
+    const shuffledImages = filteredImages.value;
+    const startIndex = (currentPage.value - 1) * pageSize;
+    const endIndex = Math.min(startIndex + pageSize, shuffledImages.length);
+    return shuffledImages.slice(startIndex, endIndex);
+  }
 });
 
 const currentPage = ref(1);
@@ -227,6 +237,7 @@ const totalPages = computed(() =>
 );
 
 const nextPage = () => {
+  shuffle.value = false;
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (currentPage.value < totalPages.value) {
     currentPage.value++;
@@ -234,6 +245,7 @@ const nextPage = () => {
 };
 
 const prevPage = () => {
+  shuffle.value = false;
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (currentPage.value > 1) {
     currentPage.value--;

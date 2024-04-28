@@ -52,12 +52,13 @@
         <label for="answer" class="block text-sm font-medium text-gray-700"
           >Enter Answer:</label
         >
-        <input
+        <textarea
           v-model="answer"
           id="answer"
-          type="text"
+          rows="2"
+          required
           class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        />
+        ></textarea>
       </div>
       <div class="mb-4">
         <button
@@ -231,8 +232,8 @@ const uploadToCloudinary = async () => {
 };
 
 const resetForm = () => {
-  isLoading.value = false;
-  selectedLevel.value = "100L";
+  // isLoading.value = false;
+  // selectedLevel.value = "100L";
   selectedCourse.value = "";
   question.value = "";
   answer.value = "";

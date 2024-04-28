@@ -322,8 +322,8 @@ const handleImageUpload = (event) => {
 };
 
 const resetForm = () => {
-  isLoading.value = false;
-  selectedLevel.value = "100L";
+  // isLoading.value = false;
+  // selectedLevel.value = "100L";
   selectedCourse.value = "";
   question.value = "";
   correctOptions.value = [];
@@ -353,10 +353,7 @@ const handleSubmit = async () => {
         question: question.value,
         year: year.value,
         lecturer: lecturer.value,
-        options: options.value
-          .join(",")
-          .split(",")
-          .map((option) => option.trim()),
+        options: options.value,
         answer: correctOptions.value
           .join(",")
           .split(",")

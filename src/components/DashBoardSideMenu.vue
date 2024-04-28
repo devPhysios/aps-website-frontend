@@ -4,10 +4,7 @@
   >
     <div class="side-container">
       <div class="img relative">
-        <img
-          :src="profilePicture || avatar"
-          :alt="store.user.firstName"
-        />
+        <img :src="profilePicture || avatar" :alt="store.user.firstName" />
         <div
           v-if="editImage"
           class="flex flex-col items-center w-full mx-auto gap-2"
@@ -210,23 +207,6 @@ const sendToServer = async (imgURL) => {
 
 const handleUpload = () => {
   editImage.value = false;
-  if (imageFile.value.size > 1024000) {
-    console.log(imageFile.value.size)
-    toast.error("File size must not exceed 1MB", { timeout: 3000 });
-    imageFile.value = null;
-    return;
-  }
-
-  if (
-    imageFile.value.type !== "image/jpeg" &&
-    imageFile.value.type !== "image/png" &&
-    imageFile.value.type !== "image/jpg"
-  ) {
-    toast.error("File must be an image (JPEG, PNG, or JPG)", { timeout: 3000 });
-    imageFile.value = null;
-    return;
-  }
-
   if (!imageFile.value) {
     toast.error("No file selected", { timeout: 3000 });
     return;

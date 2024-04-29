@@ -9,8 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cloudinary/url-gen": "^1.16.1",
-    "@cloudinary/vue": "^1.12.0",
     "@firebase/storage": "^0.12.3",
     "audit": "^0.0.6",
     "axios": "^1.6.7",

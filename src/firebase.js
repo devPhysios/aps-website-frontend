@@ -19,5 +19,6 @@ const db = getFirestore(app)
 
 
 const imagesCollectionRef = collection(db, 'images')
+const questionsCollectionRef = collection(db, 'questions')
 // we need export this setuped variables for use in another file
-export { storage, imagesCollectionRef, db }
+export { storage, imagesCollectionRef, questionsCollectionRef, db }

@@ -154,9 +154,52 @@
           :key="question._id"
           class="mb-6"
         >
+          <div v-if="question.imgURL" class="flex justify-start">
+            <img
+              :src="question.imgURL"
+              class="w-[300px] h-[300px] object-cover object-center"
+            />
+          </div>
           <h2 class="text-lg font-semibold mb-2">
             {{ (currentPageMCQ - 1) * 20 + index + 1 }}. {{ question.question }}
           </h2>
+          <!-- Additional Functions for MCQ -->
+          <div v-if="users.user.isAcademicCommittee" class="flex justify-end">
+            <button
+              @click="openEditModal(question, 'MCQ')"
+              class="mr-2 text-blue-500 hover:text-blue-700"
+            >
+              <!-- Modify Icon SVG -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                />
+              </svg>
+            </button>
+            <button
+              @click="openDeleteModal(question)"
+              class="text-red-500 hover:text-red-700"
+            >
+              <!-- Delete Icon SVG -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
           <ul class="list-disc ml-6">
             <li
               v-for="(option, optionIndex) in question.options"
@@ -197,6 +240,7 @@
           </p>
           <p class="mt-2 italic">Year: {{ question.year }}</p>
         </div>
+
         <!-- Pagination for MCQ Questions -->
         <div class="flex justify-center items-center mt-4">
           <button
@@ -268,9 +312,54 @@
           :key="question._id"
           class="mb-6"
         >
+          <div v-if="question.imgURL" class="flex justify-start">
+            <img
+              :src="question.imgURL"
+              class="w-[300px] h-[300px] object-cover object-center"
+            />
+          </div>
           <h2 class="text-lg font-semibold mb-2">
             {{ pageIndex * 20 + index + 1 }}. {{ question.question }}
           </h2>
+          <div v-if="users.user.isAcademicCommittee" class="flex justify-end">
+            <!-- Edit Icon -->
+            <button
+              @click="openEditModal(question, 'Essay')"
+              class="mr-2 text-blue-500 hover:text-blue-700"
+            >
+              <!-- Modify Icon SVG -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                />
+              </svg>
+            </button>
+
+            <!-- Delete Icon -->
+            <button
+              @click="openDeleteModal(question)"
+              class="text-red-500 hover:text-red-700"
+            >
+              <!-- Delete Icon SVG -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
           <button
             @click="revealAnswer(index, 'Essay')"
             class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
@@ -376,9 +465,51 @@
           :key="question._id"
           class="mb-6"
         >
+          <div v-if="question.imgURL" class="flex justify-start">
+            <img
+              :src="question.imgURL"
+              class="w-[300px] h-[300px] object-cover object-center"
+            />
+          </div>
           <h2 class="text-lg font-semibold mb-2">
             {{ pageIndex * 20 + index + 1 }}. {{ question.question }}
           </h2>
+          <div v-if="users.user.isAcademicCommittee" class="flex justify-end">
+            <button
+              @click="openEditModal(question, 'Cloze')"
+              class="mr-2 text-blue-500 hover:text-blue-700"
+            >
+              <!-- Modify Icon SVG -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                />
+              </svg>
+            </button>
+            <button
+              @click="openDeleteModal(question)"
+              class="text-red-500 hover:text-red-700"
+            >
+              <!-- Delete Icon SVG -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
           <button
             @click="revealAnswer(index, 'Cloze')"
             class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
@@ -477,6 +608,259 @@
         </div>
       </div>
     </div>
+
+    <!-- Edit Modal -->
+    <div
+      class="fixed z-10 pt-5 mt-10 inset-0 overflow-y-auto transition-all duration-300"
+      v-if="showEditModal"
+    >
+      <div
+        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+        <div
+          class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-headline"
+        >
+          <div>
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <h3
+                class="text-lg leading-6 font-medium text-gray-900"
+                id="modal-headline"
+              >
+                Edit Question
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm leading-5 text-center text-gray-500">
+                  Edit the question details below.
+                </p>
+                <div class="mt-4">
+                  <label
+                    for="question"
+                    class="block text-sm font-medium text-gray-700"
+                    >Question</label
+                  >
+                  <textarea
+                    v-model="editedQuestion.question"
+                    id="question"
+                    rows="3"
+                    class="form-textarea border-black border-2 border-solid mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  ></textarea>
+                </div>
+                <div class="mt-4" v-if="currentTab === 'MCQ'">
+                  <label
+                    for="options"
+                    class="block text-sm font-medium text-gray-700"
+                    >Options</label
+                  >
+                  <div
+                    v-for="(option, optionIndex) in editedQuestion.options"
+                    :key="optionIndex"
+                    class="flex items-center mt-2"
+                  >
+                    <input
+                      v-model="editedQuestion.options[optionIndex]"
+                      type="text"
+                      class="form-input mt-1 block border-black border-2 border-solid w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 mr-2"
+                    />
+                    <button
+                      type="button"
+                      class="text-red-500 hover:text-red-700"
+                      @click="removeOption(optionIndex)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    class="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150"
+                    @click="addOption"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Add Option
+                  </button>
+                </div>
+                <div class="mt-4">
+                  <label
+                    for="answer"
+                    class="block text-sm font-medium text-gray-700"
+                    >Answer</label
+                  >
+                  <div v-if="currentTab === 'MCQ'">
+                    <div
+                      v-for="(option, optionIndex) in editedQuestion.options"
+                      :key="optionIndex"
+                      class="flex items-center mt-2"
+                    >
+                      <input
+                        v-model="editedAnswer"
+                        :value="optionIndex"
+                        type="checkbox"
+                        class="form-checkbox border-black border-2 border-solid h-4 w-4 text-blue-600 transition duration-150 ease-in-out mr-2"
+                      />
+                      <span>{{ option }}</span>
+                    </div>
+                  </div>
+                  <textarea
+                    v-else
+                    v-model="editedQuestion.answer"
+                    id="answer"
+                    rows="3"
+                    class="form-textarea border-black border-2 border-solid mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  ></textarea>
+                </div>
+                <div class="mt-4">
+                  <label
+                    for="year"
+                    class="block text-sm font-medium text-gray-700"
+                    >Year</label
+                  >
+                  <input
+                    v-model="editedQuestion.year"
+                    type="text"
+                    id="year"
+                    class="form-input border-black border-2 border-solid mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <div class="mt-4">
+                  <label
+                    for="tags"
+                    class="block text-sm font-medium text-gray-700"
+                    >Tags</label
+                  >
+                  <input
+                    v-model="editedQuestion.tags"
+                    type="text"
+                    id="tags"
+                    class="form-input mt-1 border-black border-2 border-solid block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <div class="mt-4">
+                  <label
+                    for="lecturer"
+                    class="block text-sm font-medium text-gray-700"
+                    >Lecturer</label
+                  >
+                  <input
+                    v-model="editedQuestion.lecturer"
+                    type="text"
+                    id="lecturer"
+                    class="form-input mt-1 block border-black border-2 border-solid w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <!-- <div class="mt-4">
+                  <label
+                    for="imgURL"
+                    class="block text-sm font-medium text-gray-700"
+                    >Image URL</label
+                  >
+                  <input
+                    v-model="editedQuestion.imgURL"
+                    type="text"
+                    id="imgURL"
+                    class="form-input mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  />
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+            <button
+              type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+              @click="updateQuestion"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
+              @click="closeEditModal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div v-if="showDeleteModal" class="fixed z-10 inset-0 overflow-y-auto">
+      <div
+        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+        <div
+          class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-headline"
+        >
+          <div>
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <h3
+                class="text-lg leading-6 font-medium text-gray-900"
+                id="modal-headline"
+              >
+                Delete Question
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm leading-5 text-gray-500">
+                  Are you sure you want to delete this question? This action
+                  cannot be undone.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+            <button
+              type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+              @click="deleteQuestion"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
+              @click="showDeleteModal = false"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -484,12 +868,24 @@
 import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
+import { useUserStore } from "@/stores/UserStore";
+import { useToast } from "vue-toastification";
+import { storage, questionsCollectionRef } from "../firebase";
+import {
+  ref as storeRef,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
+import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
 
 const props = defineProps({
   level: String,
   course: String,
 });
 
+const toast = useToast();
+const users = useUserStore();
 const route = useRoute();
 const router = useRouter();
 const courses = ref([]);
@@ -520,6 +916,11 @@ const clozeQuestionsExist = computed(() =>
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+const showEditModal = ref(false);
+const showDeleteModal = ref(false);
+const deletedQuestion = ref(null);
+const progress = ref(0);
+const progressToastId = ref(null);
 
 function handleInput(tab) {
   if (tab === "MCQ") {
@@ -578,6 +979,8 @@ onMounted(async () => {
       console.error("Error fetching course details:", error);
     });
 });
+
+//
 
 const paginatedMCQQuestions = computed(() => {
   if (!filteredQuestions) {
@@ -754,6 +1157,226 @@ onMounted(async () => {
     router.push({ path: "/500", query: { returnUrl: window.location.href } });
   }
 });
+
+const editedQuestion = ref({
+  question: "",
+  options: [],
+  answer: "",
+  year: "",
+  tags: "",
+  lecturer: "",
+  imgURL: "",
+  type: "",
+  _id: "",
+});
+const editedAnswer = ref([]); // For MCQ questions
+const editingQuestion = ref(null);
+
+const openEditModal = (question, type) => {
+  showEditModal.value = true;
+  editingQuestion.value = question;
+
+  // Handle answer for MCQ questions
+  if (type === "MCQ") {
+    editedAnswer.value = question.answer.map((index) => parseInt(index));
+  } else {
+    editedQuestion.value.answer = question.answer;
+  }
+
+  // Populate the editedQuestion with the question data
+  editedQuestion.value.question = question.question;
+  if (question.type === "MCQ") {
+    editedQuestion.value.options = [...question.options];
+  }
+  editedQuestion.value.year = question.year;
+  editedQuestion.value.tags = question.tags;
+  editedQuestion.value.lecturer = question.lecturer;
+  editedQuestion.value.imgURL = question.imgURL;
+  editedQuestion.value.type = type;
+  editedQuestion.value._id = question._id;
+};
+
+const closeEditModal = () => {
+  showEditModal.value = false;
+  resetEditedQuestion();
+};
+
+const resetEditedQuestion = () => {
+  editedQuestion.value = {
+    question: "",
+    options: [],
+    answer: "",
+    year: "",
+    tags: "",
+    lecturer: "",
+    imgURL: "",
+  };
+  editedAnswer.value = [];
+};
+
+const addOption = () => {
+  editedQuestion.value.options.push("");
+};
+
+const removeOption = (index) => {
+  editedQuestion.value.options.splice(index, 1);
+};
+
+const updateQuestion = () => {
+  // Prepare the data to be sent to the server
+  const data = {
+    question: editedQuestion.value.question,
+    options: editedQuestion.value.options,
+    answer:
+      currentTab.value === "MCQ"
+        ? editedAnswer.value
+        : editedQuestion.value.answer,
+    year: editedQuestion.value.year,
+    tags: editedQuestion.value.tags,
+    lecturer: editedQuestion.value.lecturer,
+    imgURL: editedQuestion.value.imgURL,
+  };
+
+  let endpoint;
+  if (editedQuestion.value.type === "MCQ") {
+    endpoint = `https://aps-website-backend.onrender.com/api/v1/mcq/editmcqs/${editedQuestion.value._id}`;
+  } else if (editedQuestion.value.type === "Essay") {
+    endpoint = `https://aps-website-backend.onrender.com/api/v1/essayqs/editessayqs/${editedQuestion.value._id}`;
+  } else {
+    endpoint = `https://aps-website-backend.onrender.com/api/v1/fitg/editfitg/${editedQuestion.value._id}`;
+  }
+
+  progress.value = 0; // Reset the progress percentage
+
+  // Create a toast instance
+  progressToastId.value = toast.info("0%", {
+    keepAlive: true, // Keep the toast alive until manually dismissed
+    closeOnClick: false, // Prevent closing the toast on click
+    timeout: false, // Prevent automatic timeout
+  });
+
+  // Send the data to the server
+  const token = localStorage.getItem("studentToken");
+  axios
+    .patch(endpoint, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      onUploadProgress: (progressEvent) => {
+        const totalBytes = progressEvent.total;
+        const loadedBytes = progressEvent.loaded;
+        const calculatedPercentage = Math.floor(
+          (loadedBytes / totalBytes) * 100
+        );
+        progress.value = calculatedPercentage;
+        toast.update(progressToastId.value, { content: `${progress.value}%` }); // Update the toast content using the toast ID
+      },
+    })
+    .then((response) => {
+      toast.dismiss(progressToastId.value); // Dismiss the progress toast
+      toast.success(response.data.message);
+      closeEditModal();
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error("Error updating question:", error);
+      toast.dismiss(progressToastId.value); // Dismiss the progress toast
+      toast.error(error.message);
+    });
+};
+const openDeleteModal = (question) => {
+  showDeleteModal.value = true;
+  deletedQuestion.value = question;
+};
+
+const getExistingDocument = async (url) => {
+  const q = query(questionsCollectionRef, where("url", "==", url));
+  const querySnapshot = await getDocs(q);
+
+  // If a document exists, return it
+  if (!querySnapshot.empty) {
+    return querySnapshot.docs[0];
+  }
+
+  // If no document exists, return null
+  return null;
+};
+
+const deleteFromFirebase = async (imageUrl) => {
+  try {
+    const existingDocument = await getExistingDocument(imageUrl);
+    if (!existingDocument) {
+      toast.error("No document found for the given image URL.");
+      return;
+    }
+    // Delete the image from Firebase Storage
+    await deleteDoc(existingDocument.ref);
+      const existingQuestionRef = storeRef(storage, existingDocument.data().url);
+      await deleteObject(existingQuestionRef);
+      toast.success("Image deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting image:", error);
+    toast.error("Error deleting image. Please try again.");
+  }
+};
+
+const deleteQuestion = () => {
+  // Prepare the data to be sent to the server
+  if (deletedQuestion.value.imgURL) {
+    deleteFromFirebase(deletedQuestion.value.imgURL);
+  }
+
+  let endpoint;
+  if (deletedQuestion.value.type === "MCQ") {
+    endpoint = `https://aps-website-backend.onrender.com/api/v1/mcq/deletemcqs/${deletedQuestion.value._id}`;
+  } else if (deletedQuestion.value.type === "Essay") {
+    endpoint = `https://aps-website-backend.onrender.com/api/v1/essayqs/deleteessayqs/${deletedQuestion.value._id}`;
+  } else {
+    endpoint = `https://aps-website-backend.onrender.com/api/v1/fitg/deletefitg/${deletedQuestion.value._id}`;
+  }
+
+  progress.value = 0; // Reset the progress percentage
+
+  // Create a toast instance
+  progressToastId.value = toast.info("0%", {
+    keepAlive: true,
+    closeOnClick: false,
+    timeout: false,
+  });
+
+  // Send the data to the server
+  const token = localStorage.getItem("studentToken");
+  axios
+    .delete(endpoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      onUploadProgress: (progressEvent) => {
+        const totalBytes = progressEvent.total;
+        const loadedBytes = progressEvent.loaded;
+        const calculatedPercentage = Math.floor(
+          (loadedBytes / totalBytes) * 100
+        );
+        progress.value = calculatedPercentage;
+        toast.update(progressToastId.value, { content: `${progress.value}%` });
+      },
+    })
+    .then((response) => {
+      toast.dismiss(progressToastId.value);
+      toast.success(response.data.message);
+      showDeleteModal.value = false;
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error("Error updating question:", error);
+      toast.dismiss(progressToastId.value);
+      toast.error(error.message);
+    });
+};
 </script>
 
 <style scoped>

@@ -156,6 +156,7 @@
 </template>
 
 <script setup>
+import { useUserStore } from "@/stores/UserStore";
 import { ref, watch } from "vue";
 import { useToast } from "vue-toastification";
 import axios from "axios";
@@ -164,7 +165,17 @@ import Course200L from "../courses/200L.json";
 import Course300L from "../courses/300L.json";
 import Course400L from "../courses/400L.json";
 import Course500L from "../courses/500L.json";
+import { storage, questionsCollectionRef } from "../firebase";
+import {
+  ref as storeRef,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
+import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
 
+const store = useUserStore();
+const user = store.user;
 const toast = useToast();
 const isLoading = ref(false);
 const selectedLevel = ref("100L");
@@ -178,6 +189,8 @@ const tags = ref("");
 let courses = [];
 const showImageInput = ref(false);
 const imageFile = ref(null);
+const uploadProgress = ref(null);
+const progressToastId = ref(null);
 
 const addImage = () => {
   showImageInput.value = true;
@@ -207,27 +220,66 @@ loadCourses();
 // Watch for change in level to reload courses
 watch(selectedLevel, loadCourses);
 
-const uploadToCloudinary = async () => {
-  const formData = new FormData();
-  formData.append("file", imageFile.value);
-  formData.append("upload_preset", "jkg6h2bu");
-  isLoading.value = true;
+const createQuestion = async (data) => {
   try {
-    const response = await axios.post(
-      `https://api.cloudinary.com/v1_1/dp4sbuifi/image/upload`,
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-        transformations: "w_400,h_400,c_fill",
-      }
-    );
-    imgURL.value = response.data.secure_url;
-    toast.success("Image uploaded successfully");
-    isLoading.value = false;
+    await addDoc(questionsCollectionRef, data);
   } catch (error) {
-    toast.error("And error occurred. Please refresh or try again later");
-    isLoading.value = false;
+    console.error("Error adding document: ", error);
+    toast.error("Error updating image", { timeout: 3000 });
   }
+};
+
+const uploadToFirebase = () => {
+  if (!imageFile.value) {
+    toast.error("No file selected", { timeout: 3000 });
+    return;
+  }
+  const { name, type } = imageFile.value;
+  const storageRef = storeRef(storage, `questions/${name}`);
+  // Upload the new image
+  const uploadTask = uploadBytesResumable(storageRef, imageFile.value, {
+    contentType: type,
+  });
+  uploadProgress.value = 0;
+
+  // Create a toast instance
+  progressToastId.value = toast.info("0%", {
+    keepAlive: true, // Keep the toast alive until manually dismissed
+    closeOnClick: false, // Prevent closing the toast on click
+    timeout: false, // Prevent automatic timeout
+  });
+
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      uploadProgress.value = Math.floor(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+      toast.update(progressToastId.value, {
+        content: `${uploadProgress.value}%`,
+      });
+    },
+    (error) => {
+      toast.error(error.message, { timeout: 3000 });
+      toast.dismiss(progressToastId.value);
+    },
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        imgURL.value = downloadURL;
+        const data = {
+          matricNumber: user.matricNumber,
+          fullName: `${user.firstName} ${user.lastName}`,
+          question: question.value || "No question",
+          url: downloadURL,
+          type: "Essay",
+        };
+        createQuestion(data);
+        toast.dismiss(progressToastId.value);
+        uploadProgress.value = null;
+        toast.success("Image uploaded successfully", { timeout: 3000 });
+      });
+    }
+  );
 };
 
 const resetForm = () => {
@@ -262,7 +314,7 @@ const handleImageUpload = (event) => {
     imageFile.value = null;
     return;
   } else {
-    uploadToCloudinary();
+    uploadToFirebase();
   }
 };
 

@@ -23,7 +23,7 @@
             class="w-full h-[300px] rounded-lg text-gray-950 text-xl relative"
           >
             <div class="h-full w-full">
-              <img class="h-full w-full object-cover" :src= data.imgBg>
+              <img class="h-full w-full object-cover sm:object-scale-down" :src= data.imgBg>
             </div>
             <div class=" transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50">
               <div class="bg-aps-orange h-full w-full">
@@ -37,11 +37,7 @@
             </div>
           </div>
         </Slide>
-    
-        <template #addons>
-            <Navigation />
-          <Pagination />
-        </template>
+
       </Carousel>
     </section>
   
@@ -56,68 +52,176 @@
     const carouselData = ref([
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0450.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0457.jpg',
       },
 
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0554.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0480.jpg',
       },
   
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0682.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0485.jpg',
       },
   
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0685.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0492.jpg',
       },
     
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0687.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0497.jpg',
       },
   
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0720.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0504.jpg',
       },
   
       {
         name: `Dinner Pictures`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/DSC_0777.jpg',
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0514.jpg',
       },
   
       {
-        name: `APS Fit`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0846.jpg',
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0516.jpg',
       },
   
       {
-        name: `APS Fit`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0848.jpg',
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0523.jpg',
       },
   
       {
-        name: `APS Fit`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0849.jpg',
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0530.jpg',
       },
   
       {
-        name: `APS Fit`,
-        title: "Every Level",
-        imgBg: 'src/assets/images/IMG_0850.jpg',
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0581.jpg',
+      },
+
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0634.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0655.jpg',
+      },
+    
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0675.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0763.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0765.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/DSC_0909.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0004.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0044.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0050.jpg',
+      },
+
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0082.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0100.jpg',
+      },
+    
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0130.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0211.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0230.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0305.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0471.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0494.jpg',
+      },
+  
+      {
+        name: `Dinner Pictures`,
+        title: "2023",
+        imgBg: 'src/assets/images/alumni/IMG_0502.jpg',
       },
     ])
   

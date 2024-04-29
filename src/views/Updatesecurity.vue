@@ -1,6 +1,6 @@
 <template>
   <div
-    class="font-display container mx-auto flex flex-col items-center justify-center h-full"
+    class="font-display container mx-auto flex flex-col items-center justify-center h-full pt-16"
     v-if="users.user"
   >
     <div class="bg-white p-8 rounded-md shadow-md sm:w-[500px] w-full">

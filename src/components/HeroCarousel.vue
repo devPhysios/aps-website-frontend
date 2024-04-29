@@ -1,4 +1,5 @@
 <template>
+  <div class="pt-[70px]">
   <Carousel :wrap-around="true" :autoplay="10000" :pause-autoplay-on-hover="true">
     <Slide v-for="(data, index) in carouselData" :key="index">
 
@@ -19,6 +20,7 @@
       <Pagination />
     </template> -->
   </Carousel>
+  </div>
 </template>
 
 <script setup>

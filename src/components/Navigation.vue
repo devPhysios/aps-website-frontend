@@ -47,7 +47,7 @@
     </ul>
     <button
       @click="directToDashboard"
-      class="md:static absolute z-40 bg-aps-orange top-[366px] duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6"
+      class="md:static absolute z-40 bg-aps-orange top-[366px] duration-700 ease-in w-full text-left md:w-auto md:pb-0 pb-6 md:py"
       :class="[open ? 'left-0' : 'left-[-100%]']"
     >
       <span
@@ -61,7 +61,7 @@
         <img
           v-else
           :src="userProfilePicture"
-          class="w-10 h-10 rounded-full"
+          class="w-10 h-10 rounded-full md:ml-0 ml-10"
           alt="Profile Picture"
         />
       </span>

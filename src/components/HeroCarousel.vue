@@ -76,7 +76,7 @@ const carouselData = ref([
   },
 
   {
-    text: "",
+    text: "OUR FINALISTS",
     subtitle: "",
     imgBg: img500,
     link: ""

@@ -48,180 +48,209 @@
     import { ref } from 'vue'
     import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
     import 'vue3-carousel/dist/carousel.css'
-    
+    import i1 from "@/assets/images/alumni/DSC_0457.jpg";
+    import i2 from "@/assets/images/alumni/DSC_0480.jpg";
+    import i3 from "@/assets/images/alumni/DSC_0485.jpg";
+    import i4 from "@/assets/images/alumni/DSC_0492.jpg";
+    import i5 from "@/assets/images/alumni/DSC_0497.jpg";
+    import i6 from "@/assets/images/alumni/DSC_0504.jpg";
+    import i7 from "@/assets/images/alumni/DSC_0514.jpg";
+    import i8 from "@/assets/images/alumni/DSC_0516.jpg";
+    import i9 from "@/assets/images/alumni/DSC_0523.jpg";
+    import i10 from "@/assets/images/alumni/DSC_0530.jpg";
+    import i11 from "@/assets/images/alumni/DSC_0581.jpg";
+    import i12 from "@/assets/images/alumni/DSC_0634.jpg";
+    import i13 from "@/assets/images/alumni/DSC_0655.jpg";
+    import i14 from "@/assets/images/alumni/DSC_0675.jpg";
+    import i15 from "@/assets/images/alumni/DSC_0763.jpg";
+    import i16 from "@/assets/images/alumni/DSC_0765.jpg";
+    import i17 from "@/assets/images/alumni/DSC_0909.jpg";
+    import i18 from "@/assets/images/alumni/IMG_0004.jpg";
+    import i19 from "@/assets/images/alumni/IMG_0044.jpg";
+    import i20 from "@/assets/images/alumni/IMG_0050.jpg";
+    import i21 from "@/assets/images/alumni/IMG_0082.jpg";
+    import i22 from "@/assets/images/alumni/IMG_0100.jpg";
+    import i23 from "@/assets/images/alumni/IMG_0130.jpg";
+    import i24 from "@/assets/images/alumni/IMG_0211.jpg";
+    import i25 from "@/assets/images/alumni/IMG_0230.jpg";
+    import i26 from "@/assets/images/alumni/IMG_0305.jpg";
+    import i27 from "@/assets/images/alumni/IMG_0471.jpg";
+    import i28 from "@/assets/images/alumni/IMG_0494.jpg";
+    import i29 from "@/assets/images/alumni/IMG_0502.jpg";
+
     const carouselData = ref([
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0457.jpg',
+        imgBg: i1,
       },
 
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0480.jpg',
+        imgBg: i2,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0485.jpg',
+        imgBg: i3,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0492.jpg',
+        imgBg: i4,
       },
     
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0497.jpg',
+        imgBg: i5,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0504.jpg',
+        imgBg: i6,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0514.jpg',
+        imgBg: i7,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0516.jpg',
+        imgBg: i8,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0523.jpg',
+        imgBg: i9,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0530.jpg',
+        imgBg: i10,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0581.jpg',
+        imgBg: i11,
       },
 
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0634.jpg',
+        imgBg: i12,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0655.jpg',
+        imgBg: i13,
       },
     
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0675.jpg',
+        imgBg: i14,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0763.jpg',
+        imgBg: i15,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0765.jpg',
+        imgBg: i16,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/DSC_0909.jpg',
+        imgBg: i17,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0004.jpg',
+        imgBg: i18,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0044.jpg',
+        imgBg: i19,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0050.jpg',
+        imgBg: i20,
       },
 
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0082.jpg',
+        imgBg: i21,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0100.jpg',
+        imgBg: i22,
       },
     
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0130.jpg',
+        imgBg: i23,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0211.jpg',
+        imgBg: i24,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0230.jpg',
+        imgBg: i25,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0305.jpg',
+        imgBg: i26,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0471.jpg',
+        imgBg: i27,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0494.jpg',
+        imgBg: i28,
       },
   
       {
         name: `Dinner Pictures`,
         title: "2023",
-        imgBg: 'src/assets/images/alumni/IMG_0502.jpg',
+        imgBg: i29,
       },
     ])
   

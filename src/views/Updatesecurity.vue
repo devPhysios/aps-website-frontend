@@ -87,18 +87,12 @@
       </div>
 
       <button @click="updateUser" class="button-primary">Update</button>
-      <div v-if="errorMessage" class="text-red-500 text-center mb-4">
-        {{ errorMessage }}
-      </div>
-      <div v-if="updateSuccess" class="success-message">
-        Password Updated Successfully
-      </div>
-      <div v-if="loggingIn" class="info-message">Logging in...</div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useToast } from "vue-toastification";
 import axios from "axios";
 import { ref, onMounted } from "vue";
 import { useUserStore } from "@/stores/UserStore";
@@ -113,6 +107,7 @@ onMounted(() => {
   }
 });
 
+const toast = useToast();
 const users = useUserStore();
 const userDetails = ref(users.user);
 const oldPassword = ref("");
@@ -120,9 +115,6 @@ const newPassword = ref("");
 const confirmPassword = ref("");
 const selectedQuestion = ref("");
 const securityAnswer = ref("");
-const updateSuccess = ref(false);
-const loggingIn = ref(false);
-const errorMessage = ref(null);
 
 const securityQuestions = [
   "What is your mother's maiden name?",
@@ -148,6 +140,7 @@ const updateUser = async () => {
       newPassword.value.length < 8 ||
       confirmPassword.value !== newPassword.value
     ) {
+      toast.error("Please check your password and try again");
       return;
     }
     const token = localStorage.getItem("studentToken");
@@ -166,20 +159,22 @@ const updateUser = async () => {
       }
     );
     if (response.status === 200) {
-      updateSuccess.value = true;
-      loggingIn.value = true;
+      toast.success("Password updated successfully");
+      toast.success("Logging in...");
       await login();
     }
   } catch (error) {
     if (error.response.status === 400) {
-      errorMessage.value = "Bad Request";
+      toast.error("Bad Request, please try again");
     } else if (error.response.status === 401) {
-      errorMessage.value = "Invalid Old Password";
+      toast.error("Invalid Credentials, please try again");
     } else if (error.response.status === 404) {
-      errorMessage.value = "Student not found";
+      toast.error("Student not found, please try again");
+    } else if (error.response.status === 500) {
+      toast.error("An error occurred, please try again");
+    } else {
+      toast.error("Check your internet connection and try again");
     }
-
-    console.error(error);
   }
 };
 
@@ -191,15 +186,15 @@ const login = async () => {
     );
     if (rawData.success === false) {
       if (rawData.error.response.status === 400) {
-        errorMessage.value = "Invalid Credentials";
+        toast.error("Bad Request, please try again");
       } else if (rawData.error.response.status === 404) {
-        errorMessage.value = "Account Not Found";
+        toast.error("Student not found, please try again");
       } else if (rawData.error.response.status === 401) {
-        errorMessage.value = "Invalid Credentials";
+        toast.error("Invalid Credentials, please try again");
       } else if (rawData.error.response.status === 500) {
-        errorMessage.value = "An error occurred, please try again";
+        toast.error("An error occurred, please try again");
       } else {
-        errorMessage.value = "An error occurred, please try again";
+        toast.error("Check your internet connection and try again");
       }
     } else if (rawData.success === true) {
       const response = rawData.jsonData.responseData;
@@ -214,9 +209,7 @@ const login = async () => {
       }
     }
   } catch (error) {
-    errorMessage.value = error.message;
-  } finally {
-    isLoading.value = false;
+    toast.error("An error occurred, please try again");
   }
 };
 </script>

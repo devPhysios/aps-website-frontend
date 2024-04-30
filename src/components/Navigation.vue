@@ -54,12 +54,18 @@
         class="text-white cursor-pointer md:text-4xl text-xl hover:text-yellow-900 md:px-0 px-10"
         @click="menuOpen"
       >
+        <button
+          v-if="!currentUser"
+          class="p-3 bg-aps-green hover:bg-aps-orange text-white rounded-md font-bold text-[1rem]"
+        >
+          Log in
+        </button>
         <i
-          v-if="!currentUser || !userProfilePicture"
+          v-if="currentUser && !userProfilePicture"
           class="bi bi-person-circle"
         ></i>
         <img
-          v-else
+          v-if="currentUser && userProfilePicture"
           :src="userProfilePicture"
           class="w-10 h-10 rounded-full md:ml-0 ml-10"
           alt="Profile Picture"

@@ -41,7 +41,7 @@
             Alumni
           </p>
           <p
-            class="absolute z-20 top-0 left-[25%] font-alumni2 text-orange-500 text-4xl md:text-6xl lg:text-9xl xl:text-[200px] -rotate-12 drop-shadow-md"
+            class="absolute z-[19] top-0 left-[25%] font-alumni2 text-orange-500 text-4xl md:text-6xl lg:text-9xl xl:text-[200px] -rotate-12 drop-shadow-md"
           >
             Our
           </p>

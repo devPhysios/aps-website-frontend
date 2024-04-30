@@ -6,7 +6,7 @@
 <script setup>
 import { onMounted } from "vue";
 onMounted(() => {
-    window.location.href = "www.physiopressui.wordpress.com/home/";
+    window.location.href = "https://physiopressui.wordpress.com/home";
 });
 
 </script>

@@ -12,7 +12,7 @@ import UpdateSecurity from "../views/Updatesecurity.vue";
 import Login from "../views/Login.vue";
 import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
-import ViewQuestion from "@/views/Viewquestion.vue";
+// import ViewQuestion from "@/views/Viewquestion.vue";
 import Profile from "@/views/Profile.vue";
 import Constitution from "@/views/Const.vue";
 import Questions from "@/views/Questions.vue";
@@ -23,6 +23,8 @@ import InternalServerError from "@/views/Internalservererror.vue";
 import YellowBook from "@/views/Yellowbook.vue";
 import LevelYellowBook from "@/views/Levelyellowbook.vue";
 import CourseYellowBook from "@/views/Courseyellowbook.vue";
+import PhysioPress from "@/views/Physiopress.vue";
+import PhysioRay from "@/views/Physioray.vue";
 
 const routes = [
   {
@@ -141,20 +143,21 @@ const routes = [
     },
   },
   {
-    path: "/admin/questions/",
-    name: "ViewQuestionPage",
-    component: ViewQuestion,
-    // props: true,
-    // beforeEnter: async (to, from, next) => {
-    //   try {
-    //     // Fetch data from the server
-    //     await fetchData(to.params.id);
-    //     next();
-    //   } catch (error) {
-    //     next({ name: "NotFound" });
-    //   }
-    // },
+    path: "/physiopress",
+    name: "PhysioPress",
+    component: PhysioPress,
   },
+  {
+    path: "/physioray",
+    name: "PhysioRay",
+    component: PhysioRay,
+  },
+
+  // {
+  //   path: "/admin/questions/",
+  //   name: "ViewQuestionPage",
+  //   component: ViewQuestion,
+  // },
 
   {
     path: "/profile",

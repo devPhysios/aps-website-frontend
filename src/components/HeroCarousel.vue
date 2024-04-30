@@ -75,7 +75,7 @@ const carouselData = ref([
     subtitle: "Students Association's Press Website",
     imgBg: img300,
     ctaBtn: "PhysioPress",
-    link: "https://www.physiopressui.wordpress.com/home/",
+    link: "/physiopress",
   },
 
   {
@@ -84,12 +84,13 @@ const carouselData = ref([
       "Explore our association's journal repository from insightful student perspectives.",
     imgBg: img200,
     ctaBtn: "PhysioRay",
-    link: "https://christnestteens.com/physioray/",
+    link: "/physioray",
   },
 
   {
     text: "Alumni Spotlight Page",
-    subtitle: "Capturing Moments, Sharing Messages and Empowering Futures: Alumni Giving Back",
+    subtitle:
+      "Capturing Moments, Sharing Messages and Empowering Futures: Alumni Giving Back",
     imgBg: img500,
     ctaBtn: "Alumni",
     link: "/alumni",

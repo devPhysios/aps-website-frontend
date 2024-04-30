@@ -29,6 +29,32 @@
       <p><strong>Unit:</strong> {{ course.unit }}</p>
     </div>
 
+    <!-- Download PDF -->
+    <div class="flex justify-start">
+      <button
+        @click="getPDF"
+        :disabled="loading"
+        class="flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <svg
+          class="w-5 h-5 mr-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          ></path>
+        </svg>
+        <span>{{
+          loading ? "Loading..." : `Download ${courseCode} questions in PDF`
+        }}</span>
+      </button>
+    </div>
     <!-- Search Bar -->
     <div class="mb-4">
       <input
@@ -871,13 +897,17 @@ import axios from "axios";
 import { useUserStore } from "@/stores/UserStore";
 import { useToast } from "vue-toastification";
 import { storage, questionsCollectionRef } from "../firebase";
-import {
-  ref as storeRef,
-  uploadBytesResumable,
-  getDownloadURL,
-  deleteObject,
-} from "firebase/storage";
-import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
+import { ref as storeRef, deleteObject } from "firebase/storage";
+import { getDocs, query, where, deleteDoc } from "firebase/firestore";
+import { generatePDF } from "../utils/generatePDF.js";
+
+const getPDF = () => {
+  if (!questions.value.length)
+    return toast.error("No questions to generate PDF");
+  if (!course.value) return toast.error("Course not found");
+  if (!level.value) return toast.error("Level not found");
+  generatePDF(questions.value, courseCode.value, level.value);
+};
 
 const props = defineProps({
   level: String,
@@ -1313,9 +1343,9 @@ const deleteFromFirebase = async (imageUrl) => {
     }
     // Delete the image from Firebase Storage
     await deleteDoc(existingDocument.ref);
-      const existingQuestionRef = storeRef(storage, existingDocument.data().url);
-      await deleteObject(existingQuestionRef);
-      toast.success("Image deleted successfully.");
+    const existingQuestionRef = storeRef(storage, existingDocument.data().url);
+    await deleteObject(existingQuestionRef);
+    toast.success("Image deleted successfully.");
   } catch (error) {
     console.error("Error deleting image:", error);
     toast.error("Error deleting image. Please try again.");

@@ -31,21 +31,41 @@ const routes = [
     path: "/",
     name: "HomePage",
     component: Home,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/about",
     name: "AboutPage",
     component: About,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/gallery",
     name: "GalleryPage",
     component: Gallery,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/alumni",
     name: "AlumniPage",
     component: Alumni,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard/questions/:level",
@@ -55,6 +75,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard/questions/:level/:course",
@@ -64,6 +89,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard/yellowbook/:level",
@@ -73,6 +103,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard/yellowbook/:level/:course",
@@ -82,6 +117,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard/yellowbook",
@@ -91,6 +131,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/upload",
@@ -99,6 +144,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/constitution",
@@ -107,6 +157,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard/questions",
@@ -115,6 +170,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/dashboard",
@@ -123,16 +183,31 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
   {
     path: "/auth/updatesecurity",
     name: "UpdateSecurityPage",
     component: UpdateSecurity,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
   {
     path: "/auth/login",
     name: "LoginPage",
     component: Login,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
   {
     path: "/dashboard/uploadquestion",
@@ -141,6 +216,11 @@ const routes = [
     meta: {
       requiresAuth: true,
     },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
   },
   {
     path: "/physiopress",
@@ -163,21 +243,41 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
   {
     path: "/payment",
     name: "Payment",
     component: Payment,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
   {
     path: "/500",
     name: "InternalServerError",
     component: InternalServerError,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: NotFound,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    }
   },
 ];
 

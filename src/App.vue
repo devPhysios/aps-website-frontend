@@ -3,12 +3,18 @@
     <NavigationMenu />
   </header>
   <router-view />
-  <FooterMenu />
+  <FooterMenu v-if="displayFooter" />
 </template>
 
 <script setup>
 import FooterMenu from "./components/Footer.vue";
 import NavigationMenu from "./components/Navigation.vue"
+import { useUserStore } from "./stores/UserStore";
+
+import { computed } from "vue";
+
+const store = useUserStore()
+const displayFooter = computed(() => store.displayFooter)
 </script>
 
 

@@ -296,7 +296,9 @@
               min="1"
               :max="totalPages('MCQ', filteredQuestions)"
               class="px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              @input="handlePageInput('MCQ', $event.target.value)"
+              @input="
+                handlePageInput('MCQ', $event.target.value, filteredQuestions)
+              "
             />
             <span class="px-2 py-1 bg-gray-200 rounded-md"
               >of {{ totalPages("MCQ", filteredQuestions) }}</span
@@ -445,7 +447,9 @@
               min="1"
               :max="totalPages('Essay', filteredQuestions)"
               class="px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              @input="handlePageInput('Essay', $event.target.value)"
+              @input="
+                handlePageInput('Essay', $event.target.value, filteredQuestions)
+              "
             />
             <span class="px-2 py-1 bg-gray-200 rounded-md"
               >of {{ totalPages("Essay", filteredQuestions) }}</span
@@ -595,7 +599,9 @@
               min="1"
               :max="totalPages('Cloze', filteredQuestions)"
               class="px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              @input="handlePageInput('Cloze', $event.target.value)"
+              @input="
+                handlePageInput('Cloze', $event.target.value, filteredQuestions)
+              "
             />
             <span class="px-2 py-1 bg-gray-200 rounded-md"
               >of {{ totalPages("Cloze", filteredQuestions) }}</span
@@ -899,7 +905,8 @@ import { useToast } from "vue-toastification";
 import { storage, questionsCollectionRef } from "../firebase";
 import { ref as storeRef, deleteObject } from "firebase/storage";
 import { getDocs, query, where, deleteDoc } from "firebase/firestore";
-import { generatePDF } from "../utils/generatePDF.js";
+import { generatePDF } from "../utils/useGeneratePDF.js";
+import { handlePageInput } from "../utils/useHandlePageInput.js";
 
 const getPDF = () => {
   if (!questions.value.length)
@@ -1048,47 +1055,6 @@ const paginatedClozeQuestions = computed(() => {
     .slice(startIndex, endIndex);
   return paginatedQuestions;
 });
-
-function handlePageInput(tab, value) {
-  const parsedValue = parseInt(value, 10);
-  switch (tab) {
-    case "MCQ":
-      if (
-        !isNaN(parsedValue) &&
-        parsedValue >= 1 &&
-        parsedValue <= totalPages("MCQ", filteredQuestions)
-      ) {
-        currentPageMCQ.value = parsedValue;
-      } else {
-        currentPageMCQ.value = 1;
-      }
-      break;
-    case "Essay":
-      if (
-        !isNaN(parsedValue) &&
-        parsedValue >= 1 &&
-        parsedValue <= totalPages("Essay", filteredQuestions)
-      ) {
-        currentPageEssay.value = parsedValue;
-      } else {
-        currentPageEssay.value = 1;
-      }
-      break;
-    case "Cloze":
-      if (
-        !isNaN(parsedValue) &&
-        parsedValue >= 1 &&
-        parsedValue <= totalPages("Cloze", filteredQuestions)
-      ) {
-        currentPageCloze.value = parsedValue;
-      } else {
-        currentPageCloze.value = 1;
-      }
-      break;
-    default:
-      break;
-  }
-}
 
 function previousPage(tab) {
   window.scrollTo({ top: 0, behavior: "smooth" });

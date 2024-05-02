@@ -2,7 +2,7 @@
   <section
     class="flex w-full min-h-full bg-gray-50 pt-20 font-display md:min-h-full"
   >
-    <DashBoardSideMenu/>
+    <DashBoardSideMenu />
     <div
       class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6"
     >
@@ -56,7 +56,11 @@
                 class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 v-model="gender"
                 :disabled="!editMode"
-                :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+                :class="
+                  editMode
+                    ? 'border-black border-2 border-solid rounded-lg'
+                    : 'border-gray-100'
+                "
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
@@ -77,7 +81,11 @@
                 class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 v-model="month"
                 :disabled="!editMode"
-                :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+                :class="
+                  editMode
+                    ? 'border-black border-2 border-solid rounded-lg'
+                    : 'border-gray-100'
+                "
               >
                 <option value="">Select Month</option>
                 <option
@@ -103,7 +111,11 @@
                 class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 v-model="day"
                 :disabled="!editMode || !month"
-                :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+                :class="
+                  editMode
+                    ? 'border-black border-2 border-solid rounded-lg'
+                    : 'border-gray-100'
+                "
               >
                 <option value="">Select Date</option>
                 <option
@@ -131,7 +143,11 @@
                 placeholder="Enter Hall of Residence"
                 v-model="hallOfResidence"
                 :readonly="!editMode"
-                :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+                :class="
+                  editMode
+                    ? 'border-black border-2 border-solid rounded-lg'
+                    : 'border-gray-100'
+                "
               />
             </div>
           </div>
@@ -148,7 +164,11 @@
                 placeholder="Enter Room No."
                 v-model="roomNo"
                 :readonly="!editMode"
-                :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+                :class="
+                  editMode
+                    ? 'border-black border-2 border-solid rounded-lg'
+                    : 'border-gray-100'
+                "
               />
             </div>
           </div>
@@ -165,7 +185,11 @@
                 placeholder="Enter Hobbies"
                 v-model="hobbies"
                 :readonly="!editMode"
-                :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+                :class="
+                  editMode
+                    ? 'border-black border-2 border-solid rounded-lg'
+                    : 'border-gray-100'
+                "
               />
             </div>
           </div>
@@ -175,6 +199,13 @@
             v-if="editMode"
           >
             Save Update
+          </button>
+          <button
+            class="bg-gray-400 text-white w-full mt-6 py-2 text-lg font-medium transition"
+            @click="cancelEdit"
+            v-if="editMode"
+          >
+            Cancel
           </button>
         </div>
         <hr />
@@ -238,6 +269,20 @@ onMounted(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+const cancelEdit = () => {
+  // Reset form fields
+  emailAddress.value = store.user.email || null;
+  gender.value = store.user.gender || "gender"
+  month.value = store.user.monthOfBirth || null;
+  day.value = store.user.dayOfBirth || null;
+  hallOfResidence.value = store.user.hallOfResidence || null;
+  roomNo.value = store.user.roomNo || null;
+  hobbies.value = store.user.hobbies || null;
+
+  // Disable edit mode
+  editMode.value = false;
+};
+
 const handleSubmit = async () => {
   const data = JSON.stringify({
     dayOfBirth: day.value,
@@ -249,11 +294,9 @@ const handleSubmit = async () => {
     hobbies: hobbies.value,
   });
 
-  const { jsonData } = await saveData( data);
+  const { jsonData } = await saveData(data);
 
   store.save(jsonData.student);
   editMode.value = false;
 };
-
-
 </script>

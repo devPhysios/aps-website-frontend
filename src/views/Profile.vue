@@ -101,7 +101,7 @@
           <!-- Fourth Parameter -->
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400"
-              >Date of Birth</label
+              >Day of Birth</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
               <span class="text-gray-400 border border-gray-100 px-2">

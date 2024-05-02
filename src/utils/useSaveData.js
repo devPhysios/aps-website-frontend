@@ -1,10 +1,13 @@
 import axios from "axios";
+import {useToast} from "vue-toastification";
 
-export const saveData = async (id, data) => {
+const toast = useToast();
+
+export const saveData = async ( data) => {
   const token = localStorage.getItem("studentToken");
   try {
     const response = await axios.patch(
-      `https://aps-website-backend.onrender.com/api/v1/dashboard/${id}`,
+      `https://aps-website-backend.onrender.com/api/v1/dashboard/profile`,
       data,
       {
         headers: {
@@ -13,9 +16,10 @@ export const saveData = async (id, data) => {
         },
       }
     );
-
+    toast.success("Profile Updated");
     return { jsonData: response.data, success: true };
   } catch (error) {
+    toast.error("Profile Update Failed");
     return { error, success: false };
   }
 };

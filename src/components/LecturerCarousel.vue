@@ -67,68 +67,57 @@
         title: "",
         imgBg: img2,
       },
-
-      {
-        name: `Prof. A.F Adeniyi`,
-        title: "",
-        imgBg: img3,
-      },
-    
       {
         name: `Prof. Babatunde O. Adegoke`,
         title: "",
         imgBg: img4,
       },
-  
       {
         name: `Prof. O. Ayanniyi`,
         title: "",
         imgBg: img5,
       },
-  
       {
-        name: `Dr Olumide O. Dada`,
+        name: `Prof. A.F Adeniyi`,
         title: "",
-        imgBg: img6,
+        imgBg: img3,
       },
-  
-      {
-        name: `Dr Adeoluwa O. Jaiyesimi`,
-        title: "",
-        imgBg: img7,
-      },
-    
-      {
-        name: `Dr Margaret B. Fatudimu`,
-        title: "",
-        imgBg: img8,
-      },
-
-  
       {
         name: `Dr Omoyemi O. Ogwumike`,
         title: "",
         imgBg: img9,
-      },
-  
+      },  
       {
         name: `Dr Ayodeji A. Fabunmi`,
         title: "",
         imgBg: img10,
       },
-  
-      {
-        name: `Dr Olubukola A. Olaleye`,
-        title: " ",
-        imgBg: img11,
-      },
-  
+
       {
         name: `Dr Nse A. Odunaiya`,
         title: "",
         imgBg: img12,
       },
-
+      {
+        name: `Dr Adeoluwa O. Jaiyesimi`,
+        title: "",
+        imgBg: img7,
+      },
+      {
+        name: `Dr Olubukola A. Olaleye`,
+        title: " ",
+        imgBg: img11,
+      },
+      {
+        name: `Dr Olumide O. Dada`,
+        title: "",
+        imgBg: img6,
+      },
+      {
+        name: `Dr Margaret B. Fatudimu`,
+        title: "",
+        imgBg: img8,
+      },
       {
         name: `Mr Olusegun V. Sotiloye`,
         title: "",

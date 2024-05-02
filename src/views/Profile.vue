@@ -6,15 +6,15 @@
     <div
       class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6"
     >
-      <h2 class="text-aps-green font-bold text-lg pb-4">Profile Information</h2>
+      <h2 class="font-display text-aps-green font-bold text-[14px] pb-4 md:text-l">Profile Information</h2>
       <div class="shadow py-4 px-4 max-w-[500px] mx-auto md:mx-4">
         <div class="mb-4">
           <div class="flex items-center justify-between">
-            <h3 class="mb-2 font-bold text-lg text-gray-500">
+            <h3 class="mb-2 font-bold text-[14px] text-gray-500 md:text-md">
               Personal Information
             </h3>
             <button
-              class="text-md font-semibold"
+              class="text-[14px] font-semibold text-md"
               :class="
                 editMode
                   ? 'text-gray-400 cursor-not-allowed'
@@ -37,7 +37,7 @@
               </span>
               <input
                 type="email"
-                class="font-semibold border-0 w-full focus:outline-0"
+                class="font-semibold border-0 w-full focus:outline-0 text-[14px] py-2 px-4 md:text-[16px]"
                 :class="editMode ? 'text-gray-500 border-black border-2 border-solid rounded-lg' : 'text-gray-400'"
                 placeholder="No email address"
                 :readonly="!editMode"
@@ -49,8 +49,11 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Gender</label>
             <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-person text-2xl"></i>
+              </span>
               <select
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 v-model="gender"
                 :disabled="!editMode"
                 :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
@@ -67,8 +70,11 @@
               >Month of Birth</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-calendar3 text-2xl"></i>
+              </span>
               <select
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 v-model="month"
                 :disabled="!editMode"
                 :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
@@ -90,8 +96,11 @@
               >Date of Birth</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-calendar3 text-2xl"></i>
+              </span>
               <select
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 v-model="day"
                 :disabled="!editMode || !month"
                 :class="editMode? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
@@ -113,9 +122,12 @@
               >Hall of Residence</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-house text-2xl"></i>
+              </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 placeholder="Enter Hall of Residence"
                 v-model="hallOfResidence"
                 :readonly="!editMode"
@@ -127,9 +139,12 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Room No.</label>
             <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-0-circle text-2xl"></i>
+              </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 placeholder="Enter Room No."
                 v-model="roomNo"
                 :readonly="!editMode"
@@ -141,9 +156,12 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Hobbies</label>
             <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-controller text-2xl"></i>
+              </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
                 placeholder="Enter Hobbies"
                 v-model="hobbies"
                 :readonly="!editMode"

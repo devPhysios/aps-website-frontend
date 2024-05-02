@@ -14,13 +14,13 @@
                 </span>
             </div>
             <div class="mt-8">
-                <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    <RouterLink to="/profile" class="focus:outline-none">
+                <h3 class="text-[14px] font-semibold leading-6 text-gray-900 md:text-lg">
+                    <RouterLink to="/profile" class="focus:outline-none text-[12px] md:text-lg">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Account Information
                     </RouterLink>
                 </h3>
-                <p class="mt-2 text-sm text-gray-500">
+                <p class="mt-2 text-sm text-gray-500 md:text-md">
                     View Your Full Profile Information.
                 </p>
             </div>
@@ -44,13 +44,13 @@
                 </span>
             </div>
             <div class="mt-8">
-                <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    <RouterLink to="/dashboard/questions" class="focus:outline-none">
+                <h3 class="text-[14px] font-semibold leading-6 text-gray-900 md:text-lg">
+                    <RouterLink to="/dashboard/questions" class="focus:outline-none text-[12px] md:text-lg">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Question Bank
                     </RouterLink>
                 </h3>
-                <p class="mt-2 text-sm text-gray-500">
+                <p class="mt-2 text-sm text-gray-500 md:text-md">
                     Check out the question bank.
                 </p>
             </div>
@@ -74,13 +74,13 @@
                 </span>
             </div>
             <div class="mt-8">
-                <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    <RouterLink to="/constitution" class="focus:outline-none">
+                <h3 class="text-[14px] font-semibold leading-6 text-gray-900 text-lg">
+                    <RouterLink to="/constitution" class="focus:outline-none text-[12px] md:text-lg">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Constitution
                     </RouterLink>
                 </h3>
-                <p class="mt-2 text-sm text-gray-500">
+                <p class="mt-2 text-sm text-gray-500 md:text-md">
                     Get acquainted with the APS Constitution.
                 </p>
             </div>
@@ -107,12 +107,12 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">
-                    <RouterLink to="/dashboard/yellowbook" class="focus:outline-none">
+                    <RouterLink to="/dashboard/yellowbook" class="focus:outline-none text-[12px] md:text-lg">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Yellow Book
                     </RouterLink>
                 </h3>
-                <p class="mt-2 text-sm text-gray-500">
+                <p class="mt-2 text-sm text-gray-500 md:text-md">
                     Get Course Requirements and Information about every course.
                 </p>
             </div>

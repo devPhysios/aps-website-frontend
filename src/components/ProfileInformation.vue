@@ -1,6 +1,6 @@
 <template>
     <!-- First Parameter -->
-    <div class="mb-px">
+    <div class="mb-px mt-4">
         <label class="font-bold text-[13px] text-gray-400">
             Full Name
         </label>
@@ -8,11 +8,11 @@
             <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-person text-2xl"></i>
             </span>
-            <div class="text-gray-400 font-semibold">{{ fullName }}</div>
+            <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ fullName }}</div>
         </div>
     </div>
     <!-- Second Parameter -->
-    <div class="mb-px">
+    <div class="mb-px mt-4">
         <label class="font-bold text-[13px] text-gray-400">
             Matric Number
         </label>
@@ -20,10 +20,10 @@
             <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-person-vcard text-2xl"></i>
             </span>
-            <div class="text-gray-400 font-semibold">{{ store.user.matricNumber }}</div>
+            <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.matricNumber }}</div>
         </div>
     </div>
-    <div class="mb-px">
+    <div class="mb-px mt-4">
         <label class="font-bold text-[13px] text-gray-400">
             Program
         </label>
@@ -31,12 +31,12 @@
             <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-award text-2xl"></i>
             </span>
-            <div class="text-gray-400 font-semibold">{{ store.user.program }}</div>
+            <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.program }}</div>
         </div>
     </div>
     <!-- Third Parameter -->
     <div class="flex gap-[20px]">
-        <div class="mb-px w-1/2">
+        <div class="mb-px mt-4 w-1/2">
             <label class="font-bold text-[13px] text-gray-400">
                 Level
             </label>
@@ -44,11 +44,11 @@
                 <span class="text-gray-400 border border-gray-100 px-2">
                     <i class="bi bi-bar-chart-steps text-2xl"></i>
                 </span>
-                <div class="text-gray-400 font-semibold">{{ store.user.level }}</div>
+                <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.level }}</div>
             </div>
         </div>
 
-        <div class="mb-px w-1/2">
+        <div class="mb-px mt-4 w-1/2">
             <label class="font-bold text-[13px] text-gray-400">
                 Set
             </label>
@@ -56,7 +56,7 @@
                 <span class="text-gray-400 border border-gray-100 px-2">
                     <i class="bi bi-people text-2xl"></i>
                 </span>
-                <div class="text-gray-400 font-semibold">{{ store.user.classSet }}</div>
+                <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.classSet }}</div>
             </div>
         </div>
     </div>

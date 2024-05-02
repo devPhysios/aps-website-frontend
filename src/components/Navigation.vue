@@ -56,7 +56,7 @@
       >
         <button
           v-if="!currentUser"
-          class="p-3 bg-aps-green hover:bg-aps-orange text-white rounded-md font-bold text-[1rem]"
+          class="bg-aps-green hover:bg-aps-orange text-white rounded-md font-bold py-2 px-4 sm:py-3 sm:px-6 sm:text-lg md:text-xl"
         >
           Log in
         </button>

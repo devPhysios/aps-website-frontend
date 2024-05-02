@@ -37,7 +37,7 @@
               </span>
               <input
                 type="email"
-                class="font-semibold border-0 w-full focus:outline-0 text-[14px] py-2 px-4 md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-[12px] py-2 px-4 md:text-[16px]"
                 :class="editMode ? 'text-gray-500 border-black border-2 border-solid rounded-lg' : 'text-gray-400'"
                 placeholder="No email address"
                 :readonly="!editMode"
@@ -53,7 +53,7 @@
                 <i class="bi bi-person text-2xl"></i>
               </span>
               <select
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 v-model="gender"
                 :disabled="!editMode"
                 :class="
@@ -78,7 +78,7 @@
                 <i class="bi bi-calendar3 text-2xl"></i>
               </span>
               <select
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 v-model="month"
                 :disabled="!editMode"
                 :class="
@@ -108,7 +108,7 @@
                 <i class="bi bi-calendar3 text-2xl"></i>
               </span>
               <select
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 v-model="day"
                 :disabled="!editMode || !month"
                 :class="
@@ -139,7 +139,7 @@
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 placeholder="Enter Hall of Residence"
                 v-model="hallOfResidence"
                 :readonly="!editMode"
@@ -160,7 +160,7 @@
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 placeholder="Enter Room No."
                 v-model="roomNo"
                 :readonly="!editMode"
@@ -181,7 +181,7 @@
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[14px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 placeholder="Enter Hobbies"
                 v-model="hobbies"
                 :readonly="!editMode"
@@ -194,14 +194,14 @@
             </div>
           </div>
           <button
-            class="bg-blue-500 w-full mt-6 py-2 text-white text-lg font-medium transition"
+            class="bg-blue-500 w-full mt-6 py-2 text-white text-[12-px] font-medium transition md:text-lg"
             @click.prevent="handleSubmit"
             v-if="editMode"
           >
             Save Update
           </button>
           <button
-            class="bg-gray-400 text-white w-full mt-6 py-2 text-lg font-medium transition"
+            class="bg-gray-400 text-white w-full mt-6 py-2 text-[12px] font-medium transition text-lg"
             @click="cancelEdit"
             v-if="editMode"
           >

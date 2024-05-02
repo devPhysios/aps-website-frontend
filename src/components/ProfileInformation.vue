@@ -8,7 +8,7 @@
             <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-person text-2xl"></i>
             </span>
-            <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ fullName }}</div>
+            <div class="text-gray-400 font-semibold text-[12px] md:text-[16px]">{{ fullName }}</div>
         </div>
     </div>
     <!-- Second Parameter -->
@@ -20,7 +20,7 @@
             <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-person-vcard text-2xl"></i>
             </span>
-            <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.matricNumber }}</div>
+            <div class="text-gray-400 font-semibold text-[12px] md:text-[16px]">{{ store.user.matricNumber }}</div>
         </div>
     </div>
     <div class="mb-px mt-4">
@@ -31,7 +31,7 @@
             <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-award text-2xl"></i>
             </span>
-            <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.program }}</div>
+            <div class="text-gray-400 font-semibold text-[12px] md:text-[16px]">{{ store.user.program }}</div>
         </div>
     </div>
     <!-- Third Parameter -->
@@ -44,7 +44,7 @@
                 <span class="text-gray-400 border border-gray-100 px-2">
                     <i class="bi bi-bar-chart-steps text-2xl"></i>
                 </span>
-                <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.level }}</div>
+                <div class="text-gray-400 font-semibold text-[12px] md:text-[16px]">{{ store.user.level }}</div>
             </div>
         </div>
 
@@ -56,7 +56,7 @@
                 <span class="text-gray-400 border border-gray-100 px-2">
                     <i class="bi bi-people text-2xl"></i>
                 </span>
-                <div class="text-gray-400 font-semibold text-[14px] md:text-[16px]">{{ store.user.classSet }}</div>
+                <div class="text-gray-400 font-semibold text-[12px] md:text-[16px]">{{ store.user.classSet }}</div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex w-full h-full bg-gray-50 font-display pt-20"
+    class="flex w-full h-[100vh] bg-gray-50 font-display pt-20"
     v-if="store.user"
   > 
   <div class="h-full">

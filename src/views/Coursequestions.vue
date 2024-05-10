@@ -928,7 +928,6 @@ const router = useRouter();
 const courses = ref([]);
 const course = computed(() => courseData.value);
 const loading = ref(true);
-const currentTab = ref("MCQ");
 const questions = ref([]);
 const level = ref(route.params.level);
 const courseCode = ref(route.params.course);
@@ -958,6 +957,7 @@ const showDeleteModal = ref(false);
 const deletedQuestion = ref(null);
 const progress = ref(0);
 const progressToastId = ref(null);
+const currentTab = ref("MCQ");
 
 function handleInput(tab) {
   if (tab === "MCQ") {
@@ -1138,18 +1138,30 @@ function revealAnswer(index, questionType) {
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   try {
-    // Fetch questions from the API backend
     const { data } = await axios.get(
       `https://aps-website-backend.onrender.com/api/v1/questions/${route.params.course}`
     );
     loading.value = false;
     if (data.success) {
       questions.value = data.data;
+      const questionTypes = new Set(
+        questions.value.map((question) => {
+          return question.type === "Fill in the Gap" ? "Cloze" : question.type;
+        })
+      );
+      if (questionTypes.size === 0) {
+        currentTab.value = "MCQ";
+      } else if (questionTypes.size === 1) {
+        currentTab.value = questionTypes.values().next().value;
+      } else {
+        currentTab.value = questionTypes.has("MCQ")
+          ? "MCQ"
+          : questionTypes.values().next().value;
+      }
     } else {
       console.error("Failed to fetch questions:", data.error);
     }
   } catch (error) {
-    // console.error('Error fetching questions:', error);
     router.push({ path: "/500", query: { returnUrl: window.location.href } });
   }
 });

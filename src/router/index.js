@@ -25,6 +25,7 @@ import LevelYellowBook from "@/views/Levelyellowbook.vue";
 import CourseYellowBook from "@/views/Courseyellowbook.vue";
 import PhysioPress from "@/views/Physiopress.vue";
 import PhysioRay from "@/views/Physioray.vue";
+// import TestingGround from "@/views/Testingground.vue";
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
       next();
     }
   },
+  // {
+  //   path: "/testingground",
+  //   name: "TestingGround",
+  //   component: TestingGround
+  // },
   {
     path: "/about",
     name: "AboutPage",

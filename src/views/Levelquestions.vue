@@ -63,10 +63,10 @@ const props = defineProps({
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });
-  fetchUploadedCourseCodes(); // Fetch uploaded course codes
+  fetchUploadedCourseCodes();
 });
 
-// Check if the level parameter is valid
+
 const allowedLevels = ["100", "200", "300", "400", "500"];
 if (!allowedLevels.includes(level)) {
   router.replace("/not-found");
@@ -81,7 +81,7 @@ if (!allowedLevels.includes(level)) {
     });
 }
 
-// Fetch uploaded course codes from backend
+
 const fetchUploadedCourseCodes = async () => {
   try {
     const response = await axios.get(

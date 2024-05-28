@@ -49,13 +49,13 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import axios from "axios"; // Import axios for HTTP requests
+import axios from "axios";
 
 const route = useRoute();
 const router = useRouter();
 const level = route.params.level;
 const courses = ref([]);
-const uploadedCourseCodes = ref([]); // Store uploaded course codes
+const uploadedCourseCodes = ref([]);
 
 const props = defineProps({
   level: String,

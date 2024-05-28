@@ -120,8 +120,8 @@
 </template>
 <script setup>
 import { onMounted } from "vue";
-import apsBuilding1 from "@/assets/images/dept/dept02.png";
-import apsBuilding2 from "@/assets/images/dept/dept01.png";
+import apsBuilding1 from "@/assets/images/dept/dept02.webp";
+import apsBuilding2 from "@/assets/images/dept/dept01.webp";
 import apsLogo from "@/assets/images/aps-logo.png";
 import Lecturerscarousel from "@/components/LecturerCarousel.vue";
 

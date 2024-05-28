@@ -3,6 +3,8 @@ import * as url from "node:url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+const hash = Math.floor(Math.random() * 90000) + 10000;
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],

@@ -36,35 +36,52 @@
         :key="index"
         class="flex justify-center"
       >
-        <div class="max-w-md md:max-w-lg lg:max-w-xl">
-          <div class="relative">
-            <img
-              :src="image.imageUrl"
-              :alt="image.title"
-              class="w-full h-auto object-cover rounded-lg"
-            />
+        <div class="max-w-md md:max-w-lg lg:max-w-xl relative">
+          <div v-if="loadingImages[index]" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50">
+            <svg class="animate-spin h-8 w-8 text-green-500" viewBox="0 0 24 24">
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A8.004 8.004 0 014 12H0c0 6.627 5.373 12 12 12v-4c-3.86 0-7.255-1.54-9.798-4.045l1.414-1.414z"
+              ></path>
+            </svg>
+          </div>
+          <img
+            :src="image.imageUrl"
+            :alt="image.title"
+            class="w-full h-auto object-cover rounded-lg"
+            @load="loadingImages[index] = false"
+            @error="loadingImages[index] = false"
+          />
+          <div
+            class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
+          >
             <div
-              class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
+              class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display"
             >
-              <div
-                class="bg-aps-orange text-zinc-950 font-extrabold h-full w-full font-display"
-              >
-                <div class="h-full flex flex-col justify-center items-center">
-                  <h3 class="md:text-lg text-[14px] font-semibold text-center">
-                    {{ image.title }}
-                  </h3>
-                  <p class="text-[12px] h-full md:text-sm text-center mb-1">
-                    {{ image.description }}
-                  </p>
-                  <p class="text-[12px] md:text-sm text-center mb-1">
-                    <span
-                      v-for="(feature, index) in image.features"
-                      :key="index"
-                    >
-                      {{ feature }},
-                    </span>
-                  </p>
-                </div>
+              <div class="h-full flex flex-col justify-center items-center">
+                <h3 class="md:text-lg text-[14px] font-semibold text-center">
+                  {{ image.title }}
+                </h3>
+                <p class="text-[12px] h-full md:text-sm text-center mb-1">
+                  {{ image.description }}
+                </p>
+                <p class="text-[12px] md:text-sm text-center mb-1">
+                  <span
+                    v-for="(feature, index) in image.features"
+                    :key="index"
+                  >
+                    {{ feature }},
+                  </span>
+                </p>
               </div>
             </div>
           </div>
@@ -159,6 +176,7 @@ const loading = ref(true);
 const searchQuery = ref("");
 const jumpToPage = ref(1);
 const shuffle = ref(true);
+const loadingImages = ref([]);
 
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -166,7 +184,13 @@ onMounted(async () => {
     const response = await axios.get(
       "https://aps-website-backend.onrender.com/api/v1/gallery"
     );
-    webimages.value = response.data.images;
+    webimages.value = response.data.images.map((image, index) => {
+      loadingImages.value[index] = true; // Set loading state to true for each image
+      return {
+        ...image,
+        imageUrl: transformToWebp(image.imageUrl)
+      };
+    });
     loading.value = false;
   } catch (error) {
     console.error("Error fetching images:", error);
@@ -174,6 +198,10 @@ onMounted(async () => {
     router.push("/500");
   }
 });
+
+const transformToWebp = (url) => {
+  return url.replace("/upload/", "/upload/f_webp/");
+};
 
 const goToPage = () => {
   const pageNumber = Math.max(1, Math.min(jumpToPage.value, totalPages.value));
@@ -207,6 +235,7 @@ function shuffleArray(array) {
   }
   return shuffledArray;
 }
+
 const filteredImages = computed(() =>
   filterImages(searchQuery.value, webimages.value)
 );
@@ -261,6 +290,8 @@ const shouldStackImages = computed(() => {
   return window.innerWidth < 768;
 });
 </script>
+
+
 
 <style scoped>
 .masonry-item {

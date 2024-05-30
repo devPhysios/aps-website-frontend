@@ -139,137 +139,141 @@
 </template>
 
 <script setup>
- import { ref, watch, computed, onMounted} from 'vue';
- import l100 from '@/courses/100L.json';
- import l200 from '@//courses/200L.json';
- import l300 from '@//courses/300L.json';
- import l400 from '@//courses/400L.json';
- import l500 from '@//courses/500L.json';
+import { ref, watch, computed, onMounted } from "vue";
+import l100 from "@/courses/100L.json";
+import l200 from "@//courses/200L.json";
+import l300 from "@//courses/300L.json";
+import l400 from "@//courses/400L.json";
+import l500 from "@//courses/500L.json";
 
- const courses = {
-     '100l': l100,
-     '200l': l200,
-     '300l': l300,
-     '400l': l400,
-     '500l': l500
-     };
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
- const selectedLevel = ref('');
- const filteredCourses = ref([]);
- const scores = ref();
- const selectedCourses = ref([]);
- const editMode = ref(false);
- const courseBeingEdited = ref(null);
- const selectedCourseCode = ref('');
+const courses = {
+  "100l": l100,
+  "200l": l200,
+  "300l": l300,
+  "400l": l400,
+  "500l": l500,
+};
+
+const selectedLevel = ref("");
+const filteredCourses = ref([]);
+const scores = ref();
+const selectedCourses = ref([]);
+const editMode = ref(false);
+const courseBeingEdited = ref(null);
+const selectedCourseCode = ref("");
 
 const filterCourses = () => {
-         filteredCourses.value = courses[selectedLevel.value].map(course => ({
-         code: course.coursecode,
-         title: course.coursetitle,
-         units: course.unit
-     }));
+  filteredCourses.value = courses[selectedLevel.value].map((course) => ({
+    code: course.coursecode,
+    title: course.coursetitle,
+    units: course.unit,
+  }));
+};
 
- };
+const selectedCourse = computed(() => {
+  return (
+    filteredCourses.value.find(
+      (course) => course.code === selectedCourseCode.value
+    ) || {}
+  );
+});
 
- const selectedCourse = computed(() => {
-     return filteredCourses.value.find(course => course.code === selectedCourseCode.value) || {};
- });
+const getGrade = (score) => {
+  if (score > 69) return "A";
+  if (score > 59) return "B";
+  if (score > 49) return "C";
+  if (score > 44) return "D";
+  return "F";
+};
 
- const getGrade = (score) => {
-     if (score > 69) return 'A';
-     if (score > 59) return 'B';
-     if (score > 49) return 'C';
-     if (score > 44) return 'D';
-     return 'F';
- };
+const getGradeUnit = (score) => {
+  if (score > 69) return 4;
+  if (score > 59) return 3;
+  if (score > 49) return 2;
+  if (score > 44) return 1;
+  return 0;
+};
 
- const getGradeUnit = (score) => {
-     if (score > 69) return 4;
-     if (score > 59) return 3;
-     if (score > 49) return 2;
-     if (score > 44) return 1;
-     return 0;
- };
+const addCourse = () => {
+  if (selectedCourse.value.code && scores.value) {
+    const newItem = {
+      id: selectedCourses.value.length + 1,
+      level: selectedLevel.value,
+      coursecode: selectedCourse.value.code,
+      units: selectedCourse.value.units,
+      scores: scores.value,
+      grade: getGrade(scores.value),
+      gradeUnit: getGradeUnit(scores.value),
+    };
+    selectedCourses.value.push(newItem);
 
- const addCourse = () => {
-     if (selectedCourse.value.code && scores.value) {
-         const newItem = {
-             id: selectedCourses.value.length + 1,
-             level: selectedLevel.value,
-             coursecode: selectedCourse.value.code,
-             units: selectedCourse.value.units,
-             scores : scores.value,
-             grade: getGrade(scores.value),
-             gradeUnit: getGradeUnit(scores.value)
-         }
-         selectedCourses.value.push(newItem);
+    selectedCourseCode.value = "";
+    scores.value = "";
+  }
+};
 
-         selectedCourseCode.value = '';
-         scores.value = '';
-     };
- };
+const startEdit = (course) => {
+  selectedLevel.value = course.level;
+  selectedCourseCode.value = course.coursecode;
+  scores.value = course.scores;
+  courseBeingEdited.value = course;
+  editMode.value = true;
+  removeItem(course.id);
+};
 
- const startEdit = (course) => {
-     selectedLevel.value = course.level;
-     selectedCourseCode.value = course.coursecode;
-     scores.value = course.scores;
-     courseBeingEdited.value = course;
-     editMode.value = true;
-     removeItem(course.id)
- };
+const saveEdit = () => {
+  if (courseBeingEdited.value) {
+    courseBeingEdited.value.level = selectedLevel.value;
+    courseBeingEdited.value.coursecode = selectedCourseCode.value;
+    courseBeingEdited.value.units = selectedCourse.value.units;
+    courseBeingEdited.value.scores = scores.value;
+    courseBeingEdited.value.grade = getGrade(scores.value);
+    addCourse();
 
- const saveEdit = () => {
-     if (courseBeingEdited.value) {
-         courseBeingEdited.value.level = selectedLevel.value;
-         courseBeingEdited.value.coursecode = selectedCourseCode.value;
-         courseBeingEdited.value.units = selectedCourse.value.units;
-         courseBeingEdited.value.scores = scores.value;
-         courseBeingEdited.value.grade = getGrade(scores.value);
-         addCourse()
+    selectedCourseCode.value = "";
+    scores.value = "";
+    courseBeingEdited.value = null;
+    editMode.value = false;
+  }
+};
 
-         selectedCourseCode.value = '';
-         scores.value = '';
-         courseBeingEdited.value = null;
-         editMode.value = false;
+function removeItem(id) {
+  const index = selectedCourses.value.findIndex((item) => item.id === id);
 
-     }
+  if (index !== -1) {
+    selectedCourses.value.splice(index, 1);
+  }
+  for (let i = index; i < selectedCourses.value.length; i++) {
+    selectedCourses.value[id].id = i + 1;
+  }
+}
 
- };
+watch(selectedLevel, filterCourses);
 
- function removeItem(id) {
-     const index = selectedCourses.value.findIndex(item => item.id === id);
+const cgpa = ref(null);
 
-     if (index !== -1) {
-         selectedCourses.value.splice(index, 1);
-     };
-     for (let i = index; i < selectedCourses.value.length; i++) {
-         selectedCourses.value[id].id = i + 1;
-     }
- }
+const calculateCGPA = () => {
+  let totalCreditUnitAttainable = 0;
+  let totalCreditUnitObtained = 0;
 
- watch(selectedLevel, filterCourses);
+  for (let course of selectedCourses.value) {
+    totalCreditUnitAttainable += course.units * 4;
+    totalCreditUnitObtained += course.gradeUnit * course.units;
+  }
 
- const cgpa = ref(null);
+  cgpa.value = (
+    (totalCreditUnitObtained / totalCreditUnitAttainable) *
+    4
+  ).toFixed(2);
+};
 
- const calculateCGPA = () => {
- let totalCreditUnitAttainable = 0;
- let totalCreditUnitObtained = 0;
-
- for(let course of selectedCourses.value) {
-     totalCreditUnitAttainable += course.units*4
-     totalCreditUnitObtained += course.gradeUnit*course.units
- }
-
- cgpa.value = (((totalCreditUnitObtained / totalCreditUnitAttainable)*4).toFixed(2));
- };
-
- const clear = () => {
-     selectedCourses.value.length = 0;
-     calculateCGPA()
-     cgpa.value = '0.00';
- }
-
- onMounted(() => {
-     window.scrollTo({ top: 0, behavior: 'smooth' });
- })
+const clear = () => {
+  selectedCourses.value.length = 0;
+  calculateCGPA();
+  cgpa.value = "0.00";
+};
 </script>

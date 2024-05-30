@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Gallery from "../views/Gallery.vue";
+import CGPACalculator from "@/views/CgpaCalculator.vue";
 import Alumni from "../views/Alumni.vue";
 import Upload from "../views/Upload.vue";
 import Dashboard from "../views/Dashboard.vue";
@@ -160,6 +161,19 @@ const routes = [
     path: "/constitution",
     name: "ConstitutionPage",
     component: Constitution,
+    meta: {
+      requiresAuth: true,
+    },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    }
+  },
+    {
+    path: "/dashboard/cgpacalculator",
+    name: "CGPA Calculator",
+    component: CGPACalculator,
     meta: {
       requiresAuth: true,
     },

@@ -25,7 +25,7 @@ import LevelYellowBook from "@/views/Levelyellowbook.vue";
 import CourseYellowBook from "@/views/Courseyellowbook.vue";
 import PhysioPress from "@/views/Physiopress.vue";
 import PhysioRay from "@/views/Physioray.vue";
-// import TestingGround from "@/views/Testingground.vue";
+import TestingGround from "@/views/Testingground.vue";
 
 const routes = [
   {
@@ -36,13 +36,13 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
-  // {
-  //   path: "/testingground",
-  //   name: "TestingGround",
-  //   component: TestingGround
-  // },
+  {
+    path: "/testingground",
+    name: "TestingGround",
+    component: TestingGround,
+  },
   {
     path: "/about",
     name: "AboutPage",
@@ -51,7 +51,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/gallery",
@@ -61,7 +61,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/alumni",
@@ -71,7 +71,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/questions/:level",
@@ -85,7 +85,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/questions/:level/:course",
@@ -99,7 +99,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/yellowbook/:level",
@@ -113,7 +113,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/yellowbook/:level/:course",
@@ -127,7 +127,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/yellowbook",
@@ -141,7 +141,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/upload",
@@ -154,7 +154,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/constitution",
@@ -167,7 +167,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/questions",
@@ -180,7 +180,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard",
@@ -193,7 +193,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
   {
     path: "/auth/updatesecurity",
@@ -203,7 +203,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
   {
     path: "/auth/login",
@@ -213,7 +213,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/uploadquestion",
@@ -226,7 +226,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/physiopress",
@@ -253,7 +253,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
   {
     path: "/payment",
@@ -263,7 +263,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
   {
     path: "/500",
@@ -273,7 +273,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
   {
     path: "/:pathMatch(.*)*",
@@ -283,7 +283,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       next();
-    }
+    },
   },
 ];
 

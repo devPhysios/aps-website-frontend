@@ -9,7 +9,6 @@
         </li>
         <li v-for="(crumb, index) in breadcrumbs" :key="index">
           <span class="text-gray-400 hidden sm:inline">/</span>
-          <!-- Hide on small devices -->
           <a
             :href="crumb.link"
             class="text-gray-600 hover:text-gray-800 underline"
@@ -25,7 +24,15 @@
     <div
       v-for="course in courses"
       :key="course.coursecode"
-      class="p-6 bg-amber-600 rounded-lg shadow-md hover:shadow-xl transform transition duration-300 ease-in-out hover:scale-105 cursor-pointer hover:bg-green-500"
+      :class="{
+        'p-6 rounded-lg shadow-md hover:shadow-xl transform transition duration-300 ease-in-out cursor-pointer': true,
+        'bg-amber-600 hover:bg-gray-500': !uploadedCourseCodes.includes(
+          course.coursecode
+        ),
+        'bg-aps-green hover:bg-blue-700': uploadedCourseCodes.includes(
+          course.coursecode
+        ),
+      }"
     >
       <router-link :to="`/dashboard/questions/${level}/${course.coursecode}`">
         <div class="text-center">
@@ -42,11 +49,13 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import axios from "axios";
 
 const route = useRoute();
 const router = useRouter();
 const level = route.params.level;
 const courses = ref([]);
+const uploadedCourseCodes = ref([]);
 
 const props = defineProps({
   level: String,
@@ -54,9 +63,10 @@ const props = defineProps({
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+  fetchUploadedCourseCodes();
 });
 
-// Check if the level parameter is valid
+
 const allowedLevels = ["100", "200", "300", "400", "500"];
 if (!allowedLevels.includes(level)) {
   router.replace("/not-found");
@@ -70,6 +80,18 @@ if (!allowedLevels.includes(level)) {
       console.error("Error fetching courses:", error);
     });
 }
+
+
+const fetchUploadedCourseCodes = async () => {
+  try {
+    const response = await axios.get(
+      `https://aps-website-backend.onrender.com/api/v1/questions/uploaded/${level}L`
+    );
+    uploadedCourseCodes.value = response.data.courseCodes;
+  } catch (error) {
+    console.error("Error fetching uploaded course codes:", error);
+  }
+};
 
 const breadcrumbs = ref([
   { title: "Dashboard", link: "/dashboard" },

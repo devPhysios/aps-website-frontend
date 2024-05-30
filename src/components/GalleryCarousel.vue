@@ -39,8 +39,30 @@
         <div
           class="w-full h-[300px] rounded-lg text-gray-950 text-xl relative mx-3"
         >
-          <div class="h-full w-full">
-            <img class="h-full w-full object-cover" :src="data.imgBg" />
+          <div class="h-full w-full relative">
+            <div v-if="loadingImages[index]" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50">
+              <svg class="animate-spin h-8 w-8 text-green-500" viewBox="0 0 24 24">
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A8.004 8.004 0 014 12H0c0 6.627 5.373 12 12 12v-4c-3.86 0-7.255-1.54-9.798-4.045l1.414-1.414z"
+                ></path>
+              </svg>
+            </div>
+            <img
+              class="h-full w-full object-cover"
+              :src="data.imgBg"
+              @load="loadingImages[index] = false"
+              @error="loadingImages[index] = false"
+            />
           </div>
           <div
             class="transition-all duration-75 w-full h-full absolute z-20 top-0 left-0 opacity-0 hover:opacity-50"
@@ -69,57 +91,60 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-import axios from "axios"; // Import axios for HTTP requests
+import axios from "axios";
 import "vue3-carousel/dist/carousel.css";
 import router from "@/router";
 
 const selectedImages = ref([]);
 
-const loading = ref(true); // Initialize loading state
+const loading = ref(true);
+const loadingImages = ref([]);
 
 onMounted(async () => {
   try {
-    // Check if selectedImages is already populated
     if (selectedImages.value.length === 0) {
       const response = await axios.get(
         "https://aps-website-backend.onrender.com/api/v1/gallery"
       );
       const images = response.data.images;
-      // Select 7 random images from the fetched data
       selectedImages.value = selectRandomImages(images, 10);
     }
-    loading.value = false; // Set loading to false once data is fetched
+    
+    selectedImages.value.forEach((_, index) => {
+      loadingImages.value[index] = true;
+    });
+    loading.value = false;
   } catch (error) {
     console.error("Error fetching images:", error);
-    loading.value = false; // Set loading to false in case of error
+    loading.value = false;
   }
 });
 
-// Define a function to select random images from an array
 function selectRandomImages(images, count) {
   const shuffledImages = images.sort(() => Math.random() - 0.5);
   return shuffledImages.slice(0, count);
 }
 
-// Define carouselData as a computed property to ensure it's updated when selectedImages changes
 const carouselData = computed(() => {
-  // Check if selectedImages has been loaded
   if (!loading.value && selectedImages.value.length > 0) {
     return selectedImages.value.map((image) => ({
       name: "APS Gallery",
       title: image.title,
-      imgBg: image.imageUrl,
+      imgBg: transformToWebp(image.imageUrl),
     }));
   } else {
-    return []; // Return empty array if selectedImages is not loaded
+    return [];
   }
 });
+
+const transformToWebp = (url) => {
+  return url.replace("/upload/", "/upload/f_webp/");
+};
 
 function directToGallery() {
   router.push("/gallery");
 }
 
-// Define settings and breakpoints
 const settings = ref({
   itemsToShow: 1.5,
   itemsToScroll: 1,

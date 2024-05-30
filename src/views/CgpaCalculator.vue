@@ -217,9 +217,7 @@ const addCourse = () => {
 };
 
 const startEdit = (course) => {
-  onMounted(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
   selectedLevel.value = course.level;
   selectedCourseCode.value = course.coursecode;
   scores.value = course.scores;

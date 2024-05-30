@@ -1,6 +1,11 @@
 <template>
   <div class="container mx-auto p-36">
     <h1 class="text-2xl font-bold mb-4">CGPA Calculator</h1>
+    <div class="bg-orange-500 pt-2 text-center sticky top-20">
+      <h2 class="text-xl font-semibold mb-2">
+        Current CGPA: {{ cgpa.toFixed(2) }}
+      </h2>
+    </div>
     <div v-for="(courses, level) in coursesByLevel" :key="level" class="mb-8">
       <h2 class="text-xl font-semibold mb-2">Level {{ level }}</h2>
       <table class="min-w-full bg-white border">
@@ -54,11 +59,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="mt-8">
-      <h2 class="text-xl font-semibold mb-2">
-        Current CGPA: {{ cgpa.toFixed(2) }}
-      </h2>
     </div>
   </div>
 </template>

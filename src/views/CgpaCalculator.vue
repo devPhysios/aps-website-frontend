@@ -10,8 +10,8 @@
                 >
                 </li>
                 <li>
-                <RouterLink to="/dashboard">
-                            <h3 class="text-gray-600 hover:text-gray-800 underline">Dashboard</h3>
+                    <RouterLink to="/dashboard">
+                                <h3 class="text-gray-600 hover:text-gray-800 underline">Dashboard</h3>
                     </RouterLink>
                 </li>
             </ol>

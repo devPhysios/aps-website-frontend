@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto flex flex-col items-center justify-center mt-2 pb-48"
+    class="container mx-auto flex flex-col items-center justify-center pb-48"
   >
     <div class="bg-white p-8 rounded-lg shadow-md sm:w-[700px]">
       <div class="h-[150px] md:pb-0 pb-4">
@@ -127,7 +127,7 @@ const handleLogin = async () => {
         localStorage.setItem("studentToken", response.token);
         setTimeout(() => {
           router.push("/dashboard");
-        }, 3000);
+        }, 2000);
       }
     }
   } catch (error) {

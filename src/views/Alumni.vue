@@ -1,6 +1,6 @@
 <template>
   <marquee
-    class="pt-20 w-full font-display pb-2 px-4 bg-yellow-100 z-[20] rounded-md text-center fixed flex justify-between items-center gap-4"
+    class="w-full font-display pb-2 px-4 bg-yellow-100 z-[20] rounded-md text-center fixed flex justify-between items-center gap-4"
   >
     <div>
       <p class="font-bold text-center text-[10px] md:text-md">

@@ -12,7 +12,6 @@ const firebaseConfig = {
     measurementId: "G-J71QQ6FYZS",
 }
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig)
 const storage = getStorage(app)
 const db = getFirestore(app)
@@ -20,5 +19,6 @@ const db = getFirestore(app)
 
 const imagesCollectionRef = collection(db, 'images')
 const questionsCollectionRef = collection(db, 'questions')
-// we need export this setuped variables for use in another file
-export { storage, imagesCollectionRef, questionsCollectionRef, db }
+const birthdayCollectionRef = collection(db, 'birthday')
+
+export { storage, imagesCollectionRef, questionsCollectionRef, birthdayCollectionRef, db }

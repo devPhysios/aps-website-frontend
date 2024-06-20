@@ -1,6 +1,6 @@
 <template>
     <!-- First Parameter -->
-    <div class="mb-px mt-4">
+    <div class="mb-px">
         <label class="font-bold text-[13px] text-gray-400">
             Full Name
         </label>

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full fixed z-[50]"
+    class="bg-aps-orange text-gray-900 py-3.5 px-6 shadow md:flex items-center justify-between w-full z-[50]"
   >
     <div class="flex items-center md:pb-0">
       <span class="mr-1 cursor pointer w-12 h-full">

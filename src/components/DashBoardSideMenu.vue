@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="custom-transition h-full w-[110px] bg-white pt-[10px] md:static md:w-60 md:pt-8"
+    class="custom-transition h-full w-[110px] bg-white md:static md:w-60"
   >
     <div class="side-container">
       <div class="img relative">

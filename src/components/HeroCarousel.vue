@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-[70px]">
+  <div>
     <Carousel
       :wrap-around="true"
       :autoplay="10000"

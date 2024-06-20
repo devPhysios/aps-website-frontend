@@ -1,5 +1,5 @@
 <template>
-  <section class="text-white bg-green-100 font-display pt-14">
+  <section class="text-white bg-green-100 font-display">
     <div class="flex flex-col text-center w-full p-8">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-black">
         Memories We Created

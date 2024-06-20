@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .custom-transition {
     transition: all .5s ease-in-out;
 }

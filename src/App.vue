@@ -12,14 +12,14 @@ import NavigationMenu from "./components/Navigation.vue"
 import { useUserStore } from "./stores/UserStore";
 import axios from 'axios';
 
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 const store = useUserStore()
 const displayFooter = computed(() => store.displayFooter)
 const displayHeader = computed(() => store.displayHeader)
 // Token validation function
 const validateToken = async () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("studentToken");
   if (!token) {
     store.logout();
     return;

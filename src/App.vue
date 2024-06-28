@@ -35,8 +35,9 @@ const validateToken = async () => {
       }
     );
 
-    if (!response.data.success) {
+    if (response.status === 401) {
       store.logout();
+      console.log('Unauthorized')
     }
   } catch (error) {
     console.error("Token validation error:", error);

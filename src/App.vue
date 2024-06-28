@@ -10,12 +10,44 @@
 import FooterMenu from "./components/Footer.vue";
 import NavigationMenu from "./components/Navigation.vue"
 import { useUserStore } from "./stores/UserStore";
+import axios from 'axios';
 
 import { computed } from "vue";
 
 const store = useUserStore()
 const displayFooter = computed(() => store.displayFooter)
 const displayHeader = computed(() => store.displayHeader)
+// Token validation function
+const validateToken = async () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    store.logout();
+    return;
+  }
+  try {
+    const response = await axios.post(
+      "https://aps-website-backend.onrender.com/api/v1/auth/checkToken",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.data.success) {
+      store.logout();
+    }
+  } catch (error) {
+    console.error("Token validation error:", error);
+    store.logout();
+  }
+};
+
+// Validate token when the component is mounted
+onMounted(() => {
+  validateToken();
+});
 </script>
 
 

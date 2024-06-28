@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.env
 .DS_Store
 dist
 dist-ssr
@@ -28,5 +29,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-src/views/a.vue
 # src/views/Testingground.vue

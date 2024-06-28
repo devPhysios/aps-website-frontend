@@ -13,7 +13,7 @@ const compressImage = async (imageFile) => {
     fileType: "image/webp",
   };
   try {
-    toast.info("Compressing image...", 800);
+    toast.info("Compressing image...", { timeout: 500 });
     const intervalId = setInterval(() => {
       if (compressionProgress.value < 90) {
         compressionProgress.value += 10;

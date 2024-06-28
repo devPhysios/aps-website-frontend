@@ -43,11 +43,8 @@ const uploadToFirebase = async (user, imageFile, storagePath, updating) => {
     const existingDoc = await getExistingDocument(user.matricNumber);
 
     if (existingDoc && !updating) {
-      toast.error(
-        "You have already uploaded the birthday event for this user",
-        { timeout: 3000 }
-      );
       updateConfirmation.value = true;
+      return "updateConfirmation";
     }
 
     if (existingDoc && updating) {
@@ -63,49 +60,44 @@ const uploadToFirebase = async (user, imageFile, storagePath, updating) => {
 
     uploadProgress.value = 0;
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        uploadProgress.value = Math.floor(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-      },
-      (error) => {
-        toast.error(error.message, { timeout: 3000 });
-      },
-      async () => {
-        try {
-          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-          console.log("File available at", downloadURL);
-          const data = {
-            matricNumber: user.matricNumber,
-            fullName: user.fullName,
-            classSet: user.classSet,
-            level: user.level,
-            url: downloadURL,
-            birthMonth: user.birthdayMonth,
-            birthDay: user.birthdayDay,
-          };
-          createProfile(data);
-          uploadProgress.value = null;
-          toast.success("Image uploaded successfully", { timeout: 3000 });
-          imageUrl.value = downloadURL;
-        } catch (error) {
+    return new Promise((resolve, reject) => {
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          uploadProgress.value = Math.floor(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+        },
+        (error) => {
           toast.error(error.message, { timeout: 3000 });
-          return null;
+          reject(error);
+        },
+        async () => {
+          try {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            const data = {
+              matricNumber: user.matricNumber,
+              fullName: user.fullName,
+              classSet: user.classSet,
+              level: user.level,
+              url: downloadURL,
+              birthMonth: user.birthdayMonth,
+              birthDay: user.birthdayDay,
+            };
+            await createProfile(data);
+            uploadProgress.value = null;
+            imageUrl.value = downloadURL;
+            resolve(downloadURL);
+          } catch (error) {
+            toast.error(error.message, { timeout: 3000 });
+            reject(error);
+          }
         }
-      }
-    );
+      );
+    });
   } catch (error) {
     toast.error(error.message, { timeout: 3000 });
-    return;
-  }
-  if (updateConfirmation.value) {
-    return "Update Confirmation";
-  }
-  console.log(imageUrl.value)
-  if (imageUrl.value) {
-    return imageUrl.value;
+    return null;
   }
 };
 

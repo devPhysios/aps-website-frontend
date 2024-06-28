@@ -1,6 +1,6 @@
 <template>
   <header class="w-full h-full bg-white font-display">
-    <NavigationMenu />
+    <NavigationMenu v-if="displayHeader" />
   </header>
   <router-view />
   <FooterMenu v-if="displayFooter" />
@@ -15,6 +15,7 @@ import { computed } from "vue";
 
 const store = useUserStore()
 const displayFooter = computed(() => store.displayFooter)
+const displayHeader = computed(() => store.displayHeader)
 </script>
 
 

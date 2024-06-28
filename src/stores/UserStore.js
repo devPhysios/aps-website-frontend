@@ -4,6 +4,7 @@ import { ref } from "vue";
 export const useUserStore = defineStore("UserStore", () => {
   const user = ref(JSON.parse(localStorage.getItem("user")) || null);
   let displayFooter = ref(true);
+  let displayHeader = ref(true);
 
   const login = (data) => {
     try {
@@ -43,5 +44,9 @@ export const useUserStore = defineStore("UserStore", () => {
     displayFooter.value = value;
   };
 
-  return { user, login, logout, save, updateProfilePicture, updateFooterVisibility, displayFooter };
+  const updateHeaderVisibility = (value) => {
+    displayHeader.value = value;
+  }
+
+  return { user, login, logout, save, updateProfilePicture, updateFooterVisibility, updateHeaderVisibility, displayFooter, displayHeader };
 });

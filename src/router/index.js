@@ -29,7 +29,7 @@ import PhysioRay from "@/views/Physioray.vue";
 import TestingGround from "@/views/Testingground.vue";
 import Privacypolicy from "@/views/Privacypolicy.vue";
 import Termsofservice from "../views/Termsofservice.vue";
-
+import Birthdayevent from "@/views/Birthdayevent.vue";
 
 const routes = [
   {
@@ -56,6 +56,17 @@ const routes = [
     path: "/testingground",
     name: "TestingGround",
     component: TestingGround,
+  },
+  {
+    path: "/birthdays",
+    name: "BirthdayEvent",
+    component: Birthdayevent,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      store.updateHeaderVisibility(false)
+      next();
+    },
   },
   {
     path: "/about",
@@ -196,7 +207,7 @@ const routes = [
       next();
     },
   },
-    {
+  {
     path: "/dashboard/cgpacalculator",
     name: "CGPA Calculator",
     component: CGPACalculator,
@@ -207,7 +218,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/questions",

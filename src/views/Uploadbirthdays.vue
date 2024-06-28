@@ -1,16 +1,16 @@
 <template>
-  <div class="container mx-auto md:pt-[100px] pt-[100px] px-4 md:px-6">
+  <div class="container mx-auto pt-4 md:pt-16 px-4 md:px-6">
     <!-- Search Section -->
-    <div class="mb-4">
+    <div class="mb-4 flex flex-col md:flex-row items-start md:items-center">
       <input
         v-model="matricNumber"
         type="text"
         placeholder="Enter Matric Number"
-        class="border-black border-2 border-solid p-2 rounded w-[300px] md:w-[400px] lg:w-[500px] xl:w-[600px] 2xl:w-[700px]"
+        class="border-black border-2 border-solid p-2 rounded w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
       />
       <button
         @click="fetchStudentDetails"
-        class="bg-blue-500 text-white p-2 rounded mt-2 ml-1"
+        class="bg-blue-500 text-white p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:w-auto"
       >
         Search
       </button>
@@ -66,24 +66,28 @@
         </div>
 
         <!-- Date of Birth Input -->
-        <div class="mb-4">
-          <label class="block mb-2">Date of Birth (DD/MM):</label>
-          <input
-            v-model="birthday.day"
-            type="number"
-            placeholder="Day"
-            min="1"
-            max="31"
-            class="border p-2 rounded mr-2 w-20"
-          />
-          <input
-            v-model="birthday.month"
-            type="number"
-            placeholder="Month"
-            min="1"
-            max="12"
-            class="border p-2 rounded w-20"
-          />
+        <div class="mb-4 flex flex-col md:flex-row">
+          <label class="block mb-2 md:mb-0 md:mr-2"
+            >Date of Birth (DD/MM):</label
+          >
+          <div class="flex">
+            <input
+              v-model="birthday.day"
+              type="number"
+              placeholder="Day"
+              min="1"
+              max="31"
+              class="border p-2 rounded mr-2 w-20"
+            />
+            <input
+              v-model="birthday.month"
+              type="number"
+              placeholder="Month"
+              min="1"
+              max="12"
+              class="border p-2 rounded w-20"
+            />
+          </div>
         </div>
 
         <!-- Birthday Wishes Input -->
@@ -107,26 +111,55 @@
     <!-- Modal for Confirmation -->
     <div
       v-if="showConfirmationModal"
-      class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"
+      class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50"
     >
-      <div class="bg-white p-4 rounded shadow-lg w-1/3">
-        <h2 class="text-lg font-bold mb-4">Confirm Update</h2>
-        <p>Do you want to update the student's birthday details?</p>
+      <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+        <p>
+          You have already created this student's birthday event. Do you want to
+          update the student's birthday details?
+        </p>
         <div class="mt-4 flex justify-end">
           <button
-            @click="confirmUpdate(false)"
-            class="bg-red-500 text-white p-2 rounded mr-2"
+            @click="cancelUpdateAction"
+            class="mr-2 px-4 py-2 bg-gray-300 rounded"
           >
             Cancel
           </button>
           <button
-            @click="confirmUpdate(true)"
-            class="bg-green-500 text-white p-2 rounded"
+            @click="confirmUpdateAction"
+            class="px-4 py-2 bg-blue-500 text-white rounded"
           >
-            Confirm
+            Yes, Update
           </button>
         </div>
       </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div
+      v-if="isLoading"
+      class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50"
+    >
+      <svg
+        class="animate-spin h-10 w-10 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 4.421 2.906 8.166 6.998 9.494l1.002-4.203z"
+        ></path>
+      </svg>
     </div>
   </div>
 </template>
@@ -148,6 +181,7 @@ const imageUrl = ref(null);
 const birthday = ref({ day: "", month: "" });
 const compressedImage = ref(null);
 const updatingMode = ref(false);
+const isLoading = ref(false);
 const showConfirmationModal = ref(false);
 const quillEditorRef = ref(null);
 const placeholder = ref("Input the Happy Birthday message here...");
@@ -168,17 +202,11 @@ const quillOptions = {
   },
 };
 
-const confirmUpdate = (confirm) => {
-  showConfirmationModal.value = false;
-  if (confirm) {
-    updatingMode.value = true;
-    handleSubmit();
-  }
-};
-
 const fetchStudentDetails = async () => {
+  isLoading.value = true;
   try {
     if (!matricNumber.value) {
+      isLoading.value = false;
       toast.error("Please enter a matric number.");
       return;
     }
@@ -190,7 +218,9 @@ const fetchStudentDetails = async () => {
       }
     );
     studentDetails.value = response.data.student;
+    isLoading.value = false;
   } catch (error) {
+    isLoading.value = false;
     if (error.response) {
       switch (error.response.status) {
         case 400:
@@ -208,6 +238,7 @@ const fetchStudentDetails = async () => {
           toast.error("An error occurred while fetching student details.");
       }
     } else {
+      isLoading.value = false;
       toast.error(error.message);
     }
   }
@@ -229,6 +260,23 @@ const getBirthdayWishes = () => {
   }
 };
 
+const handleUpdateConfirmation = () => {
+  showConfirmationModal.value = true;
+};
+
+const cancelUpdateAction = () => {
+  studentDetails.value = null;
+  showForm.value = false;
+  imageUrl.value = null;
+  showConfirmationModal.value = false;
+};
+
+const confirmUpdateAction = async () => {
+  updatingMode.value = true;
+  showConfirmationModal.value = false;
+  await handleSubmit();
+};
+
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
@@ -238,15 +286,18 @@ const showBirthdayForm = () => {
 };
 
 const handleImageUpload = async (event) => {
+  isLoading.value = true;
   const file = event.target.files[0];
   if (!file) return;
 
   if (!["image/png", "image/jpeg", "image/jpg"].includes(file.type)) {
+    isLoading.value = false;
     toast.error("Invalid file type. Only PNG, JPEG, and JPG are accepted.");
     return;
   }
 
   if (file.size > 5 * 1024 * 1024) {
+    isLoading.value = false;
     toast.error("File size exceeds 5MB.");
     return;
   }
@@ -256,7 +307,8 @@ const handleImageUpload = async (event) => {
   const reader = new FileReader();
   reader.onload = () => {
     imageUrl.value = reader.result;
-    toast.success("Image compression completed.");
+    isLoading.value = false;
+    toast.success("Image compression completed.", { timeout: 1000 });
   };
   reader.readAsDataURL(compressedImage.value);
 };
@@ -266,8 +318,10 @@ const isLeapYear = (year) => {
 };
 
 const handleSubmit = async () => {
+  isLoading.value = true;
   if (!birthday.value.day || !birthday.value.month) {
     toast.error("All fields are required.");
+    isLoading.value = false;
     return;
   }
 
@@ -280,11 +334,15 @@ const handleSubmit = async () => {
   );
 
   if (birthdayDate < currentDate) {
-    toast.error("The birthday date is in the past. Wait till the following year");
+    isLoading.value = false;
+    toast.error(
+      "The birthday date is in the past. Wait till the following year"
+    );
     return;
   }
 
   if (birthdayDate - currentDate > 30 * 24 * 60 * 60 * 1000) {
+    isLoading.value = false;
     toast.error("You can only upload events within 30 days of the birthday.");
     return;
   }
@@ -294,11 +352,19 @@ const handleSubmit = async () => {
       birthday.value.day > (isLeapYear(currentYear) ? 29 : 28)) ||
     ([4, 6, 9, 11].includes(birthday.value.month) && birthday.value.day > 30)
   ) {
+    isLoading.value = false;
     toast.error("Invalid day for the selected month.");
     return;
   }
 
   const birthdayWishes = getBirthdayWishes();
+
+  if (!birthdayWishes) {
+    isLoading.value = false;
+    toast.error("Please input a birthday message.");
+    return;
+  }
+
   let studentData = {
     matricNumber: matricNumber.value,
     fullName: studentDetails.value.fullName,
@@ -306,9 +372,8 @@ const handleSubmit = async () => {
     birthdayDay: birthday.value.day,
     classSet: studentDetails.value.classSet,
     level: studentDetails.value.level,
-    birthdayWish: birthdayWishes || null,
+    birthdayWish: birthdayWishes,
   };
-  console.log(studentData);
 
   const storagePath = `birthdays/${matricNumber.value}`;
   const imageHotlink = await uploadToFirebase(
@@ -319,46 +384,62 @@ const handleSubmit = async () => {
   );
 
   if (!imageHotlink) {
+    isLoading.value = false;
     toast.error("Failed to get image URL.");
     return;
   }
 
   if (imageHotlink === "updateConfirmation") {
-    confirmUpdate.value = true;
+    isLoading.value = false;
+    handleUpdateConfirmation();
     return;
   }
 
   toast.info("Uploading data...");
   studentData.imageUrl = imageHotlink;
+  const token = localStorage.getItem("studentToken");
   try {
     let response;
     if (updatingMode.value) {
       response = await axios.patch(
-        "http://localhost:8800/api/v1/birthdays/create",
-        studentData
+        "https://aps-website-backend.onrender.com/api/v1/birthdays/update",
+        studentData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
     } else {
       response = await axios.post(
         "http://localhost:8800/api/v1/birthdays/create",
+        studentData,
         {
-          matricNumber: matricNumber.value,
-          name: studentDetails.value.fullName,
-          birthday: `${birthday.value.day}/${birthday.value.month}`,
-          wishes: birthdayWishes.value,
-          imageUrl: imageHotlink,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
     }
 
-    if (response.status === 200) {
+    if (response.status === 201) {
+      isLoading.value = false;
       toast.success("Birthday event added successfully!");
       studentDetails.value = null;
       showForm.value = false;
       imageUrl.value = null;
+    } else if (response.status === 200) {
+      isLoading.value = false;
+      toast.success("Birthday event updated successfully!");
+      studentDetails.value = null;
+      showForm.value = false;
+      imageUrl.value = null;
     } else {
+      isLoading.value = false;
       toast.error("Failed to add birthday event.");
     }
   } catch (error) {
+    isLoading.value = false;
     toast.error("An error occurred while adding the birthday event.");
   }
 };

@@ -8,6 +8,7 @@ import { db } from './firebase';
 import 'vue-toastification/dist/index.css';
 import "./assets/index.css";
 
+
 const pinia = createPinia();
 const app = createApp(App);
 

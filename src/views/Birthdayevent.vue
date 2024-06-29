@@ -140,7 +140,7 @@ const musicFiles = [
 const fetchBirthdays = async () => {
   try {
     const response = await axios.get(
-      "https://aps-website-backend.onrender.com/api/v1/birthdays/birthdayevents"
+      "https://api.apsui.com/api/v1/birthdays/birthdayevents"
     );
     if (response.status === 200 && response.data.birthdays.length > 0) {
       birthdays.value = response.data.birthdays.map((birthday) => ({
@@ -219,7 +219,7 @@ const initializeAudio = () => {
   }
 };
 
-const handleScroll = () => {
+const handleTouch = () => {
   if (!audioInitialized.value && birthdays.value.length > 0) {
     playBackgroundMusic();
     audioInitialized.value = true;
@@ -237,7 +237,9 @@ onMounted(() => {
         backgroundVideo.value.src = selectRandomVideo();
       }
       if (isMobile()) {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('touchstart', handleTouch);
+        window.addEventListener('touchmove', handleTouch);
+        window.addEventListener('touchend', handleTouch);
       }
     }
   });
@@ -245,7 +247,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (isMobile()) {
-    window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('touchstart', handleTouch);
+    window.removeEventListener('touchmove', handleTouch);
+    window.removeEventListener('touchend', handleTouch);
   }
 });
 </script>

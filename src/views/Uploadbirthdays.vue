@@ -1,4 +1,12 @@
 <template>
+  <!-- Navigation Button to Birthday Manager -->
+  <div class="mt-4 flex justify-center md:justify-end mx-4 md:mx-6">
+    <RouterLink to="/dashboard/birthday-manager">
+      <button class="bg-yellow-500 text-white p-2 rounded w-full md:w-auto">
+        Go to Birthday Manager
+      </button>
+    </RouterLink>
+  </div>
   <div class="container mx-auto pt-4 md:pt-16 px-4 md:px-6">
     <!-- Search Section -->
     <div class="mb-4 flex flex-col md:flex-row items-start md:items-center">
@@ -107,7 +115,6 @@
         </button>
       </form>
     </div>
-
     <!-- Modal for Confirmation -->
     <div
       v-if="showConfirmationModal"
@@ -174,6 +181,7 @@ import { QuillEditor } from "@vueup/vue-quill";
 import "quill/dist/quill.snow.css";
 import { useUserStore } from "@/stores/UserStore";
 import router from "@/router";
+import { RouterLink } from "vue-router";
 
 const users = useUserStore();
 const toast = useToast();
@@ -281,7 +289,7 @@ const confirmUpdateAction = async () => {
 };
 
 onMounted(async () => {
-  const allowedMatricNumbers = ['213569', '220978'];
+  const allowedMatricNumbers = ["213569", "220978"];
   if (!allowedMatricNumbers.includes(users.user.matricNumber)) {
     router.push("/not-allowed");
   }

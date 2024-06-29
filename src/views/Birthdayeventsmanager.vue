@@ -1,4 +1,12 @@
 <template>
+  <!-- Navigation Button to Uploading Birthday Events -->
+  <div class="mt-4 flex justify-center md:justify-end mx-4 md:mx-6">
+    <RouterLink to="/dashboard/birthdayupload">
+      <button class="bg-yellow-500 text-white p-2 rounded w-full md:w-auto">
+        Create Birthday Events
+      </button>
+    </RouterLink>
+  </div>
   <div
     class="min-h-screen bg-gray-100 flex flex-col items-center py-10 px-4 font-poppins"
   >

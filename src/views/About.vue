@@ -33,7 +33,7 @@
           and health conditions.
           <br />
           <br />
-          In June, 1978 the students of the Department of Physiotherapy,
+          In June, 1968 the students of the Department of Physiotherapy,
           University College Hospital, Ibadan formed an association called
           "Association of Undergraduate Physiotherapists". It was the first by
           any physiotherapist body in Nigeria. After a while, it was

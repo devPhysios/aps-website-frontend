@@ -40,8 +40,14 @@
           class="w-full h-[300px] rounded-lg text-gray-950 text-xl relative mx-3"
         >
           <div class="h-full w-full relative">
-            <div v-if="loadingImages[index]" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50">
-              <svg class="animate-spin h-8 w-8 text-green-500" viewBox="0 0 24 24">
+            <div
+              v-if="loadingImages[index]"
+              class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50"
+            >
+              <svg
+                class="animate-spin h-8 w-8 text-green-500"
+                viewBox="0 0 24 24"
+              >
                 <circle
                   class="opacity-25"
                   cx="12"
@@ -103,13 +109,11 @@ const loadingImages = ref([]);
 onMounted(async () => {
   try {
     if (selectedImages.value.length === 0) {
-      const response = await axios.get(
-        "https://aps-website-backend.onrender.com/api/v1/gallery"
-      );
+      const response = await axios.get("https://api.apsui.com/api/v1/gallery");
       const images = response.data.images;
       selectedImages.value = selectRandomImages(images, 10);
     }
-    
+
     selectedImages.value.forEach((_, index) => {
       loadingImages.value[index] = true;
     });

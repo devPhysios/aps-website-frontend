@@ -1,13 +1,13 @@
 import axios from "axios";
-import {useToast} from "vue-toastification";
+import { useToast } from "vue-toastification";
 
 const toast = useToast();
 
-export const saveData = async ( data) => {
+export const saveData = async (data) => {
   const token = localStorage.getItem("studentToken");
   try {
     const response = await axios.patch(
-      `https://aps-website-backend.onrender.com/api/v1/dashboard/profile`,
+      `https://api.apsui.com/api/v1/dashboard/profile`,
       data,
       {
         headers: {

@@ -402,7 +402,7 @@ const handleSubmit = async () => {
     let response;
     if (updatingMode.value) {
       response = await axios.patch(
-        "https://aps-website-backend.onrender.com/api/v1/birthdays/update",
+        "https://api.apsui.com/api/v1/birthdays/update",
         studentData,
         {
           headers: {

@@ -145,7 +145,7 @@ const updateUser = async () => {
     }
     const token = localStorage.getItem("studentToken");
     const response = await axios.post(
-      "https://aps-website-backend.onrender.com/api/v1/auth/cpasq",
+      "https://api.apsui.com/api/v1/auth/cpasq",
       {
         oldPassword: oldPassword.value,
         newPassword: newPassword.value,

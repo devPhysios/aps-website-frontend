@@ -147,22 +147,19 @@ const submitData = async () => {
     return; // Don't proceed if validation fails
   }
   try {
-    await axios.post(
-      "https://aps-website-backend.onrender.com/api/v1/gallery",
-      {
-        imageUrl: imageUrl.value,
-        title: title.value,
-        description: description.value,
-        tags: tags.value.split(",").map((tag) => tag.trim()),
-        features: features.value.split(",").map((feature) => feature.trim()),
-      }
-    );
+    await axios.post("https://api.apsui.com/api/v1/gallery", {
+      imageUrl: imageUrl.value,
+      title: title.value,
+      description: description.value,
+      tags: tags.value.split(",").map((tag) => tag.trim()),
+      features: features.value.split(",").map((feature) => feature.trim()),
+    });
     isSubmitting.value = false; // Submission successful
     // Submission successful!
     submissionMessage.value = "Image submitted successfully!";
     messageType.value = "success";
     setTimeout(() => resetForm(), 5000);
-    cwindow.scrollTo({ top: 0, behavior: 'smooth' })
+    cwindow.scrollTo({ top: 0, behavior: "smooth" });
   } catch (error) {
     console.error("Submission error:", error);
     submissionMessage.value = "There was an error. Please try again.";

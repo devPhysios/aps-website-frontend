@@ -66,7 +66,6 @@ onMounted(() => {
   fetchUploadedCourseCodes();
 });
 
-
 const allowedLevels = ["100", "200", "300", "400", "500"];
 if (!allowedLevels.includes(level)) {
   router.replace("/not-found");
@@ -81,11 +80,10 @@ if (!allowedLevels.includes(level)) {
     });
 }
 
-
 const fetchUploadedCourseCodes = async () => {
   try {
     const response = await axios.get(
-      `https://aps-website-backend.onrender.com/api/v1/questions/uploaded/${level}L`
+      `https://api.apsui.com/api/v1/questions/uploaded/${level}L`
     );
     uploadedCourseCodes.value = response.data.courseCodes;
   } catch (error) {

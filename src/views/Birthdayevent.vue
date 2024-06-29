@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-900" @click="initializeAudio">
     <!-- Background Video -->
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
+    <div v-if="birthdays.length > 0" class="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
       <video
         ref="backgroundVideo"
         class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover"
@@ -110,7 +110,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
 
@@ -213,16 +213,39 @@ const playBackgroundMusic = () => {
 };
 
 const initializeAudio = () => {
-  if (!audioInitialized.value) {
+  if (!audioInitialized.value && birthdays.value.length > 0) {
     playBackgroundMusic();
     audioInitialized.value = true;
   }
 };
 
+const handleScroll = () => {
+  if (!audioInitialized.value && birthdays.value.length > 0) {
+    playBackgroundMusic();
+    audioInitialized.value = true;
+  }
+};
+
+const isMobile = () => {
+  return /Mobi|Android/i.test(navigator.userAgent);
+};
+
 onMounted(() => {
-  fetchBirthdays();
-  if (backgroundVideo.value) {
-    backgroundVideo.value.src = selectRandomVideo();
+  fetchBirthdays().then(() => {
+    if (birthdays.value.length > 0) {
+      if (backgroundVideo.value) {
+        backgroundVideo.value.src = selectRandomVideo();
+      }
+      if (isMobile()) {
+        window.addEventListener('scroll', handleScroll);
+      }
+    }
+  });
+});
+
+onUnmounted(() => {
+  if (isMobile()) {
+    window.removeEventListener('scroll', handleScroll);
   }
 });
 </script>

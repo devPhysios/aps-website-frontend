@@ -1,7 +1,5 @@
 <template>
-  <aside
-    class="custom-transition h-full w-[110px] bg-white md:static md:w-60"
-  >
+  <aside class="custom-transition h-full w-[110px] bg-white md:static md:w-60">
     <div class="side-container">
       <div class="img relative">
         <img :src="profilePicture || avatar" :alt="store.user.firstName" />
@@ -181,7 +179,7 @@ const sendToServer = async (imgURL) => {
     };
 
     const response = await axios.patch(
-      "https://aps-website-backend.onrender.com/api/v1/dashboard/profile",
+      "https://api.apsui.com/api/v1/dashboard/profile",
       {
         profilePicture: imgURL,
       },

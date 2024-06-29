@@ -130,7 +130,6 @@ const videoFiles = [
 ];
 
 const musicFiles = [
-  "music/happy-birthday-1.mp3",
   "music/happy-birthday-2.mp3",
   "music/happy-birthday-3.mp3",
   "music/happy-birthday-4.mp3",  
@@ -200,56 +199,48 @@ const selectRandomMusic = () => {
 };
 
 const playBackgroundMusic = () => {
-  const audio = new Audio("music/happy-birthday-default.mp3");
-  audio.play();
-
-  audio.onended = () => {
-    audio.src = selectRandomMusic();
-    audio.loop = true;
+  if (!audioInitialized.value) {
+    const audio = new Audio("music/happy-birthday-default.mp3");
     audio.play();
-  };
 
-  musicPlayer.value = audio;
+    audio.onended = () => {
+      audio.src = selectRandomMusic();
+      audio.loop = true;
+      audio.play();
+    };
+
+    musicPlayer.value = audio;
+    audioInitialized.value = true;
+  }
 };
 
 const initializeAudio = () => {
-  if (!audioInitialized.value && birthdays.value.length > 0) {
+  if (birthdays.value.length > 0) {
     playBackgroundMusic();
-    audioInitialized.value = true;
   }
-};
-
-const handleTouch = () => {
-  if (!audioInitialized.value && birthdays.value.length > 0) {
-    playBackgroundMusic();
-    audioInitialized.value = true;
-  }
-};
-
-const isMobile = () => {
-  return /Mobi|Android/i.test(navigator.userAgent);
 };
 
 onMounted(() => {
   fetchBirthdays().then(() => {
-    if (birthdays.value.length > 0) {
-      if (backgroundVideo.value) {
-        backgroundVideo.value.src = selectRandomVideo();
-      }
-      if (isMobile()) {
-        window.addEventListener('touchstart', handleTouch);
-        window.addEventListener('touchmove', handleTouch);
-        window.addEventListener('touchend', handleTouch);
-      }
+    if (birthdays.value.length > 0 && backgroundVideo.value) {
+      backgroundVideo.value.src = selectRandomVideo();
     }
   });
+
+  // Add event listeners for both mobile and desktop
+  window.addEventListener('click', initializeAudio);
+  window.addEventListener('touchstart', initializeAudio);
 });
 
 onUnmounted(() => {
-  if (isMobile()) {
-    window.removeEventListener('touchstart', handleTouch);
-    window.removeEventListener('touchmove', handleTouch);
-    window.removeEventListener('touchend', handleTouch);
+  // Remove event listeners
+  window.removeEventListener('click', initializeAudio);
+  window.removeEventListener('touchstart', initializeAudio);
+
+  // Stop and clean up audio if it's playing
+  if (musicPlayer.value) {
+    musicPlayer.value.pause();
+    musicPlayer.value = null;
   }
 });
 </script>

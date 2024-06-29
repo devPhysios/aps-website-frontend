@@ -123,16 +123,17 @@ const audioInitialized = ref(false);
 const MAX_RETRIES = 5;
 
 const videoFiles = [
-  "/src/videos/birthday-video-1.mp4",
-  "/src/videos/birthday-video-2.mp4",
-  "/src/videos/birthday-video-3.mp4",
+  'videos/birthday-video-1.mp4',
+  'videos/birthday-video-2.mp4',
+  'videos/birthday-video-3.mp4'
   // Add paths to other videos here
 ];
 
 const musicFiles = [
-  "/src/music/happy-birthday-1.mp3",
-  "/src/music/happy-birthday-2.mp3",
-  "/src/music/happy-birthday-3.mp3",
+  "music/happy-birthday-1.mp3",
+  "music/happy-birthday-2.mp3",
+  "music/happy-birthday-3.mp3",
+  "music/happy-birthday-4.mp3",  
   // Add paths to other music files here
 ];
 
@@ -199,7 +200,7 @@ const selectRandomMusic = () => {
 };
 
 const playBackgroundMusic = () => {
-  const audio = new Audio("/src/music/happy-birthday-default.mp3");
+  const audio = new Audio("music/happy-birthday-default.mp3");
   audio.play();
 
   audio.onended = () => {

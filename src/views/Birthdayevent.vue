@@ -199,24 +199,45 @@ const selectRandomMusic = () => {
 };
 
 const playBackgroundMusic = () => {
-  if (!audioInitialized.value) {
+  if (!audioInitialized.value && birthdays.value.length > 0) {
     const audio = new Audio("music/happy-birthday-default.mp3");
-    audio.play();
-
-    audio.onended = () => {
-      audio.src = selectRandomMusic();
-      audio.loop = true;
-      audio.play();
+    
+    const playAudio = () => {
+      audio.play().then(() => {
+        audioInitialized.value = true;
+        musicPlayer.value = audio;
+        
+        audio.onended = () => {
+          audio.src = selectRandomMusic();
+          audio.loop = true;
+          audio.play().catch(console.error);
+        };
+      }).catch((error) => {
+        console.error("Error playing audio:", error);
+      });
     };
 
-    musicPlayer.value = audio;
-    audioInitialized.value = true;
+    playAudio();
+
+    // Retry playing every second for 10 seconds
+    let retryCount = 0;
+    const retryInterval = setInterval(() => {
+      if (audioInitialized.value || retryCount >= 10) {
+        clearInterval(retryInterval);
+      } else {
+        playAudio();
+        retryCount++;
+      }
+    }, 1000);
   }
 };
 
 const initializeAudio = () => {
-  if (birthdays.value.length > 0) {
-    playBackgroundMusic();
+  playBackgroundMusic();
+  // Remove event listeners after successful initialization
+  if (audioInitialized.value) {
+    window.removeEventListener('click', initializeAudio);
+    window.removeEventListener('touchstart', initializeAudio);
   }
 };
 
@@ -225,11 +246,10 @@ onMounted(() => {
     if (birthdays.value.length > 0 && backgroundVideo.value) {
       backgroundVideo.value.src = selectRandomVideo();
     }
+    // Add event listeners for both mobile and desktop
+    window.addEventListener('click', initializeAudio);
+    window.addEventListener('touchstart', initializeAudio);
   });
-
-  // Add event listeners for both mobile and desktop
-  window.addEventListener('click', initializeAudio);
-  window.addEventListener('touchstart', initializeAudio);
 });
 
 onUnmounted(() => {

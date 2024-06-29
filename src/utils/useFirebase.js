@@ -101,4 +101,27 @@ const uploadToFirebase = async (user, imageFile, storagePath, updating) => {
   }
 };
 
-export { uploadToFirebase };
+const deleteUserProfileImage = async (imageUrl) => {
+  const imageRef = storeRef(storage, imageUrl);
+  await deleteObject(imageRef);
+};
+
+const deleteFromFirebase = async (matricNumber) => {
+  try {
+    const userProfileDoc = await getExistingDocument(matricNumber);
+    if (userProfileDoc) {
+      await deleteUserProfileImage(userProfileDoc.data().url);
+      await deleteDoc(userProfileDoc.ref);
+      return true;
+    } else {
+      toast.info("Profile not found... Cleaning up the Server");
+      return true;
+    }
+  } catch (error) {
+    toast.error(error.message);
+    console.error("Error deleting user profile:", error);
+    return false;
+  }
+};
+
+export { uploadToFirebase, deleteFromFirebase };

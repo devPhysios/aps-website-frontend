@@ -165,14 +165,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 import { useToast } from "vue-toastification";
 import axios from "axios";
 import { compressImage } from "../utils/useCompressImage.js";
 import { uploadToFirebase } from "../utils/useFirebase";
 import { QuillEditor } from "@vueup/vue-quill";
 import "quill/dist/quill.snow.css";
+import { useUserStore } from "@/stores/UserStore";
+import router from "@/router";
 
+const users = useUserStore();
 const toast = useToast();
 const matricNumber = ref("");
 const studentDetails = ref(null);
@@ -212,7 +215,7 @@ const fetchStudentDetails = async () => {
     }
     const token = localStorage.getItem("studentToken");
     const response = await axios.get(
-      `http://localhost:8800/api/v1/birthdays/student/${matricNumber.value}`,
+      `https://api.apsui.com/api/v1/birthdays/student/${matricNumber.value}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -278,6 +281,10 @@ const confirmUpdateAction = async () => {
 };
 
 onMounted(async () => {
+  const allowedMatricNumbers = ['213569', '220978'];
+  if (!allowedMatricNumbers.includes(users.user.matricNumber)) {
+    router.push("/not-allowed");
+  }
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
@@ -412,7 +419,7 @@ const handleSubmit = async () => {
       );
     } else {
       response = await axios.post(
-        "http://localhost:8800/api/v1/birthdays/create",
+        "https://api.apsui.com/api/v1/birthdays/create",
         studentData,
         {
           headers: {

@@ -70,7 +70,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import router from "@/router";
+import { useUserStore } from "@/stores/UserStore";
 
+const users = useUserStore();
 const imageFile = ref(null);
 const imageUrl = ref(null);
 const title = ref("");
@@ -88,6 +91,10 @@ const handleImageUpload = (event) => {
 };
 
 onMounted(() => {
+  const allowedMatricNumbers = ['213569', '213543'];
+  if (!allowedMatricNumbers.includes(users.user.matricNumber)) {
+    router.push("/not-allowed");
+  }
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 

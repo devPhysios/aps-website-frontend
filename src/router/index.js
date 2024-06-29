@@ -30,6 +30,7 @@ import TestingGround from "@/views/Testingground.vue";
 import Privacypolicy from "@/views/Privacypolicy.vue";
 import Termsofservice from "../views/Termsofservice.vue";
 import Birthdayevent from "@/views/Birthdayevent.vue";
+import Birthdayeventmanager from "@/views/Birthdayeventsmanager.vue";
 
 const routes = [
   {
@@ -65,6 +66,20 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(false);
       store.updateHeaderVisibility(false)
+      next();
+    },
+  },
+  {
+    path: "/dashboard/birthday-manager",
+    name: "BirthdayEventManager",
+    component: Birthdayeventmanager,
+    meta: {
+      requiresAuth: true,
+    },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      store.updateHeaderVisibility(true)
       next();
     },
   },
@@ -182,7 +197,7 @@ const routes = [
     },
   },
   {
-    path: "/birthdayupload",
+    path: "/dashboard/birthdayupload",
     name: "BirthdayUploadPage",
     component: BirthdayUpload,
     meta: {
@@ -366,7 +381,7 @@ router.beforeEach((to, from, next) => {
 
 // const fetchData = async (id) => {
 //   try {
-//     const response = await axios.get(`http://localhost:8800/questions/${id}`);
+//     const response = await axios.get(`https://api.apsui.com/questions/${id}`);
 //     return response.data;
 //   } catch (error) {
 //     router.next({ name: "NotFound" });

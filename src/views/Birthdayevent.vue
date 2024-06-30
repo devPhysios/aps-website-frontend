@@ -193,14 +193,11 @@ const selectRandomVideo = () => {
   return videoFiles[randomIndex];
 };
 
-const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-};
-
 const playMusicSequence = () => {
+  if (audioInitialized.value) {
+    return;
+  }
+
   const audio = new Audio("music/happy-birthday-default.mp3");
   let currentIndex = 0;
 
@@ -212,7 +209,6 @@ const playMusicSequence = () => {
       });
       currentIndex++;
     } else {
-      shuffleArray(musicFiles);
       currentIndex = 0;
       playNextMusic();
     }
@@ -235,10 +231,9 @@ const initializeAudio = () => {
     playMusicSequence();
   }
 
-  // Remove event listeners after successful initialization
+  // Remove event listener after successful initialization
   if (audioInitialized.value) {
     window.removeEventListener('click', initializeAudio);
-    window.removeEventListener('touchstart', initializeAudio);
   }
 };
 
@@ -248,16 +243,14 @@ onMounted(() => {
       backgroundVideo.value.src = selectRandomVideo();
     }
 
-    // Add event listeners for both mobile and desktop
+    // Add event listener for desktop
     window.addEventListener('click', initializeAudio);
-    window.addEventListener('touchstart', initializeAudio);
   });
 });
 
 onUnmounted(() => {
-  // Remove event listeners
+  // Remove event listener
   window.removeEventListener('click', initializeAudio);
-  window.removeEventListener('touchstart', initializeAudio);
 
   // Stop and clean up audio if it's playing
   if (musicPlayer.value) {

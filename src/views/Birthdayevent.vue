@@ -120,7 +120,6 @@ const loading = ref(true);
 const backgroundVideo = ref(null);
 const musicPlayer = ref(null);
 const audioInitialized = ref(false);
-const MAX_RETRIES = 5;
 
 const videoFiles = [
   'videos/birthday-video-1.mp4',
@@ -130,6 +129,7 @@ const videoFiles = [
 ];
 
 const musicFiles = [
+  "music/happy-birthday-1.mp3",
   "music/happy-birthday-2.mp3",
   "music/happy-birthday-3.mp3",
   "music/happy-birthday-4.mp3",  
@@ -174,7 +174,7 @@ const imageLoaded = (birthday) => {
 };
 
 const retryImageLoad = (event, birthday) => {
-  if (birthday.retryCount < MAX_RETRIES) {
+  if (birthday.retryCount < 5) {
     birthday.retryCount++;
     console.log(`Retrying image load attempt ${birthday.retryCount}`);
     event.target.src = "";
@@ -183,7 +183,7 @@ const retryImageLoad = (event, birthday) => {
     }, 1000);
   } else {
     console.error(
-      `Image failed to load after ${MAX_RETRIES} attempts: ${birthday.imageUrl}`
+      `Image failed to load after 5 attempts: ${birthday.imageUrl}`
     );
   }
 };
@@ -193,49 +193,48 @@ const selectRandomVideo = () => {
   return videoFiles[randomIndex];
 };
 
-const selectRandomMusic = () => {
-  const randomIndex = Math.floor(Math.random() * musicFiles.length);
-  return musicFiles[randomIndex];
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 };
 
-const playBackgroundMusic = () => {
-  if (!audioInitialized.value && birthdays.value.length > 0) {
-    const audio = new Audio("music/happy-birthday-default.mp3");
+const playMusicSequence = () => {
+  const audio = new Audio("music/happy-birthday-default.mp3");
+  let currentIndex = 0;
 
-    const playAudio = () => {
-      audio.play().then(() => {
-        audioInitialized.value = true;
-        musicPlayer.value = audio;
-
-        audio.onended = () => {
-          audio.src = selectRandomMusic();
-          audio.loop = true;
-          audio.play().catch(console.error);
-        };
-      }).catch((error) => {
+  const playNextMusic = () => {
+    if (currentIndex < musicFiles.length) {
+      audio.src = musicFiles[currentIndex];
+      audio.play().catch((error) => {
         console.error("Error playing audio:", error);
       });
-    };
+      currentIndex++;
+    } else {
+      shuffleArray(musicFiles);
+      currentIndex = 0;
+      playNextMusic();
+    }
+  };
 
-    playAudio();
+  audio.onended = playNextMusic;
 
-    // Retry playing every second for 10 seconds
-    let retryCount = 0;
-    const retryInterval = setInterval(() => {
-      if (audioInitialized.value || retryCount >= 10) {
-        clearInterval(retryInterval);
-      } else {
-        playAudio();
-        retryCount++;
-      }
-    }, 1000);
-  }
+  audio.play()
+    .then(() => {
+      audioInitialized.value = true;
+      musicPlayer.value = audio;
+    })
+    .catch((error) => {
+      console.error("Error playing audio:", error);
+    });
 };
 
 const initializeAudio = () => {
-  if (!audioInitialized.value && !musicPlayer.value) {
-    playBackgroundMusic();
+  if (!audioInitialized.value) {
+    playMusicSequence();
   }
+
   // Remove event listeners after successful initialization
   if (audioInitialized.value) {
     window.removeEventListener('click', initializeAudio);
@@ -248,6 +247,7 @@ onMounted(() => {
     if (birthdays.value.length > 0 && backgroundVideo.value) {
       backgroundVideo.value.src = selectRandomVideo();
     }
+
     // Add event listeners for both mobile and desktop
     window.addEventListener('click', initializeAudio);
     window.addEventListener('touchstart', initializeAudio);
@@ -267,5 +267,6 @@ onUnmounted(() => {
 });
 </script>
 
-
-<style></style>
+<style scoped>
+/* Add your styles here */
+</style>

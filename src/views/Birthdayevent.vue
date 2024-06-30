@@ -95,7 +95,7 @@
                 Class Set: {{ birthday.classSet }}
               </p>
               <p class="text-gray-300 font-poppins">
-                Level: {{ birthday.level }}
+                {{ birthday.level }} Level
               </p>
               <div
                 v-html="birthday.birthdayWish"

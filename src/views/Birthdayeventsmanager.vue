@@ -59,7 +59,7 @@
               {{ birthday.fullName }}
             </h2>
             <p class="text-sm md:text-base text-gray-600">
-              {{ birthday.classSet }} - Level {{ birthday.level }}
+              {{ birthday.classSet }} - {{ birthday.level }} Level
             </p>
             <p class="text-sm md:text-base text-gray-600">
               Birthday: {{ monthName(birthday.birthdayMonth) }}

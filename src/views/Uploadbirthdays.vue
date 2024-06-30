@@ -7,9 +7,77 @@
       </button>
     </RouterLink>
   </div>
-  <div class="container mx-auto pt-4 md:pt-16 px-4 md:px-6">
+
+  <!-- Container for Main Content -->
+  <div class="container mx-auto px-4 md:px-6 mb-36">
+    <!-- Month Selection Section -->
+    <div class="mt-4 flex flex-col md:flex-row items-start md:items-center">
+      <label for="month" class="block mb-2 md:mb-0 md:mr-2"
+        >Select Month:</label
+      >
+      <select
+        id="month"
+        v-model="selectedMonth"
+        class="border p-2 rounded w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+      >
+        <option value="">Select a month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+      <button
+        @click="fetchBirthdaysByMonth"
+        class="bg-blue-500 text-white p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:w-auto"
+      >
+        Fetch Birthdays
+      </button>
+    </div>
+
+    <!-- Birthday Students Table Section -->
+    <div v-if="birthdayStudents.length > 0" class="mt-4">
+      <h2 class="text-xl font-bold">
+        Birthday Students in {{ selectedMonth }}
+      </h2>
+      <p>{{ totalStudents }} students found</p>
+      <div class="overflow-x-auto mt-2">
+        <table class="min-w-full bg-white border border-gray-200">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 border bg-gray-200">Full Name</th>
+              <th class="px-4 py-2 border bg-gray-200">Matric Number</th>
+              <th class="px-4 py-2 border bg-gray-200">Month of Birth</th>
+              <th class="px-4 py-2 border bg-gray-200">Day of Birth</th>
+              <th class="px-4 py-2 border bg-gray-200">Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="student in birthdayStudents"
+              :key="student.matricNumber"
+              class="bg-white odd:bg-gray-100 even:bg-gray-200"
+            >
+              <td class="px-4 py-2 border">{{ student.fullName }}</td>
+              <td class="px-4 py-2 border">{{ student.matricNumber }}</td>
+              <td class="px-4 py-2 border">{{ student.monthOfBirth }}</td>
+              <td class="px-4 py-2 border">{{ student.dayOfBirth }}</td>
+              <td class="px-4 py-2 border">{{ student.level }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Search Section -->
-    <div class="mb-4 flex flex-col md:flex-row items-start md:items-center">
+    <div class="mt-4 flex flex-col md:flex-row items-start md:items-center">
       <input
         v-model="matricNumber"
         type="text"
@@ -25,7 +93,7 @@
     </div>
 
     <!-- Student Details Section -->
-    <div v-if="studentDetails" class="mb-4 p-4 border rounded">
+    <div v-if="studentDetails" class="mt-4 p-4 border rounded">
       <h2 class="text-xl font-bold">Student Details</h2>
       <p><strong>Name:</strong> {{ studentDetails.fullName }}</p>
       <p><strong>Set:</strong> {{ studentDetails.classSet }}</p>
@@ -53,7 +121,7 @@
     </div>
 
     <!-- Birthday Form Section -->
-    <div v-if="showForm" class="p-4 border rounded">
+    <div v-if="showForm" class="mt-4 p-4 border rounded">
       <h2 class="text-xl font-bold mb-2">Add Birthday Event</h2>
       <form @submit.prevent="handleSubmit">
         <!-- Image Input -->
@@ -115,6 +183,7 @@
         </button>
       </form>
     </div>
+
     <!-- Modal for Confirmation -->
     <div
       v-if="showConfirmationModal"
@@ -196,6 +265,9 @@ const isLoading = ref(false);
 const showConfirmationModal = ref(false);
 const quillEditorRef = ref(null);
 const placeholder = ref("Input the Happy Birthday message here...");
+const selectedMonth = ref("");
+const birthdayStudents = ref([]);
+const totalStudents = ref(0);
 
 const onEditorReady = () => {
   console.log("Editor is ready");
@@ -252,6 +324,26 @@ const fetchStudentDetails = async () => {
       isLoading.value = false;
       toast.error(error.message);
     }
+  }
+};
+
+const fetchBirthdaysByMonth = async () => {
+  isLoading.value = true;
+  try {
+    if (!selectedMonth.value) {
+      isLoading.value = false;
+      toast.error("Please select a month.");
+      return;
+    }
+    const response = await axios.get(
+      `https://api.apsui.com/api/v1/birthdays/bymonth/${selectedMonth.value.toLowerCase()}`
+    );
+    birthdayStudents.value = response.data.students;
+    totalStudents.value = response.data.students.length;
+    isLoading.value = false;
+  } catch (error) {
+    isLoading.value = false;
+    toast.error("An error occurred while fetching birthdays.");
   }
 };
 

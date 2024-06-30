@@ -201,7 +201,7 @@ const selectRandomMusic = () => {
 const playBackgroundMusic = () => {
   if (!audioInitialized.value && birthdays.value.length > 0) {
     const audio = new Audio("music/happy-birthday-default.mp3");
-    
+
     const playAudio = () => {
       audio.play().then(() => {
         audioInitialized.value = true;
@@ -233,8 +233,10 @@ const playBackgroundMusic = () => {
 };
 
 const initializeAudio = () => {
-  playBackgroundMusic();
-  // Remove event listeners after successful initialization
+  if (!audioInitialized.value) {
+    playBackgroundMusic();
+  }
+  // Removing event listeners after successful initialization
   if (audioInitialized.value) {
     window.removeEventListener('click', initializeAudio);
     window.removeEventListener('touchstart', initializeAudio);
@@ -246,7 +248,7 @@ onMounted(() => {
     if (birthdays.value.length > 0 && backgroundVideo.value) {
       backgroundVideo.value.src = selectRandomVideo();
     }
-    // Add event listeners for both mobile and desktop
+    // Adding event listeners for both mobile and desktop
     window.addEventListener('click', initializeAudio);
     window.addEventListener('touchstart', initializeAudio);
   });
@@ -264,3 +266,5 @@ onUnmounted(() => {
   }
 });
 </script>
+
+<style></style>

@@ -206,7 +206,7 @@ const playBackgroundMusic = () => {
       audio.play().then(() => {
         audioInitialized.value = true;
         musicPlayer.value = audio;
-        
+
         audio.onended = () => {
           audio.src = selectRandomMusic();
           audio.loop = true;
@@ -233,10 +233,10 @@ const playBackgroundMusic = () => {
 };
 
 const initializeAudio = () => {
-  if (!audioInitialized.value) {
+  if (!audioInitialized.value && !musicPlayer.value) {
     playBackgroundMusic();
   }
-  // Removing event listeners after successful initialization
+  // Remove event listeners after successful initialization
   if (audioInitialized.value) {
     window.removeEventListener('click', initializeAudio);
     window.removeEventListener('touchstart', initializeAudio);
@@ -248,7 +248,7 @@ onMounted(() => {
     if (birthdays.value.length > 0 && backgroundVideo.value) {
       backgroundVideo.value.src = selectRandomVideo();
     }
-    // Adding event listeners for both mobile and desktop
+    // Add event listeners for both mobile and desktop
     window.addEventListener('click', initializeAudio);
     window.addEventListener('touchstart', initializeAudio);
   });
@@ -266,5 +266,6 @@ onUnmounted(() => {
   }
 });
 </script>
+
 
 <style></style>

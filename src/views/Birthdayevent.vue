@@ -118,8 +118,9 @@ const toast = useToast();
 const birthdays = ref([]);
 const loading = ref(true);
 const backgroundVideo = ref(null);
-const musicPlayer = ref(null);
+const audioPlayer = ref(null);
 const audioInitialized = ref(false);
+const isPlaying = ref(false);
 
 const videoFiles = [
   'videos/birthday-video-1.mp4',
@@ -194,17 +195,20 @@ const selectRandomVideo = () => {
 };
 
 const playMusicSequence = () => {
-  if (audioInitialized.value) {
+  if (audioInitialized.value || isPlaying.value) {
     return;
   }
 
-  const audio = new Audio("music/happy-birthday-default.mp3");
+  if (!audioPlayer.value) {
+    audioPlayer.value = new Audio();
+  }
+
   let currentIndex = 0;
 
   const playNextMusic = () => {
     if (currentIndex < musicFiles.length) {
-      audio.src = musicFiles[currentIndex];
-      audio.play().catch((error) => {
+      audioPlayer.value.src = musicFiles[currentIndex];
+      audioPlayer.value.play().catch((error) => {
         console.error("Error playing audio:", error);
       });
       currentIndex++;
@@ -214,28 +218,36 @@ const playMusicSequence = () => {
     }
   };
 
-  audio.onended = playNextMusic;
+  audioPlayer.value.onended = playNextMusic;
 
-  audio.play()
+  audioPlayer.value.src = "music/happy-birthday-default.mp3";
+  audioPlayer.value.play()
     .then(() => {
       audioInitialized.value = true;
-      musicPlayer.value = audio;
+      isPlaying.value = true;
     })
     .catch((error) => {
       console.error("Error playing audio:", error);
     });
 };
 
-const initializeAudio = () => {
-  if (!audioInitialized.value) {
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+const initializeAudio = debounce(() => {
+  if (!audioInitialized.value && !isPlaying.value) {
     playMusicSequence();
   }
-
-  // Remove event listener after successful initialization
-  if (audioInitialized.value) {
-    window.removeEventListener('click', initializeAudio);
-  }
-};
+}, 300);
 
 onMounted(() => {
   fetchBirthdays().then(() => {
@@ -243,19 +255,17 @@ onMounted(() => {
       backgroundVideo.value.src = selectRandomVideo();
     }
 
-    // Add event listener for desktop
     window.addEventListener('click', initializeAudio);
   });
 });
 
 onUnmounted(() => {
-  // Remove event listener
   window.removeEventListener('click', initializeAudio);
 
-  // Stop and clean up audio if it's playing
-  if (musicPlayer.value) {
-    musicPlayer.value.pause();
-    musicPlayer.value = null;
+  if (audioPlayer.value) {
+    audioPlayer.value.pause();
+    audioPlayer.value.src = "";
+    audioPlayer.value = null;
   }
 });
 </script>

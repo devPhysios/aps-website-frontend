@@ -1,7 +1,10 @@
 <template>
   <div class="min-h-screen bg-gray-900" @click="initializeAudio">
     <!-- Background Video -->
-    <div v-if="birthdays.length > 0" class="fixed top-0 left-0 w-full h-full overflow-hidden z-0">
+    <div
+      v-if="birthdays.length > 0"
+      class="fixed top-0 left-0 w-full h-full overflow-hidden z-0"
+    >
       <video
         ref="backgroundVideo"
         class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover"
@@ -123,9 +126,9 @@ const audioInitialized = ref(false);
 const isPlaying = ref(false);
 
 const videoFiles = [
-  'videos/birthday-video-1.mp4',
-  'videos/birthday-video-2.mp4',
-  'videos/birthday-video-3.mp4'
+  "videos/birthday-video-1.mp4",
+  "videos/birthday-video-2.mp4",
+  "videos/birthday-video-3.mp4",
   // Add paths to other videos here
 ];
 
@@ -133,7 +136,7 @@ const musicFiles = [
   "music/happy-birthday-1.mp3",
   "music/happy-birthday-2.mp3",
   "music/happy-birthday-3.mp3",
-  "music/happy-birthday-4.mp3",  
+  "music/happy-birthday-4.mp3",
   // Add paths to other music files here
 ];
 
@@ -221,7 +224,8 @@ const playMusicSequence = () => {
   audioPlayer.value.onended = playNextMusic;
 
   audioPlayer.value.src = "music/happy-birthday-default.mp3";
-  audioPlayer.value.play()
+  audioPlayer.value
+    .play()
     .then(() => {
       audioInitialized.value = true;
       isPlaying.value = true;
@@ -249,18 +253,33 @@ const initializeAudio = debounce(() => {
   }
 }, 300);
 
+const handleVisibilityChange = () => {
+  if (document.hidden) {
+    if (audioPlayer.value) {
+      audioPlayer.value.pause();
+    }
+  } else {
+    if (audioInitialized.value && audioPlayer.value) {
+      audioPlayer.value
+        .play()
+        .catch((error) => console.error("Error resuming audio:", error));
+    }
+  }
+};
+
 onMounted(() => {
   fetchBirthdays().then(() => {
     if (birthdays.value.length > 0 && backgroundVideo.value) {
       backgroundVideo.value.src = selectRandomVideo();
     }
-
-    window.addEventListener('click', initializeAudio);
+    window.addEventListener("click", initializeAudio);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
   });
 });
 
 onUnmounted(() => {
-  window.removeEventListener('click', initializeAudio);
+  window.removeEventListener("click", initializeAudio);
+  document.removeEventListener("visibilitychange", handleVisibilityChange);
 
   if (audioPlayer.value) {
     audioPlayer.value.pause();

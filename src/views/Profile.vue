@@ -1,25 +1,15 @@
 <template>
-  <section
-    class="flex w-full min-h-full bg-gray-50 pt-20 font-display md:min-h-full"
-  >
+  <section class="flex w-full min-h-full bg-gray-50 pt-20 font-display md:min-h-full">
     <DashBoardSideMenu />
-    <div
-      class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6"
-    >
+    <div class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6">
       <h2 class="font-display text-aps-green font-bold text-[14px] pb-4 md:text-l">Profile Information</h2>
       <div class="shadow py-4 px-4 max-w-[500px] mx-auto md:mx-4">
         <div class="mb-4">
           <div class="flex items-center justify-between">
-            <h3 class="mb-2 font-bold text-[14px] text-gray-500 md:text-md">
-              Personal Information
-            </h3>
+            <h3 class="mb-2 font-bold text-[14px] text-gray-500 md:text-md">Personal Information</h3>
             <button
               class="text-[14px] font-semibold text-md"
-              :class="
-                editMode
-                  ? 'text-gray-400 cursor-not-allowed'
-                  : 'text-blue-500 cursor-pointer'
-              "
+              :class="editMode ? 'text-gray-400 cursor-not-allowed' : 'text-blue-500 cursor-pointer'"
               @click="editMode = true"
               :disabled="editMode"
             >
@@ -56,11 +46,7 @@
                 class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 v-model="gender"
                 :disabled="!editMode"
-                :class="
-                  editMode
-                    ? 'border-black border-2 border-solid rounded-lg'
-                    : 'border-gray-100'
-                "
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
@@ -70,9 +56,7 @@
           </div>
           <!-- Third Parameter -->
           <div class="mb-px mt-4">
-            <label class="font-bold text-[13px] text-gray-400"
-              >Month of Birth</label
-            >
+            <label class="font-bold text-[13px] text-gray-400">Month of Birth</label>
             <div class="flex gap-2 items-center border border-gray-100">
               <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-calendar3 text-2xl"></i>
@@ -81,28 +65,18 @@
                 class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 v-model="month"
                 :disabled="!editMode"
-                :class="
-                  editMode
-                    ? 'border-black border-2 border-solid rounded-lg'
-                    : 'border-gray-100'
-                "
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
               >
                 <option value="">Select Month</option>
-                <option
-                  v-for="(month, index) in months"
-                  :key="index"
-                  :value="index + 1"
-                >
-                  {{ month }}
+                <option v-for="(monthName, index) in months" :key="index" :value="monthName">
+                  {{ monthName }}
                 </option>
               </select>
             </div>
           </div>
           <!-- Fourth Parameter -->
           <div class="mb-px mt-4">
-            <label class="font-bold text-[13px] text-gray-400"
-              >Day of Birth</label
-            >
+            <label class="font-bold text-[13px] text-gray-400">Day of Birth</label>
             <div class="flex gap-2 items-center border border-gray-100">
               <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-calendar3 text-2xl"></i>
@@ -111,18 +85,10 @@
                 class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
                 v-model="day"
                 :disabled="!editMode || !month"
-                :class="
-                  editMode
-                    ? 'border-black border-2 border-solid rounded-lg'
-                    : 'border-gray-100'
-                "
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
               >
                 <option value="">Select Date</option>
-                <option
-                  v-for="date in getDatesForMonth(month)"
-                  :key="date"
-                  :value="date"
-                >
+                <option v-for="date in getDatesForMonth(month)" :key="date" :value="date">
                   {{ date }}
                 </option>
               </select>
@@ -130,9 +96,7 @@
           </div>
           <!-- Fifth Parameter -->
           <div class="mb-px mt-4">
-            <label class="font-bold text-[13px] text-gray-400"
-              >Hall of Residence</label
-            >
+            <label class="font-bold text-[13px] text-gray-400">Hall of Residence</label>
             <div class="flex gap-2 items-center border border-gray-100">
               <span class="text-gray-400 border border-gray-100 px-2">
                 <i class="bi bi-house text-2xl"></i>
@@ -143,11 +107,7 @@
                 placeholder="Enter Hall of Residence"
                 v-model="hallOfResidence"
                 :readonly="!editMode"
-                :class="
-                  editMode
-                    ? 'border-black border-2 border-solid rounded-lg'
-                    : 'border-gray-100'
-                "
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
               />
             </div>
           </div>
@@ -164,11 +124,7 @@
                 placeholder="Enter Room No."
                 v-model="roomNo"
                 :readonly="!editMode"
-                :class="
-                  editMode
-                    ? 'border-black border-2 border-solid rounded-lg'
-                    : 'border-gray-100'
-                "
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
               />
             </div>
           </div>
@@ -185,16 +141,46 @@
                 placeholder="Enter Hobbies"
                 v-model="hobbies"
                 :readonly="!editMode"
-                :class="
-                  editMode
-                    ? 'border-black border-2 border-solid rounded-lg'
-                    : 'border-gray-100'
-                "
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+              />
+            </div>
+          </div>
+          <!-- Eighth Parameter (Phone Number) -->
+          <div class="mb-px mt-4">
+            <label class="font-bold text-[13px] text-gray-400">Phone Number</label>
+            <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-phone text-2xl"></i>
+              </span>
+              <input
+                type="tel"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                placeholder="Enter Phone Number"
+                v-model="phoneNumber"
+                :readonly="!editMode"
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
+              />
+            </div>
+          </div>
+          <!-- Ninth Parameter (Skills) -->
+          <div class="mb-px mt-4">
+            <label class="font-bold text-[13px] text-gray-400">Skills</label>
+            <div class="flex gap-2 items-center border border-gray-100">
+              <span class="text-gray-400 border border-gray-100 px-2">
+                <i class="bi bi-tools text-2xl"></i>
+              </span>
+              <input
+                type="text"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                placeholder="Enter Skills"
+                v-model="skills"
+                :readonly="!editMode"
+                :class="editMode ? 'border-black border-2 border-solid rounded-lg' : 'border-gray-100'"
               />
             </div>
           </div>
           <button
-            class="bg-blue-500 w-full mt-6 py-2 text-white text-[12-px] font-medium transition md:text-lg"
+            class="bg-blue-500 w-full mt-6 py-2 text-white text-[12px] font-medium transition md:text-lg"
             @click.prevent="handleSubmit"
             v-if="editMode"
           >
@@ -237,6 +223,8 @@ const gender = ref(store.user.gender || "gender");
 const month = ref(store.user.monthOfBirth || null);
 const day = ref(store.user.dayOfBirth || null);
 const hobbies = ref(store.user.hobbies || null);
+const phoneNumber = ref(store.user.phoneNumber || null);
+const skills = ref(store.user.skills || null);
 const months = [
   "January",
   "February",
@@ -255,11 +243,12 @@ const months = [
 const getDatesForMonth = (month) => {
   if (!month) return [];
 
-  const daysInMonth = new Date(2023, month, 0).getDate();
+  const monthIndex = months.indexOf(month) + 1;
+  const daysInMonth = new Date(2023, monthIndex, 0).getDate();
   const dates = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   // Always include February 29th as an option
-  if (month === 2) {
+  if (month === "February") {
     dates.push(29);
   }
   return dates;
@@ -267,6 +256,7 @@ const getDatesForMonth = (month) => {
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+  console.log(store.user)
 });
 
 const cancelEdit = () => {
@@ -278,6 +268,8 @@ const cancelEdit = () => {
   hallOfResidence.value = store.user.hallOfResidence || null;
   roomNo.value = store.user.roomNo || null;
   hobbies.value = store.user.hobbies || null;
+  phoneNumber.value = store.user.phoneNumber || null;
+  skills.value = store.user.skills || null;
 
   // Disable edit mode
   editMode.value = false;
@@ -292,6 +284,8 @@ const handleSubmit = async () => {
     hallOfResidence: hallOfResidence.value.toUpperCase(),
     email: emailAddress.value.toLowerCase(),
     hobbies: hobbies.value,
+    phoneNumber: phoneNumber.value,
+    skills: skills.value,
   });
 
   const { jsonData } = await saveData(data);

@@ -50,19 +50,19 @@
       </div>
 
       <div v-else class="relative z-10 container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <div
             v-for="birthday in birthdays"
             :key="birthday.matricNumber"
             class="backdrop-blur-md bg-opacity-20 bg-gray-800 rounded-lg p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105"
           >
             <div class="flex flex-col items-center text-white">
-              <div class="relative w-40 h-40 mb-4">
+              <div class="relative w-full aspect-[2/3] mb-4">
                 <img
                   :src="birthday.imageUrl"
                   @load="() => imageLoaded(birthday)"
                   @error="retryImageLoad($event, birthday)"
-                  class="rounded-full object-cover w-full h-full shadow-md"
+                  class="rounded-xl object-cover w-full h-full shadow-md"
                   :class="{ hidden: !birthday.imageLoaded }"
                 />
                 <svg

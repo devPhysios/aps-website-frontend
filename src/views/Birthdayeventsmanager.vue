@@ -23,7 +23,7 @@
         <div
           v-for="birthday in birthdays"
           :key="birthday._id"
-          class="relative p-4 rounded-lg shadow-sm flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 space-x-0 sm:space-x-4 bg-cover bg-center overflow-hidden"
+          class="relative p-4 rounded-lg shadow-sm flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 bg-cover bg-center overflow-hidden"
         >
           <div
             class="absolute inset-0 z-0"
@@ -48,20 +48,24 @@
               {{ statusText(birthday) }}
             </span>
           </div>
-          <img
-            :src="birthday.imageUrl"
-            alt="Birthday celebrant"
-            class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover z-20"
-            loading="lazy"
-          />
-          <div class="flex-1 z-20 text-center sm:text-left">
-            <h2 class="text-lg md:text-xl lg:text-2xl font-semibold">
+          <div
+            class="relative w-full aspect-square sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0 z-20"
+          >
+            <img
+              :src="birthday.imageUrl"
+              alt="Birthday celebrant"
+              class="rounded-full object-cover w-full h-full shadow-md"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex-1 z-20 text-center sm:text-left space-y-1">
+            <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold">
               {{ birthday.fullName }}
             </h2>
-            <p class="text-sm md:text-base text-gray-600">
+            <p class="text-sm sm:text-base text-gray-600">
               {{ birthday.classSet }} - {{ birthday.level }} Level
             </p>
-            <p class="text-sm md:text-base text-gray-600">
+            <p class="text-sm sm:text-base text-gray-600">
               Birthday: {{ monthName(birthday.birthdayMonth) }}
               {{ birthday.birthdayDay }}
             </p>
@@ -104,7 +108,7 @@
               </div>
             </div>
           </div>
-          <div class="flex space-x-2 z-20">
+          <div class="flex space-x-2 z-20 mt-2 sm:mt-0">
             <button
               @click="updateBirthday()"
               class="text-blue-500 hover:text-blue-700 flex items-center transition duration-300 ease-in-out"

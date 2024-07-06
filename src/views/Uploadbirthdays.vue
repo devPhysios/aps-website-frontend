@@ -440,7 +440,7 @@ const handleSubmit = async () => {
     birthday.value.day
   );
 
-  if (birthdayDate < currentDate) {
+  if (birthdayDate < currentDate.setHours(0, 0, 0, 0)) {
     isLoading.value = false;
     toast.error(
       "The birthday date is in the past. Wait till the following year"

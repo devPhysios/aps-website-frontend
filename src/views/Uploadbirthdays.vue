@@ -155,14 +155,21 @@
               max="31"
               class="border p-2 rounded mr-2 w-20"
             />
-            <input
-              v-model="birthday.month"
-              type="number"
-              placeholder="Month"
-              min="1"
-              max="12"
-              class="border p-2 rounded w-20"
-            />
+            <select v-model="birthday.month" class="border p-2 rounded w-32">
+              <option value="" disabled>Select Month</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
           </div>
         </div>
 
@@ -268,6 +275,21 @@ const placeholder = ref("Input the Happy Birthday message here...");
 const selectedMonth = ref("");
 const birthdayStudents = ref([]);
 const totalStudents = ref(0);
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 const onEditorReady = () => {
   console.log("Editor is ready");

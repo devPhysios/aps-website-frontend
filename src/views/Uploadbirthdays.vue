@@ -339,6 +339,10 @@ const fetchBirthdaysByMonth = async () => {
       `https://api.apsui.com/api/v1/birthdays/bymonth/${selectedMonth.value.toLowerCase()}`
     );
     birthdayStudents.value = response.data.students;
+
+    // Sort the students by day of birth in ascending order
+    birthdayStudents.value.sort((a, b) => a.dayOfBirth - b.dayOfBirth);
+
     totalStudents.value = response.data.students.length;
     isLoading.value = false;
   } catch (error) {

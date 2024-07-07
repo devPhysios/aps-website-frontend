@@ -1,5 +1,10 @@
 <template>
   <div class="min-h-screen bg-gray-900" @click="initializeAudio">
+    <!-- APS Logo -->
+    <div class="flex justify-center py-4">
+      <img :src="apsLogo" alt="APS Logo" class="w-32 h-auto animate-blink z-50" />
+    </div>
+
     <!-- Background Video -->
     <div
       v-if="birthdays.length > 0"
@@ -7,7 +12,7 @@
     >
       <video
         ref="backgroundVideo"
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover animate-fade-in"
         autoplay
         loop
         muted
@@ -44,21 +49,20 @@
         v-else-if="birthdays.length === 0"
         class="flex flex-col items-center justify-center h-screen text-white"
       >
-        <h1 class="text-3xl font-bold mb-4">No Birthday Events for Today</h1>
-        <p class="text-lg">
+        <h1 class="text-3xl font-bold mb-4 animate-fade-in">
+          No Birthday Events for Today
+        </h1>
+        <p class="text-lg animate-fade-in">
           You will be redirected to the home page shortly...
         </p>
       </div>
 
       <!-- Birthday Cards -->
-      <div
-        v-else
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-      >
+      <div v-else class="flex flex-wrap justify-center gap-6 md:gap-8">
         <div
           v-for="birthday in birthdays"
           :key="birthday.matricNumber"
-          class="backdrop-blur-md bg-opacity-20 bg-gray-800 rounded-lg p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105"
+          class="backdrop-blur-md bg-opacity-20 bg-gray-800 rounded-lg p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 animate-slide-up"
         >
           <div class="flex flex-col items-center text-white">
             <div class="relative w-full aspect-[2/3] mb-4">
@@ -115,6 +119,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
+import apsLogo from "@/assets/images/aps-logo.png";
 
 const toast = useToast();
 const birthdays = ref([]);
@@ -258,57 +263,222 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-audio-init-button {
-  display: none;
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-gray-900 {
+  background-color: #1a202c;
 }
 
 .container {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.birthday-cards-container {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 2rem;
-}
-
-@media (min-width: 640px) {
-  .birthday-cards-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .birthday-cards-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.spinner-container {
+.flex {
   display: flex;
+}
+
+.justify-center {
   justify-content: center;
+}
+
+.items-center {
   align-items: center;
+}
+
+.h-screen {
   height: 100vh;
 }
 
-.message-container {
-  text-align: center;
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
-h1 {
-  font-size: 1.875rem;
-  font-weight: bold;
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.md\:gap-8 {
+  gap: 2rem;
+}
+
+.bg-opacity-20 {
+  background-opacity: 0.2;
+}
+
+.bg-gray-800 {
+  background-color: #2d3748;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.hover\:shadow-2xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.text-white {
+  color: #fff;
+}
+
+.aspect-\[2\/3\] {
+  aspect-ratio: 2 / 3;
+}
+
+.mb-4 {
   margin-bottom: 1rem;
 }
 
-p {
-  font-size: 1.125rem;
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
-@media (min-width: 640px) {
-  h1 {
-    font-size: 2.25rem;
+.object-cover {
+  object-fit: cover;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-indigo-300 {
+  color: #9fa6ff;
+}
+
+.text-gray-300 {
+  color: #e2e8f0;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 </style>
+

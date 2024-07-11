@@ -3,7 +3,7 @@
     <!-- APS Logo and Header -->
     <div class="flex flex-col items-center py-4">
       <img :src="apsLogo" alt="APS Logo" class="w-32 h-auto z-50" />
-      <h1 class="text-white text-3xl font-bold mt-4 z-50">
+      <h1 class="text-white text-3xl font-bold mt-4 z-50 text-center">
         <p>Association of Physiotherapy Students</p>
         <p class="text-center">University of Ibadan</p>
       </h1>

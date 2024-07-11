@@ -15,7 +15,7 @@
     >
       <video
         ref="backgroundVideo"
-        class="w-full h-full object-cover"
+        class="absolute top-0 left-0 w-full h-full object-fill z-0"
         autoplay
         loop
         muted

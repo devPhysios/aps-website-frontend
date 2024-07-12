@@ -65,7 +65,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const store = useUserStore();
       store.updateFooterVisibility(false);
-      store.updateHeaderVisibility(false)
+      store.updateHeaderVisibility(false);
       next();
     },
   },
@@ -79,7 +79,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const store = useUserStore();
       store.updateFooterVisibility(false);
-      store.updateHeaderVisibility(true)
+      store.updateHeaderVisibility(true);
       next();
     },
   },
@@ -366,6 +366,18 @@ router.beforeEach((to, from, next) => {
         name: "LoginPage",
         query: { redirect: to.fullPath },
       });
+    } else if (!store.user.hasOwnProperty("forceLogout")) {
+      store.logout();
+      next({
+        name: "LoginPage",
+        query: { redirect: to.fullPath },
+      });
+    } else if (store.user.forceLogout) {
+      store.logout();
+      next({
+        name: "LoginPage",
+        query: { redirect: to.fullPath },
+      });
     } else if (store.user && store.user.firstLogin) {
       next({
         name: "UpdateSecurityPage",
@@ -378,14 +390,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
-// const fetchData = async (id) => {
-//   try {
-//     const response = await axios.get(`https://api.apsui.com/questions/${id}`);
-//     return response.data;
-//   } catch (error) {
-//     router.next({ name: "NotFound" });
-//   }
-// };
 
 export default router;

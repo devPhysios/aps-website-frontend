@@ -104,6 +104,7 @@
             {{ birthday.birthdayDay }}
           </p>
           <p class="text-gray-300 font-poppins">{{ birthday.classSet }}</p>
+          <p class="text-gray-300 font-poppins">{{ birthday.level }} Level</p>
           <div
             v-html="birthday.birthdayWish"
             class="mt-4 text-gray-300 italic font-poppins"

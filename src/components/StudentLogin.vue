@@ -101,10 +101,10 @@ const handleLogin = async () => {
       } else if (rawData.error.response.status === 401) {
         toast.error("Invalid credentials");
       } else if (rawData.error.response.status === 500) {
-        console.log(error.response.data);
+        console.log(rawData.error.response.data);
         toast.error("An error occurred, please try again");
       } else {
-        console.log(error.response.data);
+        console.log(rawData.error.response.data);
         toast.error("An error occurred, please try again");
       }
     } else if (rawData.success === true) {
@@ -130,7 +130,7 @@ const handleLogin = async () => {
       }
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
     toast.error("An error occurred, please try again");
   } finally {
     isLoading.value = false;

@@ -94,7 +94,6 @@ const handleLogin = async () => {
   try {
     const rawData = await loginUser(matricNumber.value, password.value);
     if (rawData.success === false) {
-      console;
       if (rawData.error.response.status === 400) {
         toast.error("Matric Number and password are required");
       } else if (rawData.error.response.status === 404) {
@@ -131,6 +130,7 @@ const handleLogin = async () => {
       }
     }
   } catch (error) {
+    console.log(error)
     toast.error("An error occurred, please try again");
   } finally {
     isLoading.value = false;

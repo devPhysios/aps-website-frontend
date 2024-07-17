@@ -1,10 +1,10 @@
 <template>
   <section
-    class="flex w-full min-h-full bg-gray-50 pt-20 font-display md:min-h-full"
+    class="flex w-full min-h-full bg-gray-50 pt-5 font-display md:min-h-full"
   >
     <DashBoardSideMenu />
     <div
-      class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6"
+      class="w-[80%] mx-2 h-full rounded pt-4 pl-4 bg-gray-50 pb-3 md:pb-8 md:ml-4 md:pt-6 overflow-x-auto"
     >
       <h2
         class="font-display text-aps-green font-bold text-[14px] pb-4 md:text-l"
@@ -64,12 +64,14 @@
           <div class="mb-px">
             <label class="font-bold text-[13px] text-gray-400">Email</label>
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-envelope text-2xl"></i>
               </span>
               <input
                 type="email"
-                class="font-semibold border-0 w-full focus:outline-0 text-[12px] py-2 px-4 md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-[12px] py-2 px-4 md:text-[16px] overflow-x-auto"
                 :class="
                   editMode
                     ? 'text-gray-500 border-black border-2 border-solid rounded-lg'
@@ -85,7 +87,9 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Gender</label>
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-person text-2xl"></i>
               </span>
               <select
@@ -110,7 +114,9 @@
               >Month of Birth</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-calendar3 text-2xl"></i>
               </span>
               <select
@@ -140,7 +146,9 @@
               >Day of Birth</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-calendar3 text-2xl"></i>
               </span>
               <select
@@ -170,12 +178,14 @@
               >Hall of Residence</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-house text-2xl"></i>
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px] overflow-x-auto"
                 placeholder="Enter Hall of Residence"
                 v-model="hallOfResidence"
                 :readonly="!editMode"
@@ -191,12 +201,14 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Room No.</label>
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-0-circle text-2xl"></i>
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px] overflow-x-auto"
                 placeholder="Enter Room No."
                 v-model="roomNo"
                 :readonly="!editMode"
@@ -212,12 +224,14 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Hobbies</label>
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-controller text-2xl"></i>
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px] overflow-x-auto"
                 placeholder="Enter Hobbies"
                 v-model="hobbies"
                 :readonly="!editMode"
@@ -235,12 +249,14 @@
               >Phone Number</label
             >
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-phone text-2xl"></i>
               </span>
               <input
                 type="tel"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px] overflow-x-auto"
                 placeholder="Enter Phone Number"
                 v-model="phoneNumber"
                 :readonly="!editMode"
@@ -256,12 +272,14 @@
           <div class="mb-px mt-4">
             <label class="font-bold text-[13px] text-gray-400">Skills</label>
             <div class="flex gap-2 items-center border border-gray-100">
-              <span class="text-gray-400 border border-gray-100 px-2">
+              <span
+                class="text-gray-400 border border-gray-100 px-2 flex-shrink-0"
+              >
                 <i class="bi bi-tools text-2xl"></i>
               </span>
               <input
                 type="text"
-                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px]"
+                class="font-semibold border-0 w-full focus:outline-0 text-gray-500 py-2 px-4 text-[12px] md:text-[16px] overflow-x-auto"
                 placeholder="Enter Skills"
                 v-model="skills"
                 :readonly="!editMode"

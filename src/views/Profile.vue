@@ -11,6 +11,34 @@
       >
         Profile Information
       </h2>
+      <!-- Loading Icon -->
+      <div
+        v-if="isLoading"
+        class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50"
+      >
+        <svg
+          class="animate-spin h-10 w-10 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 4.421 2.906 8.166 6.998 9.494l1.002-4.203z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Profile Information -->
       <div class="shadow py-4 px-4 max-w-[500px] mx-auto md:mx-4">
         <div class="mb-4">
           <div class="flex items-center justify-between">
@@ -282,6 +310,7 @@ const store = useUserStore();
 
 const toast = useToast();
 const editMode = ref(false);
+const isLoading = ref(false);
 const emailAddress = ref(store.user.email || null);
 const hallOfResidence = ref(store.user.hallOfResidence || null);
 const roomNo = ref(store.user.roomNo || null);
@@ -341,6 +370,7 @@ const cancelEdit = () => {
 };
 
 const handleSubmit = async () => {
+  isLoading.value = true;
   const data = JSON.stringify({
     dayOfBirth: day.value ?? null,
     monthOfBirth: month.value ?? null,
@@ -356,6 +386,7 @@ const handleSubmit = async () => {
   const { jsonData } = await saveData(data);
 
   store.save(jsonData.student);
+  isLoading.value = false;
   editMode.value = false;
 };
 </script>

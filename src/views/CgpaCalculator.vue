@@ -1,7 +1,7 @@
 <template>
   <div class="font-display md:pt-[75px] pt-[70px] px-4 md:px-6">
     <nav class="bg-gray-100 pb-4 sticky top-0 z-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <ol class="flex items-center space-x-4">
           <li>
             <a href="/" class="text-gray-600 hover:text-gray-800 underline"
@@ -96,7 +96,7 @@
           <div>
             {{ course.level }}
           </div>
-          <div>
+          <div class="font-bold">
             {{ course.coursecode }}
           </div>
           <div>{{ course.units }} units</div>
@@ -135,11 +135,33 @@
       <p class="m-auto font-semibold text-xl">Your CGPA:</p>
       <div class="font-black text-8xl">{{ cgpa }}</div>
     </div>
+
+    <div class="my-8 px-2 ">
+      <h2 class="text-xl font-semibold mb-2 text-center">CGPA Analysis</h2>
+      <table class="bg-white border w-full">
+        <thead>
+          <tr>
+            <th class="py-2 px-4 border">Grade</th>
+            <th class="py-2 px-4 border">Course Codes</th>
+            <th class="py-2 px-4 border">Number of Courses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(analysis, grade) in gradeAnalysis" :key="grade">
+            <td class="py-2 px-4 border">{{grade}}</td>
+            <td class="py-2 px-4 border">
+              {{ analysis.courseCodes.join(", ") }}
+            </td>
+            <td class="py-2 px-4 border">{{ analysis.courseCodes.length }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watch, computed, onMounted } from "vue";
+import { ref, watch, computed, onMounted, reactive } from "vue";
 import l100 from "@/courses/100L.json";
 import l200 from "@//courses/200L.json";
 import l300 from "@//courses/300L.json";
@@ -148,6 +170,7 @@ import l500 from "@//courses/500L.json";
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+  loadSelectedCourses();
 });
 
 const courses = {
@@ -198,6 +221,28 @@ const getGradeUnit = (score) => {
   return 0;
 };
 
+    const gradeAnalysis = reactive ({
+        A: { courseCodes:[] },
+        B: { courseCodes:[] },
+        C: { courseCodes:[] },
+        D: { courseCodes:[] },
+        F: { courseCodes:[] }
+    });
+
+    const saveSelectedCourses = () => {
+      localStorage.setItem("selectedCourses", JSON.stringify(selectedCourses.value));
+      console.log(selectedCourses)
+    };
+
+    const loadSelectedCourses = () => {
+      const storedCourses = JSON.parse(localStorage.getItem("selectedCourses"));
+      if (storedCourses) {
+        selectedCourses.value = storedCourses;
+        analyseGrade();
+      }
+      console.log(selectedCourses)
+    };
+
 const addCourse = () => {
   if (selectedCourse.value.code && scores.value) {
     const newItem = {
@@ -210,11 +255,31 @@ const addCourse = () => {
       gradeUnit: getGradeUnit(scores.value),
     };
     selectedCourses.value.push(newItem);
+    console.log(newItem);
+    console.log(gradeAnalysis);
+
+    for (const grade in gradeAnalysis) {
+    gradeAnalysis[grade].courseCodes = [];
+  }
+    analyseGrade();
+    saveSelectedCourses();
+
 
     selectedCourseCode.value = "";
     scores.value = "";
   }
 };
+
+
+const analyseGrade = () =>  {
+    selectedCourses.value.forEach(obj => {
+        if (gradeAnalysis.hasOwnProperty(obj.grade)) {
+            gradeAnalysis[obj.grade].courseCodes.push(obj.coursecode)
+        }
+        
+    })
+}
+analyseGrade();
 
 const startEdit = (course) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -224,6 +289,7 @@ const startEdit = (course) => {
   courseBeingEdited.value = course;
   editMode.value = true;
   removeItem(course.id);
+  calculateCGPA();
 };
 
 const saveEdit = () => {
@@ -234,13 +300,17 @@ const saveEdit = () => {
     courseBeingEdited.value.scores = scores.value;
     courseBeingEdited.value.grade = getGrade(scores.value);
     addCourse();
+    calculateCGPA();
 
     selectedCourseCode.value = "";
     scores.value = "";
     courseBeingEdited.value = null;
     editMode.value = false;
+    saveSelectedCourses();
   }
 };
+
+
 
 function removeItem(id) {
   const index = selectedCourses.value.findIndex((item) => item.id === id);
@@ -251,6 +321,7 @@ function removeItem(id) {
   for (let i = index; i < selectedCourses.value.length; i++) {
     selectedCourses.value[id].id = i + 1;
   }
+  saveSelectedCourses();
 }
 
 watch(selectedLevel, filterCourses);
@@ -275,6 +346,11 @@ const calculateCGPA = () => {
 const clear = () => {
   selectedCourses.value.length = 0;
   calculateCGPA();
-  cgpa.value = "0.00";
+  for (const grade in gradeAnalysis) {
+    gradeAnalysis[grade].courseCodes = [];
+  };
+  analyseGrade();
+  cgpa.value = "-.--";
+  localStorage.removeItem("selectedCourses");
 };
 </script>

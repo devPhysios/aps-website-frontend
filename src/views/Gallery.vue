@@ -1,5 +1,5 @@
 <template>
-  <section class="text-white bg-green-100 font-display pt-14">
+  <section class="text-white bg-green-100 font-display">
     <div class="flex flex-col text-center w-full p-8">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-black">
         Memories We Created
@@ -37,8 +37,14 @@
         class="flex justify-center"
       >
         <div class="max-w-md md:max-w-lg lg:max-w-xl relative">
-          <div v-if="loadingImages[index]" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50">
-            <svg class="animate-spin h-8 w-8 text-green-500" viewBox="0 0 24 24">
+          <div
+            v-if="loadingImages[index]"
+            class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50"
+          >
+            <svg
+              class="animate-spin h-8 w-8 text-green-500"
+              viewBox="0 0 24 24"
+            >
               <circle
                 class="opacity-25"
                 cx="12"
@@ -75,10 +81,7 @@
                   {{ image.description }}
                 </p>
                 <p class="text-[12px] md:text-sm text-center mb-1">
-                  <span
-                    v-for="(feature, index) in image.features"
-                    :key="index"
-                  >
+                  <span v-for="(feature, index) in image.features" :key="index">
                     {{ feature }},
                   </span>
                 </p>
@@ -181,14 +184,12 @@ const loadingImages = ref([]);
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   try {
-    const response = await axios.get(
-      "https://aps-website-backend.onrender.com/api/v1/gallery"
-    );
+    const response = await axios.get("https://api.apsui.com/api/v1/gallery");
     webimages.value = response.data.images.map((image, index) => {
       loadingImages.value[index] = true; // Set loading state to true for each image
       return {
         ...image,
-        imageUrl: transformToWebp(image.imageUrl)
+        imageUrl: transformToWebp(image.imageUrl),
       };
     });
     loading.value = false;
@@ -240,8 +241,8 @@ const filteredImages = computed(() =>
   filterImages(searchQuery.value, webimages.value)
 );
 
-function handleInput () {
-  currentPage.value = 1
+function handleInput() {
+  currentPage.value = 1;
 }
 
 const displayedImages = computed(() => {
@@ -290,8 +291,6 @@ const shouldStackImages = computed(() => {
   return window.innerWidth < 768;
 });
 </script>
-
-
 
 <style scoped>
 .masonry-item {

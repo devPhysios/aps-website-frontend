@@ -1,5 +1,5 @@
 <template>
-  <div class="font-display pt-14">
+  <div class="font-display">
     <!-- This is the ABOUT US section beginning--->
     <div
       class="bg-gray-200 md:flex md:justify-between md:items-center gap-4 p-8"
@@ -33,7 +33,7 @@
           and health conditions.
           <br />
           <br />
-          In June, 1978 the students of the Department of Physiotherapy,
+          In June, 1968 the students of the Department of Physiotherapy,
           University College Hospital, Ibadan formed an association called
           "Association of Undergraduate Physiotherapists". It was the first by
           any physiotherapist body in Nigeria. After a while, it was

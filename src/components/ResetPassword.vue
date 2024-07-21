@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import {useToast} from "vue-toastification";
+import { useToast } from "vue-toastification";
 import { ref } from "vue";
 import axios from "axios";
 import router from "@/router";
@@ -98,12 +98,12 @@ const resetForm = () => {
 
 const resetPassword = async () => {
   if (!matricNumber.value || !securityQuestion.value || !securityAnswer.value) {
-    toast.warning("Please fill in all the fields")
+    toast.warning("Please fill in all the fields");
     return;
   }
   try {
     const response = await axios.post(
-      "https://aps-website-backend.onrender.com/api/v1/auth/resetpw",
+      "https://api.apsui.com/api/v1/auth/resetpw",
       {
         matricNumber: matricNumber.value,
         securityQuestion: securityQuestion.value,
@@ -113,13 +113,13 @@ const resetPassword = async () => {
     toast.success("Password reset successful");
     resetForm();
     setTimeout(() => {
-      toast.success("Come, let's update your security details")
+      toast.success("Come, let's update your security details");
       setTimeout(async () => {
         location.reload();
       }, 2500);
     }, 2500);
   } catch (error) {
-    toast.error(error.response.data.error)
+    toast.error(error.response.data.error);
     resetForm();
   }
 };

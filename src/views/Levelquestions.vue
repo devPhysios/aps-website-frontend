@@ -1,5 +1,5 @@
 <template>
-  <nav class="font-display bg-gray-200 pb-4 sticky top-0 z-10 pt-20">
+  <nav class="font-display bg-gray-200 pb-4 sticky top-0 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>
@@ -66,7 +66,6 @@ onMounted(() => {
   fetchUploadedCourseCodes();
 });
 
-
 const allowedLevels = ["100", "200", "300", "400", "500"];
 if (!allowedLevels.includes(level)) {
   router.replace("/not-found");
@@ -81,11 +80,10 @@ if (!allowedLevels.includes(level)) {
     });
 }
 
-
 const fetchUploadedCourseCodes = async () => {
   try {
     const response = await axios.get(
-      `https://aps-website-backend.onrender.com/api/v1/questions/uploaded/${level}L`
+      `https://api.apsui.com/api/v1/questions/uploaded/${level}L`
     );
     uploadedCourseCodes.value = response.data.courseCodes;
   } catch (error) {

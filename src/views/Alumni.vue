@@ -1,28 +1,32 @@
 <template>
-  <marquee
-    class="pt-20 w-full font-display pb-2 px-4 bg-yellow-100 z-[20] rounded-md text-center fixed flex justify-between items-center gap-4"
+  <div
+    class="sticky top-0 w-full bg-yellow-100 z-20 transition-transform duration-300"
+    :class="{ 'fixed top-0': isScrolled }"
+    @click="copyToClipboard"
   >
-    <div>
-      <p class="font-bold text-center text-[10px] md:text-md">
-        Call For Donations
-      </p>
-    </div>
-    <div class="justify-normal text-center text-[8px] md:text-sm flex gap-2">
-      <p class="font-bold">
-        Account Number:
-        <span class="font-normal cursor-pointer" @click="copyToClipboard"
-          >0034046597</span
-        >
-      </p>
-      <p>
-        <span class="font-bold">Account Name:</span> Association Of
-        Physiotherapy Students, UI
-      </p>
-      <p><span class="font-bold">Bank Name:</span> Access Bank Plc</p>
-    </div>
-  </marquee>
+    <marquee
+      class="w-full font-display pb-2 px-4 bg-yellow-100 rounded-md text-center flex justify-between items-center gap-4"
+    >
+      <div>
+        <p class="font-bold text-center text-[10px] md:text-md">
+          Call For Donations
+        </p>
+      </div>
+      <div class="justify-normal text-center text-[8px] md:text-sm flex gap-2">
+        <p class="font-bold">
+          Account Number:
+          <span class="font-normal cursor-pointer">0034046597</span>
+        </p>
+        <p>
+          <span class="font-bold">Account Name:</span> Association Of
+          Physiotherapy Students, UI
+        </p>
+        <p><span class="font-bold">Bank Name:</span> Access Bank Plc</p>
+      </div>
+    </marquee>
+  </div>
 
-  <div class="font-display pt-20">
+  <div class="font-display pt-20 mt-8">
     <div class="w-full p-1">
       <div class="grid grid-cols-3 md:gap-4 gap-3 h-full md:p-12 p-3">
         <div class="w-full h-[120px] md:h-[280px] bg-red-400 rounded-md">
@@ -68,7 +72,7 @@
     <div
       class="p-1 md:p-6 font-display my-8 mx-4 md:m-8 bg-green-200 rounded-md"
     >
-      <div class="">
+      <div>
         <p class="font-bold text-center text-2xl md:text-4xl">
           Message to Our Alumni
         </p>
@@ -156,21 +160,38 @@ import a7 from "@/assets/images/alumni/IMG_7548.jpg";
 import AlumniGalleryCarousel from "@/components/AlumniGalleryCarousel.vue";
 import PastPresidents from "@/components/PastPresidents.vue";
 
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const textToCopy = ref("0034046597");
 
 const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(textToCopy.value);
-    alert("Text copied to clipboard: " + textToCopy.value);
+    alert("Account Number copied to clipboard: " + textToCopy.value);
   } catch (error) {
-    console.error("Failed to copy text to clipboard:", error);
-    alert("Failed to copy text to clipboard");
+    console.error("Failed to copy Account Number to clipboard:", error);
+    alert("Failed to copy Account Number to clipboard");
   }
 };
 
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 0;
+};
+
 onMounted(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-})
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
+
+<style scoped>
+.marquee-fixed {
+  position: fixed;
+  top: 0;
+}
+</style>

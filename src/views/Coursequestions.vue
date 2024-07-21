@@ -1,6 +1,6 @@
 <!-- CourseQuestions.vue -->
 <template>
-  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 pt-20 font-display">
+  <nav class="bg-gray-200 pb-4 sticky top-0 z-10 font-display">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>
@@ -1139,7 +1139,7 @@ onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   try {
     const { data } = await axios.get(
-      `https://aps-website-backend.onrender.com/api/v1/questions/${route.params.course}`
+      `https://api.apsui.com/api/v1/questions/${route.params.course}`
     );
     loading.value = false;
     if (data.success) {
@@ -1247,11 +1247,11 @@ const updateQuestion = () => {
 
   let endpoint;
   if (editedQuestion.value.type === "MCQ") {
-    endpoint = `https://aps-website-backend.onrender.com/api/v1/mcq/editmcqs/${editedQuestion.value._id}`;
+    endpoint = `https://api.apsui.com/api/v1/mcq/editmcqs/${editedQuestion.value._id}`;
   } else if (editedQuestion.value.type === "Essay") {
-    endpoint = `https://aps-website-backend.onrender.com/api/v1/essayqs/editessayqs/${editedQuestion.value._id}`;
+    endpoint = `https://api.apsui.com/api/v1/essayqs/editessayqs/${editedQuestion.value._id}`;
   } else {
-    endpoint = `https://aps-website-backend.onrender.com/api/v1/fitg/editfitg/${editedQuestion.value._id}`;
+    endpoint = `https://api.apsui.com/api/v1/fitg/editfitg/${editedQuestion.value._id}`;
   }
 
   progress.value = 0; // Reset the progress percentage
@@ -1338,11 +1338,11 @@ const deleteQuestion = () => {
 
   let endpoint;
   if (deletedQuestion.value.type === "MCQ") {
-    endpoint = `https://aps-website-backend.onrender.com/api/v1/mcq/deletemcqs/${deletedQuestion.value._id}`;
+    endpoint = `https://api.apsui.com/api/v1/mcq/deletemcqs/${deletedQuestion.value._id}`;
   } else if (deletedQuestion.value.type === "Essay") {
-    endpoint = `https://aps-website-backend.onrender.com/api/v1/essayqs/deleteessayqs/${deletedQuestion.value._id}`;
+    endpoint = `https://api.apsui.com/api/v1/essayqs/deleteessayqs/${deletedQuestion.value._id}`;
   } else {
-    endpoint = `https://aps-website-backend.onrender.com/api/v1/fitg/deletefitg/${deletedQuestion.value._id}`;
+    endpoint = `https://api.apsui.com/api/v1/fitg/deletefitg/${deletedQuestion.value._id}`;
   }
 
   progress.value = 0; // Reset the progress percentage

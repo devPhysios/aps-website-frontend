@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto flex flex-col items-center justify-center mt-2 pb-48"
+    class="container mx-auto flex flex-col items-center justify-center pb-48"
   >
     <div class="bg-white p-8 rounded-lg shadow-md sm:w-[700px]">
       <div class="h-[150px] md:pb-0 pb-4">
@@ -94,7 +94,6 @@ const handleLogin = async () => {
   try {
     const rawData = await loginUser(matricNumber.value, password.value);
     if (rawData.success === false) {
-      console;
       if (rawData.error.response.status === 400) {
         toast.error("Matric Number and password are required");
       } else if (rawData.error.response.status === 404) {
@@ -102,10 +101,10 @@ const handleLogin = async () => {
       } else if (rawData.error.response.status === 401) {
         toast.error("Invalid credentials");
       } else if (rawData.error.response.status === 500) {
-        console.log(error.response.data);
+        console.log(rawData.error.response.data);
         toast.error("An error occurred, please try again");
       } else {
-        console.log(error.response.data);
+        console.log(rawData.error.response.data);
         toast.error("An error occurred, please try again");
       }
     } else if (rawData.success === true) {
@@ -127,10 +126,11 @@ const handleLogin = async () => {
         localStorage.setItem("studentToken", response.token);
         setTimeout(() => {
           router.push("/dashboard");
-        }, 3000);
+        }, 2000);
       }
     }
   } catch (error) {
+    console.log(error);
     toast.error("An error occurred, please try again");
   } finally {
     isLoading.value = false;

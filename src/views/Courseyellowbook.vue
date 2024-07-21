@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-200 pb-4 sticky font-display top-0 z-10 pt-20">
+  <nav class="bg-gray-200 pb-4 sticky font-display top-0 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-4">
         <li>

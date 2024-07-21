@@ -13,7 +13,7 @@ import UpdateSecurity from "../views/Updatesecurity.vue";
 import Login from "../views/Login.vue";
 import Uploadquestion from "@/views/Uploadquestion.vue";
 import NotFound from "@/views/Notfound.vue";
-// import ViewQuestion from "@/views/Viewquestion.vue";
+import BirthdayUpload from "@/views/Uploadbirthdays.vue";
 import Profile from "@/views/Profile.vue";
 import Constitution from "@/views/Const.vue";
 import Questions from "@/views/Questions.vue";
@@ -27,6 +27,10 @@ import CourseYellowBook from "@/views/Courseyellowbook.vue";
 import PhysioPress from "@/views/Physiopress.vue";
 import PhysioRay from "@/views/Physioray.vue";
 import TestingGround from "@/views/Testingground.vue";
+import Privacypolicy from "@/views/Privacypolicy.vue";
+import Termsofservice from "../views/Termsofservice.vue";
+import Birthdayevent from "@/views/Birthdayevent.vue";
+import Birthdayeventmanager from "@/views/Birthdayeventsmanager.vue";
 
 const routes = [
   {
@@ -40,9 +44,44 @@ const routes = [
     },
   },
   {
+    path: "/privacypolicy",
+    name: "PrivacyPolicy",
+    component: Privacypolicy,
+  },
+  {
+    path: "/terms-of-service",
+    name: "Tos",
+    component: Termsofservice,
+  },
+  {
     path: "/testingground",
     name: "TestingGround",
     component: TestingGround,
+  },
+  {
+    path: "/birthdays",
+    name: "BirthdayEvent",
+    component: Birthdayevent,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      store.updateHeaderVisibility(false);
+      next();
+    },
+  },
+  {
+    path: "/dashboard/birthday-manager",
+    name: "BirthdayEventManager",
+    component: Birthdayeventmanager,
+    meta: {
+      requiresAuth: true,
+    },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      store.updateHeaderVisibility(true);
+      next();
+    },
   },
   {
     path: "/about",
@@ -158,6 +197,19 @@ const routes = [
     },
   },
   {
+    path: "/dashboard/birthdayupload",
+    name: "BirthdayUploadPage",
+    component: BirthdayUpload,
+    meta: {
+      requiresAuth: true,
+    },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(false);
+      next();
+    },
+  },
+  {
     path: "/constitution",
     name: "ConstitutionPage",
     component: Constitution,
@@ -170,7 +222,7 @@ const routes = [
       next();
     },
   },
-    {
+  {
     path: "/dashboard/cgpacalculator",
     name: "CGPA Calculator",
     component: CGPACalculator,
@@ -181,7 +233,7 @@ const routes = [
       const store = useUserStore();
       store.updateFooterVisibility(true);
       next();
-    }
+    },
   },
   {
     path: "/dashboard/questions",
@@ -314,6 +366,18 @@ router.beforeEach((to, from, next) => {
         name: "LoginPage",
         query: { redirect: to.fullPath },
       });
+    } else if (!store.user.hasOwnProperty("forceLogout")) {
+      store.logout();
+      next({
+        name: "LoginPage",
+        query: { redirect: to.fullPath },
+      });
+    } else if (store.user.forceLogout) {
+      store.logout();
+      next({
+        name: "LoginPage",
+        query: { redirect: to.fullPath },
+      });
     } else if (store.user && store.user.firstLogin) {
       next({
         name: "UpdateSecurityPage",
@@ -326,14 +390,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
-// const fetchData = async (id) => {
-//   try {
-//     const response = await axios.get(`http://localhost:8800/questions/${id}`);
-//     return response.data;
-//   } catch (error) {
-//     router.next({ name: "NotFound" });
-//   }
-// };
 
 export default router;

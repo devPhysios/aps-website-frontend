@@ -10,14 +10,19 @@
   },
   "dependencies": {
     "@firebase/storage": "^0.12.3",
+    "@vueup/vue-quill": "^1.2.0",
     "audit": "^0.0.6",
     "axios": "^1.6.7",
+    "browser-image-compression": "^2.0.2",
+    "dayjs": "^1.11.11",
+    "dotenv": "^16.4.5",
     "firebase": "^10.11.1",
     "fix": "^0.0.6",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "npm": "^10.5.1",
     "pinia": "^2.1.7",
+    "quill": "^2.0.2",
     "vue": "^3.3.11",
     "vue-progress-bar": "^1.0.1",
     "vue-router": "^4.2.5",
@@ -31,5 +36,8 @@
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.4"
+  },
+  "overrides": {
+    "quill": "^2.0.2"
   }
 }

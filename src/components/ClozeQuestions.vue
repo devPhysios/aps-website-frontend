@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="container mx-auto py-8">
+  <form @submit.prevent="handleSubmit" class="container mx-auto py-2">
     <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
       <h2 class="text-2xl font-semibold mb-4">
         Upload Fill-in-the-Gap Question
@@ -255,7 +255,9 @@ const uploadToFirebase = () => {
       uploadProgress.value = Math.floor(
         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       );
-      toast.update(progressToastId.value, { content: `${uploadProgress.value}%` });
+      toast.update(progressToastId.value, {
+        content: `${uploadProgress.value}%`,
+      });
     },
     (error) => {
       toast.error(error.message, { timeout: 3000 });
@@ -269,7 +271,7 @@ const uploadToFirebase = () => {
           fullName: `${user.firstName} ${user.lastName}`,
           question: question.value || "No question",
           url: downloadURL,
-          type: 'Cloze'
+          type: "Cloze",
         };
         createQuestion(data);
         toast.dismiss(progressToastId.value);
@@ -324,7 +326,7 @@ const handleSubmit = async () => {
       answer.value = "No answer yet";
     }
     const response = await axios.post(
-      "https://aps-website-backend.onrender.com/api/v1/fitg/createfitg",
+      "https://api.apsui.com/api/v1/fitg/createfitg",
       {
         question: question.value,
         imgURL: imgURL.value,

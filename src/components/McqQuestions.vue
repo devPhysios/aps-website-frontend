@@ -398,7 +398,7 @@ const handleSubmit = async () => {
     // Use axios to post data to API endpoint
     const token = localStorage.getItem("studentToken");
     const response = await axios.post(
-      "https://aps-website-backend.onrender.com/api/v1/mcq/createmcqs",
+      "https://api.apsui.com/api/v1/mcq/createmcqs",
       {
         level: selectedLevel.value,
         courseCode: selectedCourse.value,

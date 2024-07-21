@@ -1,5 +1,5 @@
 <template>
-  <div class="font-display md:pt-[75px] pt-[70px] px-4 md:px-6">
+  <div class="font-display px-4 md:px-6">
     <nav class="bg-gray-100 pb-4 sticky top-0 z-10">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <ol class="flex items-center space-x-4">

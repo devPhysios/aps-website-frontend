@@ -83,7 +83,7 @@
         imgBg: img3,
       },
       {
-        name: `Dr Omoyemi O. Ogwumike`,
+        name: `Prof. Omoyemi O. Ogwumike`,
         title: "",
         imgBg: img9,
       },  

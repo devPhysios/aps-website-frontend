@@ -31,7 +31,7 @@
           </section>
           <section>
             <h2 class="text-2xl font-semibold text-gray-700 mb-2">5. Your Rights</h2>
-            <p class="text-gray-600">You have the right to access, update, or delete your personal information. Contact us at <a href="mailto:[insert contact email]" class="text-blue-500">[insert contact email]</a> to exercise these rights.</p>
+            <p class="text-gray-600">You have the right to access, update, or delete your personal information. Contact us at <a href="mailto:assofphysiostudents@gmail.com" class="text-blue-500">assofphysiostudents@gmail.com</a> to exercise these rights.</p>
           </section>
           <section>
             <h2 class="text-2xl font-semibold text-gray-700 mb-2">6. Changes to This Policy</h2>
@@ -39,7 +39,7 @@
           </section>
           <section>
             <h2 class="text-2xl font-semibold text-gray-700 mb-2">Contact Us</h2>
-            <p class="text-gray-600">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:[insert contact email]" class="text-blue-500">[insert contact email]</a>.</p>
+            <p class="text-gray-600">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:assofphysiostudents@gmail.com" class="text-blue-500">assofphysiostudents@gmail.com</a>.</p>
           </section>
         </div>
       </div>

@@ -31,6 +31,7 @@ import Privacypolicy from "@/views/Privacypolicy.vue";
 import Termsofservice from "../views/Termsofservice.vue";
 import Birthdayevent from "@/views/Birthdayevent.vue";
 import Birthdayeventmanager from "@/views/Birthdayeventsmanager.vue";
+// import Leaders from "@/views/Leaders.vue";
 
 const routes = [
   {
@@ -69,6 +70,11 @@ const routes = [
       next();
     },
   },
+  // {
+  //   path: "/leaders",
+  //   name: "LeadersPage",
+  //   component: Leaders
+  // },
   {
     path: "/dashboard/birthday-manager",
     name: "BirthdayEventManager",

@@ -94,8 +94,8 @@
           <p class="text-gray-600">
             If you have any questions about these Terms of Service, please
             contact us at
-            <a href="mailto:[insert contact email]" class="text-blue-500"
-              >[insert contact email]</a
+            <a href="mailto:assofphysiostudents@gmail.com" class="text-blue-500"
+              >assofphysiostudents@gmail.com</a
             >.
           </p>
         </section>

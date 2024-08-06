@@ -4,14 +4,16 @@ import router from "./router";
 import Toast, { POSITION } from 'vue-toastification';
 import { createPinia } from "pinia";
 import { db } from './firebase';
+import { createHead } from '@vueuse/head';
 
 import 'vue-toastification/dist/index.css';
 import "./assets/index.css";
 
-
+const head = createHead();
 const pinia = createPinia();
 const app = createApp(App);
 
+app.use(head);
 app.use(router);
 app.use(pinia);
 app.provide('db', db);

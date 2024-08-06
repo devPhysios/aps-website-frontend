@@ -116,9 +116,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
+import { useHead } from "@vueuse/head";
 import apsLogo from "@/assets/images/aps-logo.png";
 
 const toast = useToast();
@@ -140,6 +141,41 @@ const musicFiles = [
   "music/happy-birthday-3.mp3",
   "music/happy-birthday-4.mp3",
 ];
+
+const defaultHeaderImage = apsLogo;
+const defaultMetaDescription = "Celebrate with our birthday celebrants today!";
+
+// Computed properties for dynamic header image and meta description
+const headerImage = computed(() => {
+  return birthdays.value.length > 0 ? birthdays.value[0].imageUrl : defaultHeaderImage;
+});
+
+const metaDescription = computed(() => {
+  if (birthdays.value.length > 0) {
+    const celebrant = birthdays.value[0];
+    return `Today we celebrate ${celebrant.fullName}, born on ${getMonthName(celebrant.birthdayMonth)} ${celebrant.birthdayDay}. Happy Birthday, ${celebrant.fullName}!`;
+  } else {
+    return defaultMetaDescription;
+  }
+});
+
+// Setting meta tags dynamically
+useHead({
+  title: computed(() => birthdays.value.length > 0 ? `Happy Birthday, ${birthdays.value[0].fullName}!` : 'Birthday Celebrants'),
+  meta: [
+    { name: 'description', content: metaDescription.value },
+    { property: 'og:image', content: headerImage.value },
+    // Add other meta tags as needed
+  ],
+  link: [
+    {
+      rel: 'icon',
+      href: headerImage.value,
+      sizes: '32x32',
+      type: 'image/png',
+    },
+  ],
+});
 
 const fetchBirthdays = async () => {
   try {

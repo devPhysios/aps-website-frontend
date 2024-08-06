@@ -165,6 +165,9 @@ useHead({
   meta: [
     { name: 'description', content: metaDescription.value },
     { property: 'og:image', content: headerImage.value },
+    { property: 'og:description', content: metaDescription.value },
+    { property: 'og:title', content: computed(() => birthdays.value.length > 0 ? `Happy Birthday, ${birthdays.value[0].fullName}!` : 'Birthday Celebrants') },
+    { property: 'og:url', content: window.location.href },
     // Add other meta tags as needed
   ],
   link: [

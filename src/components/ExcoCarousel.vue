@@ -47,7 +47,7 @@
   import 'vue3-carousel/dist/carousel.css'
 
   import president from '@/assets/images/excos/exco1b.jpg'
-  import vpresident from '@/assets/images/excos/exco2b.png'
+  import vpresident from '@/assets/images/excos/exco2b.jpg'
   import gensec from '@/assets/images/excos/exco3b.jpg'
   import ags from '@/assets/images/excos/exco4b.jpg'
   import pro from '@/assets/images/excos/exco5b.jpg'
@@ -62,79 +62,79 @@
 
   const carouselData = ref([
     {
-      name: `Elijah Inioluwa`,
+      name: `Stephen Babalola`,
       title: "President",
       imgBg: president,
     },
     
     {
-      name: `Oyekan Oluwatobi`,
+      name: `Baderin Adebobola`,
       title: "Vice President",
       imgBg: vpresident,
     },
   
     {
-      name: `Olajide Ayomide`,
+      name: `Godlives Patrick`,
       title: "General Secretary",
       imgBg: gensec,
     },
 
     {
-      name: `Adeniran Happiness`,
+      name: `Laurette Ibekwe`,
       title: "Assistant General Secretary",
       imgBg: ags,
     },
 
     {
-      name: `Mustapha Ogo-Oluwa`,
+      name: `Ogo-Oluwa Mustapha`,
       title: "Public Relations Officer",
       imgBg: pro,
     },
 
     {
-      name: `Awopegba Jonadab`,
+      name: `Michael Aijefo`,
       title: "Social Secretary",
       imgBg: socialsec,
     },
   
     {
-      name: `Akinwola Oluwasegun`,
+      name: `Abraham Ajibade`,
       title: "Sports Secretary",
       imgBg: sportssec,
     },
 
     {
-      name: `Moshood Babatunde`,
+      name: `Oluwagbemisola Oyegunju`,
       title: "Financial Secretary",
       imgBg: finsec,
     },
 
     {
-      name: `Olanrewaju Timileyin`,
+      name: `Favour Oyewale`,
       title: "Treasurer",
       imgBg: treasurer,
     },
 
     {
-      name: `Adebayo Samuel`,
+      name: `Mercy Badejo`,
       title: "Special Duties Officer",
       imgBg: sdo,
     },
 
     {
-      name: `Solomon Oluwatodimu`,
+      name: `Jane Egun`,
       title: "Senate President",
       imgBg: senatepres,
     },
 
     {
-      name: `Goodluck Omotayo`,
+      name: `Toluwalase Adegboye`,
       title: "Deputy Senate President",
       imgBg: depsp,
     },
 
     {
-      name: `Egun Jane`,
+      name: `Theophilus Akintoye`,
       title: "Senate Clerk",
       imgBg: senateClerk,
     },

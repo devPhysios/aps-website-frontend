@@ -41,20 +41,43 @@
   <!-- Fifth Parameter -->
   <div class="mb-2 pl-4">
     <h4 class="font-bold text-[14px] text-gray-400 md:text-[16px]">
-      Post(s):
-      <span v-if="store.user.post.length === 0"> None </span>
-      <span v-else-if="store.user.post.length === 1">
-        <span class="font-medium text-[14px]">{{ store.user.post[0] }}</span>
-      </span>
-      <span v-else>
-        {{ store.user.post.join(", ") }}
+      Current Post(s):
+      <span v-if="currentPosts.length === 0"> None </span>
+      <span v-else class="font-medium text-[12px] md:text-[14px]">
+        {{ currentPosts.join(", ") }}
       </span>
     </h4>
+  </div>
+  <!-- Sixth Parameter -->
+  <div class="mb-2 pl-4">
+    <h4 class="font-bold text-[14px] text-gray-400 md:text-[16px]">
+      Past Post(s):
+    </h4>
+    <ul v-if="pastPosts.length > 0" class="list-disc pl-8">
+      <li v-for="post in pastPosts" :key="post.title" class="font-medium text-[12px] md:text-[14px]">
+        {{ post.title }} ({{ post.academicSession }})
+      </li>
+    </ul>
+    <span v-else class="font-medium text-[12px] md:text-[14px] pl-4">
+      None
+    </span>
   </div>
 </template>
 
 <script setup>
 import { useUserStore } from "@/stores/UserStore";
+import { computed } from 'vue';
 
 const store = useUserStore();
+const currentSession = "2023/2024";
+
+const currentPosts = computed(() => {
+  return store.user.post
+    .filter(post => post.academicSession === currentSession)
+    .map(post => post.title);
+});
+
+const pastPosts = computed(() => {
+  return store.user.post.filter(post => post.academicSession !== currentSession);
+});
 </script>

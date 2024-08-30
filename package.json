@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@firebase/storage": "^0.12.3",
+    "@unhead/vue": "^1.9.16",
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/head": "^2.0.0",
     "audit": "^0.0.6",
@@ -25,6 +26,7 @@
     "pinia": "^2.1.7",
     "quill": "^2.0.2",
     "vue": "^3.3.11",
+    "vue-flip": "^3.0.2",
     "vue-meta": "^2.4.0",
     "vue-progress-bar": "^1.0.1",
     "vue-router": "^4.2.5",

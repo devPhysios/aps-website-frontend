@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-900" @click="initializeAudio">
+  <div v-if="dataLoaded" class="min-h-screen bg-gray-900" @click="initializeAudio">
     <!-- APS Logo and Header -->
     <div class="flex flex-col items-center py-4">
       <img :src="apsLogo" alt="APS Logo" class="w-32 h-auto z-50" />
@@ -23,33 +23,9 @@
     </div>
 
     <div class="relative z-10 container mx-auto px-4 py-8">
-      <!-- Loading Spinner -->
-      <div v-if="loading" class="flex justify-center items-center h-screen">
-        <svg
-          class="animate-spin h-12 w-12 text-indigo-500"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            class="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="4"
-          ></circle>
-          <path
-            class="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8v8h8a8 8 0 01-8 8V4a8 8 0 01-8 8h8v8H4a8 8 0 01-8-8 8 8 0 014-6.93z"
-          ></path>
-        </svg>
-      </div>
-
       <!-- No Birthday Events Message -->
       <div
-        v-else-if="birthdays.length === 0"
+        v-if="birthdays.length === 0"
         class="flex flex-col items-center justify-center h-screen text-white"
       >
         <h1 class="text-3xl font-bold mb-4">No Birthday Events for Today</h1>
@@ -113,18 +89,40 @@
       </div>
     </div>
   </div>
+  <div v-else class="flex justify-center items-center h-screen bg-gray-900">
+    <svg
+      class="animate-spin h-12 w-12 text-indigo-500"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v8h8a8 8 0 01-8 8V4a8 8 0 01-8 8h8v8H4a8 8 0 01-8-8 8 8 0 014-6.93z"
+      ></path>
+    </svg>
+  </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, watchEffect } from "vue";
+import { useHead } from "@unhead/vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
-import { useHead } from "@vueuse/head";
 import apsLogo from "@/assets/images/aps-logo.png";
 
 const toast = useToast();
 const birthdays = ref([]);
-const loading = ref(true);
+const dataLoaded = ref(false);
 const backgroundVideo = ref(null);
 const audioPlayer = ref(null);
 const audioInitialized = ref(false);
@@ -147,7 +145,10 @@ const defaultMetaDescription = "Celebrate with our birthday celebrants today!";
 
 // Computed properties for dynamic header image and meta description
 const headerImage = computed(() => {
-  return birthdays.value.length > 0 ? birthdays.value[0].imageUrl : defaultHeaderImage;
+  console.log('Computing headerImage, birthdays length:', birthdays.value.length);
+  return birthdays.value.length > 0 
+    ? birthdays.value[0].imageUrl 
+    : defaultHeaderImage;
 });
 
 const metaDescription = computed(() => {
@@ -159,25 +160,44 @@ const metaDescription = computed(() => {
   }
 });
 
-// Setting meta tags dynamically
-useHead({
-  title: computed(() => birthdays.value.length > 0 ? `Happy Birthday, ${birthdays.value[0].fullName}!` : 'Birthday Celebrants'),
+const title = computed(() => 
+  birthdays.value.length > 0 
+    ? `Happy Birthday, ${birthdays.value[0].fullName}!` 
+    : 'Birthday Celebrants'
+);
+
+const faviconUrl = computed(() => {
+  return `${headerImage.value}?v=${Date.now()}`;
+});
+
+const { patch } = useHead({
+  title: title,
   meta: [
-    { name: 'description', content: metaDescription.value },
-    { property: 'og:image', content: headerImage.value },
-    { property: 'og:description', content: metaDescription.value },
-    { property: 'og:title', content: computed(() => birthdays.value.length > 0 ? `Happy Birthday, ${birthdays.value[0].fullName}!` : 'Birthday Celebrants') },
+    { name: 'description', content: metaDescription },
+    { property: 'og:image', content: headerImage },
+    { property: 'og:description', content: metaDescription },
+    { property: 'og:title', content: title },
     { property: 'og:url', content: window.location.href },
-    // Add other meta tags as needed
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: headerImage },
+    { name: 'twitter:description', content: metaDescription },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:site', content: '@aps' },
+    { name: 'twitter:creator', content: '@aps' },
   ],
   link: [
     {
       rel: 'icon',
-      href: headerImage.value,
+      href: faviconUrl,
       sizes: '32x32',
       type: 'image/png',
     },
   ],
+});
+
+watchEffect(() => {
+  console.log('Current og:image:', headerImage.value);
 });
 
 const fetchBirthdays = async () => {
@@ -185,12 +205,31 @@ const fetchBirthdays = async () => {
     const response = await axios.get(
       "https://api.apsui.com/api/v1/birthdays/birthdayevents"
     );
+    console.log(response.data)
     if (response.status === 200 && response.data.birthdays.length > 0) {
       birthdays.value = response.data.birthdays.map((birthday) => ({
         ...birthday,
         retryCount: 0,
         imageLoaded: false,
       }));
+      // Force refresh of meta tags
+      patch({
+        title: title.value,
+        meta: [
+          { name: 'description', content: metaDescription.value },
+          { property: 'og:image', content: headerImage.value },
+          { property: 'og:description', content: metaDescription.value },
+          { property: 'og:title', content: title.value },
+        ],
+        link: [
+          {
+            rel: 'icon',
+            href: faviconUrl.value,
+            sizes: '32x32',
+            type: 'image/png',
+          },
+        ],
+      });
     } else {
       setTimeout(() => (window.location.href = "/"), 5000);
     }
@@ -199,7 +238,7 @@ const fetchBirthdays = async () => {
     console.error("Error fetching birthdays:", error);
     setTimeout(() => (window.location.href = "/"), 5000);
   } finally {
-    loading.value = false;
+    dataLoaded.value = true;
   }
 };
 
@@ -284,9 +323,10 @@ const handleVisibilityChange = () => {
 
 onMounted(async () => {
   await fetchBirthdays();
-  loading.value = false;
   const videoSrc = selectRandomVideo();
-  backgroundVideo.value.src = videoSrc;
+  if (backgroundVideo.value) {
+    backgroundVideo.value.src = videoSrc;
+  }
   window.addEventListener("click", initializeAudio);
   document.addEventListener("visibilitychange", handleVisibilityChange);
 });

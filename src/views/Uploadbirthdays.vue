@@ -251,7 +251,7 @@
 import { ref, onMounted } from "vue";
 import { useToast } from "vue-toastification";
 import axios from "axios";
-import { compressImage } from "../utils/useCompressImage.js";
+// import { compressImage } from "../utils/useCompressImage.js";
 import { uploadToFirebase } from "../utils/useFirebase";
 import { QuillEditor } from "@vueup/vue-quill";
 import "quill/dist/quill.snow.css";
@@ -435,7 +435,7 @@ const handleImageUpload = async (event) => {
     return;
   }
 
-  compressedImage.value = await compressImage(file);
+  compressedImage.value = file;
 
   const reader = new FileReader();
   reader.onload = () => {

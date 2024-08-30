@@ -32,13 +32,6 @@
         <li
           class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white"
         >
-          <a href="https://physiopressui.wordpress.com/home/" target="_blank"
-            >PhysioPress</a
-          >
-        </li>
-        <li
-          class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white"
-        >
           <a href="https://christnestteens.com/physioray/" target="_blank"
             >PhysioRay</a
           >
@@ -107,6 +100,7 @@ const navItems = [
   { title: "About Us", path: "/about" },
   { title: "Gallery", path: "/gallery" },
   { title: "Alumni", path: "/alumni" },
+  { title: "Our Leaders", path: "/leaders" },
 ];
 
 const menuOpen = () => {

@@ -252,7 +252,7 @@ const getPlaceholderImage = (fullName) => {
 const fetchData = async () => {
   try {
     const response = await axios.post(
-      "https://api.apsui.com/api/v1/leaders/officerss",
+      "https://api.apsui.com/api/v1/leaders/officers",
       { academicSession: "2023/2024" }
     );
     executives.value = response.data.executives.sort((a, b) => {

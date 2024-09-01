@@ -30,28 +30,9 @@
   const toast = useToast();
   
   onMounted(() => {
-    const newWindow = window.open("https://physiopressui.wordpress.com", "_blank");
-  
-    if (newWindow === null || typeof newWindow === "undefined") {
-      toast.error("Popup was blocked. Please allow popups for this site.", {
-        timeout: 5000, // Keep the toast open until dismissed
-      })
-      // Redirect the current page to the home page after a short delay
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 5000); // 5-second delay
-      ;
-    } else {
-      // Redirect the current page to the home page after a short delay
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 3000); // 3-second delay
-    }
-  
-    // Open the link in a new tab after a short delay
     setTimeout(() => {
-      window.open("https://christnestteens.com/physioray", "_blank");
-    }, 2000); // 2-second delay
+      window.location.href = "https://physiopressui.wordpress.com";
+    }, 2000);
   });
   </script>
   

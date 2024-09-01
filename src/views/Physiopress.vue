@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center justify-center min-h-screen bg-orange-500 px-4 py-8 sm:px-6 md:px-8 lg:px-10 xl:px-12">
       <div class="flex flex-col items-center mb-8">
         <img :src="apsLogo" alt="Logo" class="w-24 h-24 rounded-full mb-4 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48" />
-        <h1 class="text-2xl font-bold text-white mb-2 sm:text-3xl md:text-4xl lg:text-5xl">PhysioRay</h1>
+        <h1 class="text-2xl font-bold text-white mb-2 sm:text-3xl md:text-4xl lg:text-5xl">PhysioPress</h1>
         <p class="text-base text-gray-200 sm:text-lg md:text-xl lg:text-2xl">Directing you to our Press Organization...</p>
       </div>
       <div class="flex items-center justify-center">
@@ -30,7 +30,7 @@
   const toast = useToast();
   
   onMounted(() => {
-    const newWindow = window.open("https://physiopressui.wordpress.com/home", "_blank");
+    const newWindow = window.open("https://physiopressui.wordpress.com", "_blank");
   
     if (newWindow === null || typeof newWindow === "undefined") {
       toast.error("Popup was blocked. Please allow popups for this site.", {

@@ -32,8 +32,8 @@
         <li
           class="font-bold md:mx-4 md:my-1 md:px-0 px-10 md:pb-0 pb-6 hover:text-blue-200 active:text-aps-white"
         >
-          <a href="https://christnestteens.com/physioray/" target="_blank"
-            >PhysioRay</a
+          <a href="https://physiopressui.wordpress.com" target="_blank"
+            >PhysioPress</a
           >
         </li>
       </div>

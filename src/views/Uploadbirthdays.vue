@@ -251,7 +251,7 @@
 import { ref, onMounted } from "vue";
 import { useToast } from "vue-toastification";
 import axios from "axios";
-// import { compressImage } from "../utils/useCompressImage.js";
+import { compressImage } from "../utils/useCompressImage.js";
 import { uploadToFirebase } from "../utils/useFirebase";
 import { QuillEditor } from "@vueup/vue-quill";
 import "quill/dist/quill.snow.css";
@@ -435,15 +435,21 @@ const handleImageUpload = async (event) => {
     return;
   }
 
-  compressedImage.value = file;
+  try {
+    compressedImage.value = await compressImage(file);
 
-  const reader = new FileReader();
-  reader.onload = () => {
-    imageUrl.value = reader.result;
+    const reader = new FileReader();
+    reader.onload = () => {
+      imageUrl.value = reader.result;
+      isLoading.value = false;
+      toast.success("Image compression completed.", { timeout: 1000 });
+    };
+    reader.readAsDataURL(compressedImage.value);
+  } catch (error) {
     isLoading.value = false;
-    toast.success("Image compression completed.", { timeout: 1000 });
-  };
-  reader.readAsDataURL(compressedImage.value);
+    toast.error("Error compressing image. Please try again.");
+    console.error("Image compression error:", error);
+  }
 };
 
 const isLeapYear = (year) => {

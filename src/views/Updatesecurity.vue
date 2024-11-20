@@ -93,7 +93,7 @@
 
 <script setup>
 import { useToast } from "vue-toastification";
-import axios from "axios";
+import apiClient from "../config/axios";
 import { ref, onMounted } from "vue";
 import { useUserStore } from "@/stores/UserStore";
 import { loginUser } from "@/utils/useLogin";
@@ -144,8 +144,8 @@ const updateUser = async () => {
       return;
     }
     const token = localStorage.getItem("studentToken");
-    const response = await axios.post(
-      "https://api.apsui.com/api/v1/auth/cpasq",
+    const response = await apiClient.post(
+      "/auth/cpasq",
       {
         oldPassword: oldPassword.value,
         newPassword: newPassword.value,

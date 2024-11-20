@@ -70,6 +70,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import apiClient from "../config/axios";
 import router from "@/router";
 import { useUserStore } from "@/stores/UserStore";
 
@@ -154,7 +155,7 @@ const submitData = async () => {
     return; // Don't proceed if validation fails
   }
   try {
-    await axios.post("https://api.apsui.com/api/v1/gallery", {
+    await apiClient.post("/gallery", {
       imageUrl: imageUrl.value,
       title: title.value,
       description: description.value,

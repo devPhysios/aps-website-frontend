@@ -70,7 +70,7 @@
 <script setup>
 import { useToast } from "vue-toastification";
 import { ref } from "vue";
-import axios from "axios";
+import apiClient from "../config/axios";
 import router from "@/router";
 
 const toast = useToast();
@@ -102,8 +102,8 @@ const resetPassword = async () => {
     return;
   }
   try {
-    const response = await axios.post(
-      "https://api.apsui.com/api/v1/auth/resetpw",
+    const response = await apiClient.post(
+      "/auth/resetpw",
       {
         matricNumber: matricNumber.value,
         securityQuestion: securityQuestion.value,

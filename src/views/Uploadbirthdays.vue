@@ -250,7 +250,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useToast } from "vue-toastification";
-import axios from "axios";
+import apiClient from "../config/axios";
 import { compressImage } from "../utils/useCompressImage.js";
 import { uploadToFirebase } from "../utils/useFirebase";
 import { QuillEditor } from "@vueup/vue-quill";
@@ -316,8 +316,8 @@ const fetchStudentDetails = async () => {
       return;
     }
     const token = localStorage.getItem("studentToken");
-    const response = await axios.get(
-      `https://api.apsui.com/api/v1/birthdays/student/${matricNumber.value}`,
+    const response = await apiClient.get(
+      `/birthdays/student/${matricNumber.value}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -357,8 +357,8 @@ const fetchBirthdaysByMonth = async () => {
       toast.error("Please select a month.");
       return;
     }
-    const response = await axios.get(
-      `https://api.apsui.com/api/v1/birthdays/bymonth/${selectedMonth.value.toLowerCase()}`
+    const response = await apiClient.get(
+      `/birthdays/bymonth/${selectedMonth.value.toLowerCase()}`
     );
     birthdayStudents.value = response.data.students;
 
@@ -540,8 +540,8 @@ const handleSubmit = async () => {
   try {
     let response;
     if (updatingMode.value) {
-      response = await axios.patch(
-        "https://api.apsui.com/api/v1/birthdays/update",
+      response = await apiClient.patch(
+        "/birthdays/update",
         studentData,
         {
           headers: {
@@ -550,8 +550,8 @@ const handleSubmit = async () => {
         }
       );
     } else {
-      response = await axios.post(
-        "https://api.apsui.com/api/v1/birthdays/create",
+      response = await apiClient.post(
+        "/birthdays/create",
         studentData,
         {
           headers: {

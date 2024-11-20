@@ -1,19 +1,11 @@
-import axios from "axios";
+import apiClient from '../config/axios';
 
 export const loginUser = async (matricNumber, password) => {
   try {
-    const response = await axios.post(
-      "https://api.apsui.com/api/v1/auth/login",
-      {
-        matricNumber,
-        password,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await apiClient.post('/auth/login', {
+      matricNumber,
+      password,
+    });
 
     return { jsonData: response.data, success: true };
   } catch (error) {

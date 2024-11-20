@@ -187,7 +187,7 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
-import axios from "axios";
+import apiClient from "../config/axios";
 
 const toast = useToast();
 const imageFile = vueRef(null);
@@ -282,8 +282,8 @@ const sendToServer = async (imgURL) => {
       serverProgress.value = Math.round((100 * event.loaded) / event.total);
     };
 
-    const response = await axios.patch(
-      "https://api.apsui.com/api/v1/dashboard/profile",
+    const response = await apiClient.patch(
+      "/dashboard/profile",
       {
         profilePicture: imgURL,
       },

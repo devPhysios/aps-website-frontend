@@ -31,7 +31,7 @@
           class="mt-1 block w-full border-gray-300 border-2 border-solid rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           required
         >
-          <option v-for="course in courses" :value="course.coursecode">
+          <option v-for="course in courses" :value="course.coursecode" :key="course.coursecode">
             {{ course.coursecode }}: {{ course.coursetitle }}
           </option>
         </select>
@@ -174,6 +174,7 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { addDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
+import apiClient from '../config/axios';
 
 const store = useUserStore();
 const user = store.user;
@@ -325,8 +326,8 @@ const handleSubmit = async () => {
     if (answer.value === "") {
       answer.value = "No answer yet";
     }
-    const response = await axios.post(
-      "https://api.apsui.com/api/v1/fitg/createfitg",
+    const response = await apiClient.post(
+      "/fitg/createfitg",
       {
         question: question.value,
         imgURL: imgURL.value,

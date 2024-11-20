@@ -97,7 +97,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-import axios from "axios";
+import apiClient from "../config/axios";
 import "vue3-carousel/dist/carousel.css";
 import router from "@/router";
 
@@ -109,7 +109,7 @@ const loadingImages = ref([]);
 onMounted(async () => {
   try {
     if (selectedImages.value.length === 0) {
-      const response = await axios.get("https://api.apsui.com/api/v1/gallery");
+      const response = await apiClient.get("/gallery");
       const images = response.data.images;
       selectedImages.value = selectRandomImages(images, 10);
     }

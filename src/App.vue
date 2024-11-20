@@ -12,7 +12,7 @@ import FooterMenu from "./components/Footer.vue";
 import NavigationMenu from "./components/Navigation.vue";
 import { useUserStore } from "./stores/UserStore";
 import { computed } from "vue";
-import axios from "axios";
+import apiClient from "./config/axios";
 
 const store = useUserStore();
 const displayFooter = computed(() => store.displayFooter);
@@ -26,8 +26,8 @@ onMounted(async () => {
   }
 
   try {
-    const response = await axios.get(
-      "https://api.apsui.com/api/v1/auth/access",
+    const response = await apiClient.get(
+      "/auth/access",
       {
         headers: {
           Authorization: `Bearer ${token}`,

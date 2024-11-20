@@ -171,7 +171,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import axios from "axios";
+import apiClient from "../config/axios";
 import router from "@/router";
 
 const webimages = ref([]);
@@ -184,7 +184,7 @@ const loadingImages = ref([]);
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   try {
-    const response = await axios.get("https://api.apsui.com/api/v1/gallery");
+    const response = await apiClient.get("/gallery");
     webimages.value = response.data.images.map((image, index) => {
       loadingImages.value[index] = true; // Set loading state to true for each image
       return {

@@ -208,7 +208,7 @@
 
 <script setup>
 import { ref, computed, onBeforeMount } from "vue";
-import axios from "axios";
+import apiClient from "../config/axios";
 import { VueFlip } from "vue-flip";
 import router from "@/router";
 import { useToast } from "vue-toastification";
@@ -251,8 +251,8 @@ const getPlaceholderImage = (fullName) => {
 
 const fetchData = async () => {
   try {
-    const response = await axios.post(
-      "https://api.apsui.com/api/v1/leaders/officers",
+    const response = await apiClient.post(
+      "/leaders/officers",
       { academicSession: "2023/2024" }
     );
     executives.value = response.data.executives.sort((a, b) => {

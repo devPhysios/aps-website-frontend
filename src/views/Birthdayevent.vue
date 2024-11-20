@@ -116,7 +116,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watchEffect } from "vue";
 import { useHead } from "@unhead/vue";
-import axios from "axios";
+import apiClient from "../config/axios";
 import { useToast } from "vue-toastification";
 import apsLogo from "@/assets/images/aps-logo.png";
 
@@ -202,8 +202,8 @@ watchEffect(() => {
 
 const fetchBirthdays = async () => {
   try {
-    const response = await axios.get(
-      "https://api.apsui.com/api/v1/birthdays/birthdayevents"
+    const response = await apiClient.get(
+      "/birthdays/birthdayevents"
     );
     console.log(response.data)
     if (response.status === 200 && response.data.birthdays.length > 0) {

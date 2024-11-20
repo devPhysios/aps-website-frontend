@@ -49,7 +49,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import axios from "axios";
+import apiClient from "../config/axios";
 
 const route = useRoute();
 const router = useRouter();
@@ -82,8 +82,8 @@ if (!allowedLevels.includes(level)) {
 
 const fetchUploadedCourseCodes = async () => {
   try {
-    const response = await axios.get(
-      `https://api.apsui.com/api/v1/questions/uploaded/${level}L`
+    const response = await apiClient.get(
+      `/questions/uploaded/${level}L`
     );
     uploadedCourseCodes.value = response.data.courseCodes;
   } catch (error) {

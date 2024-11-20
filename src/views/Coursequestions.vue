@@ -899,7 +899,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import axios from "axios";
+import apiClient from "../config/axios";
 import { useUserStore } from "@/stores/UserStore";
 import { useToast } from "vue-toastification";
 import { storage, questionsCollectionRef } from "../firebase";
@@ -1138,8 +1138,8 @@ function revealAnswer(index, questionType) {
 onMounted(async () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   try {
-    const { data } = await axios.get(
-      `https://api.apsui.com/api/v1/questions/${route.params.course}`
+    const { data } = await apiClient.get(
+      `/questions/${route.params.course}`
     );
     loading.value = false;
     if (data.success) {
@@ -1247,11 +1247,11 @@ const updateQuestion = () => {
 
   let endpoint;
   if (editedQuestion.value.type === "MCQ") {
-    endpoint = `https://api.apsui.com/api/v1/mcq/editmcqs/${editedQuestion.value._id}`;
+    endpoint = `/mcq/editmcqs/${editedQuestion.value._id}`;
   } else if (editedQuestion.value.type === "Essay") {
-    endpoint = `https://api.apsui.com/api/v1/essayqs/editessayqs/${editedQuestion.value._id}`;
+    endpoint = `/essayqs/editessayqs/${editedQuestion.value._id}`;
   } else {
-    endpoint = `https://api.apsui.com/api/v1/fitg/editfitg/${editedQuestion.value._id}`;
+    endpoint = `/fitg/editfitg/${editedQuestion.value._id}`;
   }
 
   progress.value = 0; // Reset the progress percentage
@@ -1265,7 +1265,7 @@ const updateQuestion = () => {
 
   // Send the data to the server
   const token = localStorage.getItem("studentToken");
-  axios
+  apiClient
     .patch(endpoint, data, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -1338,11 +1338,11 @@ const deleteQuestion = () => {
 
   let endpoint;
   if (deletedQuestion.value.type === "MCQ") {
-    endpoint = `https://api.apsui.com/api/v1/mcq/deletemcqs/${deletedQuestion.value._id}`;
+    endpoint = `/mcq/deletemcqs/${deletedQuestion.value._id}`;
   } else if (deletedQuestion.value.type === "Essay") {
-    endpoint = `https://api.apsui.com/api/v1/essayqs/deleteessayqs/${deletedQuestion.value._id}`;
+    endpoint = `/essayqs/deleteessayqs/${deletedQuestion.value._id}`;
   } else {
-    endpoint = `https://api.apsui.com/api/v1/fitg/deletefitg/${deletedQuestion.value._id}`;
+    endpoint = `/fitg/deletefitg/${deletedQuestion.value._id}`;
   }
 
   progress.value = 0; // Reset the progress percentage
@@ -1356,7 +1356,7 @@ const deleteQuestion = () => {
 
   // Send the data to the server
   const token = localStorage.getItem("studentToken");
-  axios
+  apiClient
     .delete(endpoint, {
       headers: {
         Authorization: `Bearer ${token}`,

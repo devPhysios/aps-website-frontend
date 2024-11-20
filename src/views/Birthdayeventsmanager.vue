@@ -185,7 +185,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import axios from "axios";
+import apiClient from "../config/axios";
 import { useRouter } from "vue-router";
 import dayjs from "dayjs";
 import { useToast } from "vue-toastification";
@@ -215,8 +215,8 @@ const cancelDelete = () => {
 const fetchBirthdays = async () => {
   const token = localStorage.getItem("studentToken");
   try {
-    const response = await axios.get(
-      "https://api.apsui.com/api/v1/birthdays/allevents",
+    const response = await apiClient.get(
+      "/birthdays/allevents",
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -234,7 +234,7 @@ const fetchBirthdays = async () => {
 const deleteFromServer = async (matricNumber) => {
   try {
     const token = localStorage.getItem("studentToken");
-    await axios.delete(`https://api.apsui.com/api/v1/birthdays/delete`, {
+    await apiClient.delete(`/birthdays/delete`, {
       data: {
         matricNumber: matricNumber,
       },

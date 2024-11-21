@@ -150,6 +150,7 @@
 </template>
 
 <script setup>
+import { useToast } from "vue-toastification";
 import a1 from "@/assets/images/alumni/DSC_0457.jpg";
 import a2 from "@/assets/images/alumni/IMG_7537.jpg";
 import a3 from "@/assets/images/alumni/IMG_7539.jpg";
@@ -164,13 +165,15 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 const textToCopy = ref("0034046597");
 
+const toast = useToast();
+
 const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(textToCopy.value);
-    alert("Account Number copied to clipboard: " + textToCopy.value);
+    toast.success("Account Number copied to clipboard: " + textToCopy.value);
   } catch (error) {
     console.error("Failed to copy Account Number to clipboard:", error);
-    alert("Failed to copy Account Number to clipboard");
+    toast.error("Failed to copy Account Number to clipboard");
   }
 };
 

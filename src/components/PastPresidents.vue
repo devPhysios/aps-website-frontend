@@ -59,10 +59,10 @@ const tableData = [
     { name: 'Ekwueme C.C' , tenure: '2015/2016'},
     { name: 'Oni O.G' , tenure: '2016/2017' },
     { name: 'Gbonjubola Y.T' , tenure: '2017/2018' },
-    { name: 'Oluwatayo Damilola S.' , tenure: '2019/2021' },
-    { name: 'Adetunji Harrison' , tenure: '2021/2022' },
-    { name: 'Adeyemo Dorcas A.' , tenure: '2022/2023' },
-
+    { name: 'Oluwatayo Damilola S.' , tenure: '2018/2019' },
+    { name: 'Adetunji Harrison' , tenure: '2020/2021' },
+    { name: 'Adeyemo Dorcas A.' , tenure: '2021/2022' },
+    { name: 'Inioluwa Elijah A.' , tenure: '2022/2023' },
   // Add more objects as needed
 ];
 

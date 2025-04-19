@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@firebase/storage": "^0.12.3",
+    "@heroicons/vue": "^2.2.0",
     "@unhead/vue": "^1.9.16",
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/head": "^2.0.0",

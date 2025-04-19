@@ -152,6 +152,36 @@
                 </svg>
             </span>
         </div>
+        <div
+            class="shadow rounded sm:rounded-tr-lg sm:rounded-tr-none group relative bg-white p-6 focus-within:ring-inset focus-within:ring-indigo-500">
+            <div>
+                <span class="inline-flex rounded-lg p-3 bg-purple-50 text-purple-700 ring-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="bi bi-journal-text w-6 h-6" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-base font-semibold leading-6 text-gray-900">
+                    <RouterLink to="/project-topics" class="focus:outline-none text-[12px] md:text-lg">
+                        <span class="absolute inset-0" aria-hidden="true"></span>
+                        Project Topics
+                    </RouterLink>
+                </h3>
+                <p class="mt-2 text-sm text-gray-500 md:text-md">
+                    Browse through the collection of project topics.
+                </p>
+            </div>
+            <span class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
+                aria-hidden="true">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z">
+                    </path>
+                </svg>
+            </span>
+        </div>
     </div>
 </template>
 

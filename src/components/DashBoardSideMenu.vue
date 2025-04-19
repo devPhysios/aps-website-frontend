@@ -354,6 +354,7 @@ const handleUpload = () => {
           createProfile(data);
           uploadProgress.value = null;
           previewImage.value = null; // Clear the preview after upload
+          console.log(downloadURL);
           sendToServer(downloadURL);
           isLoading.value = false;
           toast.success("Image uploaded successfully", { timeout: 3000 });

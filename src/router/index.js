@@ -32,6 +32,7 @@ import Termsofservice from "../views/Termsofservice.vue";
 import Birthdayevent from "@/views/Birthdayevent.vue";
 import Birthdayeventmanager from "@/views/Birthdayeventsmanager.vue";
 import Leaders from "@/views/Leaders.vue";
+import ProjectTopics from "@/views/ProjectTopics.vue";
 
 const routes = [
   {
@@ -73,7 +74,7 @@ const routes = [
   {
     path: "/leaders",
     name: "LeadersPage",
-    component: Leaders
+    component: Leaders,
   },
   {
     path: "/dashboard/birthday-manager",
@@ -310,13 +311,16 @@ const routes = [
     name: "PhysioRay",
     component: PhysioRay,
   },
-
-  // {
-  //   path: "/admin/questions/",
-  //   name: "ViewQuestionPage",
-  //   component: ViewQuestion,
-  // },
-
+  {
+    path: "/project-topics",
+    name: "ProjectTopics",
+    component: ProjectTopics,
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
+      next();
+    },
+  },
   {
     path: "/profile",
     name: "Profile",

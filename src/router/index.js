@@ -33,6 +33,7 @@ import Birthdayevent from "@/views/Birthdayevent.vue";
 import Birthdayeventmanager from "@/views/Birthdayeventsmanager.vue";
 import Leaders from "@/views/Leaders.vue";
 import ProjectTopics from "@/views/ProjectTopics.vue";
+import StudentProjectTopics from "@/views/StudentProjectTopics.vue";
 
 const routes = [
   {
@@ -348,6 +349,19 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const store = useUserStore();
       store.updateFooterVisibility(false);
+      next();
+    },
+  },
+  {
+    path: "/dashboard/my-project-topic",
+    name: "StudentProjectTopics",
+    component: StudentProjectTopics,
+    meta: {
+      requiresAuth: true,
+    },
+    beforeEnter: (to, from, next) => {
+      const store = useUserStore();
+      store.updateFooterVisibility(true);
       next();
     },
   },

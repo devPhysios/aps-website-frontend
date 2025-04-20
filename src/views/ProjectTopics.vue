@@ -13,24 +13,73 @@
           Project Topics
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Browse the collection of research projects and find inspiration
+          Browse the collection of past research projects
         </p>
         <div
           class="mt-4 w-24 h-1 bg-aps-green mx-auto rounded-full animate__animated animate__fadeIn animate__delay-1s"
         ></div>
       </div>
 
+      <!-- Dashboard navigation link -->
+      <div class="flex justify-center md:justify-start mb-8">
+        <RouterLink
+          to="/dashboard"
+          class="inline-flex items-center justify-center py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-md shadow-sm transition duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Back to Dashboard
+        </RouterLink>
+      </div>
+
       <!-- Filters with enhanced styling -->
       <div
         class="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-8 border-l-4 border-aps-orange transform transition-all duration-300 hover:shadow-lg"
       >
-        <h2
-          class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100"
-        >
-          Filter Options
-        </h2>
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+          @click="isFilterExpanded = !isFilterExpanded"
+          class="flex justify-between items-center cursor-pointer"
+        >
+          <h2 class="text-xl font-semibold text-gray-800 pb-2">
+            Filter Options
+          </h2>
+          <button
+            class="text-gray-500 hover:text-aps-green transition-colors duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 transform transition-transform duration-200"
+              :class="{ 'rotate-180': !isFilterExpanded }"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Collapsible content -->
+        <div
+          v-show="isFilterExpanded"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4 transition-all duration-300"
         >
           <!-- Year Filter -->
           <div class="transition-all duration-200 transform hover:scale-[1.02]">
@@ -181,7 +230,7 @@
           </div>
         </div>
 
-        <div class="mt-5 flex justify-end">
+        <div v-show="isFilterExpanded" class="mt-5 flex justify-end">
           <button
             @click="resetFilters"
             class="px-5 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all duration-200 flex items-center transform hover:scale-105"
@@ -202,6 +251,62 @@
             </svg>
             Reset Filters
           </button>
+        </div>
+
+        <!-- Active filters display - always visible even when collapsed -->
+        <div
+          v-if="hasActiveFilters"
+          class="mt-3 flex flex-wrap gap-2 pt-2 border-t border-gray-100"
+        >
+          <span class="text-sm text-gray-600 mr-1">Active filters:</span>
+          <span
+            v-if="filters.year"
+            class="px-2 py-1 bg-gray-100 rounded-full text-xs flex items-center"
+          >
+            Year: {{ filters.year }}
+            <button
+              @click="filters.year = ''"
+              class="ml-1 text-gray-500 hover:text-red-500"
+            >
+              ×
+            </button>
+          </span>
+          <span
+            v-if="filters.supervisor"
+            class="px-2 py-1 bg-gray-100 rounded-full text-xs flex items-center"
+          >
+            Supervisor: {{ filters.supervisor }}
+            <button
+              @click="filters.supervisor = ''"
+              class="ml-1 text-gray-500 hover:text-red-500"
+            >
+              ×
+            </button>
+          </span>
+          <span
+            v-if="filters.author"
+            class="px-2 py-1 bg-gray-100 rounded-full text-xs flex items-center"
+          >
+            Author: {{ filters.author }}
+            <button
+              @click="filters.author = ''"
+              class="ml-1 text-gray-500 hover:text-red-500"
+            >
+              ×
+            </button>
+          </span>
+          <span
+            v-if="filters.search"
+            class="px-2 py-1 bg-gray-100 rounded-full text-xs flex items-center"
+          >
+            Search: {{ filters.search }}
+            <button
+              @click="filters.search = ''"
+              class="ml-1 text-gray-500 hover:text-red-500"
+            >
+              ×
+            </button>
+          </span>
         </div>
       </div>
 
@@ -236,33 +341,196 @@
             topics</span
           >
         </div>
-        <div class="flex items-center">
-          <span class="font-medium text-gray-700 mr-2">Items per page:</span>
-          <div class="relative">
-            <select
-              v-model="itemsPerPage"
-              class="appearance-none border-gray-300 rounded-md shadow-sm focus:border-aps-green focus:ring-aps-green transition-all duration-200 pl-3 pr-8 py-1"
+        <div class="flex items-center space-x-4">
+          <button
+            @click="generatePDF"
+            :disabled="filteredTopics.length === 0 || isGeneratingPDF"
+            class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-red-300 text-white rounded-md shadow-sm transition duration-200"
+          >
+            <svg
+              v-if="!isGeneratingPDF"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <option :value="10">10</option>
-              <option :value="20">20</option>
-              <option :value="50">50</option>
-              <option :value="100">100</option>
-            </select>
-            <div
-              class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+              />
+            </svg>
+            <svg
+              v-else
+              class="animate-spin h-5 w-5 mr-2"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+            {{ isGeneratingPDF ? "Generating PDF..." : "Download as PDF" }}
+          </button>
+
+          <div class="flex items-center">
+            <span class="font-medium text-gray-700 mr-2">Items per page:</span>
+            <div class="relative">
+              <select
+                v-model="itemsPerPage"
+                class="appearance-none border-gray-300 rounded-md shadow-sm focus:border-aps-green focus:ring-aps-green transition-all duration-200 pl-3 pr-8 py-1"
+              >
+                <option :value="10">10</option>
+                <option :value="20">20</option>
+                <option :value="50">50</option>
+                <option :value="100">100</option>
+              </select>
+              <div
+                class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+              >
+                <svg
+                  class="h-4 w-4 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PDF Generation Success Modal -->
+      <div
+        v-if="showPdfModal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-gray-800">
+              PDF Generated Successfully
+            </h3>
+            <button
+              @click="showPdfModal = false"
+              class="text-gray-500 hover:text-gray-700"
             >
               <svg
-                class="h-4 w-4 text-gray-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
+            </button>
+          </div>
+
+          <div class="mb-5">
+            <p class="text-gray-600 mb-3">
+              Your PDF has been successfully generated with the following
+              details:
+            </p>
+
+            <div class="bg-gray-50 p-3 rounded-lg mb-3">
+              <p class="text-sm text-gray-700">
+                <span class="font-medium">Project Topics:</span>
+                {{ filteredTopics.length }}
+              </p>
+              <p class="text-sm text-gray-700">
+                <span class="font-medium">Pages:</span> {{ pdfPageCount }}
+              </p>
+              <p class="text-sm text-gray-700">
+                <span class="font-medium">Includes:</span> Header, footer, and
+                page numbers
+              </p>
+
+              <div v-if="hasActiveFilters" class="mt-2">
+                <p class="text-sm font-medium text-gray-700">
+                  Applied Filters:
+                </p>
+                <ul class="list-disc pl-5 text-sm text-gray-600">
+                  <li v-if="filters.year">Year: {{ filters.year }}</li>
+                  <li v-if="filters.supervisor">
+                    Supervisor: {{ filters.supervisor }}
+                  </li>
+                  <li v-if="filters.author">Author: {{ filters.author }}</li>
+                  <li v-if="filters.search">Search: {{ filters.search }}</li>
+                </ul>
+              </div>
             </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button
+              @click="downloadPDF"
+              class="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Download PDF
+            </button>
+            <button
+              @click="previewPDF"
+              class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-lg flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+              Preview PDF
+            </button>
           </div>
         </div>
       </div>
@@ -723,13 +991,183 @@
         />
       </svg>
     </button>
+
+    <!-- Filter toggle button -->
+    <button
+      v-show="!isFilterExpanded && !isAtTop"
+      @click="toggleFilters"
+      class="fixed bottom-6 left-6 p-2 rounded-full bg-aps-orange text-white shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-aps-orange focus:ring-opacity-50 z-50"
+      aria-label="Toggle filters"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+        />
+      </svg>
+    </button>
+
+    <!-- PDF Export Options -->
+    <div
+      v-if="showPdfExportOptions"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="bg-white rounded-lg shadow-xl w-full max-w-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-gray-800">PDF Export Options</h3>
+          <button
+            @click="showPdfExportOptions = false"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mb-5">
+          <p class="text-gray-600 mb-4">
+            Customize your PDF export with the following options:
+          </p>
+
+          <div class="space-y-4">
+            <!-- Column Selection -->
+            <div>
+              <h4 class="font-medium text-gray-700 mb-2">
+                Columns to Include:
+              </h4>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.columns.title"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700">Title</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.columns.year"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700">Year</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.columns.supervisor"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700">Supervisor</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.columns.author"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700">Author</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Layout Options -->
+            <div>
+              <h4 class="font-medium text-gray-700 mb-2">Layout Options:</h4>
+              <div class="space-y-2">
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.includeHeader"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700">Include Header</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.includeFooter"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700">Include Footer</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    v-model="pdfOptions.includePageNumbers"
+                    class="rounded text-aps-green focus:ring-aps-green"
+                  />
+                  <span class="text-sm text-gray-700"
+                    >Include Page Numbers</span
+                  >
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex space-x-3">
+          <button
+            @click="generatePDFWithOptions"
+            class="flex-1 bg-aps-green hover:bg-aps-green-dark text-white py-2 px-4 rounded-lg flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Generate PDF
+          </button>
+          <button
+            @click="showPdfExportOptions = false"
+            class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, watch, onUnmounted } from "vue";
+import { RouterLink } from "vue-router";
 import apiClient from "@/config/axios";
-import dayjs from "dayjs";
+import { generateProjectTopicsPDF } from "@/utils/pdfGenerator";
+import { useToast } from "vue-toastification";
+
+// Initialize toast
+const toast = useToast();
 
 // State
 const projectTopics = ref([]);
@@ -742,11 +1180,28 @@ const totalItems = ref(0);
 const itemsPerPage = ref(20);
 const availableYears = ref([]);
 const showScrollTop = ref(false);
+const isFilterExpanded = ref(true);
+const isAtTop = ref(true);
+const showPdfModal = ref(false);
+const showPdfExportOptions = ref(false);
+const isGeneratingPDF = ref(false);
+const generatedPdf = ref(null);
 const filters = ref({
   year: "",
   supervisor: "",
   author: "",
   search: "",
+});
+const pdfOptions = ref({
+  columns: {
+    title: true,
+    year: true,
+    supervisor: true,
+    author: true,
+  },
+  includeHeader: true,
+  includeFooter: true,
+  includePageNumbers: true,
 });
 
 // Helper for pagination display
@@ -780,6 +1235,16 @@ const paginationRange = computed(() => {
   }
 
   return range;
+});
+
+// Check if any filters are active
+const hasActiveFilters = computed(() => {
+  return Boolean(
+    filters.value.year ||
+      filters.value.supervisor ||
+      filters.value.author ||
+      filters.value.search
+  );
 });
 
 // Get displayed topics for current page
@@ -817,6 +1282,21 @@ const scrollToTop = () => {
 // Handle scroll event for back-to-top button
 const handleScroll = () => {
   showScrollTop.value = window.scrollY > 500;
+  isAtTop.value = window.scrollY < 100;
+};
+
+// Toggle filter expansion
+const toggleFilters = () => {
+  isFilterExpanded.value = !isFilterExpanded.value;
+  // If expanding, scroll to filter section
+  if (isFilterExpanded.value) {
+    const filterSection = document.querySelector(
+      ".border-l-4.border-aps-orange"
+    );
+    if (filterSection) {
+      filterSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
 };
 
 // Fetch all project topics from API
@@ -898,38 +1378,39 @@ const applyClientSideFilters = () => {
 // Pagination functions
 const goToPage = (page) => {
   currentPage.value = page;
-  // Scroll to top of results
-  const resultsElement = document.querySelector(
-    ".bg-white.shadow-md.rounded-lg"
-  );
-  if (resultsElement) {
-    resultsElement.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  // Scroll to top of results table only
+  scrollToResults();
 };
 
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {
     currentPage.value++;
-    // Scroll to top of results
-    const resultsElement = document.querySelector(
-      ".bg-white.shadow-md.rounded-lg"
-    );
-    if (resultsElement) {
-      resultsElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    // Scroll to top of results table only
+    scrollToResults();
   }
 };
 
 const previousPage = () => {
   if (currentPage.value > 1) {
     currentPage.value--;
-    // Scroll to top of results
-    const resultsElement = document.querySelector(
-      ".bg-white.shadow-md.rounded-lg"
-    );
-    if (resultsElement) {
-      resultsElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    // Scroll to top of results table only
+    scrollToResults();
+  }
+};
+
+// Scroll to results table function
+const scrollToResults = () => {
+  // Target the results table specifically, not the entire results section
+  const resultsTable = document.querySelector(
+    ".min-w-full.divide-y.divide-gray-200"
+  );
+  if (resultsTable) {
+    // Use scrollIntoView with specific options to position the table at the top of the viewport
+    resultsTable.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   }
 };
 
@@ -988,6 +1469,75 @@ onMounted(() => {
 // Clean up event listeners
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+});
+
+// PDF functions
+const generatePDF = async () => {
+  // Show PDF export options dialog instead of generating PDF directly
+  showPdfExportOptions.value = true;
+};
+
+// Function to actually generate the PDF after options are selected
+const generatePDFWithOptions = async () => {
+  isGeneratingPDF.value = true;
+  try {
+    // Use the utility function to generate the PDF
+    const doc = generateProjectTopicsPDF(
+      filteredTopics.value,
+      filters.value,
+      formatSupervisor
+    );
+
+    // Save the PDF
+    generatedPdf.value = doc;
+
+    // Close the options dialog
+    showPdfExportOptions.value = false;
+
+    // Show the success modal
+    showPdfModal.value = true;
+
+    // Show success toast
+    toast.success("PDF generated successfully!");
+  } catch (err) {
+    console.error("Error generating PDF:", err);
+    error.value = "Failed to generate PDF. Please try again later.";
+    toast.error("Failed to generate PDF. Please try again.");
+  } finally {
+    isGeneratingPDF.value = false;
+  }
+};
+
+const downloadPDF = () => {
+  if (generatedPdf.value) {
+    // Generate filename based on filters
+    let filename = "aps-project-topics";
+    if (filters.value.year) filename += `-${filters.value.year}`;
+    if (filters.value.supervisor)
+      filename += `-${filters.value.supervisor.replace(/\s+/g, "-")}`;
+    filename += ".pdf";
+
+    // Download the PDF
+    generatedPdf.value.save(filename);
+
+    // Close the modal
+    showPdfModal.value = false;
+  }
+};
+
+const previewPDF = () => {
+  if (generatedPdf.value) {
+    // Open the PDF in a new tab
+    const pdfBlob = generatedPdf.value.output("blob");
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+    window.open(pdfUrl, "_blank");
+  }
+};
+
+const pdfPageCount = computed(() => {
+  return generatedPdf.value
+    ? generatedPdf.value.internal.getNumberOfPages()
+    : 0;
 });
 </script>
 

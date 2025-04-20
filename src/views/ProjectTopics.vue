@@ -464,8 +464,15 @@
                 <span class="font-medium">Pages:</span> {{ pdfPageCount }}
               </p>
               <p class="text-sm text-gray-700">
-                <span class="font-medium">Includes:</span> Header, footer, and
-                page numbers
+                <span class="font-medium">Includes:</span>
+                <span v-if="pdfOptions.includeHeader">Header, </span>
+                <span v-if="pdfOptions.includeFooter">footer, </span>
+                <span v-if="pdfOptions.includePageNumbers">page numbers, </span>
+                columns ( Topic,
+                <span v-if="pdfOptions.columns.year">Year, </span>
+                <span v-if="pdfOptions.columns.supervisor">Supervisor, </span>
+                <span v-if="pdfOptions.columns.author">Author</span>
+                )
               </p>
 
               <div v-if="hasActiveFilters" class="mt-2">
@@ -1056,13 +1063,16 @@
                 Columns to Include:
               </h4>
               <div class="grid grid-cols-2 gap-2">
-                <label class="flex items-center space-x-2">
+                <label
+                  class="flex items-center space-x-2 opacity-50 cursor-not-allowed"
+                >
                   <input
                     type="checkbox"
-                    v-model="pdfOptions.columns.title"
-                    class="rounded text-aps-green focus:ring-aps-green"
+                    checked
+                    disabled
+                    class="rounded text-gray-400 focus:ring-gray-400"
                   />
-                  <span class="text-sm text-gray-700">Title</span>
+                  <span class="text-sm text-gray-700">Topic (Required)</span>
                 </label>
                 <label class="flex items-center space-x-2">
                   <input
@@ -1194,7 +1204,7 @@ const filters = ref({
 });
 const pdfOptions = ref({
   columns: {
-    title: true,
+    topic: true,
     year: true,
     supervisor: true,
     author: true,
@@ -1481,11 +1491,12 @@ const generatePDF = async () => {
 const generatePDFWithOptions = async () => {
   isGeneratingPDF.value = true;
   try {
-    // Use the utility function to generate the PDF
+    // Use the utility function to generate the PDF - pass pdfOptions as the 4th parameter
     const doc = generateProjectTopicsPDF(
       filteredTopics.value,
       filters.value,
-      formatSupervisor
+      formatSupervisor,
+      pdfOptions.value
     );
 
     // Save the PDF

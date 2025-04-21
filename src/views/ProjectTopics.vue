@@ -1190,7 +1190,7 @@ const totalItems = ref(0);
 const itemsPerPage = ref(20);
 const availableYears = ref([]);
 const showScrollTop = ref(false);
-const isFilterExpanded = ref(true);
+const isFilterExpanded = ref(false);
 const isAtTop = ref(true);
 const showPdfModal = ref(false);
 const showPdfExportOptions = ref(false);
@@ -1410,16 +1410,33 @@ const previousPage = () => {
 
 // Scroll to results table function
 const scrollToResults = () => {
-  // Target the results table specifically, not the entire results section
-  const resultsTable = document.querySelector(
-    ".min-w-full.divide-y.divide-gray-200"
-  );
-  if (resultsTable) {
-    // Use scrollIntoView with specific options to position the table at the top of the viewport
-    resultsTable.scrollIntoView({
+  // Try multiple selectors in case some elements aren't loaded yet
+  const targets = [
+    ".min-w-full.divide-y.divide-gray-200", // Table when results exist
+    ".bg-white.shadow-md.rounded-lg.overflow-hidden", // Results container
+    ".text-center.py-16.bg-white.rounded-lg.shadow-sm", // "No results" message
+    ".flex.justify-between.items-center.bg-white.p-4.rounded-lg", // Pagination area
+  ];
+
+  // Try each selector until we find a valid target
+  let targetElement = null;
+  for (const selector of targets) {
+    targetElement = document.querySelector(selector);
+    if (targetElement) break;
+  }
+
+  // If we found a target element, scroll to it
+  if (targetElement) {
+    targetElement.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest",
+    });
+  } else {
+    // If no specific target is found, at least scroll past the header
+    window.scrollTo({
+      top: 200,
+      behavior: "smooth",
     });
   }
 };
@@ -1474,6 +1491,12 @@ watch(
 onMounted(() => {
   fetchProjectTopics();
   window.addEventListener("scroll", handleScroll);
+
+  // Scroll to top of the page when component mounts
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 
 // Clean up event listeners

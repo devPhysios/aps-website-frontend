@@ -853,6 +853,12 @@ onMounted(() => {
   }
 
   fetchProjectTopics();
+
+  // Scroll to top of the page when component mounts
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 </script>
 

@@ -31,3 +31,6 @@ coverage
 
 *.tsbuildinfo
 # src/views/Testingground.vue
+package-lock.json
+pnpm-lock.yaml
+pnpm-workspace.yaml

@@ -139,7 +139,7 @@ const routes = [
     path: "/dashboard/questions/:level/:course",
     name: "CourseQuestions",
     component: CourseQuestions,
-    props: true,
+    props: false,
     meta: {
       requiresAuth: true,
     },
